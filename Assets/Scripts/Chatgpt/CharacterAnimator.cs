@@ -34,7 +34,7 @@ public class CharacterAnimator : AnimatorCoder
 
     public override void DefaultAnimation(int layer)
     {
-        Debug.Log($"Llamando a DefaultAnimation en layer {layer}");
+        //Debug.Log($"Llamando a DefaultAnimation en layer {layer}");
         Play(new(Animations.IDLE1));
     }
 

@@ -17,6 +17,7 @@ public class TestAnim : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Q))
         {
             instancia.animationManager.PlayAnimation(instancia.cargaEscena.enemigos.transform.GetChild(0).gameObject.GetInstanceID().ToString(), new(Animations.SHOOT1, true, new(), 0.2f));
+            instancia.animationManager.PlayAnimation(instancia.objetoJugador.gameObject.GetInstanceID().ToString(), new(Animations.SHOOT1, true, new(), 0f));
         }
     }
 }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: Cadete
   nivel: 1
-  punteria: 12
+  punteria: 25
   habilidadCombate: 7
   habilidadEspecial: 0
   fuerza: 3

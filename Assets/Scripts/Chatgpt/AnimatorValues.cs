@@ -9,6 +9,7 @@ namespace SHG.AnimatorCoder
         //Change the list below to your animation state names
         IDLE1,
         SHOOT1,
+        HIT,
         DEATH,
         RESET,  //Keep Reset
 

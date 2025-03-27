@@ -19,11 +19,11 @@ MonoBehaviour:
     Dispara 1 vez a un enemigo.'
   coste: 1
   velocidad: 10
-  fuerza: 6
-  penetracion: 0
-  "da\xF1o": 1
+  fuerza: 8
+  penetracion: 4
+  "da\xF1o": 3
   acciones: 00000000
-  animaciones: 0100000001000000
+  animaciones: 01000000
   personaje: {fileID: 0}
   objetivos: []
   tipoSeleccion: 0

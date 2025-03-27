@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
   m_Name: M. Virulenta
   m_EditorClassIdentifier: 
-  nombre: 
+  nombre: M. Virulenta
   descripcion: "Range  A 2  F 5  FP -2  D 0\nCada proyectil realiza un da\xF1o equivalente
     al 15% de la vida actual del afectado.\n\nDispara dos proyectiles de baba llena
     de infecciones e insectos que corroen la carne y destruyen los organos internos

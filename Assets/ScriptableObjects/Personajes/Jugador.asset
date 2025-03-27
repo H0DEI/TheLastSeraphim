@@ -18,12 +18,12 @@ MonoBehaviour:
   habilidadCombate: 12
   habilidadEspecial: 7
   fuerza: 10
-  resistencia: 7
-  agilidad: 5
+  resistencia: 1
+  agilidad: 1
   heridasMaximas: 27
   heridasActuales: 27
-  salvacion: 11
-  salvacionInvulnerable: 7
+  salvacion: 7
+  salvacionInvulnerable: 0
   accionesMaximas: 2
   accionesActuales: 2
   experienciaActual: 0
