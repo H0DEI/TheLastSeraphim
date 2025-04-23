@@ -41,6 +41,8 @@ public class CargaEscena : MonoBehaviour
 
         instancia.objetoJugador.transform.position = posicionJugador.position;
 
+        instancia.objetoJugador.GetComponent<LookAtWithMargin>().GetClosestLookAtTarget(instancia.objetoJugador.transform);
+
         //instancia.objetoJugador.GetComponent<SpriteRenderer>().flipX = posicionJugador.GetComponent<SpriteRenderer>().flipX;
 
         Destroy(posicionJugador.gameObject);
