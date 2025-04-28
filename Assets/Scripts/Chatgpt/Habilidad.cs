@@ -5,6 +5,7 @@ using UnityEngine;
 using TMPro;
 using Random = UnityEngine.Random;
 using SHG.AnimatorCoder;
+using Unity.VisualScripting;
 
 [CreateAssetMenu(fileName = "Nueva Habilidad")]
 public class Habilidad : ScriptableObject, IComparable
@@ -56,6 +57,8 @@ public class Habilidad : ScriptableObject, IComparable
     {
        foreach (Animations animacion in animaciones)
        {
+           //if(melee) GameManager.instance.objetoJugador.GetComponent<PunchMover>().objetivo = objetivos[0].GetComponent<Transform>();
+
            Play(personaje.gameObject.GetInstanceID().ToString(), new(animacion, true, new(), 0.2f));
        }
 

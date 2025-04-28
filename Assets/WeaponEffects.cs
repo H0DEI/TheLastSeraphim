@@ -3,17 +3,43 @@ using UnityEngine;
 
 public class WeaponEffects : MonoBehaviour
 {
+    public GameObject weapon;
     public GameObject muzzleFlash;
+
+    public GameObject grenade;
+    public GameObject explosion;
+
+    public void ActivateWeapon()
+    {
+        weapon.SetActive(true);
+    }
+
+    public void DeactivateWeapon()
+    {
+        weapon.SetActive(false);
+    }
+    public void ActivateGrenade()
+    {
+        grenade.SetActive(true);
+    }
+
+    public void DeactivateGrenade()
+    {
+        grenade.SetActive(false);
+    }
 
     public void TriggerMuzzleFlash()
     {
-        StartCoroutine(FlashRoutine());
+        EffectRoutine(muzzleFlash);
     }
 
-    private IEnumerator FlashRoutine()
+    public void TriggerExplosion()
     {
-        muzzleFlash.SetActive(true);
-        yield return new WaitForSeconds(0.05f); // Duración muy corta
-        muzzleFlash.SetActive(false);
+        EffectRoutine(explosion);
+    }
+
+    private void EffectRoutine(GameObject effect)
+    {
+        effect.GetComponent<ParticleSystem>().Play();
     }
 }

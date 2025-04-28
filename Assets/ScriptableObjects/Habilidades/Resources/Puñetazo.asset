@@ -20,6 +20,7 @@ MonoBehaviour:
   penetracion: 0
   "da\xF1o": 2
   acciones: 010000000100000001000000
+  animaciones: 02000000
   personaje: {fileID: 0}
   objetivos: []
   tipoSeleccion: 1
@@ -28,3 +29,4 @@ MonoBehaviour:
   melee: 0
   numeroDeUsos: 727
   tier: 0
+  sonido: {fileID: 0}
