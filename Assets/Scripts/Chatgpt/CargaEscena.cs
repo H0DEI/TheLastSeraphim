@@ -29,9 +29,9 @@ public class CargaEscena : MonoBehaviour
 
         animator.RegisterCharacter(instancia.objetoJugador.GetInstanceID().ToString(), instancia.objetoJugador.AddComponent<CharacterAnimator>().GetComponent<CharacterAnimator>());
 
-        instancia.Mapa.transform.Find("Sala" + SceneManager.GetActiveScene().name.Substring(3)).Find("Fog").transform.gameObject.SetActive(false);
+        //instancia.Mapa.transform.Find("Sala" + SceneManager.GetActiveScene().name.Substring(3)).Find("Fog").transform.gameObject.SetActive(false);
         
-        instancia.mapPlayerPosition.GetComponent<RectTransform>().position = instancia.Mapa.transform.Find("Sala" + SceneManager.GetActiveScene().name.Substring(3)).GetComponent<RectTransform>().position;
+        //instancia.mapPlayerPosition.GetComponent<RectTransform>().position = instancia.Mapa.transform.Find("Sala" + SceneManager.GetActiveScene().name.Substring(3)).GetComponent<RectTransform>().position;
 
         instancia.tempJugador = Instantiate(instancia.jugador);
 

@@ -8,6 +8,7 @@ public class WeaponEffects : MonoBehaviour
 
     public GameObject grenade;
     public GameObject explosion;
+    public GameObject heal;
 
     public void ActivateWeapon()
     {
@@ -36,6 +37,10 @@ public class WeaponEffects : MonoBehaviour
     public void TriggerExplosion()
     {
         EffectRoutine(explosion);
+    }
+    public void TriggerHeal()
+    {
+        EffectRoutine(heal);
     }
 
     private void EffectRoutine(GameObject effect)

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
   m_Name: "Pu\xF1etazo"
   m_EditorClassIdentifier: 
-  nombre: 
+  nombre: "Pu\xF1etazo"
   descripcion: Melee  A 3  F{0}  FP{1}  D{2}
   coste: 1
   velocidad: 6
@@ -20,7 +20,7 @@ MonoBehaviour:
   penetracion: 0
   "da\xF1o": 2
   acciones: 010000000100000001000000
-  animaciones: 02000000
+  animaciones: 05000000
   personaje: {fileID: 0}
   objetivos: []
   tipoSeleccion: 1

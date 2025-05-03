@@ -8,13 +8,17 @@ namespace SHG.AnimatorCoder
     {
         //Change the list below to your animation state names
         IDLE1,
+        HEAL,
         SHOOT1,
+        SHOOT2,
+        MELEE1,
         HOOK1,
         KICK1,
         GRENADE1,
         HIT,
         DEATH,
-        RESET,  //Keep Reset
+        RESET,
+        SPECIAL1,
 
         //Canvas Animations:
         MISS,

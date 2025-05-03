@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
   m_Name: SuperPatada
   m_EditorClassIdentifier: 
-  nombre: 
+  nombre: SuperPatada
   descripcion: Melee  A 1  F{0}  FP{1}  D{2}
   coste: 1
   velocidad: 4
@@ -20,6 +20,7 @@ MonoBehaviour:
   penetracion: 6
   "da\xF1o": 7
   acciones: 01000000
+  animaciones: 05000000
   personaje: {fileID: 0}
   objetivos: []
   tipoSeleccion: 1
@@ -28,3 +29,4 @@ MonoBehaviour:
   melee: 0
   numeroDeUsos: 727
   tier: 1
+  sonido: {fileID: 0}

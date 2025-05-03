@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd6cbb7ad8a1ca46b224e0e0a3bed47, type: 3}
+  m_Name: Mutant
+  m_EditorClassIdentifier: 
+  nombre: Mutant
+  nivel: 5
+  punteria: 25
+  habilidadCombate: 7
+  habilidadEspecial: 0
+  fuerza: 3
+  resistencia: 6
+  agilidad: 0
+  heridasMaximas: 10
+  heridasActuales: 10
+  salvacion: 8
+  salvacionInvulnerable: 0
+  accionesMaximas: 1
+  accionesActuales: 0
+  experienciaActual: 0
+  requisitoNivel: 0
+  gameObject: {fileID: 0}
+  estados: []
+  habilidades:
+  - {fileID: 11400000, guid: 4d35eede77bd88a4b947efc15f02fb54, type: 2}

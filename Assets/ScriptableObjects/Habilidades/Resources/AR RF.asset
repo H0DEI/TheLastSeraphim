@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
   m_Name: AR RF
   m_EditorClassIdentifier: 
-  nombre: 
+  nombre: AR RF
   descripcion: Range  A 7  F{0}  FP{1}  D{2}
   coste: 1
   velocidad: 20
@@ -20,6 +20,7 @@ MonoBehaviour:
   penetracion: 20
   "da\xF1o": 20
   acciones: 00000000000000000000000000000000000000000000000000000000
+  animaciones: 03000000
   personaje: {fileID: 0}
   objetivos: []
   tipoSeleccion: 3
@@ -28,3 +29,4 @@ MonoBehaviour:
   melee: 0
   numeroDeUsos: 727
   tier: 0
+  sonido: {fileID: 0}
