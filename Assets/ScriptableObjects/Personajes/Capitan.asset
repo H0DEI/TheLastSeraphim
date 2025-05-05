@@ -24,14 +24,11 @@ MonoBehaviour:
   heridasActuales: 15
   salvacion: 7
   salvacionInvulnerable: 0
-  accionesMaximas: 4
+  accionesMaximas: 1
   accionesActuales: 0
   experienciaActual: 0
   requisitoNivel: 0
   gameObject: {fileID: 0}
   estados: []
   habilidades:
-  - {fileID: 11400000, guid: 1325d2979955cc046a3598f1ed9e589f, type: 2}
-  - {fileID: 11400000, guid: 4eaf922d7ab61b0489fb7d0add0a6fea, type: 2}
-  - {fileID: 11400000, guid: 92415e53ad978f649bd58392c5be2592, type: 2}
-  - {fileID: 11400000, guid: 92415e53ad978f649bd58392c5be2592, type: 2}
+  - {fileID: 11400000, guid: b4dfd33f44fdf6146918477c5eca21b9, type: 2}

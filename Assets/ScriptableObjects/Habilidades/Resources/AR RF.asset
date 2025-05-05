@@ -18,8 +18,8 @@ MonoBehaviour:
   velocidad: 20
   fuerza: 20
   penetracion: 20
-  "da\xF1o": 20
-  acciones: 00000000000000000000000000000000000000000000000000000000
+  "da\xF1o": 5
+  acciones: 0000000000000000
   animaciones: 03000000
   personaje: {fileID: 0}
   objetivos: []
