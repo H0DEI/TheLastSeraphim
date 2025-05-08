@@ -121,6 +121,14 @@ public class InteractuarBotonHabilidad : MonoBehaviour, IBoton
         texto.color = Color.gray;
 
         puedePresionarse = false;
+
+        Image img = GetComponentInParent<Image>();
+        if (img != null)
+        {
+            Color c = img.color;
+        c.a = Mathf.Clamp01(0.5f); // asegura que esté entre 0 y 1
+        img.color = c;
+    }
     }
 
     public void Activar()
@@ -128,6 +136,14 @@ public class InteractuarBotonHabilidad : MonoBehaviour, IBoton
         texto.color = colorDefault;
 
         puedePresionarse = true;
+
+        Image img = GetComponentInParent<Image>();
+        if (img != null)
+        {
+            Color c = img.color;
+            c.a = Mathf.Clamp01(1f); // asegura que esté entre 0 y 1
+            img.color = c;
+        }
     }
 
     private void ObjetivosSeleccionables()

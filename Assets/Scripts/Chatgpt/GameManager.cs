@@ -157,9 +157,9 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < listaBotonesInterfaz[0].transform.childCount; i++)
         {
-            listaBotonesInterfaz[0].transform.GetChild(i).GetComponent<InteractuarBotonHabilidad>().habilidad = jugador.habilidades[i];
+            listaBotonesInterfaz[0].transform.GetChild(i).GetComponentInChildren<InteractuarBotonHabilidad>().habilidad = jugador.habilidades[i];
 
-            listaBotonesInterfaz[0].transform.GetChild(i).GetComponent<TextMeshProUGUI>().text = jugador.habilidades[i].nombre;
+            listaBotonesInterfaz[0].transform.GetChild(i).GetComponentInChildren<TextMeshProUGUI>().text = jugador.habilidades[i].nombre;
         }
     }
 
