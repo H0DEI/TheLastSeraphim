@@ -19,6 +19,7 @@ namespace SHG.AnimatorCoder
         DEATH,
         RESET,
         SPECIAL1,
+        SHIELD,
 
         //Canvas Animations:
         MISS,

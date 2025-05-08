@@ -413,6 +413,8 @@ public class GameManager : MonoBehaviour
         {
             Personaje enemigo = objetoEnemigo.GetComponent<InteractuarPersonajes>().personaje;
 
+            if (enemigo.heridasActuales <= 0) return;
+
             foreach (Habilidad habi in enemigo.habilidades)
             {
                 lHabilidades.Add(habi);

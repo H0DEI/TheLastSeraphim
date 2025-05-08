@@ -6,6 +6,9 @@ using cakeslice;
 using TMPro;
 using System.Threading;
 using System.Linq;
+using System.Threading.Tasks;
+using SHG.AnimatorCoder;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class InteractuarBotonListo : MonoBehaviour, IBoton
 {
@@ -75,11 +78,7 @@ public class InteractuarBotonListo : MonoBehaviour, IBoton
                         instancia.btnHasMuerto.SetActive(true);
                     }
 
-                    personajeEnEscena.GetComponent<Animator>().SetTrigger("Muerto");
-
-                    personajeEnEscena.SetActive(false);
-
-                    instancia.listaObjetosPersonajesEscena.Remove(personajeEnEscena);
+                    StartCoroutine(MatarPersonaje(personajeEnEscena));
                 }
             }
         }
@@ -108,6 +107,35 @@ public class InteractuarBotonListo : MonoBehaviour, IBoton
 
         instancia.CargaTurno();
     }
+
+    private IEnumerator MatarPersonaje(GameObject personajeEnEscena)
+    {
+        // Llamar a la animación
+        GameManager.instance.animationManager.PlayAnimation(
+            personajeEnEscena.gameObject.GetInstanceID().ToString(),
+            new(Animations.DEATH, true, new(), 0.2f)
+        );
+
+        instancia.listaObjetosPersonajesEscena.Remove(personajeEnEscena);
+
+        // Esperar una duración arbitraria (ajústala si tienes una forma más precisa)
+        yield return new WaitForSeconds(1.0f); // o el tiempo real de la animación
+
+        // Ejecutar después
+        personajeEnEscena.SetActive(false);
+    }
+
+   // private async IEnumerator MatarPersonaje(GameObject personajeEnEscena)
+   // {
+   //     GameManager.instance.animationManager.PlayAnimation(
+   //         personajeEnEscena.gameObject.GetInstanceID().ToString(),
+   //         new(Animations.DEATH, true, new(), 0.2f)
+   //     );
+   //
+   //     instancia.listaObjetosPersonajesEscena.Remove(personajeEnEscena);
+   //
+   //     personajeEnEscena.SetActive(false);
+   // }
 
     public void Desactivar()
     {

@@ -32,7 +32,7 @@ MonoBehaviour:
   estados: []
   habilidades:
   - {fileID: 11400000, guid: 328ea924065d9c042919f24a84b75f6c, type: 2}
-  - {fileID: 11400000, guid: 849160886bd001c41af688e1c3b67c83, type: 2}
+  - {fileID: 11400000, guid: 978797411d3539a45ac60b83e9669b5f, type: 2}
   - {fileID: 11400000, guid: 318a7220deb6ff540836586992fe3d27, type: 2}
   - {fileID: 11400000, guid: 227e5d40f3080214bad18b0787ec06a7, type: 2}
   - {fileID: 11400000, guid: 9c9aebe8db28eff4f894efe1c86421ac, type: 2}

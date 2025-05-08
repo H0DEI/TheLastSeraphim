@@ -24,7 +24,7 @@ MonoBehaviour:
   heridasActuales: 10
   salvacion: 8
   salvacionInvulnerable: 0
-  accionesMaximas: 0
+  accionesMaximas: 1
   accionesActuales: 0
   experienciaActual: 0
   requisitoNivel: 0

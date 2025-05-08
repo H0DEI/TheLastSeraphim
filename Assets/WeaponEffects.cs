@@ -9,6 +9,7 @@ public class WeaponEffects : MonoBehaviour
     public GameObject grenade;
     public GameObject explosion;
     public GameObject heal;
+    public GameObject shield;
 
     public void ActivateWeapon()
     {
@@ -18,6 +19,16 @@ public class WeaponEffects : MonoBehaviour
     public void DeactivateWeapon()
     {
         weapon.SetActive(false);
+    }
+
+    public void ActivateShield()
+    {
+        shield.SetActive(true);
+    }
+
+    public void DeactivateShield()
+    {
+        shield.SetActive(false);
     }
     public void ActivateGrenade()
     {
