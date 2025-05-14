@@ -52,6 +52,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject mapPlayerPosition;
 
+    public BarraDeVida barraDeVida;
+
     public bool habilidadSeleccionada;
     public bool mostrarIndicador;
 
@@ -210,7 +212,7 @@ public class GameManager : MonoBehaviour
         {
             scriptPersonajeInstanciado = Instantiate(copiasEscenas[idEscena].personajes[i]);
 
-            listaObjetosPersonajesEscena[i].transform.Find("Canvas").GetComponent<RectTransform>().localPosition = new Vector2(listaObjetosPersonajesEscena[i].GetComponent<BoxCollider2D>().offset.x, listaObjetosPersonajesEscena[i].GetComponent<BoxCollider2D>().size.y + 0.2f);
+            listaObjetosPersonajesEscena[i].transform.Find("Canvas").GetComponent<RectTransform>().localPosition = new Vector2(listaObjetosPersonajesEscena[i].GetComponent<BoxCollider2D>().offset.x, listaObjetosPersonajesEscena[i].GetComponent<BoxCollider2D>().size.y + 0.05f);
 
             listaObjetosPersonajesEscena[i].GetComponent<InteractuarPersonajes>().personaje = scriptPersonajeInstanciado;
 
@@ -390,13 +392,15 @@ public class GameManager : MonoBehaviour
     {
         jugador = Instantiate(jugador);
         
-        objetoJugador.transform.Find("Canvas").GetComponent<RectTransform>().localPosition = new Vector2(objetoJugador.GetComponent<BoxCollider2D>().offset.x, objetoJugador.GetComponent<BoxCollider2D>().size.y + 0.05f);
+        objetoJugador.transform.Find("Canvas").GetComponent<RectTransform>().localPosition = new Vector2(objetoJugador.GetComponent<BoxCollider2D>().offset.x, objetoJugador.GetComponent<BoxCollider2D>().size.y - 0.2f);
 
         objetoJugador.GetComponent<InteractuarPersonajes>().personaje = jugador;
 
-        objetoJugador.GetComponentInChildren<BarraDeVida>().personaje = jugador;
+        //objetoJugador.GetComponentInChildren<BarraDeVida>().personaje = jugador;
 
-        objetoJugador.GetComponentInChildren<BarraDeVida>().barraAncho = objetoJugador.GetComponent<BoxCollider2D>().size.x;
+        barraDeVida.personaje = jugador;
+
+        //objetoJugador.GetComponentInChildren<BarraDeVida>().barraAncho = objetoJugador.GetComponent<BoxCollider2D>().size.x;
     }
 
     public void CargaTurno()

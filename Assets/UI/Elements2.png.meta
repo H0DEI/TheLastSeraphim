@@ -1240,6 +1240,138 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: HP bar filled player
+      rect:
+        serializedVersion: 2
+        x: 849
+        y: 2616
+        width: 572
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c8054c1ce52b0c49848668143f74fd0
+      internalID: 29877887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HP bar filled enemy
+      rect:
+        serializedVersion: 2
+        x: 925
+        y: 622
+        width: 569
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8e7092771aa5aa42ab54176bba5c10f
+      internalID: 1114696690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeadBorder
+      rect:
+        serializedVersion: 2
+        x: 2592
+        y: 1676
+        width: 440
+        height: 468
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a73caaed8918484e9d9ac62bd745c53
+      internalID: -1951392502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD HP filled
+      rect:
+        serializedVersion: 2
+        x: 3044
+        y: 1684
+        width: 1002
+        height: 437
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74219431fce1a6b4fb413dd18a1e9642
+      internalID: 831093015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BorderAlpha
+      rect:
+        serializedVersion: 2
+        x: 2217
+        y: 2142
+        width: 440
+        height: 468
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95e8667420605d34a944ace8819dafde
+      internalID: 521259477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elements2_1
+      rect:
+        serializedVersion: 2
+        x: 2592
+        y: 1674
+        width: 440
+        height: 468
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6aaa226fbe46b24e9d6615b7358fe64
+      internalID: -1203037699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -1255,6 +1387,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Atributos: 956477463
+      BorderAlpha: 521259477
       Elements-01 1_1: -352342712
       Elements-01_0: -95741332
       Elements-01_1: 550001709
@@ -1354,6 +1487,11 @@ TextureImporter:
       Elements-01_95: -897702858
       Elements-01_96: -1047833471
       Elements-01_97: -456883835
+      Elements2_1: -1203037699
+      HP bar filled enemy: 1114696690
+      HP bar filled player: 29877887
+      HUD HP filled: -156049039
+      HeadBorder: -1951392502
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
