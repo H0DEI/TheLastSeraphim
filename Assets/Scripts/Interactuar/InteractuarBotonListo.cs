@@ -9,6 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using SHG.AnimatorCoder;
 using static UnityEditor.Experimental.GraphView.GraphView;
+using UnityEditor.Animations;
 
 public class InteractuarBotonListo : MonoBehaviour, IBoton
 {
@@ -61,9 +62,9 @@ public class InteractuarBotonListo : MonoBehaviour, IBoton
         foreach (KeyValuePair<Habilidad, bool> habilidad in instancia.habilidadesALanzar.listaHabilidadesALanzar)
         {
             //usar audio . duration para duracion de wait
-            yield return new WaitForSeconds(habilidad.Key.sonido != null ? habilidad.Key.sonido.length -0.1f : 0.3f);
+            //yield return new WaitForSeconds(habilidad.Key.sonido != null ? habilidad.Key.sonido.length -0.1f : 0.3f);
 
-            if(!muertos.Contains(habilidad.Key.personaje)) habilidad.Key.Usar();          
+            if(!muertos.Contains(habilidad.Key.personaje)) yield return StartCoroutine(habilidad.Key.Usar());
 
             for (int i = 0; i < instancia.listaObjetosPersonajesEscena.Count; i++)
             {
@@ -78,7 +79,7 @@ public class InteractuarBotonListo : MonoBehaviour, IBoton
                         instancia.btnHasMuerto.SetActive(true);
                     }
 
-                    StartCoroutine(MatarPersonaje(personajeEnEscena));
+                    yield return StartCoroutine(MatarPersonaje(personajeEnEscena));
                 }
             }
         }
@@ -119,23 +120,70 @@ public class InteractuarBotonListo : MonoBehaviour, IBoton
         instancia.listaObjetosPersonajesEscena.Remove(personajeEnEscena);
 
         // Esperar una duración arbitraria (ajústala si tienes una forma más precisa)
-        yield return new WaitForSeconds(1.0f); // o el tiempo real de la animación
+        yield return new WaitForSeconds(GetAnimationDuration(personajeEnEscena)); // o el tiempo real de la animación
 
         // Ejecutar después
         personajeEnEscena.SetActive(false);
     }
 
-   // private async IEnumerator MatarPersonaje(GameObject personajeEnEscena)
-   // {
-   //     GameManager.instance.animationManager.PlayAnimation(
-   //         personajeEnEscena.gameObject.GetInstanceID().ToString(),
-   //         new(Animations.DEATH, true, new(), 0.2f)
-   //     );
-   //
-   //     instancia.listaObjetosPersonajesEscena.Remove(personajeEnEscena);
-   //
-   //     personajeEnEscena.SetActive(false);
-   // }
+    public float GetAnimationDuration(GameObject personajeEnEscena)
+    {
+        Animator[] animators = personajeEnEscena.gameObject.GetComponentsInChildren<Animator>();
+
+        Animator animator = null;
+
+        // Buscar el Animator que NO esté en un Canvas
+        foreach (var a in animators)
+        {
+            if (a.GetComponentInParent<Canvas>() == null)
+            {
+                animator = a;
+                break;
+            }
+        }
+
+        if (animator == null)
+        {
+            Debug.LogWarning("No se encontró un Animator válido (excluyendo el Canvas).");
+            return 0f;
+        }
+
+        AnimatorController controller = animator.runtimeAnimatorController as AnimatorController;
+        if (controller == null)
+        {
+            Debug.LogWarning("El Animator no tiene un AnimatorController válido.");
+            return 0f;
+        }
+
+        var stateMachine = controller.layers[0].stateMachine;
+
+        foreach (var state in stateMachine.states)
+        {
+            if (state.state.name == "DEATH")
+            {
+                Motion motion = state.state.motion;
+                if (motion is AnimationClip clip)
+                {
+                    return clip.length;
+                }
+            }
+        }
+
+        Debug.LogWarning("Animación no encontrada en el Animator seleccionado.");
+        return 0f;
+    }
+
+    // private async IEnumerator MatarPersonaje(GameObject personajeEnEscena)
+    // {
+    //     GameManager.instance.animationManager.PlayAnimation(
+    //         personajeEnEscena.gameObject.GetInstanceID().ToString(),
+    //         new(Animations.DEATH, true, new(), 0.2f)
+    //     );
+    //
+    //     instancia.listaObjetosPersonajesEscena.Remove(personajeEnEscena);
+    //
+    //     personajeEnEscena.SetActive(false);
+    // }
 
     public void Desactivar()
     {

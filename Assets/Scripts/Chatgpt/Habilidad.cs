@@ -6,6 +6,7 @@ using TMPro;
 using Random = UnityEngine.Random;
 using SHG.AnimatorCoder;
 using Unity.VisualScripting;
+using UnityEditor.Animations;
 
 [CreateAssetMenu(fileName = "Nueva Habilidad")]
 public class Habilidad : ScriptableObject, IComparable
@@ -53,8 +54,10 @@ public class Habilidad : ScriptableObject, IComparable
         GameManager.instance.animationManager.PlayCanvas(id, animationData, layer);
     }
 
-    public void Usar()
+    public IEnumerator Usar()
     {
+       float duracion = GetAnimationDuration();
+
        foreach (Animations animacion in animaciones)
        {
            //if(melee) GameManager.instance.objetoJugador.GetComponent<PunchMover>().objetivo = objetivos[0].GetComponent<Transform>();
@@ -97,7 +100,8 @@ public class Habilidad : ScriptableObject, IComparable
             {
                 EjecutarAccion(accion);
             }
-        
+
+        yield return new WaitForSeconds(duracion);
     }
 
         private void EjecutarAccion(Accion accion)
@@ -375,6 +379,53 @@ public class Habilidad : ScriptableObject, IComparable
 
             AnimaValue(objetivo, "Curar", heal.ToString());
         }
+    }
+
+    public float GetAnimationDuration()
+    {
+        Animator[] animators = personaje.gameObject.GetComponentsInChildren<Animator>();
+
+        Animator animator = null;
+
+        // Buscar el Animator que NO esté en un Canvas
+        foreach (var a in animators)
+        {
+            if (a.GetComponentInParent<Canvas>() == null)
+            {
+                animator = a;
+                break;
+            }
+        }
+
+        if (animator == null)
+        {
+            Debug.LogWarning("No se encontró un Animator válido (excluyendo el Canvas).");
+            return 0f;
+        }
+
+        AnimatorController controller = animator.runtimeAnimatorController as AnimatorController;
+        if (controller == null)
+        {
+            Debug.LogWarning("El Animator no tiene un AnimatorController válido.");
+            return 0f;
+        }
+
+        var stateMachine = controller.layers[0].stateMachine;
+
+        foreach (var state in stateMachine.states)
+        {
+            if (state.state.name == animaciones[0].ToString())
+            {
+                Motion motion = state.state.motion;
+                if (motion is AnimationClip clip)
+                {
+                    return clip.length;
+                }
+            }
+        }
+
+        Debug.LogWarning("Animación no encontrada en el Animator seleccionado.");
+        return 0f;
     }
 
     private void Anima(Personaje objetivo, String animacion, Color color)
