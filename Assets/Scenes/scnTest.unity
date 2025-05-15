@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0, g: 0, b: 0, a: 0}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 335c10befc4141c409589bb5f3dd7e9e, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -4952,7 +4952,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4209373051428511054
 Transform:
   m_ObjectHideFlags: 0
@@ -4962,8 +4962,8 @@ Transform:
   m_GameObject: {fileID: 4743978861112928322}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.245, y: 1.2311301, z: 34.546}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 5.245, y: 1.2311, z: 67}
+  m_LocalScale: {x: 2.13419, y: 2.13419, z: 2.13419}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7774298737337200393}
@@ -5473,6 +5473,22 @@ PrefabInstance:
     - target: {fileID: 7925494857610939107, guid: 2ec626f4e9c1ff24a8cf0c760bfc126e, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7925494857610939107, guid: 2ec626f4e9c1ff24a8cf0c760bfc126e, type: 3}
+      propertyPath: m_ClearFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7925494857610939107, guid: 2ec626f4e9c1ff24a8cf0c760bfc126e, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7925494857610939107, guid: 2ec626f4e9c1ff24a8cf0c760bfc126e, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7925494857610939107, guid: 2ec626f4e9c1ff24a8cf0c760bfc126e, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7925494857610939107, guid: 2ec626f4e9c1ff24a8cf0c760bfc126e, type: 3}
       propertyPath: m_CullingMask.m_Bits

@@ -1337,7 +1337,7 @@ TextureImporter:
         width: 440
         height: 468
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1368,6 +1368,28 @@ TextureImporter:
       bones: []
       spriteID: f6aaa226fbe46b24e9d6615b7358fe64
       internalID: -1203037699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuButton
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 2073
+        width: 1212
+        height: 505
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 202c2ccec6401fe49899e8a9cd7cf9fd
+      internalID: 591017303
       vertices: []
       indices: 
       edges: []
@@ -1492,6 +1514,7 @@ TextureImporter:
       HP bar filled player: 29877887
       HUD HP filled: -156049039
       HeadBorder: -1951392502
+      MenuButton: 591017303
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
