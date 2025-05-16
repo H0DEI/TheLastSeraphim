@@ -291,6 +291,13 @@
       },
       "url": "https://packages.unity.com"
     },
+    "idv.jlchntoz.skinnedmeshcombiner": {
+      "version": "https://github.com/JLChnToZ/SkinnedMeshCombiner.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "d434d6867b840866895c28b5d105c261351c7220"
+    },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",
       "depth": 0,
