@@ -29,4 +29,4 @@ MonoBehaviour:
   melee: 0
   numeroDeUsos: 727
   tier: 0
-  sonido: {fileID: 0}
+  sonido: {fileID: 8300000, guid: 3b5ef7fdfcc840940854271391d2e038, type: 3}

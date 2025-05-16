@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
   m_Name: Guillotina
   m_EditorClassIdentifier: 
-  nombre: 
+  nombre: Guillotina
   descripcion: 'Melee  A 1  F +1  FP -2  D 5
 
     Si mata PV + (HE + 1d6)
@@ -23,7 +23,7 @@ MonoBehaviour:
     es ejecutada de esta manera regeneras materia organica a traves de sus tejidos
     y organos regenerando asi salud.'
   coste: 1
-  velocidad: 9
+  velocidad: 18
   fuerza: 1
   penetracion: 2
   "da\xF1o": 4
@@ -37,4 +37,4 @@ MonoBehaviour:
   melee: 0
   numeroDeUsos: 727
   tier: 0
-  sonido: {fileID: 0}
+  sonido: {fileID: 8300000, guid: b27e77f175f29e5428a36999987b4aaa, type: 3}

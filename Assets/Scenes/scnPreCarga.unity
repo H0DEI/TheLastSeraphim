@@ -9466,7 +9466,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &634275012
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10668,7 +10668,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -397.5, y: 82.6}
+  m_AnchoredPosition: {x: -426.2, y: 82.6}
   m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &730830340
@@ -12564,7 +12564,7 @@ GameObject:
   - component: {fileID: 883504447}
   - component: {fileID: 883504446}
   m_Layer: 5
-  m_Name: btnTest
+  m_Name: btnContinuar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12699,7 +12699,7 @@ MonoBehaviour:
         m_MethodName: NuevaPartida
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: b875eeaa737c881449877775e6385e5a, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: 8da77c055f6351a4d8a08b205a107e54, type: 2}
           m_ObjectArgumentAssemblyTypeName: Escena, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -17940,7 +17940,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 704.2, y: 82.6}
+  m_AnchoredPosition: {x: 687.8, y: 82.6}
   m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1249131757
@@ -29327,7 +29327,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2000496789}
-  m_LocalRotation: {x: -0.034947675, y: -0.5828408, z: -0.024347443, w: 0.8114693}
+  m_LocalRotation: {x: -0.03494756, y: -0.5828408, z: -0.024347385, w: 0.8114693}
   m_LocalPosition: {x: 0, y: 0, z: -8.816475}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

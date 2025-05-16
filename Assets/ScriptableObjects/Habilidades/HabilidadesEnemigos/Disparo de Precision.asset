@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
   m_Name: Disparo de Precision
   m_EditorClassIdentifier: 
-  nombre: 
+  nombre: Disparo de Precision
   descripcion: 'Range  A 1  F 6  D 1
 
 
@@ -32,4 +32,4 @@ MonoBehaviour:
   melee: 0
   numeroDeUsos: 727
   tier: 0
-  sonido: {fileID: 8300000, guid: c11bcd192e7b93240b4087b5ddbe176a, type: 3}
+  sonido: {fileID: 8300000, guid: 8e6a7e838b9f9464cbf76f0af044c787, type: 3}
