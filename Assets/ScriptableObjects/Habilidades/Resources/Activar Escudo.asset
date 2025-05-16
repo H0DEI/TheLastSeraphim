@@ -23,7 +23,7 @@ MonoBehaviour:
   animaciones: 0c000000
   personaje: {fileID: 0}
   objetivos: []
-  tipoSeleccion: 5
+  tipoSeleccion: 0
   cantidad: 1
   usosLimitados: 0
   melee: 0

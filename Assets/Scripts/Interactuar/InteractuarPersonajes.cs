@@ -38,7 +38,7 @@ public class InteractuarPersonajes : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        spriteRenderer.color = rojo;
+        //spriteRenderer.color = rojo;
 
         instancia.informacionDescripciones.MuestraInformacionPersonaje(personaje);
 
@@ -54,7 +54,7 @@ public class InteractuarPersonajes : MonoBehaviour
 
     private void OnMouseExit()
     {
-        spriteRenderer.color = porDefecto;
+        //spriteRenderer.color = porDefecto;
 
         //instancia.informacionDescripciones.LimpiaInformacion();
 

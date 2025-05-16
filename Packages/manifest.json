@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.cakeslice.outline-effect": "2.1.0",
+    "com.cakeslice.outline-effect": "2.1.1",
     "com.github.siccity.xnode": "https://github.com/siccity/xNode.git",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.ai.navigation": "2.0.5",

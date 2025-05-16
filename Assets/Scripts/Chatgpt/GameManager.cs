@@ -261,7 +261,9 @@ public class GameManager : MonoBehaviour
 
                     personaje.transform.Find("Canvas").transform.Find("Probabilidad").gameObject.SetActive(true);
 
-                    personaje.GetComponent<Outline>().enabled = personaje.GetComponent<InteractuarPersonajes>().elegible = tipoSelecciones[habilidad.tipoSeleccion][i];
+                    personaje.GetComponentInChildren<Outline>().enabled = tipoSelecciones[habilidad.tipoSeleccion][i];
+
+                    personaje.GetComponent<InteractuarPersonajes>().elegible = tipoSelecciones[habilidad.tipoSeleccion][i];
                 }
 
                 break;
@@ -272,7 +274,7 @@ public class GameManager : MonoBehaviour
                 {
                     instance.CambiaColorOutline(personaje.GetComponent<InteractuarPersonajes>().personaje, soyJugador, personaje);
 
-                    personaje.GetComponent<Outline>().enabled = true;
+                    personaje.GetComponentInChildren<Outline>().enabled = true;
                 }
 
                 break;
@@ -365,7 +367,7 @@ public class GameManager : MonoBehaviour
     {
         foreach (GameObject personaje in listaObjetosPersonajesEscena)
         {
-            personaje.GetComponent<Outline>().enabled = personaje.GetComponent<InteractuarPersonajes>().elegible = false;
+            personaje.GetComponentInChildren<Outline>().enabled = personaje.GetComponent<InteractuarPersonajes>().elegible = false;
 
             personaje.transform.Find("Canvas").transform.Find("Probabilidad").gameObject.SetActive(false);
         }
@@ -491,8 +493,8 @@ public class GameManager : MonoBehaviour
 
     public void CambiaColorOutline(Personaje objetivo, bool soyJugador, GameObject personaje)
     {
-        if (objetivo == jugador && soyJugador || objetivo != jugador && !soyJugador) personaje.GetComponent<Outline>().color = 1;
-        else personaje.GetComponent<Outline>().color = 0;
+        if (objetivo == jugador && soyJugador || objetivo != jugador && !soyJugador) personaje.GetComponentInChildren<Outline>().color = 1;
+        else personaje.GetComponentInChildren<Outline>().color = 0;
     }
 
     public void ResetearAttributosJugador()
