@@ -16,6 +16,15 @@ public class InformacionDescripciones : MonoBehaviour
 
     public bool bloqueoDescripcion;
 
+    [Header("UI")]
+    public TMP_SpriteAsset iconosHUD;
+    public TextoEnriquecido datosVisuales;
+
+    [Header("Colores")]
+    public string colorDaño = "#FF5555"; // Rojo
+    public string colorCuracion = "#55FF55"; // Verde
+    public string colorDefensa = "#55FFFF"; // Azul
+
     private string fuerza;
     private string penetracion;
 
@@ -49,12 +58,16 @@ public class InformacionDescripciones : MonoBehaviour
         }        
         
         muestraNombre.text = habilidad.nombre;
-        muestraDescripcion.text = string.Format(habilidad.descripcion, fuerza, penetracion, " " + habilidad.daño);
-        muestraTextoVelocidad.text = "V:";
+        //muestraDescripcion.text = string.Format(habilidad.descripcion, fuerza, penetracion, " " + habilidad.daño);
+        Mostrar(habilidad);
         muestraValorVelocidad.text = habilidad.velocidad.ToString();
         if (muestraTextoTier != null) muestraTextoTier.text = habilidad.tier.ToString();
-        muestraTextoCosteAccion.text = "PA:";
         muestraValorCosteAccion.text = habilidad.coste.ToString();
+    }
+
+    public void Mostrar(Habilidad habilidad)
+    {
+        muestraDescripcion.text = datosVisuales.Aplicar(habilidad.descripcion);
     }
 
     public void MuestraInformacionPersonaje(Personaje personaje)
@@ -68,10 +81,8 @@ public class InformacionDescripciones : MonoBehaviour
             muestraDescripcion.text += hab.nombre + "\n";
         }
 
-        muestraTextoVelocidad.text = "PA:";
         muestraValorVelocidad.text = personaje.accionesMaximas.ToString();
         if (muestraTextoTier != null) muestraTextoTier.text = "lvl:"+personaje.nivel.ToString();
-        muestraTextoCosteAccion.text = personaje.heridasActuales.ToString()+"/";
         muestraValorCosteAccion.text = personaje.heridasMaximas.ToString();
 
         if(muestraAtributos != null) { 

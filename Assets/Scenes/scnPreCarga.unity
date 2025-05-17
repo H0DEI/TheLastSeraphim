@@ -17649,7 +17649,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: c22b4f01e7c55c148bb52381dee5c913, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -22931,6 +22931,12 @@ MonoBehaviour:
   muestraValorCosteAccion: {fileID: 1320232696}
   muestraAtributos: {fileID: 0}
   bloqueoDescripcion: 0
+  iconosHUD: {fileID: 0}
+  datosVisuales:
+    reemplazos: []
+  "colorDa\xF1o": '#FF5555'
+  colorCuracion: '#55FF55'
+  colorDefensa: '#55FFFF'
 --- !u!1 &1616384134
 GameObject:
   m_ObjectHideFlags: 0
@@ -25297,6 +25303,28 @@ MonoBehaviour:
   muestraValorCosteAccion: {fileID: 159462030}
   muestraAtributos: {fileID: 580245636}
   bloqueoDescripcion: 0
+  iconosHUD: {fileID: 0}
+  datosVisuales:
+    reemplazos:
+    - clave: SPD
+      textoPlano: 
+      color: {r: 1, g: 1, b: 1, a: 0}
+      spriteName: SPD
+    - clave: PDMG
+      textoPlano: "Da\xF1o Fisico"
+      color: {r: 1, g: 0, b: 0, a: 0}
+      spriteName: 
+    - clave: EYE
+      textoPlano: 
+      color: {r: 1, g: 1, b: 1, a: 0}
+      spriteName: EYE
+    - clave: F
+      textoPlano: 
+      color: {r: 1, g: 1, b: 1, a: 0}
+      spriteName: F
+  "colorDa\xF1o": '#FF5555'
+  colorCuracion: '#55FF55'
+  colorDefensa: '#55FFFF'
 --- !u!222 &1766280676
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -26213,6 +26241,12 @@ MonoBehaviour:
   muestraValorCosteAccion: {fileID: 1687491406}
   muestraAtributos: {fileID: 0}
   bloqueoDescripcion: 0
+  iconosHUD: {fileID: 0}
+  datosVisuales:
+    reemplazos: []
+  "colorDa\xF1o": '#FF5555'
+  colorCuracion: '#55FF55'
+  colorDefensa: '#55FFFF'
 --- !u!1 &1843557110
 GameObject:
   m_ObjectHideFlags: 0
@@ -30114,6 +30148,12 @@ MonoBehaviour:
   muestraValorCosteAccion: {fileID: 921728751}
   muestraAtributos: {fileID: 0}
   bloqueoDescripcion: 0
+  iconosHUD: {fileID: 0}
+  datosVisuales:
+    reemplazos: []
+  "colorDa\xF1o": '#FF5555'
+  colorCuracion: '#55FF55'
+  colorDefensa: '#55FFFF'
 --- !u!1 &2136122774
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Activar Escudo
   m_EditorClassIdentifier: 
   nombre: Activar Escudo
-  descripcion: Restaura 1d6 de salud
+  descripcion: Restaura 1d6 de y {SPD} salud 10 {PDMG} eee {EYE} yyas {F}.
   coste: 1
   velocidad: 10
   fuerza: 0
