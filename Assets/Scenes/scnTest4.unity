@@ -1352,6 +1352,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SWAT2
       objectReference: {fileID: 0}
+    - target: {fileID: 6137800846069693486, guid: 496046c7d2099a14390ef4d493752144, type: 3}
+      propertyPath: personaje
+      value: 
+      objectReference: {fileID: 11400000, guid: badbbee0a58bcc04d9029a233c4ecf2c, type: 2}
     - target: {fileID: 9042926862206201564, guid: 496046c7d2099a14390ef4d493752144, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 423620143613315020}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.034947567, y: -0.5828408, z: -0.02434739, w: 0.8114693}
+  m_LocalRotation: {x: -0.034947675, y: -0.5828408, z: -0.024347443, w: 0.8114693}
   m_LocalPosition: {x: -8.320608, y: 1.0278702, z: -8.816475}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -204,7 +204,7 @@ MonoBehaviour:
   fillAmount: 0.2
   lineColor0: {r: 1, g: 0, b: 0, a: 1}
   lineColor1: {r: 0, g: 1, b: 0, a: 1}
-  lineColor2: {r: 0, g: 0, b: 1, a: 1}
+  lineColor2: {r: 0.9547169, g: 0.94695127, b: 0, a: 1}
   additiveRendering: 0
   backfaceCulling: 1
   fillTexture: {fileID: 0}

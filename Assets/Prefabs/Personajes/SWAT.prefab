@@ -55,7 +55,7 @@ MonoBehaviour:
   elegible: 0
   vivo: 0
   puedePresionarse: 0
-  personaje: {fileID: 11400000, guid: b7529ad8394efa240a9a419cce7ad7df, type: 2}
+  personaje: {fileID: 11400000, guid: badbbee0a58bcc04d9029a233c4ecf2c, type: 2}
 --- !u!61 &1591749631988878923
 BoxCollider2D:
   m_ObjectHideFlags: 0

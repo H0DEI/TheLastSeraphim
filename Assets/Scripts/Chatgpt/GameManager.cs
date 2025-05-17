@@ -377,6 +377,7 @@ public class GameManager : MonoBehaviour
     {
         foreach (GameObject puerta in listaPuertas)
         {
+            puerta.GetComponent<Outline>().color = 2;
             puerta.GetComponent<Outline>().enabled = puerta.GetComponent<InteractuarPuerta>().puedePresionarse = puedePresionarse;
         }
     }
