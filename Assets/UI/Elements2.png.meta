@@ -1381,7 +1381,7 @@ TextureImporter:
         width: 1212
         height: 505
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1390,6 +1390,28 @@ TextureImporter:
       bones: []
       spriteID: 202c2ccec6401fe49899e8a9cd7cf9fd
       internalID: 591017303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Listo
+      rect:
+        serializedVersion: 2
+        x: 1756
+        y: 3966
+        width: 299
+        height: 151
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b708d7797e73ec4ca6152493ba23125
+      internalID: -515596168
       vertices: []
       indices: 
       edges: []
@@ -1514,6 +1536,7 @@ TextureImporter:
       HP bar filled player: 29877887
       HUD HP filled: -156049039
       HeadBorder: -1951392502
+      Listo: -515596168
       MenuButton: 591017303
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
