@@ -2200,6 +2200,7 @@ GameObject:
   - component: {fileID: 108777963}
   - component: {fileID: 108777962}
   - component: {fileID: 108777961}
+  - component: {fileID: 108777964}
   m_Layer: 5
   m_Name: Opt2
   m_TagString: Untagged
@@ -2270,8 +2271,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300014, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: -1622335179, guid: 8ac264460e3806145b0d21493248a19c, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2288,6 +2289,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 108777959}
   m_CullTransparentMesh: 1
+--- !u!114 &108777964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108777959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c7f1b5c84ef8a64b9a61c5e07144452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objetivo: {fileID: 108777960}
+  fondo: {fileID: 108777962}
+  escalaNormal: {x: 1, y: 1, z: 1}
+  escalaHover: {x: 1.05, y: 1.05, z: 1}
+  escalaClick: {x: 0.95, y: 0.95, z: 1}
+  colorNormal: {r: 1, g: 1, b: 1, a: 1}
+  colorHover: {r: 0, g: 1, b: 1, a: 1}
+  colorClick: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  velocidad: 10
 --- !u!1 &109830140
 GameObject:
   m_ObjectHideFlags: 0
@@ -6285,7 +6307,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: c22b4f01e7c55c148bb52381dee5c913, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -8818,6 +8840,7 @@ GameObject:
   - component: {fileID: 584019819}
   - component: {fileID: 584019818}
   - component: {fileID: 584019817}
+  - component: {fileID: 584019820}
   m_Layer: 5
   m_Name: Opt1
   m_TagString: Untagged
@@ -8888,8 +8911,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300014, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: -1622335179, guid: 8ac264460e3806145b0d21493248a19c, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -8906,6 +8929,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 584019815}
   m_CullTransparentMesh: 1
+--- !u!114 &584019820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584019815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c7f1b5c84ef8a64b9a61c5e07144452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objetivo: {fileID: 584019816}
+  fondo: {fileID: 584019818}
+  escalaNormal: {x: 1, y: 1, z: 1}
+  escalaHover: {x: 1.05, y: 1.05, z: 1}
+  escalaClick: {x: 0.95, y: 0.95, z: 1}
+  colorNormal: {r: 1, g: 1, b: 1, a: 1}
+  colorHover: {r: 0, g: 1, b: 1, a: 1}
+  colorClick: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  velocidad: 10
 --- !u!1 &587530533
 GameObject:
   m_ObjectHideFlags: 0
@@ -11735,7 +11779,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: c22b4f01e7c55c148bb52381dee5c913, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -14300,6 +14344,7 @@ GameObject:
   - component: {fileID: 978420063}
   - component: {fileID: 978420062}
   - component: {fileID: 978420061}
+  - component: {fileID: 978420064}
   m_Layer: 5
   m_Name: Opt3
   m_TagString: Untagged
@@ -14370,8 +14415,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300014, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: -1622335179, guid: 8ac264460e3806145b0d21493248a19c, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -14388,6 +14433,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 978420059}
   m_CullTransparentMesh: 1
+--- !u!114 &978420064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978420059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c7f1b5c84ef8a64b9a61c5e07144452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objetivo: {fileID: 978420060}
+  fondo: {fileID: 978420062}
+  escalaNormal: {x: 1, y: 1, z: 1}
+  escalaHover: {x: 1.05, y: 1.05, z: 1}
+  escalaClick: {x: 0.95, y: 0.95, z: 1}
+  colorNormal: {r: 1, g: 1, b: 1, a: 1}
+  colorHover: {r: 0, g: 1, b: 1, a: 1}
+  colorClick: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  velocidad: 10
 --- !u!1 &991096496
 GameObject:
   m_ObjectHideFlags: 0
@@ -18158,6 +18224,7 @@ GameObject:
   - component: {fileID: 1237127762}
   - component: {fileID: 1237127764}
   - component: {fileID: 1237127763}
+  - component: {fileID: 1237127765}
   m_Layer: 5
   m_Name: Image3
   m_TagString: Untagged
@@ -18223,6 +18290,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1237127761}
   m_CullTransparentMesh: 1
+--- !u!114 &1237127765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237127761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c7f1b5c84ef8a64b9a61c5e07144452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objetivo: {fileID: 1237127762}
+  fondo: {fileID: 1237127763}
+  escalaNormal: {x: 1, y: 1, z: 1}
+  escalaHover: {x: 1.05, y: 1.05, z: 1}
+  escalaClick: {x: 0.95, y: 0.95, z: 1}
+  colorNormal: {r: 1, g: 1, b: 1, a: 1}
+  colorHover: {r: 0, g: 1, b: 1, a: 1}
+  colorClick: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  velocidad: 10
 --- !u!1 &1244587650
 GameObject:
   m_ObjectHideFlags: 0
@@ -19015,6 +19103,7 @@ GameObject:
   - component: {fileID: 1336313796}
   - component: {fileID: 1336313798}
   - component: {fileID: 1336313797}
+  - component: {fileID: 1336313799}
   m_Layer: 5
   m_Name: Image2
   m_TagString: Untagged
@@ -19080,6 +19169,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1336313795}
   m_CullTransparentMesh: 1
+--- !u!114 &1336313799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336313795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c7f1b5c84ef8a64b9a61c5e07144452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objetivo: {fileID: 1336313796}
+  fondo: {fileID: 1336313797}
+  escalaNormal: {x: 1, y: 1, z: 1}
+  escalaHover: {x: 1.05, y: 1.05, z: 1}
+  escalaClick: {x: 0.95, y: 0.95, z: 1}
+  colorNormal: {r: 1, g: 1, b: 1, a: 1}
+  colorHover: {r: 0, g: 1, b: 1, a: 1}
+  colorClick: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  velocidad: 10
 --- !u!1 &1336364178
 GameObject:
   m_ObjectHideFlags: 0
@@ -19644,7 +19754,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: c22b4f01e7c55c148bb52381dee5c913, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -22933,7 +23043,23 @@ MonoBehaviour:
   bloqueoDescripcion: 0
   iconosHUD: {fileID: 0}
   datosVisuales:
-    reemplazos: []
+    reemplazos:
+    - clave: SPD
+      textoPlano: 
+      color: {r: 1, g: 1, b: 1, a: 0}
+      spriteName: SPD
+    - clave: PDMG
+      textoPlano: "Da\xF1o Fisico"
+      color: {r: 1, g: 0, b: 0, a: 0}
+      spriteName: 
+    - clave: EYE
+      textoPlano: 
+      color: {r: 1, g: 1, b: 1, a: 0}
+      spriteName: EYE
+    - clave: F
+      textoPlano: 
+      color: {r: 1, g: 1, b: 1, a: 0}
+      spriteName: F
   "colorDa\xF1o": '#FF5555'
   colorCuracion: '#55FF55'
   colorDefensa: '#55FFFF'
@@ -24099,6 +24225,7 @@ GameObject:
   - component: {fileID: 1687604587}
   - component: {fileID: 1687604589}
   - component: {fileID: 1687604588}
+  - component: {fileID: 1687604590}
   m_Layer: 5
   m_Name: Image4
   m_TagString: Untagged
@@ -24164,6 +24291,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687604586}
   m_CullTransparentMesh: 1
+--- !u!114 &1687604590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687604586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c7f1b5c84ef8a64b9a61c5e07144452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objetivo: {fileID: 1687604587}
+  fondo: {fileID: 1687604588}
+  escalaNormal: {x: 1, y: 1, z: 1}
+  escalaHover: {x: 1.05, y: 1.05, z: 1}
+  escalaClick: {x: 0.95, y: 0.95, z: 1}
+  colorNormal: {r: 1, g: 1, b: 1, a: 1}
+  colorHover: {r: 0, g: 1, b: 1, a: 1}
+  colorClick: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  velocidad: 10
 --- !u!1 &1693588566
 GameObject:
   m_ObjectHideFlags: 0
@@ -26243,7 +26391,23 @@ MonoBehaviour:
   bloqueoDescripcion: 0
   iconosHUD: {fileID: 0}
   datosVisuales:
-    reemplazos: []
+    reemplazos:
+    - clave: SPD
+      textoPlano: 
+      color: {r: 1, g: 1, b: 1, a: 0}
+      spriteName: SPD
+    - clave: PDMG
+      textoPlano: "Da\xF1o Fisico"
+      color: {r: 1, g: 0, b: 0, a: 0}
+      spriteName: 
+    - clave: EYE
+      textoPlano: 
+      color: {r: 1, g: 1, b: 1, a: 0}
+      spriteName: EYE
+    - clave: F
+      textoPlano: 
+      color: {r: 1, g: 1, b: 1, a: 0}
+      spriteName: F
   "colorDa\xF1o": '#FF5555'
   colorCuracion: '#55FF55'
   colorDefensa: '#55FFFF'
@@ -26560,6 +26724,7 @@ GameObject:
   - component: {fileID: 1863299448}
   - component: {fileID: 1863299450}
   - component: {fileID: 1863299449}
+  - component: {fileID: 1863299451}
   m_Layer: 5
   m_Name: Image1
   m_TagString: Untagged
@@ -26625,6 +26790,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1863299447}
   m_CullTransparentMesh: 1
+--- !u!114 &1863299451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863299447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c7f1b5c84ef8a64b9a61c5e07144452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objetivo: {fileID: 1863299448}
+  fondo: {fileID: 1863299449}
+  escalaNormal: {x: 1, y: 1, z: 1}
+  escalaHover: {x: 1.05, y: 1.05, z: 1}
+  escalaClick: {x: 0.95, y: 0.95, z: 1}
+  colorNormal: {r: 1, g: 1, b: 1, a: 1}
+  colorHover: {r: 0, g: 1, b: 1, a: 1}
+  colorClick: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  velocidad: 10
 --- !u!1 &1865274487
 GameObject:
   m_ObjectHideFlags: 0
@@ -30150,7 +30336,23 @@ MonoBehaviour:
   bloqueoDescripcion: 0
   iconosHUD: {fileID: 0}
   datosVisuales:
-    reemplazos: []
+    reemplazos:
+    - clave: SPD
+      textoPlano: 
+      color: {r: 1, g: 1, b: 1, a: 0}
+      spriteName: SPD
+    - clave: PDMG
+      textoPlano: "Da\xF1o Fisico"
+      color: {r: 1, g: 0, b: 0, a: 0}
+      spriteName: 
+    - clave: EYE
+      textoPlano: 
+      color: {r: 1, g: 1, b: 1, a: 0}
+      spriteName: EYE
+    - clave: F
+      textoPlano: 
+      color: {r: 1, g: 1, b: 1, a: 0}
+      spriteName: F
   "colorDa\xF1o": '#FF5555'
   colorCuracion: '#55FF55'
   colorDefensa: '#55FFFF'

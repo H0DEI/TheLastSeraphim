@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
   m_Name: Lanzagranadas +1
   m_EditorClassIdentifier: 
-  nombre: 
-  descripcion: Range  A 2  F{0}  FP{1}  D{2}
+  nombre: Lanzagranadas +1
+  descripcion: Range  A 2  F{EYE}  FP{SPD}  D{F}
   coste: 1
   velocidad: 2
   fuerza: 8
   penetracion: 4
   "da\xF1o": 4
   acciones: 0000000000000000
+  animaciones: 
   personaje: {fileID: 0}
   objetivos: []
   tipoSeleccion: 3
@@ -28,3 +29,4 @@ MonoBehaviour:
   melee: 0
   numeroDeUsos: 727
   tier: 3
+  sonido: {fileID: 0}
