@@ -55,14 +55,21 @@ public class CursorController : MonoBehaviour
             var personaje = hit2D.collider.GetComponentInParent<InteractuarPersonajes>();
             if (personaje != null)
             {
-                if (personaje.elegible)
+                if (personaje.cursorDesactivado)
+                {
+                    SetCursor(cursorDefault);
+                }
+                else if (personaje.elegible)
+                {
                     SetCursor(cursorHoverCrosshair); // cursor para personajes elegibles
+                }
                 else
+                {
                     SetCursor(cursorHoverEnemy); // cursor para personajes no elegibles
+                }
                 return;
             }
         }
-
 
         // ========== DETECCIÓN 3D ==========
         Ray ray = Camera.main.ScreenPointToRay(mousePos);
@@ -73,7 +80,6 @@ public class CursorController : MonoBehaviour
             {
                 if (puerta.puedePresionarse)
                 {
-                    // Comprobamos si el ratón está a la izquierda o derecha de la pantalla
                     bool estaALaDerecha = Input.mousePosition.x > Screen.width / 2f;
                     SetCursor(estaALaDerecha ? cursorHoverDoorRight : cursorHoverDoorLeft);
                 }
@@ -88,6 +94,7 @@ public class CursorController : MonoBehaviour
         // Si nada detectado, cursor normal
         SetCursor(cursorDefault);
     }
+
 
     void SetCursor(Sprite sprite)
     {

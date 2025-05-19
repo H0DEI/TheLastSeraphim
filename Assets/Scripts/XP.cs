@@ -36,6 +36,8 @@ public class XP : MonoBehaviour
 
     private Habilidad habilidad;
 
+    private float nivelPrevio;
+
     private static readonly System.Random random = new System.Random();
 
     private void Awake()
@@ -96,6 +98,8 @@ public class XP : MonoBehaviour
     {
         if (instancia.jugador.experienciaActual >= instancia.jugador.requisitoNivel)
         {
+            nivelPrevio = jugador.nivel;
+
             jugador.experienciaActual -= jugador.requisitoNivel;
 
             jugador.requisitoNivel += 2;
@@ -113,7 +117,9 @@ public class XP : MonoBehaviour
 
         InterfazJugable.SetActive(false);
         instancia.AbrirCerrarPuertas(false);
+        instancia.objetoJugador.GetComponent<InteractuarPersonajes>().cursorDesactivado = true;
         LevelUp.SetActive(true);
+        
 
         for (int i = 0; i < 3; i++)
         {

@@ -6,6 +6,8 @@ using TMPro;
 
 public class InteractuarLevelUp : MonoBehaviour, IBoton
 {
+    public TextMeshProUGUI upgrade;
+
     public bool esMejora;
 
     public Habilidad habilidad;
@@ -26,11 +28,16 @@ public class InteractuarLevelUp : MonoBehaviour, IBoton
         instancia = GameManager.instance;
 
         texto = GetComponentInChildren<TextMeshProUGUI>();
+
+        if (esMejora) {
+            upgrade.SetText("Mejorar");
+        } else { 
+            upgrade.SetText("Desbloquear"); 
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-
         instancia.informacionDescripciones.bloqueoDescripcion = false;
 
         instancia.DesactivaBotonesInterfaz();
@@ -73,6 +80,8 @@ public class InteractuarLevelUp : MonoBehaviour, IBoton
 
             instancia.XP.ComprovarNivel();
         }
+
+        instancia.objetoJugador.GetComponent<InteractuarPersonajes>().cursorDesactivado = false;
     }
 
     public void OnPointerEnter(PointerEventData eventData)

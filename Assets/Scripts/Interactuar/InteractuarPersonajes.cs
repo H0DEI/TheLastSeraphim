@@ -11,6 +11,7 @@ public class InteractuarPersonajes : MonoBehaviour
     public bool elegible;
     public bool vivo;
     public bool puedePresionarse;
+    public bool cursorDesactivado;
 
     public Personaje personaje;
 
