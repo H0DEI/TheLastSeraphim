@@ -10,7 +10,9 @@ public class CursorController : MonoBehaviour
     [Header("Sprites de Cursor")]
     public Sprite cursorDefault;
     public Sprite cursorHoverEnemy;
-    public Sprite cursorHoverDoor;
+    public Sprite cursorHoverDoorLeft;
+    public Sprite cursorHoverDoorRight;
+    public Sprite cursorHoverCrosshair;
 
     [Header("Opciones")]
     public Color hudColor = Color.cyan;
@@ -53,7 +55,10 @@ public class CursorController : MonoBehaviour
             var personaje = hit2D.collider.GetComponentInParent<InteractuarPersonajes>();
             if (personaje != null)
             {
-                SetCursor(cursorHoverEnemy);
+                if (personaje.elegible)
+                    SetCursor(cursorHoverCrosshair); // cursor para personajes elegibles
+                else
+                    SetCursor(cursorHoverEnemy); // cursor para personajes no elegibles
                 return;
             }
         }
@@ -66,7 +71,16 @@ public class CursorController : MonoBehaviour
             InteractuarPuerta puerta = hit3D.collider.GetComponentInParent<InteractuarPuerta>();
             if (puerta != null)
             {
-                SetCursor(puerta.puedePresionarse ? cursorHoverDoor : cursorDefault);
+                if (puerta.puedePresionarse)
+                {
+                    // Comprobamos si el ratón está a la izquierda o derecha de la pantalla
+                    bool estaALaDerecha = Input.mousePosition.x > Screen.width / 2f;
+                    SetCursor(estaALaDerecha ? cursorHoverDoorRight : cursorHoverDoorLeft);
+                }
+                else
+                {
+                    SetCursor(cursorDefault);
+                }
                 return;
             }
         }

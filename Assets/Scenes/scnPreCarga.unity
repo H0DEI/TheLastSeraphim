@@ -5992,7 +5992,9 @@ MonoBehaviour:
   cursorImage: {fileID: 325845013}
   cursorDefault: {fileID: 1830288496, guid: d6c5d0d18715b7f4c805477ad0478fcd, type: 3}
   cursorHoverEnemy: {fileID: 1758796989, guid: d6c5d0d18715b7f4c805477ad0478fcd, type: 3}
-  cursorHoverDoor: {fileID: -887410241, guid: d6c5d0d18715b7f4c805477ad0478fcd, type: 3}
+  cursorHoverDoorLeft: {fileID: 860724240, guid: d6c5d0d18715b7f4c805477ad0478fcd, type: 3}
+  cursorHoverDoorRight: {fileID: -887410241, guid: d6c5d0d18715b7f4c805477ad0478fcd, type: 3}
+  cursorHoverCrosshair: {fileID: 1995914737, guid: d6c5d0d18715b7f4c805477ad0478fcd, type: 3}
   hudColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!114 &325845013
 MonoBehaviour:
