@@ -7,12 +7,14 @@ public class InformacionDescripciones : MonoBehaviour
 {
     public TextMeshProUGUI muestraNombre;
     public TextMeshProUGUI muestraDescripcion;
-    public TextMeshProUGUI muestraTextoVelocidad;
-    public TextMeshProUGUI muestraValorVelocidad;
-    public TextMeshProUGUI muestraTextoTier;
-    public TextMeshProUGUI muestraTextoCosteAccion;
-    public TextMeshProUGUI muestraValorCosteAccion;
-    public TextMeshProUGUI muestraAtributos;
+    public TextMeshProUGUI SPD;
+    public TextMeshProUGUI EN;
+    public TextMeshProUGUI PV;
+    public TextMeshProUGUI HP;
+    public TextMeshProUGUI HE;
+    public TextMeshProUGUI F;
+    public TextMeshProUGUI R;
+    public TextMeshProUGUI INV;
 
     public bool bloqueoDescripcion;
 
@@ -60,9 +62,10 @@ public class InformacionDescripciones : MonoBehaviour
         muestraNombre.text = habilidad.nombre;
         //muestraDescripcion.text = string.Format(habilidad.descripcion, fuerza, penetracion, " " + habilidad.daño);
         Mostrar(habilidad);
-        muestraValorVelocidad.text = habilidad.velocidad.ToString();
-        if (muestraTextoTier != null) muestraTextoTier.text = habilidad.tier.ToString();
-        muestraValorCosteAccion.text = habilidad.coste.ToString();
+        //muestraValorVelocidad.text = habilidad.velocidad.ToString();
+        //if (muestraTextoTier != null) muestraTextoTier.text = habilidad.tier.ToString();
+        EN.text = habilidad.coste.ToString();
+        SPD.text = habilidad.velocidad.ToString();
     }
 
     public void Mostrar(Habilidad habilidad)
@@ -81,32 +84,26 @@ public class InformacionDescripciones : MonoBehaviour
             muestraDescripcion.text += hab.nombre + "\n";
         }
 
-        muestraValorVelocidad.text = personaje.accionesMaximas.ToString();
-        if (muestraTextoTier != null) muestraTextoTier.text = "lvl:"+personaje.nivel.ToString();
-        muestraValorCosteAccion.text = personaje.heridasMaximas.ToString();
-
-        if(muestraAtributos != null) { 
-        muestraAtributos.text = 
-            "HP_" + personaje.punteria + "\n" +
-            "HC_" + personaje.habilidadCombate + "\n" +
-            "HE_" + personaje.habilidadEspecial + "\n" +
-            "F_" + personaje.fuerza + "\n" +
-            "R_" + personaje.resistencia + "\n" +
-            "A_" + personaje.agilidad + "\n" +
-            "SV_" + personaje.salvacion + "\n" +
-            "INV_" + personaje.salvacionInvulnerable;
-        }
+        //if (muestraTextoTier != null) muestraTextoTier.text = "lvl:"+personaje.nivel.ToString();
+        SPD.text = "-";
+        EN.text = personaje.accionesMaximas.ToString();
+        PV.text = personaje.heridasActuales.ToString();
+        HP.text = personaje.punteria.ToString();
+        HE.text = personaje.habilidadEspecial.ToString();
+        F.text = personaje.fuerza.ToString();
+        R.text = personaje.resistencia.ToString();
+        INV.text = personaje.salvacionInvulnerable.ToString();
     }
 
-   //public void LimpiaInformacion()
-   //{
-   //    muestraNombre.text = "";
-   //    muestraDescripcion.text = "";
-   //    muestraTextoVelocidad.text = "";
-   //    muestraValorVelocidad.text = "";
-   //    if (muestraTextoTier != null) muestraTextoTier.text = "";
-   //    muestraTextoCosteAccion.text = "";
-   //    muestraValorCosteAccion.text = "";
-   //    if (muestraAtributos != null) muestraAtributos.text = "";
-   //}
+    //public void LimpiaInformacion()
+    //{
+    //    muestraNombre.text = "";
+    //    muestraDescripcion.text = "";
+    //    muestraTextoVelocidad.text = "";
+    //    muestraValorVelocidad.text = "";
+    //    if (muestraTextoTier != null) muestraTextoTier.text = "";
+    //    muestraTextoCosteAccion.text = "";
+    //    muestraValorCosteAccion.text = "";
+    //    if (muestraAtributos != null) muestraAtributos.text = "";
+    //}
 }

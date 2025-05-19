@@ -2792,7 +2792,7 @@ GameObject:
   - component: {fileID: 159462031}
   - component: {fileID: 159462030}
   m_Layer: 5
-  m_Name: ValorAccion
+  m_Name: Energia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5139,13 +5139,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299351905}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: -0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 820083326}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -5205,7 +5205,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 4
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: -0.77
@@ -5973,7 +5973,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -710.8, y: -542.3826}
+  m_AnchoredPosition: {x: -681, y: -636}
   m_SizeDelta: {x: 32, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &325845012
@@ -6107,7 +6107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.216981, g: 0.80959195, b: 1, a: 1}
+  m_Color: {r: 0.61960787, g: 0.24705884, b: 0.85098046, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7708,13 +7708,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 549533523}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: -0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 820083326}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -7774,7 +7774,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 4
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: -0.77
@@ -10551,13 +10551,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 698786567}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: -0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 820083326}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -10617,7 +10617,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 4
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: -0.77
@@ -11125,13 +11125,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 741625411}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: -0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 820083326}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -11191,7 +11191,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 4
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: -0.77
@@ -12927,7 +12927,7 @@ MonoBehaviour:
         m_MethodName: NuevaPartida
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: b875eeaa737c881449877775e6385e5a, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: 8da77c055f6351a4d8a08b205a107e54, type: 2}
           m_ObjectArgumentAssemblyTypeName: Escena, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -13243,13 +13243,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 911048354}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: -0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 820083326}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -13309,7 +13309,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 4
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: -0.77
@@ -13853,13 +13853,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948271527}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: -0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 820083326}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -13919,7 +13919,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 4
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: -0.77
@@ -17593,7 +17593,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -232.4, y: -300.9}
+  m_AnchoredPosition: {x: -263, y: -306}
   m_SizeDelta: {x: 480, y: 280.6571}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1206484406
@@ -17681,7 +17681,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 9.053589, y: 10.131714, z: -263.5575, w: 108.98633}
+  m_margin: {x: 9.053589, y: 10.131714, z: -263.5575, w: 117.58651}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -18445,7 +18445,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 677, y: 71.8}
+  m_AnchoredPosition: {x: 669.7, y: 71.8}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1249131757
@@ -22680,14 +22680,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.63906235, g: 0.25050196, b: 0.8792453, a: 1}
+  m_Color: {r: 0, g: 0.9960785, b: 0.9960785, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d1f7e4fba26c85e4e8cba26dcab837c6, type: 3}
+  m_Sprite: {fileID: 1995914737, guid: d6c5d0d18715b7f4c805477ad0478fcd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -23029,12 +23029,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   muestraNombre: {fileID: 1965630115}
   muestraDescripcion: {fileID: 791501576}
-  muestraTextoVelocidad: {fileID: 844959991}
-  muestraValorVelocidad: {fileID: 1973161512}
-  muestraTextoTier: {fileID: 0}
-  muestraTextoCosteAccion: {fileID: 554061167}
-  muestraValorCosteAccion: {fileID: 1320232696}
-  muestraAtributos: {fileID: 0}
+  SPD: {fileID: 0}
+  EN: {fileID: 0}
+  PV: {fileID: 0}
+  HP: {fileID: 0}
+  HE: {fileID: 0}
+  F: {fileID: 0}
+  R: {fileID: 0}
+  INV: {fileID: 0}
   bloqueoDescripcion: 0
   iconosHUD: {fileID: 0}
   datosVisuales:
@@ -23145,7 +23147,7 @@ GameObject:
   - component: {fileID: 1616808263}
   - component: {fileID: 1616808262}
   m_Layer: 5
-  m_Name: ValorVelocidad
+  m_Name: Velocidad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23223,7 +23225,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -23255,7 +23257,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -25.700684, y: 0, z: 52.815918, w: 0}
+  m_margin: {x: -25.700684, y: 0, z: 37.693848, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -25289,12 +25291,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   muestraNombre: {fileID: 826527780}
   muestraDescripcion: {fileID: 1206484406}
-  muestraTextoVelocidad: {fileID: 0}
-  muestraValorVelocidad: {fileID: 1616808262}
-  muestraTextoTier: {fileID: 2110506805}
-  muestraTextoCosteAccion: {fileID: 0}
-  muestraValorCosteAccion: {fileID: 159462030}
-  muestraAtributos: {fileID: 0}
+  SPD: {fileID: 1616808262}
+  EN: {fileID: 159462030}
+  PV: {fileID: 911048356}
+  HP: {fileID: 948271529}
+  HE: {fileID: 299351907}
+  F: {fileID: 698786569}
+  R: {fileID: 549533525}
+  INV: {fileID: 741625413}
   bloqueoDescripcion: 0
   iconosHUD: {fileID: 0}
   datosVisuales:
@@ -26227,12 +26231,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   muestraNombre: {fileID: 1371839390}
   muestraDescripcion: {fileID: 1383602948}
-  muestraTextoVelocidad: {fileID: 107844602}
-  muestraValorVelocidad: {fileID: 1244587652}
-  muestraTextoTier: {fileID: 0}
-  muestraTextoCosteAccion: {fileID: 272606501}
-  muestraValorCosteAccion: {fileID: 1687491406}
-  muestraAtributos: {fileID: 0}
+  SPD: {fileID: 0}
+  EN: {fileID: 0}
+  PV: {fileID: 0}
+  HP: {fileID: 0}
+  HE: {fileID: 0}
+  F: {fileID: 0}
+  R: {fileID: 0}
+  INV: {fileID: 0}
   bloqueoDescripcion: 0
   iconosHUD: {fileID: 0}
   datosVisuales:
@@ -30172,12 +30178,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   muestraNombre: {fileID: 207123493}
   muestraDescripcion: {fileID: 343428736}
-  muestraTextoVelocidad: {fileID: 1586589215}
-  muestraValorVelocidad: {fileID: 1801661060}
-  muestraTextoTier: {fileID: 0}
-  muestraTextoCosteAccion: {fileID: 628611767}
-  muestraValorCosteAccion: {fileID: 921728751}
-  muestraAtributos: {fileID: 0}
+  SPD: {fileID: 0}
+  EN: {fileID: 0}
+  PV: {fileID: 0}
+  HP: {fileID: 0}
+  HE: {fileID: 0}
+  F: {fileID: 0}
+  R: {fileID: 0}
+  INV: {fileID: 0}
   bloqueoDescripcion: 0
   iconosHUD: {fileID: 0}
   datosVisuales:
