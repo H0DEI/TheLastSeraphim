@@ -157,6 +157,10 @@ public class InteractuarBotonHabilidad : MonoBehaviour, IBoton
         switch (habilidad.tipoSeleccion)
         {
             case TipoSeleccion.SoloJugador:
+                instancia.SeleccionaJugador(habilidad);
+                FinalizaSeleccion();
+                break;
+
             case TipoSeleccion.SoloUnEnemigo:
             case TipoSeleccion.CualquierPersonaje:
 

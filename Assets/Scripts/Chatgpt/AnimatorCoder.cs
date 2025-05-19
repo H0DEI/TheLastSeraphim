@@ -157,7 +157,15 @@ namespace SHG.AnimatorCoder
 
                 if (data.nextAnimation != null)
                 {
-                    currentCoroutine[layer] = StartCoroutine(Wait());
+                    try
+                    {
+                        currentCoroutine[layer] = StartCoroutine(Wait());
+                    }
+                    catch (Exception e)
+                    {
+                        // Silenciado intencionadamente
+                    }
+
                     IEnumerator Wait()
                     {
                         animator.Update(0);

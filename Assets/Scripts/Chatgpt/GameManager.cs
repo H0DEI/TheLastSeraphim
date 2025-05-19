@@ -94,7 +94,13 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
 
+        try { 
         DontDestroyOnLoad(instance);
+        }
+        catch (System.Exception)
+        {
+            // Silenciado intencionadamente
+        }
 
         interfaz = transform.Find("CanvasInterfaz");
 
@@ -247,6 +253,9 @@ public class GameManager : MonoBehaviour
         switch (habilidad.tipoSeleccion)
         {
             case TipoSeleccion.SoloJugador:
+                instance.objetoJugador.GetComponentInChildren<Outline>().enabled = true;
+                break;
+
             case TipoSeleccion.SoloUnEnemigo:
             case TipoSeleccion.CualquierPersonaje:
             case TipoSeleccion.VariosEnemigos:
@@ -348,7 +357,10 @@ public class GameManager : MonoBehaviour
 
         return 100 - probabilidad;
     }
-
+    public void SeleccionaJugador(Habilidad habilidad)
+    {
+        habilidad.objetivos.Add(instance.objetoJugador.GetComponent<InteractuarPersonajes>().personaje);
+    }
 
     public void SeleccionaTodosLosPersonajes(Habilidad habilidad, bool SinJugador)
     {
@@ -513,7 +525,6 @@ public class GameManager : MonoBehaviour
 
         foreach(InteractuarBotonHabilidad scr in panelHabilidades.GetComponentsInChildren<InteractuarBotonHabilidad>())
         {
-
             //probar con jugador temporal
             scr.ResetearHabilidad();
         }
