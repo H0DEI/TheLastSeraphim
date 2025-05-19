@@ -35,7 +35,6 @@ public class BaseNode : Node {
 			if (p.fieldName == _exit)
             {
 				return p.Connection.node as BaseNode;
-				break;
             }
         }
 

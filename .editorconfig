@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# CS0108: El miembro oculta el miembro heredado. Falta una contraseña nueva
+dotnet_diagnostic.CS0108.severity = none

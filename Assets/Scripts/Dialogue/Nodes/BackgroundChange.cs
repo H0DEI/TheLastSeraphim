@@ -11,7 +11,7 @@ public class BackgroundChange : MonoBehaviour
 
     public List<CharacterColor> characterColors;
 
-    private TextMeshProUGUI name;
+    private TextMeshProUGUI nombre;
 
     private Image background;
 
@@ -21,7 +21,7 @@ public class BackgroundChange : MonoBehaviour
 
     private void Start()
     {
-        name = nameTextBox.GetComponent<TextMeshProUGUI>();
+        nombre = nameTextBox.GetComponent<TextMeshProUGUI>();
 
         background = GetComponent<Image>();
     }
@@ -30,7 +30,7 @@ public class BackgroundChange : MonoBehaviour
     {
         foreach (CharacterColor c in characterColors)
         {
-            if (name.text == c.name)
+            if (nombre.text == c.name)
             {
                 background.color = c.color;
             }

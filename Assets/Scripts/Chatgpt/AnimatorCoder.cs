@@ -161,7 +161,7 @@ namespace SHG.AnimatorCoder
                     {
                         currentCoroutine[layer] = StartCoroutine(Wait());
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
                         // Silenciado intencionadamente
                     }
