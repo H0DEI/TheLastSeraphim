@@ -28,38 +28,42 @@ public class CursorController : MonoBehaviour
     {
         if (cursorUI == null || cursorImage == null) return;
 
+        // Colocar cursor con offset
         Vector3 mousePos = Input.mousePosition;
         Vector3 offset = new Vector3(
             currentOffset.x * cursorUI.localScale.x,
             currentOffset.y * cursorUI.localScale.y,
             0f
         );
-
         cursorUI.position = mousePos + offset;
 
-        UpdateCursorByOverlapPoint();
+        UpdateCursorByHover();
     }
 
-    void UpdateCursorByOverlapPoint()
+    void UpdateCursorByHover()
     {
         Vector3 mousePos = Input.mousePosition;
-        mousePos.z = 10f; // Ajusta según tu escena
 
-        Vector2 worldPoint = Camera.main.ScreenToWorldPoint(mousePos);
+        // ========== DETECCIÓN 2D ==========
+        Ray ray2D = Camera.main.ScreenPointToRay(mousePos);
+        RaycastHit2D hit2D = Physics2D.GetRayIntersection(ray2D);
 
-        Collider2D hit = Physics2D.OverlapPoint(worldPoint);
-        if (hit != null)
+        if (hit2D.collider != null)
         {
-            // Enemigo
-            InteractuarPersonajes personaje = hit.GetComponentInParent<InteractuarPersonajes>();
+            var personaje = hit2D.collider.GetComponentInParent<InteractuarPersonajes>();
             if (personaje != null)
             {
                 SetCursor(cursorHoverEnemy);
                 return;
             }
+        }
 
-            // Puerta
-            InteractuarPuerta puerta = hit.GetComponentInParent<InteractuarPuerta>();
+
+        // ========== DETECCIÓN 3D ==========
+        Ray ray = Camera.main.ScreenPointToRay(mousePos);
+        if (Physics.Raycast(ray, out RaycastHit hit3D, 100f))
+        {
+            InteractuarPuerta puerta = hit3D.collider.GetComponentInParent<InteractuarPuerta>();
             if (puerta != null)
             {
                 SetCursor(puerta.puedePresionarse ? cursorHoverDoor : cursorDefault);
@@ -67,6 +71,7 @@ public class CursorController : MonoBehaviour
             }
         }
 
+        // Si nada detectado, cursor normal
         SetCursor(cursorDefault);
     }
 
@@ -78,19 +83,17 @@ public class CursorController : MonoBehaviour
         cursorImage.sprite = sprite;
         cursorImage.color = hudColor;
 
-        // Tamaño del sprite
         float width = sprite.rect.width;
         float height = sprite.rect.height;
 
-        // Pivot del sprite
-        Vector2 pivot = sprite.pivot / sprite.rect.size;
-        pivot.y = 1f - pivot.y;
+        Vector2 pivot = sprite.pivot / sprite.rect.size; // Usa el pivot tal cual, sin invertir Y
 
         currentOffset = new Vector2(
-            (pivot.x - 0.5f) * -width,
-            (pivot.y - 0.5f) * -height
+            (pivot.x - 0.5f) * -width,  // -width invierte X para que 0 sea izquierda
+            (pivot.y - 0.5f) * -height  // -height invierte Y para que 0 sea arriba
         );
 
         cursorUI.sizeDelta = new Vector2(width, height);
     }
+
 }
