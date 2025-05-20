@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: AR RF
   m_EditorClassIdentifier: 
   nombre: AR RF
-  descripcion: Range  A 7  F{0}  FP{1}  D{2}
+  descripcion: 'Realiza 3 Disparos a un enemigo.
+
+    {F} 5, {P} 2, {D} 1.'
   coste: 1
   velocidad: 20
   fuerza: 20
