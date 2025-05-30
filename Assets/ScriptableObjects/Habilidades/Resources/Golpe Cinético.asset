@@ -10,16 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
-  m_Name: "Pu\xF1etazo +1"
+  m_Name: "Golpe Cin\xE9tico"
   m_EditorClassIdentifier: 
-  nombre: 
-  descripcion: Melee  A 4  F{0}  FP{1}  D{2}
+  nombre: "Golpe Cin\xE9tico"
+  descripcion: 'Lanza una patada contundente a un enemigo cercano.
+
+    +{F} 5, {P}
+    2, {D} 4'
   coste: 1
-  velocidad: 6
-  fuerza: 0
-  penetracion: 0
-  "da\xF1o": 2
-  acciones: 01000000010000000100000001000000
+  velocidad: 4
+  fuerza: 5
+  penetracion: 2
+  "da\xF1o": 4
+  acciones: 01000000
+  animaciones: 06000000
   personaje: {fileID: 0}
   objetivos: []
   tipoSeleccion: 1
@@ -27,4 +31,5 @@ MonoBehaviour:
   usosLimitados: 0
   melee: 0
   numeroDeUsos: 727
-  tier: 3
+  tier: 0
+  sonido: {fileID: 0}

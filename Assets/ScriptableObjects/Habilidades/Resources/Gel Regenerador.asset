@@ -10,21 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
-  m_Name: Espada de energia
+  m_Name: Gel Regenerador
   m_EditorClassIdentifier: 
-  nombre: 
-  descripcion: Melee  A 1  F {0}+HE  FP {1}  D {2}
+  nombre: Gel Regenerador
+  descripcion: 'Aplica un gel regenerador que restaura entre 1 y 6 puntos de salud.
+
+    {PV}
+    +1d6'
   coste: 1
-  velocidad: 9
-  fuerza: 1
-  penetracion: 10
-  "da\xF1o": 7
-  acciones: 02000000
+  velocidad: 10
+  fuerza: 0
+  penetracion: 0
+  "da\xF1o": 0
+  acciones: 0b000000
+  animaciones: 01000000
   personaje: {fileID: 0}
   objetivos: []
-  tipoSeleccion: 1
+  tipoSeleccion: 5
   cantidad: 1
   usosLimitados: 0
   melee: 0
   numeroDeUsos: 727
   tier: 0
+  sonido: {fileID: 0}

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: AR Rafaga
   m_EditorClassIdentifier: 
   nombre: AR Rafaga
-  descripcion: 'Texto {PV} Texto {R} Texto {INV} Texto {HP} Texto {SPD} Texto {EYE}
-    Texto {HE} Texto {P} Texto {F} Texto {EN} '
+  descripcion: "Realiza 3 disparos r\xE1pidos consecutivos a un enemigo.\n{F} 5,
+    {P} 2, {D} 1"
   coste: 1
   velocidad: 5
   fuerza: 5

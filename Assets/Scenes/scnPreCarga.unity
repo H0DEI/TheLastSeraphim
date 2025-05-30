@@ -3287,6 +3287,7 @@ Transform:
   m_Children:
   - {fileID: 1628977841}
   - {fileID: 570065543}
+  - {fileID: 274543841}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &193076661
@@ -4926,10 +4927,10 @@ Light:
   m_GameObject: {fileID: 274543839}
   m_Enabled: 1
   serializedVersion: 11
-  m_Type: 1
+  m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.67
-  m_Range: 10
+  m_Intensity: 2.3
+  m_Range: 15
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 59.74
@@ -4970,7 +4971,7 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 2.51
+  m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -4990,13 +4991,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 274543839}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.4351686, y: 0.85564524, z: 0.0019278986, w: 0.2801712}
-  m_LocalPosition: {x: -4.856, y: 2.94, z: 2.829}
+  m_LocalRotation: {x: -0.08732678, y: 0.8463061, z: 0.38945842, w: 0.35279217}
+  m_LocalPosition: {x: -0.60599995, y: 0.022999989, z: 0.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 13.919, y: 150.285, z: 50.205}
+  m_Father: {fileID: 191116396}
+  m_LocalEulerAnglesHint: {x: -46.122, y: 130.237, z: 10.557}
 --- !u!1 &281440358
 GameObject:
   m_ObjectHideFlags: 0
@@ -12722,7 +12723,7 @@ MonoBehaviour:
   escalaNormal: {x: 1, y: 1, z: 1}
   escalaHover: {x: 1.05, y: 1.05, z: 1}
   escalaClick: {x: 0.95, y: 0.95, z: 1}
-  colorNormal: {r: 1, g: 1, b: 1, a: 1}
+  colorNormal: {r: 1, g: 1, b: 1, a: 0.78431374}
   colorHover: {r: 0, g: 1, b: 1, a: 1}
   colorClick: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   velocidad: 10
@@ -14599,7 +14600,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 26.2}
+  m_AnchoredPosition: {x: 0, y: 26.199951}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1024328411
@@ -19544,18 +19545,50 @@ MonoBehaviour:
       textoPlano: 
       color: {r: 1, g: 1, b: 1, a: 0}
       spriteName: SPD
-    - clave: PDMG
-      textoPlano: "Da\xF1o Fisico"
-      color: {r: 1, g: 0, b: 0, a: 0}
-      spriteName: 
     - clave: EYE
       textoPlano: 
       color: {r: 1, g: 1, b: 1, a: 0}
       spriteName: EYE
     - clave: F
       textoPlano: 
-      color: {r: 1, g: 1, b: 1, a: 0}
+      color: {r: 0.7294118, g: 0.3647059, b: 0.09019608, a: 0}
       spriteName: F
+    - clave: P
+      textoPlano: 
+      color: {r: 0, g: 0, b: 0, a: 0}
+      spriteName: P
+    - clave: HP
+      textoPlano: 
+      color: {r: 0, g: 0.9960785, b: 0.9960785, a: 0}
+      spriteName: HP
+    - clave: PV
+      textoPlano: 
+      color: {r: 1, g: 0.18823531, b: 0.18823531, a: 0}
+      spriteName: PV
+    - clave: EN
+      textoPlano: 
+      color: {r: 0.39607847, g: 0.9843138, b: 0.47058827, a: 0}
+      spriteName: EN
+    - clave: R
+      textoPlano: 
+      color: {r: 0.6, g: 0.6, b: 0.6, a: 0}
+      spriteName: R
+    - clave: HE
+      textoPlano: 
+      color: {r: 1, g: 0.93725497, b: 0.36078432, a: 0}
+      spriteName: HE
+    - clave: INV
+      textoPlano: 
+      color: {r: 1, g: 1, b: 1, a: 0}
+      spriteName: INV
+    - clave: D
+      textoPlano: 
+      color: {r: 0.77647066, g: 0.09411766, b: 0.11764707, a: 0}
+      spriteName: D
+    - clave: PDMG
+      textoPlano: "Da\xF1o Fisico"
+      color: {r: 1, g: 0, b: 0, a: 0}
+      spriteName: 
   "colorDa\xF1o": '#FF5555'
   colorCuracion: '#55FF55'
   colorDefensa: '#55FFFF'
@@ -20485,18 +20518,50 @@ MonoBehaviour:
       textoPlano: 
       color: {r: 1, g: 1, b: 1, a: 0}
       spriteName: SPD
-    - clave: PDMG
-      textoPlano: "Da\xF1o Fisico"
-      color: {r: 1, g: 0, b: 0, a: 0}
-      spriteName: 
     - clave: EYE
       textoPlano: 
       color: {r: 1, g: 1, b: 1, a: 0}
       spriteName: EYE
     - clave: F
       textoPlano: 
-      color: {r: 1, g: 1, b: 1, a: 0}
+      color: {r: 0.7294118, g: 0.3647059, b: 0.09019608, a: 0}
       spriteName: F
+    - clave: P
+      textoPlano: 
+      color: {r: 0, g: 0, b: 0, a: 0}
+      spriteName: P
+    - clave: HP
+      textoPlano: 
+      color: {r: 0, g: 0.9960785, b: 0.9960785, a: 0}
+      spriteName: HP
+    - clave: PV
+      textoPlano: 
+      color: {r: 1, g: 0.18823531, b: 0.18823531, a: 0}
+      spriteName: PV
+    - clave: EN
+      textoPlano: 
+      color: {r: 0.39607847, g: 0.9843138, b: 0.47058827, a: 0}
+      spriteName: EN
+    - clave: R
+      textoPlano: 
+      color: {r: 0.6, g: 0.6, b: 0.6, a: 0}
+      spriteName: R
+    - clave: HE
+      textoPlano: 
+      color: {r: 1, g: 0.93725497, b: 0.36078432, a: 0}
+      spriteName: HE
+    - clave: INV
+      textoPlano: 
+      color: {r: 1, g: 1, b: 1, a: 0}
+      spriteName: INV
+    - clave: D
+      textoPlano: 
+      color: {r: 0.77647066, g: 0.09411766, b: 0.11764707, a: 0}
+      spriteName: D
+    - clave: PDMG
+      textoPlano: "Da\xF1o Fisico"
+      color: {r: 1, g: 0, b: 0, a: 0}
+      spriteName: 
   "colorDa\xF1o": '#FF5555'
   colorCuracion: '#55FF55'
   colorDefensa: '#55FFFF'
@@ -22172,7 +22237,7 @@ MonoBehaviour:
   escalaNormal: {x: 1, y: 1, z: 1}
   escalaHover: {x: 1.05, y: 1.05, z: 1}
   escalaClick: {x: 0.95, y: 0.95, z: 1}
-  colorNormal: {r: 1, g: 1, b: 1, a: 1}
+  colorNormal: {r: 1, g: 1, b: 1, a: 0.78431374}
   colorHover: {r: 0, g: 1, b: 1, a: 1}
   colorClick: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   velocidad: 10
@@ -22700,7 +22765,7 @@ Transform:
   m_GameObject: {fileID: 1628977840}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0003577453, y: -0.9995202, z: -0.013041051, w: 0.028093712}
-  m_LocalPosition: {x: -0.03, y: 0.64, z: 0.418}
+  m_LocalPosition: {x: -0.03, y: 0.636, z: 0.423}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -29670,18 +29735,50 @@ MonoBehaviour:
       textoPlano: 
       color: {r: 1, g: 1, b: 1, a: 0}
       spriteName: SPD
-    - clave: PDMG
-      textoPlano: "Da\xF1o Fisico"
-      color: {r: 1, g: 0, b: 0, a: 0}
-      spriteName: 
     - clave: EYE
       textoPlano: 
       color: {r: 1, g: 1, b: 1, a: 0}
       spriteName: EYE
     - clave: F
       textoPlano: 
-      color: {r: 1, g: 1, b: 1, a: 0}
+      color: {r: 0.7294118, g: 0.3647059, b: 0.09019608, a: 0}
       spriteName: F
+    - clave: P
+      textoPlano: 
+      color: {r: 0, g: 0, b: 0, a: 0}
+      spriteName: P
+    - clave: HP
+      textoPlano: 
+      color: {r: 0, g: 0.9960785, b: 0.9960785, a: 0}
+      spriteName: HP
+    - clave: PV
+      textoPlano: 
+      color: {r: 1, g: 0.18823531, b: 0.18823531, a: 0}
+      spriteName: PV
+    - clave: EN
+      textoPlano: 
+      color: {r: 0.39607847, g: 0.9843138, b: 0.47058827, a: 0}
+      spriteName: EN
+    - clave: R
+      textoPlano: 
+      color: {r: 0.6, g: 0.6, b: 0.6, a: 0}
+      spriteName: R
+    - clave: HE
+      textoPlano: 
+      color: {r: 1, g: 0.93725497, b: 0.36078432, a: 0}
+      spriteName: HE
+    - clave: INV
+      textoPlano: 
+      color: {r: 1, g: 1, b: 1, a: 0}
+      spriteName: INV
+    - clave: D
+      textoPlano: 
+      color: {r: 0.77647066, g: 0.09411766, b: 0.11764707, a: 0}
+      spriteName: D
+    - clave: PDMG
+      textoPlano: "Da\xF1o Fisico"
+      color: {r: 1, g: 0, b: 0, a: 0}
+      spriteName: 
   "colorDa\xF1o": '#FF5555'
   colorCuracion: '#55FF55'
   colorDefensa: '#55FFFF'
@@ -30582,5 +30679,4 @@ SceneRoots:
   - {fileID: 2000496792}
   - {fileID: 1298597268}
   - {fileID: 223168353}
-  - {fileID: 274543841}
   - {fileID: 191116396}

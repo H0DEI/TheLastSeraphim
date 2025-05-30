@@ -10,16 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
-  m_Name: SuperPatada +1
+  m_Name: "Tiro de Precisi\xF3n"
   m_EditorClassIdentifier: 
-  nombre: 
-  descripcion: Melee  A 1  F{0}  FP{1}  D{2}
+  nombre: "Tiro de Precisi\xF3n"
+  descripcion: "Realiza un disparo a la cabeza a un enemigo, infligiendo un gran
+    da\xF1o.\n{F} 12, {P} 8, {D} 10."
   coste: 1
-  velocidad: 4
-  fuerza: 11
-  penetracion: 6
-  "da\xF1o": 8
-  acciones: 01000000
+  velocidad: 7
+  fuerza: 12
+  penetracion: 8
+  "da\xF1o": 10
+  acciones: 00000000
+  animaciones: 
   personaje: {fileID: 0}
   objetivos: []
   tipoSeleccion: 1
@@ -27,4 +29,5 @@ MonoBehaviour:
   usosLimitados: 0
   melee: 0
   numeroDeUsos: 727
-  tier: 3
+  tier: 1
+  sonido: {fileID: 0}

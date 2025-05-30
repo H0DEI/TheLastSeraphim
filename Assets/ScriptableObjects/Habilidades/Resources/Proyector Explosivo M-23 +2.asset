@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
-  m_Name: Disparo a la cabeza +1
+  m_Name: Proyector Explosivo M-23 +2
   m_EditorClassIdentifier: 
   nombre: 
-  descripcion: Range  A 1  F{0}  FP{1}  D{2}
+  descripcion: Range  A 2  F{0}  FP{1}  D{2}
   coste: 1
-  velocidad: 7
-  fuerza: 12
-  penetracion: 8
-  "da\xF1o": 12
-  acciones: 00000000
+  velocidad: 2
+  fuerza: 9
+  penetracion: 4
+  "da\xF1o": 5
+  acciones: 0000000000000000
   personaje: {fileID: 0}
   objetivos: []
-  tipoSeleccion: 1
+  tipoSeleccion: 3
   cantidad: 1
   usosLimitados: 0
   melee: 0

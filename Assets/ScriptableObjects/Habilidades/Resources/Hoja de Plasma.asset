@@ -10,23 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
-  m_Name: Activar Escudo
+  m_Name: Hoja de Plasma
   m_EditorClassIdentifier: 
-  nombre: Activar Escudo
-  descripcion: Restaura 1d6 de y {SPD} salud 10 {PDMG} eee {EYE} yyas {F}.
+  nombre: Hoja de Plasma
+  descripcion: 'Ataca cuerpo a cuerpo a un enemigo con un golpe preciso, potenciado
+    por su {HE}.
+
+    +{F} 6, {P} 4, {D} 3'
   coste: 1
-  velocidad: 10
-  fuerza: 0
-  penetracion: 0
-  "da\xF1o": 0
-  acciones: 0b000000
-  animaciones: 0c000000
+  velocidad: 9
+  fuerza: 1
+  penetracion: 10
+  "da\xF1o": 7
+  acciones: 02000000
+  animaciones: 
   personaje: {fileID: 0}
   objetivos: []
-  tipoSeleccion: 0
+  tipoSeleccion: 1
   cantidad: 1
   usosLimitados: 0
   melee: 0
   numeroDeUsos: 727
   tier: 0
-  sonido: {fileID: 8300000, guid: 2caada9c063ef7d47ae74c8fb3ea3a70, type: 3}
+  sonido: {fileID: 0}

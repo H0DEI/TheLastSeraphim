@@ -10,23 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
-  m_Name: SuperPatada
+  m_Name: Carga de Densidad
   m_EditorClassIdentifier: 
-  nombre: SuperPatada
-  descripcion: Melee  A 1  F{0}  FP{1}  D{2}
-  coste: 1
-  velocidad: 4
-  fuerza: 10
-  penetracion: 6
-  "da\xF1o": 7
-  acciones: 01000000
-  animaciones: 05000000
+  nombre: Carga de Densidad
+  descripcion: "Detona un pulso gravitacional que inflige da\xF1o equivalente al
+    15% de la {PV} actual de los enemigos y reduce su {R} en 1."
+  coste: 2
+  velocidad: 1
+  fuerza: 5
+  penetracion: 2
+  "da\xF1o": 1
+  acciones: 0400000011000000
+  animaciones: 
   personaje: {fileID: 0}
   objetivos: []
-  tipoSeleccion: 1
+  tipoSeleccion: 3
   cantidad: 1
-  usosLimitados: 0
+  usosLimitados: 1
   melee: 0
-  numeroDeUsos: 727
-  tier: 1
+  numeroDeUsos: 1
+  tier: 2
   sonido: {fileID: 0}
