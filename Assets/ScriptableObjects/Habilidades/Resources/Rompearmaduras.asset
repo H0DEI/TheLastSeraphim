@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Rompearmaduras
   m_EditorClassIdentifier: 
   nombre: Rompearmaduras
-  descripcion: "Propina una r\xE1pida sucesi\xF3n de tres golpes a un enemigo.\n+{F}
-    6, {P} 0, {D} 2"
+  descripcion: "Propina una sucesi\xF3n de 3 golpes a un enemigo desgarrando su armadura
+    y eliminando su {INV}.\n+{F} 6, {P} 0, {D} 2"
   coste: 1
   velocidad: 6
   fuerza: 0

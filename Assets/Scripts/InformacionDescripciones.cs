@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Text.RegularExpressions;
 
 public class InformacionDescripciones : MonoBehaviour
 {
@@ -106,4 +107,73 @@ public class InformacionDescripciones : MonoBehaviour
     //    muestraValorCosteAccion.text = "";
     //    if (muestraAtributos != null) muestraAtributos.text = "";
     //}
+
+    public string CompararDescripcionesAvanzado(string descripcionAntigua, string descripcionNueva)
+    {
+        // Paso 1: Comparar atributos numéricos
+        Dictionary<string, int> antiguos = ExtraerAtributos(descripcionAntigua);
+        Dictionary<string, int> nuevos = ExtraerAtributos(descripcionNueva);
+
+        string resultado = Regex.Replace(descripcionNueva, @"\{(\w+)\}\s*(\d+)", match =>
+        {
+            string clave = match.Groups[1].Value;
+            int valorNuevo = int.Parse(match.Groups[2].Value);
+
+            if (!antiguos.TryGetValue(clave, out int valorViejo))
+                return $"{{{clave}}} [green]{valorNuevo}[/green]";
+
+            if (valorNuevo > valorViejo)
+                return $"{{{clave}}} [green]{valorNuevo}[/green]";
+            else if (valorNuevo < valorViejo)
+                return $"{{{clave}}} [red]{valorNuevo}[/red]";
+            else
+                return match.Value;
+        });
+
+        // Paso 2: Comparar texto adicional
+        string textoPlanoAnterior = QuitarAtributos(descripcionAntigua);
+        string textoPlanoNuevo = QuitarAtributos(descripcionNueva);
+
+        resultado = ResaltarTextoNuevo(textoPlanoAnterior, resultado);
+
+        return resultado;
+    }
+
+    private Dictionary<string, int> ExtraerAtributos(string descripcion)
+    {
+        Dictionary<string, int> atributos = new Dictionary<string, int>();
+        var matches = Regex.Matches(descripcion, @"\{(\w+)\}\s*(\d+)");
+        foreach (Match match in matches)
+        {
+            string clave = match.Groups[1].Value;
+            int valor = int.Parse(match.Groups[2].Value);
+            atributos[clave] = valor;
+        }
+        return atributos;
+    }
+
+    private string QuitarAtributos(string texto)
+    {
+        return Regex.Replace(texto, @"\{(\w+)\}\s*\d+", "").Trim();
+    }
+
+    private static string ResaltarTextoNuevo(string original, string nuevo)
+    {
+        // Busca frases nuevas (por ejemplo, una oración nueva al final)
+        if (nuevo.Length <= original.Length)
+            return nuevo;
+
+        int i = 0;
+        while (i < original.Length && i < nuevo.Length && original[i] == nuevo[i])
+            i++;
+
+        if (i >= nuevo.Length)
+            return nuevo;
+
+        // Añadir resaltado verde al texto añadido
+        string inicio = nuevo.Substring(0, i);
+        string añadido = nuevo.Substring(i);
+
+        return $"{inicio}[green]{añadido}[/green]";
+    }
 }
