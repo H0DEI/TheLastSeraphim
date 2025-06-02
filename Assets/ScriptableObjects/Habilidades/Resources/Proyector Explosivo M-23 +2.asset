@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
   m_Name: Proyector Explosivo M-23 +2
   m_EditorClassIdentifier: 
-  nombre: 
-  descripcion: Range  A 2  F{0}  FP{1}  D{2}
+  nombre: Proyector Explosivo M-23 +2
+  descripcion: "Lanza una granada explosiva, da\xF1ando a todos los enemigos en el
+    \xE1rea.\n{F} 8, {P} 4, {D} 6"
   coste: 1
   velocidad: 2
   fuerza: 9
   penetracion: 4
   "da\xF1o": 5
   acciones: 0000000000000000
+  animaciones: 
   personaje: {fileID: 0}
   objetivos: []
   tipoSeleccion: 3
@@ -28,3 +30,4 @@ MonoBehaviour:
   melee: 0
   numeroDeUsos: 727
   tier: 3
+  sonido: {fileID: 0}

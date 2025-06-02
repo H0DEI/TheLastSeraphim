@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: "Tiro de Precisi\xF3n +2"
   m_EditorClassIdentifier: 
   nombre: "Tiro de Precisi\xF3n +2"
-  descripcion: Range  A 1  F{0}  FP{1}  D{2}
+  descripcion: "Realiza un disparo a la cabeza a un enemigo, infligiendo un gran
+    da\xF1o. Ademas, si la fuerza duplica la resistencia del objetivo, inlinje {D}
+    6 adicional.\n{F} 16, {P} 8, {D} 10."
   coste: 1
   velocidad: 7
   fuerza: 12

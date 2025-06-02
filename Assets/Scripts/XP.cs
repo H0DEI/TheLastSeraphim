@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 public class XP : MonoBehaviour
 {
@@ -178,12 +180,20 @@ public class XP : MonoBehaviour
             }
             
             habilidad = Instantiate(Temp[random.Next(Temp.Count)]);
-
-            descripciones[i].GetComponentInChildren<InformacionDescripciones>().MuestraInformacionHabilidad(habilidad);
                             
             BtnOpts[i].GetComponentInChildren<InteractuarLevelUp>().habilidad = habilidad;
 
             BtnOpts[i].GetComponentInChildren<InteractuarLevelUp>().esMejora = upgrade;
+
+            if (upgrade)
+            {
+                descripciones[i].GetComponentInChildren<InformacionDescripciones>().MuestraHabilidadMejorada(ObtenerHabilidadAnterior(habilidad), habilidad, descripciones[i].GetComponentInChildren<InformacionDescripciones>().CompararDescripcionesAvanzado(ObtenerHabilidadAnterior(habilidad).descripcion, habilidad.descripcion));
+            }
+            else
+            {
+                descripciones[i].GetComponentInChildren<InformacionDescripciones>().MuestraInformacionHabilidad(habilidad);
+            }
+
 
             if (Temp != null) Temp.Clear();
 
@@ -191,5 +201,26 @@ public class XP : MonoBehaviour
 
             upgrade = false;
         }
+    }
+
+    public Habilidad ObtenerHabilidadAnterior(Habilidad habilidadActual)
+    {
+        string nombre = habilidadActual.name.Replace("(Clone)", "").Trim();
+
+        // Si termina en +n
+        Match match = Regex.Match(nombre, @"^(.*)\s\+(\d+)$");
+
+        if (match.Success)
+        {
+            string baseName = match.Groups[1].Value.Trim();
+            int nivel = int.Parse(match.Groups[2].Value);
+
+            string nombreAnterior = nivel == 1 ? baseName : $"{baseName} +{nivel - 1}";
+
+            return TodasHabilidades.FirstOrDefault(h => h.name == nombreAnterior);
+        }
+
+        // Si no tiene mejora, no hay anterior
+        return null;
     }
 }

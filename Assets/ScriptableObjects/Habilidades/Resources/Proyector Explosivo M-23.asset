@@ -32,5 +32,5 @@ MonoBehaviour:
   usosLimitados: 0
   melee: 0
   numeroDeUsos: 727
-  tier: 2
+  tier: 0
   sonido: {fileID: 0}

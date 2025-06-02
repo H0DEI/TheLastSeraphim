@@ -12,14 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
   m_Name: Hoja de Plasma +2
   m_EditorClassIdentifier: 
-  nombre: 
-  descripcion: Melee  A 1  F {0}+HE  FP {1}  D {2}
+  nombre: Hoja de Plasma +2
+  descripcion: 'Ataca cuerpo a cuerpo a un enemigo con un golpe preciso, potenciado
+    por su {HE}.
+
+    +{F} 6, {P} 6, {D} 3+1d3'
   coste: 1
   velocidad: 9
   fuerza: 1
   penetracion: 10
   "da\xF1o": 8
   acciones: 02000000
+  animaciones: 
   personaje: {fileID: 0}
   objetivos: []
   tipoSeleccion: 1
@@ -28,3 +32,4 @@ MonoBehaviour:
   melee: 0
   numeroDeUsos: 727
   tier: 3
+  sonido: {fileID: 0}

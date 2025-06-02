@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: AR Rafaga +1
   m_EditorClassIdentifier: 
   nombre: AR Rafaga +1
-  descripcion: Range {EYE} aasad {F}
+  descripcion: "Realiza 3 disparos r\xE1pidos consecutivos a un enemigo.\n{F} 6,
+    {P} 2, {D} 2"
   coste: 1
   velocidad: 5
   fuerza: 5

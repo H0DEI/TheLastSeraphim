@@ -8,6 +8,9 @@ public class InformacionDescripciones : MonoBehaviour
 {
     public TextMeshProUGUI muestraNombre;
     public TextMeshProUGUI muestraDescripcion;
+    public GameObject flechaMejora;
+    public GameObject objetomuestraDescripcion2;
+    public TextMeshProUGUI muestraDescripcion2;
     public TextMeshProUGUI SPD;
     public TextMeshProUGUI EN;
     public TextMeshProUGUI PV;
@@ -58,8 +61,14 @@ public class InformacionDescripciones : MonoBehaviour
                 if (habilidad.descripcion.Substring(0, habilidad.descripcion.IndexOf(" ")) == "Range") fuerza = habilidad.fuerza.ToString();
                 else fuerza = " +" + habilidad.fuerza.ToString();
             }
-        }        
-        
+        }
+
+        if (flechaMejora && objetomuestraDescripcion2 is not null)
+        {
+            flechaMejora.SetActive(false);
+            objetomuestraDescripcion2.SetActive(false);
+        }
+
         muestraNombre.text = habilidad.nombre;
         //muestraDescripcion.text = string.Format(habilidad.descripcion, fuerza, penetracion, " " + habilidad.daño);
         Mostrar(habilidad);
@@ -72,6 +81,11 @@ public class InformacionDescripciones : MonoBehaviour
     public void Mostrar(Habilidad habilidad)
     {
         muestraDescripcion.text = datosVisuales.Aplicar(habilidad.descripcion);
+    }
+
+    public void MostrarMejora(string descripcionMejora)
+    {
+        muestraDescripcion2.text = datosVisuales.Aplicar(descripcionMejora);
     }
 
     public void MuestraInformacionPersonaje(Personaje personaje)
@@ -110,7 +124,6 @@ public class InformacionDescripciones : MonoBehaviour
 
     public string CompararDescripcionesAvanzado(string descripcionAntigua, string descripcionNueva)
     {
-        // Paso 1: Comparar atributos numéricos
         Dictionary<string, int> antiguos = ExtraerAtributos(descripcionAntigua);
         Dictionary<string, int> nuevos = ExtraerAtributos(descripcionNueva);
 
@@ -119,20 +132,33 @@ public class InformacionDescripciones : MonoBehaviour
             string clave = match.Groups[1].Value;
             int valorNuevo = int.Parse(match.Groups[2].Value);
 
+            // Deja el sprite siempre fuera del color
+            string sprite = $"<sprite name=\"{clave}\"> ";
+
             if (!antiguos.TryGetValue(clave, out int valorViejo))
-                return $"{{{clave}}} [green]{valorNuevo}[/green]";
+            {
+                // Nuevo atributo: resáltalo en verde
+                return $"{sprite}<color=#20BE00>{valorNuevo}</color>";
+            }
 
             if (valorNuevo > valorViejo)
-                return $"{{{clave}}} [green]{valorNuevo}[/green]";
+            {
+                return $"{sprite}<color=#20BE00>{valorNuevo}</color>";
+            }
             else if (valorNuevo < valorViejo)
-                return $"{{{clave}}} [red]{valorNuevo}[/red]";
+            {
+                return $"{sprite}<color=#BE0000>{valorNuevo}</color>";
+            }
             else
-                return match.Value;
+            {
+                return $"{sprite}{valorNuevo}";
+            }
         });
 
-        // Paso 2: Comparar texto adicional
-        string textoPlanoAnterior = QuitarAtributos(descripcionAntigua);
-        string textoPlanoNuevo = QuitarAtributos(descripcionNueva);
+
+        // Extra: asegurar que estamos comparando sin espacios extraños
+        string textoPlanoAnterior = QuitarAtributos(descripcionAntigua).Trim();
+        string textoPlanoNuevo = QuitarAtributos(descripcionNueva).Trim();
 
         resultado = ResaltarTextoNuevo(textoPlanoAnterior, resultado);
 
@@ -141,7 +167,7 @@ public class InformacionDescripciones : MonoBehaviour
 
     private Dictionary<string, int> ExtraerAtributos(string descripcion)
     {
-        Dictionary<string, int> atributos = new Dictionary<string, int>();
+        var atributos = new Dictionary<string, int>();
         var matches = Regex.Matches(descripcion, @"\{(\w+)\}\s*(\d+)");
         foreach (Match match in matches)
         {
@@ -157,12 +183,8 @@ public class InformacionDescripciones : MonoBehaviour
         return Regex.Replace(texto, @"\{(\w+)\}\s*\d+", "").Trim();
     }
 
-    private static string ResaltarTextoNuevo(string original, string nuevo)
+    private string ResaltarTextoNuevo(string original, string nuevo)
     {
-        // Busca frases nuevas (por ejemplo, una oración nueva al final)
-        if (nuevo.Length <= original.Length)
-            return nuevo;
-
         int i = 0;
         while (i < original.Length && i < nuevo.Length && original[i] == nuevo[i])
             i++;
@@ -170,10 +192,20 @@ public class InformacionDescripciones : MonoBehaviour
         if (i >= nuevo.Length)
             return nuevo;
 
-        // Añadir resaltado verde al texto añadido
         string inicio = nuevo.Substring(0, i);
         string añadido = nuevo.Substring(i);
 
-        return $"{inicio}[green]{añadido}[/green]";
+        return $"{inicio}<color=#20BE00>{añadido}</color>";
+    }
+
+    public void MuestraHabilidadMejorada(Habilidad habilidadAnterior, Habilidad habilidad, string descripcionMejora)
+    {
+        flechaMejora.SetActive(true);
+        objetomuestraDescripcion2.SetActive(true);
+        muestraNombre.text = habilidad.nombre;
+        Mostrar(habilidadAnterior);
+        MostrarMejora(descripcionMejora);
+        EN.text = habilidad.coste.ToString();
+        SPD.text = habilidad.velocidad.ToString();
     }
 }

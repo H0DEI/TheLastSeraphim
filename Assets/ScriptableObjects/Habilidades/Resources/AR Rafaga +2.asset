@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
   m_Name: AR Rafaga +2
   m_EditorClassIdentifier: 
-  nombre: 
-  descripcion: Range  A 4  F{0}  FP{1}  D{2}
+  nombre: AR Rafaga +2
+  descripcion: "Realiza 4 disparos r\xE1pidos consecutivos a un enemigo.\n{F} 5,
+    {P} 2, {D} 3"
   coste: 1
   velocidad: 5
   fuerza: 5
   penetracion: 2
   "da\xF1o": 2
   acciones: 00000000000000000000000000000000
+  animaciones: 
   personaje: {fileID: 0}
   objetivos: []
   tipoSeleccion: 1
@@ -28,3 +30,4 @@ MonoBehaviour:
   melee: 0
   numeroDeUsos: 727
   tier: 3
+  sonido: {fileID: 0}

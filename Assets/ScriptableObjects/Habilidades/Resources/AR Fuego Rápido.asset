@@ -20,15 +20,16 @@ MonoBehaviour:
   velocidad: 20
   fuerza: 20
   penetracion: 20
-  "da\xF1o": 5
+  "da\xF1o": 10
   acciones: 0000000000000000
   animaciones: 03000000
   personaje: {fileID: 0}
-  objetivos: []
+  objetivos:
+  - {fileID: 0}
   tipoSeleccion: 3
   cantidad: 1
   usosLimitados: 0
   melee: 0
   numeroDeUsos: 727
-  tier: 0
+  tier: 2
   sonido: {fileID: 8300000, guid: 3b5ef7fdfcc840940854271391d2e038, type: 3}

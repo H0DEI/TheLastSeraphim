@@ -12,14 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
   m_Name: "Golpe Cin\xE9tico +2"
   m_EditorClassIdentifier: 
-  nombre: 
-  descripcion: Melee  A 3  F{0}  FP{1}  D{2}
+  nombre: "Golpe Cin\xE9tico +2"
+  descripcion: 'Lanza una patada contundente a un enemigo cercano.
+
+    +{F} 10,
+    {P} 1, {D} 5'
   coste: 1
   velocidad: 4
   fuerza: 5
   penetracion: 2
   "da\xF1o": 4
   acciones: 010000000100000001000000
+  animaciones: 
   personaje: {fileID: 0}
   objetivos: []
   tipoSeleccion: 1
@@ -28,3 +32,4 @@ MonoBehaviour:
   melee: 0
   numeroDeUsos: 727
   tier: 3
+  sonido: {fileID: 0}

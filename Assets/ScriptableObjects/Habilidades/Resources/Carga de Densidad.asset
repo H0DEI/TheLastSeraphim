@@ -29,5 +29,5 @@ MonoBehaviour:
   usosLimitados: 1
   melee: 0
   numeroDeUsos: 1
-  tier: 2
+  tier: 1
   sonido: {fileID: 0}
