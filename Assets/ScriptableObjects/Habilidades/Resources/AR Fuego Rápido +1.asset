@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: "AR Fuego R\xE1pido +1"
   m_EditorClassIdentifier: 
   nombre: "AR Fuego R\xE1pido +1"
-  descripcion: 'Realiza 3 Disparos a un enemigo. ademas, ejemplo {HC} y {HP}
+  descripcion: 'Realiza 3 Disparos a un enemigo.
 
-    {F}
-    4, {P} 0, {D} 4.'
+    {F} 4, {P} 0, {D} 4.'
   coste: 1
   velocidad: 8
   fuerza: 4

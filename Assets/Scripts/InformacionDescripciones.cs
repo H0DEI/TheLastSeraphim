@@ -137,7 +137,7 @@ public class InformacionDescripciones : MonoBehaviour
 
             if (!antiguos.TryGetValue(clave, out int valorViejo))
             {
-                // Nuevo atributo: resáltalo en verde
+                // Atributo nuevo: verde
                 return $"{sprite}<color=#20BE00>{valorNuevo}</color>";
             }
 
@@ -151,9 +151,11 @@ public class InformacionDescripciones : MonoBehaviour
             }
             else
             {
-                return $"{sprite}{valorNuevo}";
+                // Sin cambio, resaltar en blanco
+                return $"{sprite}<color=#FFFFFF>{valorNuevo}</color>";
             }
         });
+
 
 
         // Extra: asegurar que estamos comparando sin espacios extraños

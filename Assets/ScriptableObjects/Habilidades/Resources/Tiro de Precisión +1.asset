@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: "Tiro de Precisi\xF3n +1"
   descripcion: "Realiza un disparo a la cabeza a un enemigo, infligiendo un gran
-    da\xF1o. Ademas, si la fuerza duplica la resistencia del objetivo, inlinje {D}
+    da\xF1o. Ademas, si la fuerza duplica la resistencia del objetivo, inlinge {D}
     4 adicional.\n{F} 14, {P} 8, {D} 10."
   coste: 1
   velocidad: 7
