@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a941685ac2ee3754a8fc141a3a45d42d
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 196875
+  packageName: Simple World Material Textures
+  packageVersion: 1.0.0
+  assetPath: Assets/SimpleWorldMaterialTextures/Materials/StoneMat.mat
+  uploadId: 499553
