@@ -4450,6 +4450,7 @@ MonoBehaviour:
   Icon: {fileID: 1459832151}
   background: {fileID: 1459832150}
   soundEffect: {fileID: 215876479}
+  Linterna: {fileID: 1780652916}
 --- !u!4 &223168353
 Transform:
   m_ObjectHideFlags: 0

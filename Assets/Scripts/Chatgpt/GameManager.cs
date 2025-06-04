@@ -86,6 +86,8 @@ public class GameManager : MonoBehaviour
 
     public AudioSource soundEffect;
 
+    public GameObject Linterna;
+
     //public GameObject indicadorRaton;
 
     private Transform interfaz;

@@ -16,6 +16,16 @@ public class WeaponEffects : MonoBehaviour
 
     public GameObject root;
 
+    public void ApagarLuzJugador()
+    {
+        GameManager.instance.Linterna.SetActive(false);
+    }
+
+    public void EncenderLuzJugador()
+    {
+        GameManager.instance.Linterna.SetActive(true);
+    }
+
     public void Girar90Y()
     {
         root.transform.rotation = Quaternion.Euler(
