@@ -16,7 +16,7 @@ MonoBehaviour:
   descripcion: "Desenfunda y dispara un proyectil de gran calibre directamente al
     torso del objetivo, causando un da\xF1o devastador.\n{F} 12, {P} 2, {D} 7."
   coste: 1
-  velocidad: 5
+  velocidad: 10
   fuerza: 12
   penetracion: 2
   "da\xF1o": 7
