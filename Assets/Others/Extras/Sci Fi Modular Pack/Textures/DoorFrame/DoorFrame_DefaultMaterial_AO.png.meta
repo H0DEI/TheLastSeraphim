@@ -86,3 +86,10 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 142811
+  packageName: Modular Sci-Fi Corridor
+  packageVersion: 1.0
+  assetPath: Assets/Others/Extras/Sci Fi Modular Pack/Textures/DoorFrame/DoorFrame_DefaultMaterial_AO.png
+  uploadId: 303128

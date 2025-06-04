@@ -4,12 +4,35 @@ using UnityEngine;
 public class WeaponEffects : MonoBehaviour
 {
     public GameObject weapon;
+    public GameObject gun;
+
     public GameObject muzzleFlash;
+    public GameObject gunFlash;
 
     public GameObject grenade;
     public GameObject explosion;
     public GameObject heal;
     public GameObject shield;
+
+    public GameObject root;
+
+    public void Girar90Y()
+    {
+        root.transform.rotation = Quaternion.Euler(
+            root.transform.eulerAngles.x,
+            root.transform.eulerAngles.y + 90f,
+            root.transform.eulerAngles.z
+        );
+    }
+
+    public void RevertirRotacion()
+    {
+        root.transform.rotation = Quaternion.Euler(
+            root.transform.eulerAngles.x,
+            root.transform.eulerAngles.y - 90f,
+            root.transform.eulerAngles.z
+        );
+    }
 
     public void ActivateWeapon()
     {
@@ -19,6 +42,15 @@ public class WeaponEffects : MonoBehaviour
     public void DeactivateWeapon()
     {
         weapon.SetActive(false);
+    }
+    public void ActivateGun()
+    {
+        gun.SetActive(true);
+    }
+
+    public void DeactivateGun()
+    {
+        gun.SetActive(false);
     }
 
     public void ActivateShield()
@@ -43,6 +75,11 @@ public class WeaponEffects : MonoBehaviour
     public void TriggerMuzzleFlash()
     {
         EffectRoutine(muzzleFlash);
+    }
+
+    public void TriggerGunFlash()
+    {
+        EffectRoutine(gunFlash);
     }
 
     public void TriggerExplosion()

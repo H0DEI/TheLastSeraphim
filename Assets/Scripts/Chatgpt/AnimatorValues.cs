@@ -20,6 +20,8 @@ namespace SHG.AnimatorCoder
         RESET,
         SPECIAL1,
         SHIELD,
+        SHOOT3,
+        GUNSHOT1,
 
         //Canvas Animations:
         MISS,
