@@ -50,9 +50,12 @@ public class CargaEscena : MonoBehaviour
         //Corregir esta limpieza, no me gusta +1
         instancia.listaObjetosPersonajesEscena.Clear();
 
-        for (int i = 0; i < puertas.transform.childCount; i++)
+        if (puertas is not null)
         {
-            instancia.listaPuertas.Add(puertas.transform.GetChild(i).gameObject);
+            for (int i = 0; i < puertas.transform.childCount; i++)
+            {
+                instancia.listaPuertas.Add(puertas.transform.GetChild(i).gameObject);
+            }
         }
 
         if (!instancia.escenaActual.completada) 
