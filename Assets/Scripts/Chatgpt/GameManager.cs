@@ -396,13 +396,27 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public List<GameObject> ToListEnemigos()
+    public List<GameObject> ObtenerPersonajes(bool aliado)
     {
-        List<GameObject> listaEnemigos = listaObjetosPersonajesEscena.ToList();
+        List<GameObject> personajesFiltrados = new List<GameObject>();
 
-        listaEnemigos.RemoveAt(0);
+        foreach (GameObject obj in listaObjetosPersonajesEscena)
+        {
+            InteractuarPersonajes componente = obj.GetComponentInChildren<InteractuarPersonajes>();
 
-        return listaEnemigos;
+            if (componente != null && componente.aliado == aliado)
+            {
+                personajesFiltrados.Add(obj);
+            }
+        }
+
+        if (aliado)
+        {
+            // Eliminar el objetoJugador si está en la lista
+            personajesFiltrados.RemoveAll(obj => obj == objetoJugador);
+        }
+
+        return personajesFiltrados;
     }
 
     public void CargaJugador()
@@ -413,22 +427,95 @@ public class GameManager : MonoBehaviour
 
         objetoJugador.GetComponent<InteractuarPersonajes>().personaje = jugador;
 
-        //objetoJugador.GetComponentInChildren<BarraDeVida>().personaje = jugador;
-
         barraDeVida.personaje = jugador;
-
-        //objetoJugador.GetComponentInChildren<BarraDeVida>().barraAncho = objetoJugador.GetComponent<BoxCollider2D>().size.x;
     }
 
     public void CargaTurno()
     {
         List<Personaje> objetivosDisponibles = new List<Personaje>();
 
-        List<GameObject> listaEnemigos = ToListEnemigos();
+        List<GameObject> listaEnemigos = ObtenerPersonajes(false);
+
+        List<GameObject> listaAliados = ObtenerPersonajes(true);
 
         List<Habilidad> lHabilidades = new List<Habilidad>();
 
         Habilidad habilidad;
+
+        if(listaAliados.Count > 0)
+        {
+            foreach (GameObject objetoAliado in listaAliados)
+            {
+                Personaje aliado = objetoAliado.GetComponent<InteractuarPersonajes>().personaje;
+
+                if (aliado.heridasActuales <= 0) return;
+
+                foreach (Habilidad habi in aliado.habilidades)
+                {
+                    lHabilidades.Add(habi);
+                }
+
+                for (int puntosAcciones = aliado.accionesMaximas; puntosAcciones > 0; puntosAcciones -= habilidad.coste)
+                {
+                    do
+                    {
+                        habilidad = lHabilidades[Random.Range(0, aliado.habilidades.Count())];
+
+                        habilidad.nombre = habilidad.name;
+
+                        habilidad.velocidad += aliado.agilidad;
+
+                        habilidad.personaje = aliado;
+
+                    } while (habilidad.coste > puntosAcciones);
+
+                    switch (habilidad.tipoSeleccion)
+                    {
+                        case TipoSeleccion.SoloJugador:
+
+                            habilidad.objetivos.Add(instance.jugador);
+
+                            break;
+
+                        case TipoSeleccion.SoloUnEnemigo:
+
+                            habilidad.objetivos.Add(listaEnemigos[Random.Range(0, listaEnemigos.Count())].GetComponent<InteractuarPersonajes>().personaje);
+
+                            break;
+
+                        case TipoSeleccion.CualquierPersonaje:
+
+                            habilidad.objetivos.Add(listaObjetosPersonajesEscena[Random.Range(0, listaObjetosPersonajesEscena.Count())].GetComponent<InteractuarPersonajes>().personaje);
+
+                            break;
+
+                        case TipoSeleccion.TodosLosEnemigos:
+
+                            foreach (GameObject objetoPersonaje in listaEnemigos)
+                            {
+                                habilidad.objetivos.Add(objetoPersonaje.GetComponent<InteractuarPersonajes>().personaje);
+                            }
+
+                            break;
+
+                        case TipoSeleccion.SinSeleccionar:
+
+                            foreach (GameObject objetoPersonaje in listaObjetosPersonajesEscena)
+                            {
+                                habilidad.objetivos.Add(objetoPersonaje.GetComponent<InteractuarPersonajes>().personaje);
+                            }
+
+                            break;
+                    }
+
+                    habilidad.personaje = aliado;
+
+                    habilidadesALanzar.listaHabilidadesALanzar.Add(new KeyValuePair<Habilidad, bool>(Instantiate(habilidad), false));
+
+                    habilidad.objetivos.Clear();
+                }
+            }
+        }
 
         foreach (GameObject objetoEnemigo in listaEnemigos)
         {

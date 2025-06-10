@@ -91,7 +91,7 @@ public class XP : MonoBehaviour
     {
         xp = instancia.escenaActual.xp;
 
-        foreach(GameObject enemigo in instancia.ToListEnemigos())
+        foreach(GameObject enemigo in instancia.ObtenerPersonajes(false))
         {
             xp += enemigo.GetComponent<InteractuarPersonajes>().personaje.nivel;
         }

@@ -8,17 +8,13 @@ using TMPro;
 [RequireComponent(typeof(LookAtWithMargin))]
 public class InteractuarPersonajes : MonoBehaviour
 {
+    public bool aliado = false;
     public bool elegible;
     public bool vivo;
     public bool puedePresionarse;
     public bool cursorDesactivado;
 
     public Personaje personaje;
-
-    private SpriteRenderer spriteRenderer;
-
-    private Color porDefecto;
-    private Color rojo;
 
     private GameManager instancia;
 
@@ -27,11 +23,6 @@ public class InteractuarPersonajes : MonoBehaviour
         instancia = GameManager.instance;
         vivo = true;
 
-        ColorUtility.TryParseHtmlString("#FFFFFF", out porDefecto);
-        ColorUtility.TryParseHtmlString("#E36D63", out rojo);
-
-        spriteRenderer = GetComponent<SpriteRenderer>();
-
         personaje.gameObject = transform.gameObject;
 
         puedePresionarse = true;
@@ -39,27 +30,7 @@ public class InteractuarPersonajes : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        //spriteRenderer.color = rojo;
-
         instancia.informacionDescripciones.MuestraInformacionPersonaje(personaje);
-
-        //if (instancia.mostrarIndicador)
-        //{
-        //    instancia.indicadorRaton.GetComponent<IndicadorRaton>().PersonajeOffset = rectTransform;
-        //
-        //    instancia.indicadorRaton.SetActive(true);
-        //
-        //    instancia.indicadorRaton.GetComponent<TextMeshProUGUI>().text = instancia.interactuarBotonHabilidad.cantidad.ToString();
-        //}
-    }
-
-    private void OnMouseExit()
-    {
-        //spriteRenderer.color = porDefecto;
-
-        //instancia.informacionDescripciones.LimpiaInformacion();
-
-        //if (instancia.mostrarIndicador) instancia.indicadorRaton.SetActive(false);
     }
 
     private void OnMouseDown()
