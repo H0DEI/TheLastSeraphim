@@ -517,6 +517,8 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        lHabilidades.Clear();
+
         foreach (GameObject objetoEnemigo in listaEnemigos)
         {
             Personaje enemigo = objetoEnemigo.GetComponent<InteractuarPersonajes>().personaje;
