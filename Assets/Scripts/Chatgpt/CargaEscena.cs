@@ -13,6 +13,8 @@ public class CargaEscena : MonoBehaviour
 
     public DialogueGraph dialogueGraph;
 
+    public bool luzJugador = true;
+
     private GameManager instancia;
 
     private AnimationManager animator;
@@ -58,6 +60,8 @@ public class CargaEscena : MonoBehaviour
             }
         }
 
+        if (!luzJugador) DesactivarSpotLight(instancia.objetoJugador);
+
         if (!instancia.escenaActual.completada) 
         { 
             for (int i=0; i<enemigos.transform.childCount; i++)
@@ -93,5 +97,22 @@ public class CargaEscena : MonoBehaviour
         {
             instancia.dialogueSystem.InitGraph(dialogueGraph);
         }
+    }
+
+    public static void DesactivarSpotLight(GameObject raiz)
+    {
+        // Buscar todos los Light en hijos
+        Light[] luces = raiz.GetComponentsInChildren<Light>(true); // true incluye los inactivos
+
+        foreach (Light luz in luces)
+        {
+            if (luz.type == LightType.Spot)
+            {
+                luz.gameObject.SetActive(false);
+                return; // Sale después de desactivar el primero
+            }
+        }
+
+        Debug.LogWarning("No se encontró ninguna Spot Light en hijos de " + raiz.name);
     }
 }

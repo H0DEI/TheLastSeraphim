@@ -13167,7 +13167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eab202f524820847884e4e6ddafe524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  escenaCargar: {fileID: 11400000, guid: 92b4837d1e0df8240aa556d41727ffdf, type: 2}
+  escenaCargar: {fileID: 11400000, guid: b875eeaa737c881449877775e6385e5a, type: 2}
   spriteHover: {fileID: 21300000, guid: 67c34bb955c72e6419b7528e10e73c53, type: 3}
 --- !u!114 &883504448
 MonoBehaviour:
@@ -13218,7 +13218,7 @@ MonoBehaviour:
         m_MethodName: NuevaPartida
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 19df214e274f1134688b99f28cc53a5e, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: b875eeaa737c881449877775e6385e5a, type: 2}
           m_ObjectArgumentAssemblyTypeName: Escena, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -31376,63 +31376,6 @@ RectTransform:
   m_AnchoredPosition: {x: 12.5, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1001 &3748404854413764459
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 515738993307800990, guid: 9a8b2e076e074f143934c9cf3099636e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -9.49
-      objectReference: {fileID: 0}
-    - target: {fileID: 515738993307800990, guid: 9a8b2e076e074f143934c9cf3099636e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 515738993307800990, guid: 9a8b2e076e074f143934c9cf3099636e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -12.428
-      objectReference: {fileID: 0}
-    - target: {fileID: 515738993307800990, guid: 9a8b2e076e074f143934c9cf3099636e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.96601194
-      objectReference: {fileID: 0}
-    - target: {fileID: 515738993307800990, guid: 9a8b2e076e074f143934c9cf3099636e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 515738993307800990, guid: 9a8b2e076e074f143934c9cf3099636e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.25849733
-      objectReference: {fileID: 0}
-    - target: {fileID: 515738993307800990, guid: 9a8b2e076e074f143934c9cf3099636e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 515738993307800990, guid: 9a8b2e076e074f143934c9cf3099636e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 515738993307800990, guid: 9a8b2e076e074f143934c9cf3099636e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -29.962
-      objectReference: {fileID: 0}
-    - target: {fileID: 515738993307800990, guid: 9a8b2e076e074f143934c9cf3099636e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 892721310677700388, guid: 9a8b2e076e074f143934c9cf3099636e, type: 3}
-      propertyPath: m_Name
-      value: Cyborg 3.0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9a8b2e076e074f143934c9cf3099636e, type: 3}
 --- !u!1 &3775370362942285344
 GameObject:
   m_ObjectHideFlags: 0
@@ -32043,4 +31986,3 @@ SceneRoots:
   - {fileID: 191116396}
   - {fileID: 446370211}
   - {fileID: 351696002}
-  - {fileID: 3748404854413764459}

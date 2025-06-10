@@ -969,6 +969,7 @@ MonoBehaviour:
   puertas: {fileID: 506160722}
   enemigos: {fileID: 1110172593}
   dialogueGraph: {fileID: 0}
+  luzJugador: 0
 --- !u!4 &2073826160
 Transform:
   m_ObjectHideFlags: 0
