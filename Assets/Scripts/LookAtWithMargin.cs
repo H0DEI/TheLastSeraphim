@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class LookAtWithMargin : MonoBehaviour
 {
@@ -7,34 +7,44 @@ public class LookAtWithMargin : MonoBehaviour
 
     private void Start()
     {
-        target = GameManager.instance.objetoJugador.transform;
+        if (!GetComponent<InteractuarPersonajes>().aliado) target = GameManager.instance.objetoJugador.transform;
 
-        // Excluir que el target sea el mismo objeto que lleva el script
-        if (target == transform)
+        if(target != null)
         {
-            return;
-        }
+            // Excluir que el target sea el mismo objeto que lleva el script
+            if (target == transform)
+            {
+                return;
+            }
 
-        LookAt(target);        
+            LookAt(target);
+        }
     }
 
     public void LookAt(Transform target)
     {
-        // Direcci�n hacia el objetivo
-        Vector3 directionToTarget = target.position - transform.position;
+            // Dirección hacia el objetivo
+            Vector3 directionToTarget = target.position - transform.position;
 
-        // Introducir margen de error
-        Vector3 randomError = new Vector3(
-            Random.Range(-errorMargin, errorMargin),
-            Random.Range(-errorMargin, errorMargin),
-            Random.Range(-errorMargin, errorMargin)
-        );
+            // Introducir margen de error
+            Vector3 randomError = new Vector3(
+                Random.Range(-errorMargin, errorMargin),
+                0f, // ← No queremos error en el eje Y (vertical)
+                Random.Range(-errorMargin, errorMargin)
+            );
 
-        // Ajustar direcci�n con el margen de error
-        Vector3 adjustedDirection = directionToTarget + randomError;
+            // Ajustar dirección con margen de error
+            Vector3 adjustedDirection = directionToTarget + randomError;
 
-        // Orientar el objeto hacia la nueva direcci�n
-        transform.rotation = Quaternion.LookRotation(adjustedDirection);
+            // Ignorar componente Y (vertical) para mantener la rotación solo en el plano XZ
+            adjustedDirection.y = 0f;
+
+            // Solo girar en el plano horizontal
+            if (adjustedDirection != Vector3.zero) // evitar error de rotación nula
+            {
+                transform.rotation = Quaternion.LookRotation(adjustedDirection);
+            }
+        
     }
 
     public void GetClosestLookAtTarget(Transform self)
@@ -50,6 +60,11 @@ public class LookAtWithMargin : MonoBehaviour
             // Ignorar a uno mismo
             if (targetTransform == self)
                 continue;
+
+            // Verificar si tiene el componente InteractuarPersonajes
+            InteractuarPersonajes ip = targetTransform.GetComponent<InteractuarPersonajes>();
+            if (ip != null && ip.aliado)
+                continue; // Ignorar si es aliado
 
             float distance = Vector3.Distance(self.position, targetTransform.position);
 

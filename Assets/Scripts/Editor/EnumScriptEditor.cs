@@ -23,6 +23,7 @@ public class EnumScriptEditor : Editor
     private SerializedProperty propiedadNumeroDeUsos;
     private SerializedProperty propiedadTier;
     private SerializedProperty propiedadSonido;
+    private SerializedProperty propiedadInvocacion;
 
     private void OnEnable()
     {
@@ -43,6 +44,7 @@ public class EnumScriptEditor : Editor
         propiedadNumeroDeUsos = serializedObject.FindProperty("numeroDeUsos");
         propiedadTier = serializedObject.FindProperty("tier");
         propiedadSonido = serializedObject.FindProperty("sonido");
+        propiedadInvocacion = serializedObject.FindProperty("invocacion");
     }
 
     public override void OnInspectorGUI()
@@ -99,6 +101,8 @@ public class EnumScriptEditor : Editor
         }
 
         EditorGUILayout.PropertyField(propiedadTier);
+
+        EditorGUILayout.PropertyField(propiedadInvocacion);
 
         serializedObject.ApplyModifiedProperties();
     }

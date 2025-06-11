@@ -10,5 +10,6 @@ public class SoyAliado : MonoBehaviour
         {
             GameManager.instance.listaObjetosPersonajesEscena.Add(gameObject);
         }
+        GetComponent<LookAtWithMargin>().GetClosestLookAtTarget(transform);
     }
 }

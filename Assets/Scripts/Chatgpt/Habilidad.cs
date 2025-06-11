@@ -44,6 +44,8 @@ public class Habilidad : ScriptableObject, IComparable
 
     public AudioClip sonido;
 
+    public GameObject invocacion;
+
     private void Play(string id, AnimationData animationData, int layer = 0)
     {
         GameManager.instance.animationManager.PlayAnimation(id, animationData, layer);
@@ -60,37 +62,8 @@ public class Habilidad : ScriptableObject, IComparable
 
        foreach (Animations animacion in animaciones)
        {
-           //if(melee) GameManager.instance.objetoJugador.GetComponent<PunchMover>().objetivo = objetivos[0].GetComponent<Transform>();
-
            Play(personaje.gameObject.GetInstanceID().ToString(), new(animacion, true, new(), 0.2f));
        }
-
-        
-           // AnimationData previousAnimation = null;
-           //
-           // // Crear la cadena de animaciones desde la lista `animaciones`.
-           // foreach (Animations animacion in animaciones)
-           // {
-           //     var currentAnimation = new AnimationData(animacion, true, new(), 0.2f);
-           //     if (previousAnimation != null)
-           //     {
-           //         // Encadenar la animación actual con la anterior.
-           //         previousAnimation.nextAnimation = currentAnimation;
-           //     }
-           //     else
-           //     {
-           //         // Iniciar la primera animación directamente.
-           //         Play(personaje.gameObject.GetInstanceID().ToString(), currentAnimation);
-           //     }
-           //     previousAnimation = currentAnimation;
-           // }
-           //
-           // // Asegurar que la última animación regrese a la predeterminada.
-           // if (previousAnimation != null)
-           // {
-           //     //Debug.Log($"Agregando IDLE1 al final de la cadena");
-           //     previousAnimation.nextAnimation = new AnimationData(Animations.IDLE1, false, null, 0.2f);
-           // }
 
             // Reproducir sonido si aplica.
             if (sonido != null) GameManager.instance.soundEffect.PlayOneShot(sonido);
@@ -178,15 +151,11 @@ public class Habilidad : ScriptableObject, IComparable
 
                     personaje.agilidad += fuerza;
 
-                    //Anima(personaje, "Mejora");
-
                     break;
 
                 case Accion.ReduccionResistencia:
 
-                personaje.resistencia -= 1;
-
-                //Anima(personaje, "Desmejora");
+                    personaje.resistencia -= 1;
 
                     break;
 
@@ -266,7 +235,14 @@ public class Habilidad : ScriptableObject, IComparable
                 }
 
                     break;
-            }
+            case Accion.Invoca:
+
+                Transform posicionTransform = GameManager.instance.objetoJugador.transform.Find("posicionInvocacion");
+
+                if (posicionTransform != null) Instantiate(invocacion, posicionTransform.position, posicionTransform.rotation);
+
+                break;
+        }
         }
     
 
@@ -431,10 +407,6 @@ public class Habilidad : ScriptableObject, IComparable
     private void Anima(Personaje objetivo, String animacion, Color color)
     {
         GameManager.instance.textManager.ShowFloatingText(objetivo.gameObject, animacion, color);
-
-        //objetivo.gameObject.GetComponent<Animator>().SetTrigger(animacion);
-
-        //PlayCanvas(objetivo.gameObject.GetInstanceID().ToString(), new(Animations.MISS, true, new(), 0.2f));
     }
 
     private void AnimaValue(Personaje objetivo, String text, String value)

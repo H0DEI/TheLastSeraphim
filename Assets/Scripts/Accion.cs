@@ -21,5 +21,6 @@ public enum Accion
     Disparo1d6,
     Disparo1d3DañoMas1d3,
     DisparoDañoMitadVidaActualObjetivo,
-    ReduccionResistencia
+    ReduccionResistencia,
+    Invoca
 }

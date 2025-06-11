@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
+  m_Name: Torreta M1
+  m_EditorClassIdentifier: 
+  nombre: Torreta M1
+  descripcion: Invoca la Torreta M1
+  coste: 1
+  velocidad: 14
+  fuerza: 0
+  penetracion: 0
+  "da\xF1o": 0
+  acciones: 12000000
+  animaciones: 01000000
+  personaje: {fileID: 0}
+  objetivos:
+  - {fileID: 0}
+  tipoSeleccion: 5
+  cantidad: 1
+  usosLimitados: 0
+  melee: 0
+  numeroDeUsos: 727
+  tier: 0
+  sonido: {fileID: 0}
+  invocacion: {fileID: 4953356313203640821, guid: 34457051ab7308d41a557c493011015f, type: 3}
