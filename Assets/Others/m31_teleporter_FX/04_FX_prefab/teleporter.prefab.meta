@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 856ddc11c4d1bd54885aa67f69f72cdf
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 25645
+  packageName: TELEPORTER
+  packageVersion: 1.0
+  assetPath: Assets/m31_teleporter_FX/04_FX_prefab/teleporter.prefab
+  uploadId: 42763

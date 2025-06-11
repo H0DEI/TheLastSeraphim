@@ -18,8 +18,6 @@ public class AnimationManager : MonoBehaviour
         if (!characters.ContainsKey(id))
         {
             characters.Add(id, characterAnimator);
-            //characterAnimator.Initialize(); // Inicializa el CharacterAnimator
-            //Debug.Log($"Personaje registrado: {id}");
         }
         else
         {
@@ -33,17 +31,6 @@ public class AnimationManager : MonoBehaviour
         if (characters.TryGetValue(id, out CharacterAnimator characterAnimator))
         {
             characterAnimator.PlayAnim(animationData, layer);
-
-            //    bool success = characterAnimator.PlayAnim(animationData, layer);
-            //    if (!success)
-            //    {
-            //        Debug.LogWarning($"No se pudo reproducir la animación para el personaje {id}.");
-            //    }
-            //}
-            //else
-            //{
-            //    Debug.LogError($"Personaje con ID {id} no encontrado.");
-            //
         }
     }
 

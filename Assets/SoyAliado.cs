@@ -11,5 +11,9 @@ public class SoyAliado : MonoBehaviour
             GameManager.instance.listaObjetosPersonajesEscena.Add(gameObject);
         }
         GetComponent<LookAtWithMargin>().GetClosestLookAtTarget(transform);
+
+        GetComponentInChildren<BarraDeVida>().barraAncho = GetComponent<BoxCollider2D>().size.x;
+
+        GameManager.instance.animationManager.RegisterCharacter(gameObject.GetInstanceID().ToString(), gameObject.AddComponent<CharacterAnimator>().GetComponent<CharacterAnimator>());
     }
 }
