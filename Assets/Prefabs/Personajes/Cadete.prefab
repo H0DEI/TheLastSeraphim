@@ -6029,7 +6029,7 @@ MonoBehaviour:
   vivo: 0
   puedePresionarse: 0
   cursorDesactivado: 0
-  personaje: {fileID: 11400000, guid: b7529ad8394efa240a9a419cce7ad7df, type: 2}
+  personaje: {fileID: 0}
 --- !u!61 &2371746030208798240
 BoxCollider2D:
   m_ObjectHideFlags: 0

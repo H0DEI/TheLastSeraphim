@@ -242,7 +242,7 @@ public class Habilidad : ScriptableObject, IComparable
                 if (posicionTransform != null) Instantiate(invocacion, posicionTransform.position, posicionTransform.rotation);
 
                 break;
-        }
+            }
         }
     
 

@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterAnimator))]
 public class SoyAliado : MonoBehaviour
 {
     private void OnEnable()
@@ -9,6 +10,7 @@ public class SoyAliado : MonoBehaviour
             !GameManager.instance.listaObjetosPersonajesEscena.Contains(gameObject))
         {
             GameManager.instance.listaObjetosPersonajesEscena.Add(gameObject);
+            GetComponent<InteractuarPersonajes>().personaje = Instantiate(GetComponent<InteractuarPersonajes>().personaje);
         }
         GetComponent<LookAtWithMargin>().GetClosestLookAtTarget(transform);
 
