@@ -3422,7 +3422,7 @@ Transform:
   m_GameObject: {fileID: 191116395}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.73, y: 0, z: 0.046412468}
+  m_LocalPosition: {x: -21.7, y: 0, z: 26.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13250,7 +13250,7 @@ MonoBehaviour:
         m_MethodName: NuevaPartida
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 6743cdb95fd60274d8406e4f5a1766fe, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: 7898fd84d29fb694fa32345cdd011604, type: 2}
           m_ObjectArgumentAssemblyTypeName: Escena, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0

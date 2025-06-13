@@ -98,5 +98,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/scnTest8.unity
     guid: 92d43794fd6be8347973494d648ed2b3
+  - enabled: 1
+    path: Assets/Scenes/scnTest9.unity
+    guid: edf03b6dbc85c9d4abe2a5bcba87b314
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
