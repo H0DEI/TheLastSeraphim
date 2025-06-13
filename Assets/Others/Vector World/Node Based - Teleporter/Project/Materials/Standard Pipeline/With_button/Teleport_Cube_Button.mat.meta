@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: d78b18246b30f5a48932e649bb44001c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 218022
+  packageName: Node Based - Teleporter
+  packageVersion: 1.0
+  assetPath: Assets/Vector World/Node Based - Teleporter/Project/Materials/Standard
+    Pipeline/With_button/Teleport_Cube_Button.mat
+  uploadId: 495298

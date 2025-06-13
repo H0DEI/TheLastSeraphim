@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 691261bbe1b60c3498084692bbef64fc
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 218022
+  packageName: Node Based - Teleporter
+  packageVersion: 1.0
+  assetPath: Assets/Vector World/Node Based - Teleporter/Project/Animation/Rotator.controller
+  uploadId: 495298

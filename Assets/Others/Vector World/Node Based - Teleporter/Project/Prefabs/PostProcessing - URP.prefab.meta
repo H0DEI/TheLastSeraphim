@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ba7bd77471ef1bc419317338a990740b
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 218022
+  packageName: Node Based - Teleporter
+  packageVersion: 1.0
+  assetPath: Assets/Vector World/Node Based - Teleporter/Project/Prefabs/PostProcessing
+    - URP.prefab
+  uploadId: 495298

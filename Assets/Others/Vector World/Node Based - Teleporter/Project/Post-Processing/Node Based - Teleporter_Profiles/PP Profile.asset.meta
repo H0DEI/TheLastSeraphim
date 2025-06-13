@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 793dd99c84819234da5bdcc57a23ec92
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 218022
+  packageName: Node Based - Teleporter
+  packageVersion: 1.0
+  assetPath: Assets/Vector World/Node Based - Teleporter/Project/Post-Processing/Node
+    Based - Teleporter_Profiles/PP Profile.asset
+  uploadId: 495298

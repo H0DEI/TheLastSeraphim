@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b798ada92f001bd47a6e661e1022b4f4
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 218022
+  packageName: Node Based - Teleporter
+  packageVersion: 1.0
+  assetPath: Assets/Vector World/Node Based - Teleporter/Project/Materials/URP/With_button/Teleport_Cube_Button_URP.mat
+  uploadId: 495298

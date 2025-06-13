@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: b9a1a8a092ac93b4fbca5d2a54527cf6
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 218022
+  packageName: Node Based - Teleporter
+  packageVersion: 1.0
+  assetPath: Assets/Vector World/Node Based - Teleporter/Project/Materials/Standard
+    Pipeline/With_button/Teleport_Body_Button.mat
+  uploadId: 495298

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 58e8eaa7887094f4da8b18b24f495788
+timeCreated: 1489427853
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 85445
+  packageName: Obligatory Sci-fi Corridor Vol.1
+  packageVersion: 1.0
+  assetPath: Assets/Obligatory Scifi Corridor 01/Scenes/Config-01-bake/LightingData.asset
+  uploadId: 171846

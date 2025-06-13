@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: edbb9ed1383c5944a82c02c1713374f0
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 112000000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 218022
+  packageName: Node Based - Teleporter
+  packageVersion: 1.0
+  assetPath: Assets/Vector World/Node Based - Teleporter/Project/Lighting/Main/LightingData.asset
+  uploadId: 495298
