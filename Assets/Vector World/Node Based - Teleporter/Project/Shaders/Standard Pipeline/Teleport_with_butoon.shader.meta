@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 60286a9dfb3f5fb409287fa89a93b880
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 218022
+  packageName: Node Based - Teleporter
+  packageVersion: 1.0
+  assetPath: Assets/Vector World/Node Based - Teleporter/Project/Shaders/Standard
+    Pipeline/Teleport_with_butoon.shader
+  uploadId: 495298

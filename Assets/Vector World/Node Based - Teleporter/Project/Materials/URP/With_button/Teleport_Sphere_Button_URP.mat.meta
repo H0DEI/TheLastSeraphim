@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2bda9686ba3c80f4891595ecd41a7b0f
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 218022
+  packageName: Node Based - Teleporter
+  packageVersion: 1.0
+  assetPath: Assets/Vector World/Node Based - Teleporter/Project/Materials/URP/With_button/Teleport_Sphere_Button_URP.mat
+  uploadId: 495298

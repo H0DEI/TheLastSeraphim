@@ -50251,7 +50251,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012415272414, guid: d9231829d3cedca409477c9327eb6425, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0.000013660378
+      value: 0.000013431627
       objectReference: {fileID: 0}
     - target: {fileID: 4000013053745136, guid: d9231829d3cedca409477c9327eb6425, type: 3}
       propertyPath: m_LocalPosition.x
@@ -50332,9 +50332,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 7202576317407823497}
-  gun: {fileID: 6416168903137996573}
+  gun: {fileID: 0}
   muzzleFlash: {fileID: 3457025057893478623}
-  gunFlash: {fileID: 0}
+  gunFlash: {fileID: 6416168903137996573}
   grenade: {fileID: 0}
   explosion: {fileID: 0}
   heal: {fileID: 0}

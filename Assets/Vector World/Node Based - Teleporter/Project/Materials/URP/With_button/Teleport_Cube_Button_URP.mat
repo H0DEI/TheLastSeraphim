@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Teleport_Cube_Button_URP
+  m_Shader: {fileID: 4800000, guid: 5573227ae09b5ff40878bbd0a012aa3e, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 0
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaCutoff: 0.5
+    - _Cutoff: 0.5
+    - _EdgeWidth: 0.02
+    - _EdgeWidth1: 0.06
+    - _EmmisionBlend: 0.84
+    - _EmmisionBlend1: 0.84
+    - _EmmisionInnerBlend: 1.14
+    - _EmmisionInnerBlend1: 1.09
+    - _EmmisionInnerWidth: 0.87
+    - _EmmisionInnerWidth1: 0.87
+    - _EmmisionWidth: 0.49
+    - _EmmisionWidth1: 0.41
+    - _FaderInOut: 1
+    - _Float3: 0
+    - _Float4: 0
+    - _Float5: 0
+    - _Float6: 0
+    - _GI_Reflection: 0.51
+    - _GI_Reflection1: 0.6
+    - _Occulsion: 0.3
+    - _Occulsion1: 0.6
+    - _Opacity: 0
+    - _Rings1: 0
+    - _RotationAngle: 0
+    - _Scale: 55
+    - _Scale1: 57.94
+    - _Smoothness: 0.96
+    - _Smoothness1: 0.65
+    - _Speed1: 0
+    - _Test: 0
+    - ____________________________________________________________________________________________________________________________________________________________________________________________________________________________: 0
+    - ____________________________________________________________________________________________________________________________________________________________________________________________________________________________1: 0
+    - ____________________________________________________________________________________________________________________________________________________________________________________________________________________________2: 0
+    - ____________________________________________________________________________________________________________________________________________________________________________________________________________________________3: 0
+    - ____________________________________________________________________________________________________________________________________________________________________________________________________________________________4: 0
+    - __dirty: 0
+    m_Colors:
+    - _Axis: {r: 1, g: 1, b: 1, a: 0}
+    - _Color: {r: 0, g: 1.0039216, b: 11.984314, a: 0}
+    - _Color1: {r: 0, g: 1.0039216, b: 11.984314, a: 0}
+    - _Color2: {r: 0.6603774, g: 0.17755425, b: 0.5201015, a: 0}
+    - _Color3: {r: 0, g: 0, b: 0, a: 0}
+    - _Color4: {r: 0.6603774, g: 0.1775543, b: 0.5201015, a: 0}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _EmmisiveColor: {r: 0.6603774, g: 0.17755425, b: 0.5201015, a: 0}
+    - _EmmisiveColor1: {r: 0.6603774, g: 0.1775543, b: 0.5201015, a: 0}
+    - _InnerEmission: {r: 0, g: 0.07080983, b: 0.5471698, a: 0}
+    - _OuterEmmisive: {r: 0, g: 0.12855294, b: 1, a: 0}
+    - _Pivot: {r: 0, g: 0, b: 0, a: 0}
+    - _TeleportColor: {r: 8, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []

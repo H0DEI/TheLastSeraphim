@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: b446b0bacace72a4eacb23ab5b0d9a90
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 218022
+  packageName: Node Based - Teleporter
+  packageVersion: 1.0
+  assetPath: Assets/Vector World/Node Based - Teleporter/Project/Materials/Standard
+    Pipeline/With_button/Teleport_Sphere_Button.mat
+  uploadId: 495298

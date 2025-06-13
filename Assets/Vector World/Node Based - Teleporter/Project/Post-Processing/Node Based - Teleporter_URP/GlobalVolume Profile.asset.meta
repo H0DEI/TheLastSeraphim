@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 0a461f41569438643bda7c4cd40a3eed
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 218022
+  packageName: Node Based - Teleporter
+  packageVersion: 1.0
+  assetPath: Assets/Vector World/Node Based - Teleporter/Project/Post-Processing/Node
+    Based - Teleporter_URP/GlobalVolume Profile.asset
+  uploadId: 495298

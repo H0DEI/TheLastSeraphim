@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 83a8ce2a30537334884f925d7bdc686e
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 218022
+  packageName: Node Based - Teleporter
+  packageVersion: 1.0
+  assetPath: Assets/Vector World/Node Based - Teleporter/Project/Textures/Custom_Skybox.mat
+  uploadId: 495298

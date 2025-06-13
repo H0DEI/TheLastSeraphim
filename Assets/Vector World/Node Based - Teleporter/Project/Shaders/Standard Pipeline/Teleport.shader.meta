@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: ccfda3b258c7c1d4093a3b9cb01b6eb6
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 218022
+  packageName: Node Based - Teleporter
+  packageVersion: 1.0
+  assetPath: Assets/Vector World/Node Based - Teleporter/Project/Shaders/Standard
+    Pipeline/Teleport.shader
+  uploadId: 495298

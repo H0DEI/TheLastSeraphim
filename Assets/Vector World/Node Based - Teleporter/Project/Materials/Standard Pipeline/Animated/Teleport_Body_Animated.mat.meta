@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: be8b4ed98f19bc0449b506e2e57e3a41
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 218022
+  packageName: Node Based - Teleporter
+  packageVersion: 1.0
+  assetPath: Assets/Vector World/Node Based - Teleporter/Project/Materials/Standard
+    Pipeline/Animated/Teleport_Body_Animated.mat
+  uploadId: 495298

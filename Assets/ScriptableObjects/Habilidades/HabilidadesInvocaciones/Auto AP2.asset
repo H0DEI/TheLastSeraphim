@@ -28,6 +28,6 @@ MonoBehaviour:
   usosLimitados: 0
   melee: 0
   numeroDeUsos: 727
-  tier: 0
+  tier: 1
   sonido: {fileID: 8300000, guid: c11bcd192e7b93240b4087b5ddbe176a, type: 3}
   invocacion: {fileID: 0}

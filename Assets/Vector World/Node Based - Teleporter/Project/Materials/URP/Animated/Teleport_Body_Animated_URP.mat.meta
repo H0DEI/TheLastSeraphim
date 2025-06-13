@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: abdfe3d936c2a6c4f8f39b1e0a6e850d
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 218022
+  packageName: Node Based - Teleporter
+  packageVersion: 1.0
+  assetPath: Assets/Vector World/Node Based - Teleporter/Project/Materials/URP/Animated/Teleport_Body_Animated_URP.mat
+  uploadId: 495298

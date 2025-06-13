@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 65889d2e3aed80d46933300de8a09b59
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 218022
+  packageName: Node Based - Teleporter
+  packageVersion: 1.0
+  assetPath: Assets/Vector World/Node Based - Teleporter/Project/Materials/URP/Animated/Teleport_Cube_Animated_URP.mat
+  uploadId: 495298
