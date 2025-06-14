@@ -10037,7 +10037,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1.181}
+  m_AnchoredPosition: {x: 0, y: 1.267}
   m_SizeDelta: {x: 1.04, y: 0.1755}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6931513449948472924
@@ -10085,7 +10085,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &8974582269609812301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20100,7 +20100,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.5037144}
+  m_Offset: {x: 0, y: 0.6084202}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -20110,7 +20110,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.0090332, y: 0.97609174}
+  m_Size: {x: 1.0090332, y: 1.1855034}
   m_EdgeRadius: 0
 --- !u!114 &8910143713081900521
 MonoBehaviour:
