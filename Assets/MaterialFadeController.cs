@@ -30,7 +30,7 @@ public class MaterialFadeController : MonoBehaviour
             yield break;
         }
 
-        // 🔍 Buscar hijo Overlay_Ch44 recursivamente
+        // Buscar hijo Overlay_Ch44 recursivamente
         Transform overlayTransform = GetComponentsInChildren<Transform>(true)
             .FirstOrDefault(t => t.name == "Overlay_Ch44");
 
@@ -50,14 +50,12 @@ public class MaterialFadeController : MonoBehaviour
         Material[] overlayMaterials = overlayRenderer.materials;
         float[] valoresIniciales = new float[overlayMaterials.Length];
 
-        // Guardar los valores iniciales
         for (int i = 0; i < overlayMaterials.Length; i++)
         {
             if (overlayMaterials[i].HasProperty(nombrePropiedad))
                 valoresIniciales[i] = overlayMaterials[i].GetFloat(nombrePropiedad);
         }
 
-        // Preparar materiales del objeto a desvanecer
         Material[] materialesDesvanecer = objetoADesvanecer.materials;
         Color[] coloresOriginales = new Color[materialesDesvanecer.Length];
 
@@ -72,7 +70,7 @@ public class MaterialFadeController : MonoBehaviour
         {
             float t = tiempo / duracion;
 
-            // Interpolar _FaderInOut en cada material de Overlay
+            // Interpolar FaderInOut
             for (int i = 0; i < overlayMaterials.Length; i++)
             {
                 if (overlayMaterials[i].HasProperty(nombrePropiedad))
@@ -82,7 +80,7 @@ public class MaterialFadeController : MonoBehaviour
                 }
             }
 
-            // Interpolar alpha en los materiales a desvanecer
+            // Interpolar alpha de color
             for (int i = 0; i < materialesDesvanecer.Length; i++)
             {
                 Color c = coloresOriginales[i];
@@ -99,8 +97,8 @@ public class MaterialFadeController : MonoBehaviour
         {
             if (overlayMaterials[i].HasProperty(nombrePropiedad))
             {
-                overlayMaterials[i].SetFloat(nombrePropiedad, valorFinal); // ← primero llega al final (1.0)
-                overlayMaterials[i].SetFloat(nombrePropiedad, 0f);          // ← luego se resetea a 0
+                overlayMaterials[i].SetFloat(nombrePropiedad, valorFinal); // Se mantiene
+                overlayMaterials[i].SetFloat(nombrePropiedad, 0f); // ← si quieres que vuelva a 0, descomenta esto
             }
         }
 
@@ -124,5 +122,18 @@ public class MaterialFadeController : MonoBehaviour
         mat.EnableKeyword("_ALPHABLEND_ON");
         mat.DisableKeyword("_ALPHAPREMULTIPLY_ON");
         mat.renderQueue = (int)UnityEngine.Rendering.RenderQueue.Transparent;
+
+        // Refrescar color base por seguridad
+        if (mat.HasProperty("_BaseColor"))
+        {
+            Color c = mat.GetColor("_BaseColor");
+            mat.SetColor("_BaseColor", new Color(c.r, c.g, c.b, c.a));
+        }
+
+        if (mat.HasProperty("_Color"))
+        {
+            Color c = mat.GetColor("_Color");
+            mat.SetColor("_Color", new Color(c.r, c.g, c.b, c.a));
+        }
     }
 }

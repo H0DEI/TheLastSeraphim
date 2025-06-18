@@ -21,7 +21,7 @@ MonoBehaviour:
   fuerza: 20
   penetracion: 20
   "da\xF1o": 10
-  acciones: 0000000000000000
+  acciones: 0000000000000000000000000000000000000000
   animaciones: 0d000000
   personaje: {fileID: 0}
   objetivos:
@@ -33,3 +33,4 @@ MonoBehaviour:
   numeroDeUsos: 727
   tier: 2
   sonido: {fileID: 8300000, guid: 3b5ef7fdfcc840940854271391d2e038, type: 3}
+  invocacion: {fileID: 0}
