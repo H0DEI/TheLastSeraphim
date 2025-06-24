@@ -5,14 +5,18 @@ public class WeaponEffects : MonoBehaviour
 {
     public GameObject weapon;
     public GameObject gun;
+    public GameObject back;
 
     public GameObject muzzleFlash;
     public GameObject gunFlash;
+
+    public GameObject special;
 
     public GameObject grenade;
     public GameObject explosion;
     public GameObject heal;
     public GameObject shield;
+    public GameObject bubble;
 
     public GameObject root;
 
@@ -53,6 +57,17 @@ public class WeaponEffects : MonoBehaviour
     {
         weapon.SetActive(false);
     }
+
+    public void ActivateBack()
+    {
+        back.SetActive(true);
+    }
+
+    public void DeactivateBack()
+    {
+        back.SetActive(false);
+    }
+
     public void ActivateGun()
     {
         gun.SetActive(true);
@@ -72,6 +87,15 @@ public class WeaponEffects : MonoBehaviour
     {
         shield.SetActive(false);
     }
+    public void ActivateBubble()
+    {
+        bubble.SetActive(true);
+    }
+
+    public void DeactivateBubble()
+    {
+        bubble.SetActive(false);
+    }
     public void ActivateGrenade()
     {
         grenade.SetActive(true);
@@ -90,6 +114,10 @@ public class WeaponEffects : MonoBehaviour
     public void TriggerGunFlash()
     {
         EffectRoutine(gunFlash);
+    }
+    public void TriggerSpecial()
+    {
+        EffectRoutine(special);
     }
 
     public void TriggerExplosion()
