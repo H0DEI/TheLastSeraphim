@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
+  m_Name: "Secuencia L\xC1ZARO"
+  m_EditorClassIdentifier: 
+  nombre: "Secuencia L\xC1ZARO"
+  descripcion: "Realiza 3 disparos r\xE1pidos consecutivos a un enemigo.\n{F} 5,
+    {P} 2, {D} 1"
+  coste: 1
+  velocidad: 5
+  fuerza: 5
+  penetracion: 2
+  "da\xF1o": 1
+  acciones: 000000000000000000000000
+  animaciones: 0f000000
+  personaje: {fileID: 0}
+  objetivos: []
+  tipoSeleccion: 3
+  cantidad: 1
+  usosLimitados: 0
+  melee: 0
+  numeroDeUsos: 727
+  tier: 0
+  sonido: {fileID: 0}
+  invocacion: {fileID: 0}

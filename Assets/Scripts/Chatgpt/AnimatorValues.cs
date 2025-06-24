@@ -22,6 +22,7 @@ namespace SHG.AnimatorCoder
         SHIELD,
         SHOOT3,
         GUNSHOT1,
+        ULTIMATE,
 
         //Canvas Animations:
         MISS,
