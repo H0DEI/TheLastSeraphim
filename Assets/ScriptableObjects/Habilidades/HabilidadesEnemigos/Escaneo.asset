@@ -10,22 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
-  m_Name: Subrutina REX-PUSH
+  m_Name: Escaneo
   m_EditorClassIdentifier: 
-  nombre: Subrutina REX-PUSH
-  descripcion: "El actuador principal de compresi\xF3n libera una onda s\xEDsmica
-    con un pisot\xF3n calibrado. Los sistemas enemigos cercanos sufren {D} de da\xF1o
-    estructural y quedan ralentizados durante {T} segundos por inestabilidad de servopivotes."
+  nombre: Escaneo
+  descripcion: 
   coste: 1
   velocidad: 1
   fuerza: 8
   penetracion: 4
   "da\xF1o": 3
-  acciones: 01000000
-  animaciones: 12000000
+  acciones: 0d000000
+  animaciones: 00000000
   personaje: {fileID: 0}
   objetivos: []
-  tipoSeleccion: 0
+  tipoSeleccion: 3
   cantidad: 1
   usosLimitados: 0
   melee: 0

@@ -22,7 +22,7 @@ MonoBehaviour:
   penetracion: 4
   "da\xF1o": 3
   acciones: 02000000
-  animaciones: 11000000
+  animaciones: 04000000
   personaje: {fileID: 0}
   objetivos: []
   tipoSeleccion: 0

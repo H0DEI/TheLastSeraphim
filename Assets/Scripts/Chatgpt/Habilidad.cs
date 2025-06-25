@@ -62,7 +62,7 @@ public class Habilidad : ScriptableObject, IComparable
 
        foreach (Animations animacion in animaciones)
        {
-           Play(personaje.gameObject.GetInstanceID().ToString(), new(animacion, true, new(), 0.2f));
+           Play(personaje.gameObject.GetInstanceID().ToString(), new(animacion, true, new(), 0.1f));
        }
 
             // Reproducir sonido si aplica.

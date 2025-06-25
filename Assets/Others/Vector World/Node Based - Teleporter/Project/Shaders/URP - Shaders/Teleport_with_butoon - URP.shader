@@ -38,7 +38,7 @@ Shader "Teleport_with_butoon - URP"
 		LOD 0
 
 		
-		Tags { "RenderPipeline"="UniversalPipeline" "RenderType"="Opaque" "Queue"="AlphaTest" }
+		Tags { "RenderPipeline"="UniversalPipeline" "RenderType"="Transparent" "Queue"="Transparent+50" }
 		
 		Cull Back
 		AlphaToMask Off
@@ -153,7 +153,7 @@ Shader "Teleport_with_butoon - URP"
 			Tags { "LightMode"="UniversalForward" }
 			
 			Blend One One, SrcAlpha OneMinusSrcAlpha
-			ZWrite On
+			ZWrite Off
 			ZTest LEqual
 			Offset 0,0
 			ColorMask RGBA

@@ -11,6 +11,7 @@ public class WeaponEffects : MonoBehaviour
     public GameObject gunFlash;
 
     public GameObject special;
+    public GameObject bigExplosion;
 
     public GameObject grenade;
     public GameObject explosion;
@@ -118,6 +119,10 @@ public class WeaponEffects : MonoBehaviour
     public void TriggerSpecial()
     {
         EffectRoutine(special);
+    }
+    public void TriggerBigExplosion()
+    {
+        EffectRoutine(bigExplosion);
     }
 
     public void TriggerExplosion()

@@ -103,6 +103,6 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _InnerEmission: {r: 0, g: 0, b: 0, a: 0}
     - _OuterEmmisive: {r: 0, g: 0, b: 0, a: 0}
-    - _TeleportColor: {r: 0.39215687, g: 0, b: 1, a: 0}
+    - _TeleportColor: {r: 0.12058374, g: 0.046201475, b: 0.23773581, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

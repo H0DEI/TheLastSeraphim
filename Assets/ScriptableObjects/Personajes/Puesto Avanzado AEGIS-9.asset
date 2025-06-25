@@ -30,4 +30,5 @@ MonoBehaviour:
   requisitoNivel: 0
   gameObject: {fileID: 0}
   estados: []
-  habilidades: []
+  habilidades:
+  - {fileID: 11400000, guid: 882eeaf141cb32e45b327f6b9bda411a, type: 2}

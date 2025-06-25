@@ -69,7 +69,7 @@ Material:
     - _EmmisionInnerBlend: 1
     - _EmmisionInnerWidth: 0.21
     - _EmmisionWidth: 0.621
-    - _FaderInOut: 0
+    - _FaderInOut: 1
     - _GI_Reflection: 1
     - _HitLenght: 1
     - _HitSize: 0.2
