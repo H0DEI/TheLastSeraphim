@@ -1,12 +1,5 @@
 {
   "dependencies": {
-    "com.cakeslice.outline-effect": {
-      "version": "2.1.1",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://package.openupm.com"
-    },
     "com.github.siccity.xnode": {
       "version": "https://github.com/siccity/xNode.git",
       "depth": 0,

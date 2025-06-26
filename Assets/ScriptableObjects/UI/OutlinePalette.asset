@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c30f1a27fe438b46a1a95e1c8ddc44a, type: 3}
+  m_Name: OutlinePalette
+  m_EditorClassIdentifier: 
+  materials:
+  - {fileID: 2100000, guid: f7ade3c48ca93704ba50d2a60083adcc, type: 2}
+  - {fileID: 2100000, guid: e4ef5fb0cacbbc340a2e0225c426d6ed, type: 2}
+  - {fileID: 2100000, guid: edb0c2035b3990946ad59587deaf53ff, type: 2}

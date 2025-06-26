@@ -698,16 +698,45 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4557478410159557157, guid: 354a3309a8ee5f640a827cdf5a109e1a, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4562183749507346717, guid: 354a3309a8ee5f640a827cdf5a109e1a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 699485332533954106, guid: 354a3309a8ee5f640a827cdf5a109e1a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 705305026}
   m_SourcePrefab: {fileID: 100100000, guid: 354a3309a8ee5f640a827cdf5a109e1a, type: 3}
 --- !u!224 &705305024 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2371746030208798254, guid: 354a3309a8ee5f640a827cdf5a109e1a, type: 3}
   m_PrefabInstance: {fileID: 705305023}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &705305025 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 699485332533954106, guid: 354a3309a8ee5f640a827cdf5a109e1a, type: 3}
+  m_PrefabInstance: {fileID: 705305023}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &705305026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705305025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed86dda2bf880e94eb8e9ac617ebbd06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
+  palette: {fileID: 11400000, guid: 3a7d44f934b49024e80b4d328d82b5b2, type: 2}
+  outlineThickness: 0.02
 --- !u!1 &804883235
 GameObject:
   m_ObjectHideFlags: 0
@@ -2096,6 +2125,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cadete
       objectReference: {fileID: 0}
+    - target: {fileID: 4557478410159557157, guid: 354a3309a8ee5f640a827cdf5a109e1a, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2190,6 +2223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: 0
   eraseRenderer: 0
+  outlineThickness: 0.03
 --- !u!1 &4743978861112928322
 GameObject:
   m_ObjectHideFlags: 0
@@ -7067,6 +7101,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7521740184304216418, guid: ed1bebb042e3147168587ddcb4481d92, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8352446180819362505}
+    - targetCorrespondingSourceObject: {fileID: 7521740184304216418, guid: ed1bebb042e3147168587ddcb4481d92, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8352446180819362506}
   m_SourcePrefab: {fileID: 100100000, guid: ed1bebb042e3147168587ddcb4481d92, type: 3}
 --- !u!4 &7774298737203028471 stripped
 Transform:
@@ -7590,6 +7627,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7521740184304216418, guid: ed1bebb042e3147168587ddcb4481d92, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8143992621827759906}
+    - targetCorrespondingSourceObject: {fileID: 7521740184304216418, guid: ed1bebb042e3147168587ddcb4481d92, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8143992621827759907}
   m_SourcePrefab: {fileID: 100100000, guid: ed1bebb042e3147168587ddcb4481d92, type: 3}
 --- !u!4 &7774298737357016002 stripped
 Transform:
@@ -7732,6 +7772,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: 0
   eraseRenderer: 0
+  outlineThickness: 0.03
+--- !u!114 &8143992621827759907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7774298737357016003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed86dda2bf880e94eb8e9ac617ebbd06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
+  palette: {fileID: 0}
+  outlineThickness: 0.02
 --- !u!212 &8217913492658881373
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7801,6 +7858,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   escenaCargar: {fileID: 0}
   puedePresionarse: 0
+--- !u!114 &8352446180819362506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7774298737203028472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed86dda2bf880e94eb8e9ac617ebbd06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
+  palette: {fileID: 0}
+  outlineThickness: 0.02
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
