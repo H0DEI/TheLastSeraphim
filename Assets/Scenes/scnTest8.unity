@@ -42422,16 +42422,45 @@ PrefabInstance:
       propertyPath: m_Name
       value: Assasin
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4557478410159557157, guid: f3dd6754caf101c43b935de63c09d69c, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3258564094371446028, guid: f3dd6754caf101c43b935de63c09d69c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6591769862859169167, guid: f3dd6754caf101c43b935de63c09d69c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1199301541}
   m_SourcePrefab: {fileID: 100100000, guid: f3dd6754caf101c43b935de63c09d69c, type: 3}
 --- !u!224 &1199301539 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2371746030208798254, guid: f3dd6754caf101c43b935de63c09d69c, type: 3}
   m_PrefabInstance: {fileID: 1199301538}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1199301540 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6591769862859169167, guid: f3dd6754caf101c43b935de63c09d69c, type: 3}
+  m_PrefabInstance: {fileID: 1199301538}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1199301541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199301540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed86dda2bf880e94eb8e9ac617ebbd06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
+  outlineThickness: 0.27
+  palette: {fileID: 11400000, guid: 3a7d44f934b49024e80b4d328d82b5b2, type: 2}
 --- !u!114 &1200043060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42653,6 +42682,7 @@ GameObject:
   - component: {fileID: 1216162798}
   - component: {fileID: 1216162797}
   - component: {fileID: 1216162796}
+  - component: {fileID: 1216162801}
   m_Layer: 0
   m_Name: Door (1)
   m_TagString: Untagged
@@ -42778,6 +42808,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216162794}
   m_Mesh: {fileID: 4300000, guid: 52ffe8b9376da4ad7a8bde419cebdb1c, type: 3}
+--- !u!114 &1216162801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216162794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed86dda2bf880e94eb8e9ac617ebbd06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
+  outlineThickness: 0.003
+  palette: {fileID: 11400000, guid: 3a7d44f934b49024e80b4d328d82b5b2, type: 2}
 --- !u!114 &1217342535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53526,6 +53572,7 @@ GameObject:
   - component: {fileID: 1731959348}
   - component: {fileID: 1731959347}
   - component: {fileID: 1731959346}
+  - component: {fileID: 1731959351}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -53651,6 +53698,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731959344}
   m_Mesh: {fileID: 4300000, guid: 52ffe8b9376da4ad7a8bde419cebdb1c, type: 3}
+--- !u!114 &1731959351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731959344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed86dda2bf880e94eb8e9ac617ebbd06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
+  outlineThickness: 0.003
+  palette: {fileID: 11400000, guid: 3a7d44f934b49024e80b4d328d82b5b2, type: 2}
 --- !u!114 &1733663591
 MonoBehaviour:
   m_ObjectHideFlags: 0

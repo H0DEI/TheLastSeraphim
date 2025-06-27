@@ -161,6 +161,24 @@ public class Outline : MonoBehaviour
         for (int i = 0; i < count; i++) arr[i] = source;
         return arr;
     }
-
     #endregion
+
+    // Outline.cs  ─ añade dentro de la clase
+#if UNITY_EDITOR
+    void OnValidate()
+    {
+        // Si ya hay uno asignado, salimos.
+        if (palette != null) return;
+
+        // Busca la primera palette que exista en el proyecto (solo en Editor).
+        var all = UnityEditor.AssetDatabase.FindAssets("t:OutlinePalette");
+        if (all.Length > 0)
+        {
+            string path = UnityEditor.AssetDatabase.GUIDToAssetPath(all[0]);
+            palette = UnityEditor.AssetDatabase.LoadAssetAtPath<OutlinePalette>(path);
+            UnityEditor.EditorUtility.SetDirty(this);   // marca el cambio
+        }
+    }
+#endif
+
 }
