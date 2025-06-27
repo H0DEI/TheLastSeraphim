@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using cakeslice;
 
 [RequireComponent(typeof(BoxCollider), typeof(Outline))]
 public class InteractuarPuerta : MonoBehaviour

@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System.Linq;
-using cakeslice;
 using UnityEngine.Rendering;
 using System.Threading;
 
@@ -255,7 +254,7 @@ public class GameManager : MonoBehaviour
         switch (habilidad.tipoSeleccion)
         {
             case TipoSeleccion.SoloJugador:
-                instance.objetoJugador.GetComponentInChildren<Outline>().enabled = true;
+                instance.objetoJugador.GetComponentInChildren<Outline>().SetOutlineVisible(true);
                 break;
 
             case TipoSeleccion.SoloUnEnemigo:
@@ -272,7 +271,7 @@ public class GameManager : MonoBehaviour
 
                     personaje.transform.Find("Canvas").transform.Find("Probabilidad").gameObject.SetActive(true);
 
-                    personaje.GetComponentInChildren<Outline>().enabled = tipoSelecciones[habilidad.tipoSeleccion][i];
+                    personaje.GetComponentInChildren<Outline>().SetOutlineVisible(tipoSelecciones[habilidad.tipoSeleccion][i]);
 
                     personaje.GetComponent<InteractuarPersonajes>().elegible = tipoSelecciones[habilidad.tipoSeleccion][i];
                 }
@@ -285,7 +284,7 @@ public class GameManager : MonoBehaviour
                 {
                     instance.CambiaColorOutline(personaje.GetComponent<InteractuarPersonajes>().personaje, soyJugador, personaje);
 
-                    personaje.GetComponentInChildren<Outline>().enabled = true;
+                    personaje.GetComponentInChildren<Outline>().SetOutlineVisible(true);
                 }
 
                 break;
@@ -381,7 +380,7 @@ public class GameManager : MonoBehaviour
     {
         foreach (GameObject personaje in listaObjetosPersonajesEscena)
         {
-            personaje.GetComponentInChildren<Outline>().enabled = personaje.GetComponent<InteractuarPersonajes>().elegible = false;
+            personaje.GetComponentInChildren<Outline>().SetOutlineVisible(personaje.GetComponent<InteractuarPersonajes>().elegible = false);
 
             personaje.transform.Find("Canvas").transform.Find("Probabilidad").gameObject.SetActive(false);
         }
@@ -391,8 +390,8 @@ public class GameManager : MonoBehaviour
     {
         foreach (GameObject puerta in listaPuertas)
         {
-            puerta.GetComponent<Outline>().color = 2;
-            puerta.GetComponent<Outline>().enabled = puerta.GetComponent<InteractuarPuerta>().puedePresionarse = puedePresionarse;
+            puerta.GetComponent<Outline>().SetOutlineColor(2);
+            puerta.GetComponent<Outline>().SetOutlineVisible(puerta.GetComponent<InteractuarPuerta>().puedePresionarse = puedePresionarse);
         }
     }
 
@@ -597,8 +596,8 @@ public class GameManager : MonoBehaviour
 
     public void CambiaColorOutline(Personaje objetivo, bool soyJugador, GameObject personaje)
     {
-        if (objetivo == jugador && soyJugador || objetivo != jugador && !soyJugador) personaje.GetComponentInChildren<Outline>().color = 1;
-        else personaje.GetComponentInChildren<Outline>().color = 0;
+        if (objetivo == jugador && soyJugador || objetivo != jugador && !soyJugador) personaje.GetComponentInChildren<Outline>().SetOutlineColor(0);
+        else personaje.GetComponentInChildren<Outline>().SetOutlineColor(1);
     }
 
     public void ResetearAttributosJugador()

@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using cakeslice;
 using TMPro;
 
 public class InteractuarTextoListaHabilidad : MonoBehaviour, IBoton
@@ -51,7 +50,7 @@ public class InteractuarTextoListaHabilidad : MonoBehaviour, IBoton
                 {
                     instancia.CambiaColorOutline(objetivo, soyJugador, personaje);
 
-                    personaje.GetComponent<Outline>().enabled = true;
+                    personaje.GetComponent<Outline>().SetOutlineVisible(true);
                 }
             }
         }

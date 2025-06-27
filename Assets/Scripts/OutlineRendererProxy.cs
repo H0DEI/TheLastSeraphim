@@ -19,7 +19,7 @@ public class OutlineRendererProxy : MonoBehaviour
 
     void Start()
     {
-        var rootOutline = transform.root.GetComponentInChildren<cakeslice.Outline>();
+        var rootOutline = transform.root.GetComponentInChildren<Outline>();
         if (!rootOutline || !rootOutline.palette) { Destroy(this); return; }
 
         // ───────────────────────── Grosor ─────────────────────────

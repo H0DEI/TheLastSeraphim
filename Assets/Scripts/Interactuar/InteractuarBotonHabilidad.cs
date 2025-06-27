@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
-using cakeslice;
 
 public class InteractuarBotonHabilidad : MonoBehaviour, IBoton
 {
