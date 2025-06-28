@@ -509,6 +509,7 @@ GameObject:
   - component: {fileID: 677616491}
   - component: {fileID: 677616490}
   - component: {fileID: 677616489}
+  - component: {fileID: 677616494}
   m_Layer: 0
   m_Name: Door (1)
   m_TagString: Untagged
@@ -543,8 +544,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a14fd601361b9144afba2edc24d3c4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  escenaCargar: {fileID: 11400000, guid: 6922d7cd726257f4ba33328d3922614f, type: 2}
+  escenaCargar: {fileID: 11400000, guid: 90ded39a4385b7f4fa8778dc42b7d1c4, type: 2}
   puedePresionarse: 0
+  siguienteEscena: 1
 --- !u!114 &677616490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,6 +636,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 677616487}
   m_Mesh: {fileID: 4300000, guid: 52ffe8b9376da4ad7a8bde419cebdb1c, type: 3}
+--- !u!114 &677616494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677616487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed86dda2bf880e94eb8e9ac617ebbd06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
+  outlineThickness: 0.003
+  palette: {fileID: 11400000, guid: 3a7d44f934b49024e80b4d328d82b5b2, type: 2}
 --- !u!1001 &779877486
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -816,6 +834,7 @@ GameObject:
   - component: {fileID: 871545903}
   - component: {fileID: 871545902}
   - component: {fileID: 871545901}
+  - component: {fileID: 871545906}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -850,8 +869,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a14fd601361b9144afba2edc24d3c4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  escenaCargar: {fileID: 0}
+  escenaCargar: {fileID: 11400000, guid: 7898fd84d29fb694fa32345cdd011604, type: 2}
   puedePresionarse: 0
+  siguienteEscena: 0
 --- !u!114 &871545902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -941,6 +961,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 871545899}
   m_Mesh: {fileID: 4300000, guid: 52ffe8b9376da4ad7a8bde419cebdb1c, type: 3}
+--- !u!114 &871545906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871545899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed86dda2bf880e94eb8e9ac617ebbd06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
+  outlineThickness: 0.003
+  palette: {fileID: 11400000, guid: 3a7d44f934b49024e80b4d328d82b5b2, type: 2}
 --- !u!1 &1110172593
 GameObject:
   m_ObjectHideFlags: 0

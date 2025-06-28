@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -6,45 +6,71 @@ using UnityEngine.EventSystems;
 [RequireComponent(typeof(BoxCollider), typeof(Outline))]
 public class InteractuarPuerta : MonoBehaviour
 {
+    [Header("Escena a cargar")]
     public Escena escenaCargar;
 
+    [Header("Interacción con ratón")]
     public bool puedePresionarse;
 
-    private Renderer rend;
+    [Header("Navegación con flechas ← / →")]
+    [Tooltip("False = ←  carga la escena\nTrue  = →  carga la escena")]
+    public bool siguienteEscena = false;          // ← por defecto
 
-    private Color porDefecto;
-    private Color blanco;
+    // ────────────────────────────────────────────────────────────────────
+    Renderer rend;
+    Color porDefecto;
+    Color blanco;
+    Outline outline;
 
-    private Outline componenteOutline;
-
-    private void Awake()
+    // ------------------------------------------------------------------
+    void Awake()
     {
-        componenteOutline = GetComponent<Outline>();
-
-        componenteOutline.enabled = true;
+        outline = GetComponent<Outline>();
+        outline.enabled = true;          // se enciende para precargar material
     }
 
-    private void Start()
+    void Start()
     {
         rend = GetComponent<Renderer>();
 
         ColorUtility.TryParseHtmlString("#6C6A6A", out porDefecto);
         ColorUtility.TryParseHtmlString("#FFFFFF", out blanco);
 
-        componenteOutline.enabled = false;
+        outline.enabled = false;         // se apaga hasta que el ratón entre
     }
 
-    private void OnMouseEnter()
+    // --------------------------- RATÓN --------------------------------
+    void OnMouseEnter()
     {
-        if (puedePresionarse) rend.material.SetColor("_Color", blanco);
+        if (puedePresionarse)
+        {
+            rend.material.SetColor("_Color", blanco);
+            outline.enabled = true;
+        }
     }
-
-    private void OnMouseExit()
+    void OnMouseExit()
     {
         rend.material.SetColor("_Color", porDefecto);
+        outline.enabled = false;
     }
-    private void OnMouseDown()
+    void OnMouseDown()
     {
-        if(puedePresionarse) GameManager.instance.CompruebaYCargaEscenas(escenaCargar);
+        if (puedePresionarse)
+            GameManager.instance.CompruebaYCargaEscenas(escenaCargar);
+    }
+
+    // --------------------------- TECLADO ------------------------------
+    //  Ignora 'puedePresionarse': siempre lanza la transición cuando
+    //  la tecla coincide con el valor de 'siguienteEscena'.
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && !siguienteEscena)
+        {
+            GameManager.instance.CompruebaYCargaEscenas(escenaCargar);
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow) && siguienteEscena)
+        {
+            GameManager.instance.CompruebaYCargaEscenas(escenaCargar);
+        }
     }
 }

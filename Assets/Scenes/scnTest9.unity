@@ -1917,6 +1917,7 @@ GameObject:
   - component: {fileID: 1216162798}
   - component: {fileID: 1216162797}
   - component: {fileID: 1216162796}
+  - component: {fileID: 1216162801}
   m_Layer: 0
   m_Name: Door (1)
   m_TagString: Untagged
@@ -1951,8 +1952,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a14fd601361b9144afba2edc24d3c4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  escenaCargar: {fileID: 11400000, guid: 6922d7cd726257f4ba33328d3922614f, type: 2}
+  escenaCargar: {fileID: 11400000, guid: daa1b71132b740548a70e386221934ef, type: 2}
   puedePresionarse: 0
+  siguienteEscena: 1
 --- !u!114 &1216162797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2042,6 +2044,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216162794}
   m_Mesh: {fileID: 4300000, guid: 52ffe8b9376da4ad7a8bde419cebdb1c, type: 3}
+--- !u!114 &1216162801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216162794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed86dda2bf880e94eb8e9ac617ebbd06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
+  outlineThickness: 0.003
+  palette: {fileID: 11400000, guid: 3a7d44f934b49024e80b4d328d82b5b2, type: 2}
 --- !u!1 &1369124786
 GameObject:
   m_ObjectHideFlags: 0
@@ -2540,6 +2558,7 @@ GameObject:
   - component: {fileID: 1731959348}
   - component: {fileID: 1731959347}
   - component: {fileID: 1731959346}
+  - component: {fileID: 1731959351}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -2574,8 +2593,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a14fd601361b9144afba2edc24d3c4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  escenaCargar: {fileID: 0}
+  escenaCargar: {fileID: 11400000, guid: 19df214e274f1134688b99f28cc53a5e, type: 2}
   puedePresionarse: 0
+  siguienteEscena: 0
 --- !u!114 &1731959347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2665,6 +2685,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731959344}
   m_Mesh: {fileID: 4300000, guid: 52ffe8b9376da4ad7a8bde419cebdb1c, type: 3}
+--- !u!114 &1731959351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731959344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed86dda2bf880e94eb8e9ac617ebbd06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
+  outlineThickness: 0.003
+  palette: {fileID: 11400000, guid: 3a7d44f934b49024e80b4d328d82b5b2, type: 2}
 --- !u!1 &1780564157
 GameObject:
   m_ObjectHideFlags: 0
@@ -5651,12 +5687,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 0}
   gun: {fileID: 0}
+  back: {fileID: 0}
   muzzleFlash: {fileID: 404455952}
   gunFlash: {fileID: 0}
+  special: {fileID: 0}
+  bigExplosion: {fileID: 0}
   grenade: {fileID: 0}
   explosion: {fileID: 1913179439}
   heal: {fileID: 0}
   shield: {fileID: 0}
+  bubble: {fileID: 0}
   root: {fileID: 0}
 --- !u!1001 &1913179437
 PrefabInstance:

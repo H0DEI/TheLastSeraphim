@@ -665,8 +665,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a14fd601361b9144afba2edc24d3c4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  escenaCargar: {fileID: 11400000, guid: 6922d7cd726257f4ba33328d3922614f, type: 2}
+  escenaCargar: {fileID: 11400000, guid: 87e2d24e3d584394d9fba02ec7e9037f, type: 2}
   puedePresionarse: 0
+  siguienteEscena: 1
 --- !u!114 &1216162797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -907,8 +908,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a14fd601361b9144afba2edc24d3c4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  escenaCargar: {fileID: 0}
+  escenaCargar: {fileID: 11400000, guid: b875eeaa737c881449877775e6385e5a, type: 2}
   puedePresionarse: 0
+  siguienteEscena: 0
 --- !u!114 &1731959347
 MonoBehaviour:
   m_ObjectHideFlags: 0
