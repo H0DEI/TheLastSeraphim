@@ -30,6 +30,8 @@ public class Outline : MonoBehaviour
         MeshFilter = GetComponent<MeshFilter>();
 
         CreateOutlineRenderer();
+
+        SetOutlineVisible(false);
     }
 
     void OnBecameVisible() => _visible = true;
