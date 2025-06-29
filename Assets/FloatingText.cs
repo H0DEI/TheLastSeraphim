@@ -1,46 +1,40 @@
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 using TMPro;
+using DG.Tweening;
 
 public class FloatingText : MonoBehaviour
 {
-    public float moveSpeed = 2f; // Velocidad de movimiento hacia arriba
-    public float fadeDuration = 1f; // Duraci�n del desvanecimiento
-
-    private CanvasGroup canvasGroup;
-    private TextMeshProUGUI textComponent;
-    private Vector3 initialPosition;
-    private float lifetime;
+    [SerializeField] TextMeshProUGUI texto;
+    CanvasGroup grupo;
+    RectTransform rt;
 
     void Awake()
     {
-        canvasGroup = GetComponent<CanvasGroup>();
-        textComponent = GetComponent<TextMeshProUGUI>();
+        grupo = GetComponent<CanvasGroup>();
+        rt = GetComponent<RectTransform>();
     }
 
-    public void Initialize(string message, Color textColor)
+    public void Mostrar(string valor, Vector3 worldPos, Color color, float escala,
+                    FloatingTextManager manager)
     {
-        textComponent.text = message;
-        textComponent.color = textColor;
-        initialPosition = transform.position;
-        lifetime = 0f;
-    }
+        texto.text = valor;
+        texto.color = color;
+        grupo.alpha = 1f;
+        rt.localScale = Vector3.one * escala;
 
-    void Update()
-    {
-        lifetime += Time.deltaTime;
+        // Conversion pantalla → posición UI (Canvas Overlay)
+        Vector3 screen = Camera.main.WorldToScreenPoint(worldPos);
+        rt.position = screen;                    // ya está en el Canvas correcto
 
-        // Mover hacia arriba
-        transform.position += Vector3.up * moveSpeed * Time.deltaTime;
-
-        // Desvanecer
-        if (lifetime >= fadeDuration)
-        {
-            canvasGroup.alpha -= Time.deltaTime / fadeDuration;
-            if (canvasGroup.alpha <= 0f)
+        DOTween.Sequence()
+            .Append(rt.DOScale(escala * 1.3f, 0.15f).SetEase(Ease.OutBack))
+            .Append(rt.DOAnchorPosY(90f, 1f).SetRelative().SetEase(Ease.OutQuad))
+            .Join(grupo.DOFade(0, 1f))
+            .OnComplete(() =>
             {
-                Destroy(gameObject); // Destruir el objeto cuando se desvanezca completamente
-            }
-        }
+                gameObject.SetActive(false);
+                manager.Liberar(this);           // vuelve al pool
+            });
     }
+
 }

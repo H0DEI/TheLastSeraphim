@@ -27,7 +27,9 @@ public class GameManager : MonoBehaviour
 
     public AnimationManager animationManager;
 
-    public FloatingTextManager textManager;
+    public FloatingTextManager floatingTextManager;
+
+    public OldFloatingTextManager textManager;
 
     public CargaEscena cargaEscena;
 

@@ -306,7 +306,14 @@ public class Habilidad : ScriptableObject, IComparable
                     objetivo.heridasActuales -= daño;
 
                     Anima(objetivo, daño.ToString(), Color.red);
-                    Play(objetivo.gameObject.GetInstanceID().ToString(), new(Animations.HIT, true, new(), 0.2f));
+                    //Play(objetivo.gameObject.GetInstanceID().ToString(), new(Animations.HIT, true, new(), 0.2f));
+                    Vector3 pos = objetivo.gameObject.transform.position + Vector3.up * 1.5f;   // un poco encima de la cabeza
+                    GameManager.instance.floatingTextManager.MostrarTexto(
+                        "-4750",                // lo que se muestra
+                        pos,                    // posición en mundo
+                        Color.red,              // color
+                        1f                      // escala base
+                    );
                 }
                 else
                 {
@@ -448,7 +455,7 @@ public class Habilidad : ScriptableObject, IComparable
 
     private void Anima(Personaje objetivo, String animacion, Color color)
     {
-        GameManager.instance.textManager.ShowFloatingText(objetivo.gameObject, animacion, color);
+        //GameManager.instance.textManager.ShowFloatingText(objetivo.gameObject, animacion, color);
     }
 
     private void AnimaValue(Personaje objetivo, String text, String value)
