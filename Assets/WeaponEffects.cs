@@ -20,6 +20,10 @@ public class WeaponEffects : MonoBehaviour
     public GameObject bubble;
 
     public GameObject root;
+    public void EventoImpacto()   // Animation Event
+    {
+        GameManager.EmitirImpactoHabilidad();
+    }
 
     public void ApagarLuzJugador()
     {

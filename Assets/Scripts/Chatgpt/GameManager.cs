@@ -15,6 +15,16 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
+    // === Evento global para impactos de habilidad ===
+    public static event System.Action OnImpactoHabilidad;
+
+    /// <summary>Llama a este método desde WeaponEffects
+    /// cuando llegue el fotograma de impacto.</summary>
+    public static void EmitirImpactoHabilidad()
+    {
+        OnImpactoHabilidad?.Invoke();
+    }
+
     public AnimationManager animationManager;
 
     public FloatingTextManager textManager;

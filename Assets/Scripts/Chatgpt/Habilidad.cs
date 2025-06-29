@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +11,17 @@ using UnityEditor.Animations;
 [CreateAssetMenu(fileName = "Nueva Habilidad")]
 public class Habilidad : ScriptableObject, IComparable
 {
+    [NonSerialized] private bool _impactoRecibido;
+
+    /// <summary>Aplica todas las acciones de la habilidad exactamente una vez.</summary>
+    private void EjecutarTodasAcciones()
+    {
+        if (_impactoRecibido) return;          // evita dobles llamadas
+        foreach (Accion acc in acciones) EjecutarAccion(acc);
+        _impactoRecibido = true;
+    }
+
+
     public string nombre;
 
     [TextArea(10,15)]
@@ -20,7 +31,7 @@ public class Habilidad : ScriptableObject, IComparable
     public int velocidad;
     public int fuerza;
     public int penetracion;
-    public int da�o;
+    public int daño;
 
     public List<Accion> acciones = new List<Accion>();
 
@@ -56,28 +67,59 @@ public class Habilidad : ScriptableObject, IComparable
         GameManager.instance.animationManager.PlayCanvas(id, animationData, layer);
     }
 
+    // Habilidad.cs  (versión resumida)
     public IEnumerator Usar()
     {
-       float duracion = GetAnimationDuration();
+        bool accionesAplicadas = false;
 
-       foreach (Animations animacion in animaciones)
-       {
-           Play(personaje.gameObject.GetInstanceID().ToString(), new(animacion, true, new(), 0.1f));
-       }
-
-            // Reproducir sonido si aplica.
-            if (sonido != null) GameManager.instance.soundEffect.PlayOneShot(sonido);
-
-            // Ejecutar las acciones asociadas a la habilidad.
-            foreach (Accion accion in acciones)
+        // 1 · suscribirse al impacto
+        System.Action handler = () =>
+        {
+            if (!accionesAplicadas)
             {
-                EjecutarAccion(accion);
+                EjecutarTodasAcciones();
+                accionesAplicadas = true;
             }
+        };
+        GameManager.OnImpactoHabilidad += handler;
 
-        yield return new WaitForSeconds(duracion);
+        /* ───────────────────────────────────────────────
+         * 2 · reproducir animaciones/SFX y calcular la más larga
+         * ─────────────────────────────────────────────── */
+        float duracionMax = 0f;
+
+        foreach (var anim in animaciones)
+        {
+            // Usa tu helper para obtener la duración del clip concreto
+            float len = GetAnimationDuration();      // ← implementa o ya existe
+            duracionMax = Mathf.Max(duracionMax, len);
+
+            // Reproduce el clip SIN loop
+            Play(personaje.gameObject.GetInstanceID().ToString(),
+                 new(anim, false, new(), 0.1f));
+        }
+
+        // Sonido opcional
+        if (sonido) GameManager.instance.soundEffect.PlayOneShot(sonido);
+
+        /* ───────────────────────────────────────────────
+         * 3 · esperar la animación más larga (+ margen)
+         * ─────────────────────────────────────────────── */
+        yield return new WaitForSeconds(duracionMax + 0.05f);
+
+        // 4 · fallback por si no llegó el evento
+        if (!accionesAplicadas)
+            EjecutarTodasAcciones();
+
+        // 5 · volver al Idle
+        Play(personaje.gameObject.GetInstanceID().ToString(),
+             new(Animations.IDLE1, true, new(), 0.05f));
+
+        // 6 · limpieza
+        GameManager.OnImpactoHabilidad -= handler;
     }
 
-        private void EjecutarAccion(Accion accion)
+    private void EjecutarAccion(Accion accion)
     {
         switch (accion) 
             {
@@ -85,7 +127,7 @@ public class Habilidad : ScriptableObject, IComparable
 
                     foreach (Personaje objetivo in objetivos)
                     {
-                        RealizaTiradas(personaje.punteria, fuerza, objetivo, da�o);
+                        RealizaTiradas(personaje.punteria, fuerza, objetivo, daño);
                     }
 
                     break;
@@ -94,7 +136,7 @@ public class Habilidad : ScriptableObject, IComparable
 
                     foreach (Personaje objetivo in objetivos)
                     {
-                        RealizaTiradas(personaje.habilidadCombate, personaje.fuerza + fuerza, objetivo, da�o);
+                        RealizaTiradas(personaje.habilidadCombate, personaje.fuerza + fuerza, objetivo, daño);
                     }
 
                     break;
@@ -103,7 +145,7 @@ public class Habilidad : ScriptableObject, IComparable
 
                     foreach (Personaje objetivo in objetivos)
                     {
-                        RealizaTiradas(personaje.habilidadCombate, personaje.fuerza + personaje.habilidadEspecial + fuerza, objetivo, da�o);
+                        RealizaTiradas(personaje.habilidadCombate, personaje.fuerza + personaje.habilidadEspecial + fuerza, objetivo, daño);
                     }
 
                     break;
@@ -112,7 +154,7 @@ public class Habilidad : ScriptableObject, IComparable
 
                     foreach (Personaje objetivo in objetivos)
                     {
-                        RealizaTiradas(personaje.habilidadCombate, personaje.fuerza, objetivo, da�o);
+                        RealizaTiradas(personaje.habilidadCombate, personaje.fuerza, objetivo, daño);
                     }
 
                     break;
@@ -121,14 +163,14 @@ public class Habilidad : ScriptableObject, IComparable
 
                     foreach (Personaje objetivo in objetivos)
                     {
-                        RealizaTiradas(personaje.punteria, fuerza, objetivo, da�o);
+                        RealizaTiradas(personaje.punteria, fuerza, objetivo, daño);
                     }
 
                     personaje.heridasActuales -= personaje.heridasActuales / 8;
 
                     break;
 
-                case Accion.DisparoDa�oPorcentualVidaActual:
+                case Accion.DisparoDañoPorcentualVidaActual:
 
                     foreach (Personaje objetivo in objetivos)
                     {
@@ -159,11 +201,11 @@ public class Habilidad : ScriptableObject, IComparable
 
                     break;
 
-                case Accion.GolpeUnObjetivoMasFuerzaMasDa�oPorcentual:
+                case Accion.GolpeUnObjetivoMasFuerzaMasDañoPorcentual:
 
                     foreach (Personaje objetivo in objetivos)
                     {
-                        RealizaTiradas(personaje.habilidadCombate, personaje.fuerza + fuerza, objetivo, da�o + objetivo.heridasActuales * 10 / 100);
+                        RealizaTiradas(personaje.habilidadCombate, personaje.fuerza + fuerza, objetivo, daño + objetivo.heridasActuales * 10 / 100);
                     }
 
                     break;
@@ -172,7 +214,7 @@ public class Habilidad : ScriptableObject, IComparable
 
                     foreach (Personaje objetivo in objetivos)
                     {
-                        RealizaTiradas(personaje.habilidadCombate, personaje.fuerza + fuerza, objetivo, da�o);
+                        RealizaTiradas(personaje.habilidadCombate, personaje.fuerza + fuerza, objetivo, daño);
 
                         if (objetivo.heridasActuales <= 0) Curar(personaje);
                     }
@@ -191,11 +233,11 @@ public class Habilidad : ScriptableObject, IComparable
 
                     break;
 
-                case Accion.DisparoDa�oMasDa�oAleatorio:
+                case Accion.DisparoDañoMasDañoAleatorio:
 
                     foreach (Personaje objetivo in objetivos)
                     {
-                        RealizaTiradas(personaje.punteria, fuerza, objetivo, da�o + Roll(6));
+                        RealizaTiradas(personaje.punteria, fuerza, objetivo, daño + Roll(6));
                     }
 
                     break;
@@ -213,21 +255,21 @@ public class Habilidad : ScriptableObject, IComparable
 
                     foreach (Personaje objetivo in objetivos)
                     {
-                        for (int i = 0; i < Roll(6); i++) RealizaTiradas(personaje.punteria, fuerza, objetivo, da�o);
+                        for (int i = 0; i < Roll(6); i++) RealizaTiradas(personaje.punteria, fuerza, objetivo, daño);
                     }
 
                     break;
 
-                case Accion.Disparo1d3Da�oMas1d3:
+                case Accion.Disparo1d3DañoMas1d3:
 
                     foreach (Personaje objetivo in objetivos)
                     {
-                        for (int i = 0; i < Roll(1, 3); i++) RealizaTiradas(personaje.punteria, fuerza, objetivo, da�o + Roll(1, 3));
+                        for (int i = 0; i < Roll(1, 3); i++) RealizaTiradas(personaje.punteria, fuerza, objetivo, daño + Roll(1, 3));
                     }
 
                     break;
 
-                case Accion.DisparoDa�oMitadVidaActualObjetivo:
+                case Accion.DisparoDañoMitadVidaActualObjetivo:
 
                 foreach (Personaje objetivo in objetivos)
                 {
@@ -253,7 +295,7 @@ public class Habilidad : ScriptableObject, IComparable
         return velocidad > hab.velocidad ? 1 : 0;
     }
 
-    private void RealizaTiradas(int punteria, int fuerza, Personaje objetivo, int da�o)
+    private void RealizaTiradas(int punteria, int fuerza, Personaje objetivo, int daño)
     {
         if (HitRoll(punteria - objetivo.agilidad))
         {
@@ -261,9 +303,9 @@ public class Habilidad : ScriptableObject, IComparable
             {
                 if (!SavingThrow(objetivo))
                 {
-                    objetivo.heridasActuales -= da�o;
+                    objetivo.heridasActuales -= daño;
 
-                    Anima(objetivo, da�o.ToString(), Color.red);
+                    Anima(objetivo, daño.ToString(), Color.red);
                     Play(objetivo.gameObject.GetInstanceID().ToString(), new(Animations.HIT, true, new(), 0.2f));
                 }
                 else
@@ -363,7 +405,7 @@ public class Habilidad : ScriptableObject, IComparable
 
         Animator animator = null;
 
-        // Buscar el Animator que NO est� en un Canvas
+        // Buscar el Animator que NO esté en un Canvas
         foreach (var a in animators)
         {
             if (a.GetComponentInParent<Canvas>() == null)
@@ -375,14 +417,14 @@ public class Habilidad : ScriptableObject, IComparable
 
         if (animator == null)
         {
-            Debug.LogWarning("No se encontr� un Animator v�lido (excluyendo el Canvas).");
+            Debug.LogWarning("No se encontró un Animator válido (excluyendo el Canvas).");
             return 0f;
         }
 
         AnimatorController controller = animator.runtimeAnimatorController as AnimatorController;
         if (controller == null)
         {
-            Debug.LogWarning("El Animator no tiene un AnimatorController v�lido.");
+            Debug.LogWarning("El Animator no tiene un AnimatorController válido.");
             return 0f;
         }
 
@@ -400,7 +442,7 @@ public class Habilidad : ScriptableObject, IComparable
             }
         }
 
-        Debug.LogWarning("Animaci�n no encontrada en el Animator seleccionado.");
+        Debug.LogWarning("Animación no encontrada en el Animator seleccionado.");
         return 0f;
     }
 
