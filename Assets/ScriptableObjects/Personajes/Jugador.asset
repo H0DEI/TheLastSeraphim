@@ -31,7 +31,7 @@ MonoBehaviour:
   gameObject: {fileID: 0}
   estados: []
   habilidades:
-  - {fileID: 11400000, guid: 328ea924065d9c042919f24a84b75f6c, type: 2}
+  - {fileID: 11400000, guid: a3c316c35aab43c43b18453d3a33b0b5, type: 2}
   - {fileID: 11400000, guid: 76c3280f7dd40eb4aa1a6c79f74a9ac2, type: 2}
   - {fileID: 11400000, guid: 978797411d3539a45ac60b83e9669b5f, type: 2}
   - {fileID: 11400000, guid: 80034fad401e4c1408c794dbff1051c4, type: 2}

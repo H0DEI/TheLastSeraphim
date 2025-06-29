@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4635860024406697472}
   - component: {fileID: 7925494857610939107}
   - component: {fileID: 1602853801460469291}
-  - component: {fileID: 4452250149772016483}
   - component: {fileID: 759219159769059093}
   m_Layer: 0
   m_Name: CinemachineBrain
@@ -127,41 +126,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 423620143613315020}
   m_Enabled: 1
---- !u!114 &4452250149772016483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 423620143613315020}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78da3f00f3328541b4526c0b0b5ec5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lineThickness: 1.25
-  lineIntensity: 0.5
-  fillAmount: 0.2
-  lineColor0: {r: 1, g: 0, b: 0, a: 1}
-  lineColor1: {r: 0, g: 1, b: 0, a: 1}
-  lineColor2: {r: 0.9547169, g: 0.94695127, b: 0, a: 1}
-  additiveRendering: 0
-  backfaceCulling: 1
-  fillTexture: {fileID: 0}
-  fillTextureScale: {x: 1, y: 1}
-  useFillColor: 0
-  fillColor: {r: 0, g: 0, b: 1, a: 1}
-  cornerOutlines: 0
-  addLinesBetweenColors: 0
-  scaleWithScreenSize: 1
-  alphaCutoff: 0.5
-  flipY: 0
-  sourceCamera: {fileID: 0}
-  autoEnableOutlines: 0
-  outlineCamera: {fileID: 0}
-  outlineShaderMaterial: {fileID: 0}
-  renderTexture: {fileID: 0}
-  extraRenderTexture: {fileID: 0}
 --- !u!114 &759219159769059093
 MonoBehaviour:
   m_ObjectHideFlags: 0
