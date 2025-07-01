@@ -65,68 +65,70 @@ public class Habilidad : ScriptableObject, IComparable
     [SerializeField] private float delayMin = 0.04f;
     [SerializeField] private float delayMax = 0.08f;
 
+    private int totalDañoInfligido;
+
     private void Play(string id, AnimationData animationData, int layer = 0)
     {
         GameManager.instance.animationManager.PlayAnimation(id, animationData, layer);
     }
 
-    private void PlayCanvas(string id, AnimationData animationData, int layer = 0)
-    {
-        GameManager.instance.animationManager.PlayCanvas(id, animationData, layer);
-    }
-
     // Habilidad.cs  (versión resumida)
     public IEnumerator Usar()
     {
-        _popupDelay = 0f;
+        /* ─────────────── RESET ─────────────── */
+        _popupDelay = 0f;          // delay para pop-ups
+        totalDañoInfligido = 0;           // acumulador lógico
+
+        if (GameManager.instance?.totalDamageDisplay != null)
+            GameManager.instance.totalDamageDisplay.Resetear();   // texto = 0, alpha = 0
+
         bool accionesAplicadas = false;
 
-        // 1 · suscribirse al impacto
+        /* ───────── Suscripción al impacto ───────── */
         System.Action handler = () =>
         {
             if (!accionesAplicadas)
             {
-                EjecutarTodasAcciones();
+                EjecutarTodasAcciones();    // aplica Acciones solo 1 vez
                 accionesAplicadas = true;
             }
         };
         GameManager.OnImpactoHabilidad += handler;
 
-        /* ───────────────────────────────────────────────
-         * 2 · reproducir animaciones/SFX y calcular la más larga
-         * ─────────────────────────────────────────────── */
+        /* ───────── Animaciones / SFX ───────── */
         float duracionMax = 0f;
 
         foreach (var anim in animaciones)
         {
-            // Usa tu helper para obtener la duración del clip concreto
-            float len = GetAnimationDuration();      // ← implementa o ya existe
+            float len = GetAnimationDuration();          // tu helper
             duracionMax = Mathf.Max(duracionMax, len);
 
-            // Reproduce el clip SIN loop
             Play(personaje.gameObject.GetInstanceID().ToString(),
-                 new(anim, false, new(), 0.1f));
+                 new(anim, false, new(), 0.1f));         // sin loop
         }
 
-        // Sonido opcional
-        if (sonido) GameManager.instance.soundEffect.PlayOneShot(sonido);
+        if (sonido != null)
+            GameManager.instance.soundEffect.PlayOneShot(sonido);
 
-        /* ───────────────────────────────────────────────
-         * 3 · esperar la animación más larga (+ margen)
-         * ─────────────────────────────────────────────── */
+        /* ───────── Espera a que termine lo más largo ───────── */
         yield return new WaitForSeconds(duracionMax + 0.05f);
 
-        // 4 · fallback por si no llegó el evento
+        /* Fallback por si no llegó el evento de impacto */
         if (!accionesAplicadas)
             EjecutarTodasAcciones();
 
-        // 5 · volver al Idle
+        /* Volver al Idle */
         Play(personaje.gameObject.GetInstanceID().ToString(),
              new(Animations.IDLE1, true, new(), 0.05f));
 
-        // 6 · limpieza
+        /* Limpieza del handler */
         GameManager.OnImpactoHabilidad -= handler;
+
+        /* ───────── Fade-out del contador de daño ───────── */
+        if (GameManager.instance?.totalDamageDisplay != null)
+            GameManager.instance.totalDamageDisplay.FadeOut();    // 0.4 s por defecto
     }
+
 
     private void EjecutarAccion(Accion accion)
     {
@@ -312,19 +314,32 @@ public class Habilidad : ScriptableObject, IComparable
             {
                 if (!SavingThrow(objetivo))
                 {
-                    objetivo.heridasActuales -= daño;
+                    int deltaDaño = daño;
+                    objetivo.heridasActuales -= deltaDaño;
 
                     float rnd = Random.Range(delayMin, delayMax);
+                    float delayGolpe = _popupDelay + rnd;
 
-                    //Play(objetivo.gameObject.GetInstanceID().ToString(), new(Animations.HIT, true, new(), 0.2f));
+                    /* ─── SÓLO acumula si el objetivo NO es el jugador ─── */
+                    if (objetivo != GameManager.instance.jugador)
+                    {
+                        totalDañoInfligido += deltaDaño;
+
+                        // programa el incremento del contador total
+                        GameManager.instance.StartCoroutine(
+                            AddTotalAfterDelay(deltaDaño, delayGolpe));
+
+                        _popupDelay += rnd;      // acumula para el siguiente golpe
+                    }
+
+                    // floating-text individual
                     ftManager.Mostrar(
-                          FloatingTextTipo.Daño,
-                          daño.ToString(),
-                          objetivo,
-                          null,      // color por defecto
-                          1f,
-                          _popupDelay + rnd);   // ← pasa delay acumulado
-                    _popupDelay += rnd;          // acumula para el siguiente
+                        FloatingTextTipo.Daño,
+                        deltaDaño.ToString(),
+                        objetivo,
+                        null,          // color por defecto
+                        1f,
+                        delayGolpe);   // delay para este popup
                 }
                 else
                 {
@@ -487,5 +502,13 @@ public class Habilidad : ScriptableObject, IComparable
 
         Debug.LogWarning("Animación no encontrada en el Animator seleccionado.");
         return 0f;
+    }
+
+    private IEnumerator AddTotalAfterDelay(int delta, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (GameManager.instance.totalDamageDisplay != null)
+            GameManager.instance.totalDamageDisplay.Añadir(delta);
     }
 }

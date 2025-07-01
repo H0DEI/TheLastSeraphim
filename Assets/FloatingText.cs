@@ -78,15 +78,85 @@ public class FloatingText : MonoBehaviour
                 break;
 
             case FloatingTextTipo.Fallo:
-                seq.Append(rt.DOShakeAnchorPos(0.4f, strength: 20f, vibrato: 25))
-                   .Join(grupo.DOFade(0, 0.6f).SetDelay(0.15f));
-                break;
+                {
+                    /* ─ Configuración básica ───────────────────────── */
+                    float speed = 1.8f;          // 1 = normal · >1 = más lento · <1 = más rápido
+                    float escBig = esc * 1.5f;    // tamaño inicial
+                    float escSmall = esc * 0.7f;    // tamaño final (ligera contracción)
+                    float fallDist = -120f;          // píxeles hacia abajo (negativo = baja)
+
+                    // ▸ Arranca grande y transparente
+                    rt.localScale = Vector3.one * escBig;
+                    grupo.alpha = 0f;
+
+                    /* ─ Secuencia ──────────────────────────────────── */
+                    seq.Append(grupo.DOFade(1f, 0.10f * speed));                      // 1 · fade-in rápido
+
+                    // 2 · encoge, cae y se desvanece
+                    seq.Append(rt.DOScale(escSmall, 0.45f * speed)
+                                 .SetEase(Ease.OutQuad))
+                       .Join(rt.DOAnchorPosY(fallDist, 0.45f * speed)  // ← cae
+                                 .SetRelative()
+                                 .SetEase(Ease.InQuad))
+                       .Join(grupo.DOFade(0f, 0.45f * speed));         // ← fade-out simultáneo
+
+                    break;
+                }
+
+            case FloatingTextTipo.Salvacion:
+                {
+                    /* ─ Configuración básica ───────────────────────── */
+                    float speed = 1.8f;          // 1 = normal · >1 = más lento · <1 = más rápido
+                    float escBig = esc * 2f;    // tamaño inicial
+                    float escSmall = esc * 0.7f;    // tamaño final
+                    float riseDist = 80f;           // píxeles hacia arriba (+Y)
+
+                    // ▸ Arranca grande y transparente
+                    rt.localScale = Vector3.one * escBig;
+                    grupo.alpha = 0f;
+
+                    /* ─ Secuencia ──────────────────────────────────── */
+                    seq.Append(grupo.DOFade(1f, 0.10f * speed));                      // 1 · fade-in rápido
+
+                    // 2 · encoge, sube y se desvanece
+                    seq.Append(rt.DOScale(escSmall, 0.45f * speed)
+                                 .SetEase(Ease.OutQuad))
+                       .Join(rt.DOAnchorPosY(riseDist, 0.45f * speed)  // ← sube
+                                 .SetRelative()
+                                 .SetEase(Ease.OutQuad))
+                       .Join(grupo.DOFade(0f, 0.45f * speed));         // ← fade-out simultáneo
+
+                    break;
+                }
+
 
             case FloatingTextTipo.Resistido:
-                seq.Append(rt.DOScale(esc * 1.4f, 0.15f).SetEase(Ease.OutBack))
-                   .Join(rt.DOAnchorPosY(90f, 1f).SetRelative().SetEase(Ease.OutQuad))
-                   .Join(grupo.DOFade(0, 1f));
-                break;
+                {
+                    /* ─ Configuración básica ───────────────────────── */
+                    float speed = 1.8f;
+                    float escBig = esc * 1f;
+                    float escShrink = esc * 0.9f;
+
+                    // ▸ Empieza grande y transparente
+                    rt.localScale = Vector3.one * escBig;
+                    grupo.alpha = 0f;
+
+                    /* ─ Secuencia ──────────────────────────────────── */
+
+                    // 1 · Fade-in + tambaleo inicial
+                    seq.Append(grupo.DOFade(1f, 0.15f * speed));
+                    seq.Join(rt.DOShakeAnchorPos(0.4f * speed,
+                        strength: 25f, vibrato: 15, randomness: 35,
+                        snapping: false, fadeOut: true));
+
+                    // 2 · Encoge y fade-out
+                    seq.Append(rt.DOScale(escShrink, 0.3f * speed)
+                               .SetEase(Ease.InQuad))
+                       .Join(grupo.DOFade(0f, 0.3f * speed));
+
+                    break;
+                }
+
 
             default: // Cura, etc.
                 seq.Append(rt.DOScale(esc * 1.3f, 0.15f).SetEase(Ease.OutBack))

@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
         OnImpactoHabilidad?.Invoke();
     }
 
+    public TotalDamageDisplay totalDamageDisplay;  // Asignar desde Inspector
+
     public AnimationManager animationManager;
 
     public FloatingTextManager floatingTextManager;
