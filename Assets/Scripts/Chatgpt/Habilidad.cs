@@ -123,10 +123,6 @@ public class Habilidad : ScriptableObject, IComparable
 
         /* Limpieza del handler */
         GameManager.OnImpactoHabilidad -= handler;
-
-        /* ───────── Fade-out del contador de daño ───────── */
-        if (GameManager.instance?.totalDamageDisplay != null)
-            GameManager.instance.totalDamageDisplay.FadeOut();    // 0.4 s por defecto
     }
 
 

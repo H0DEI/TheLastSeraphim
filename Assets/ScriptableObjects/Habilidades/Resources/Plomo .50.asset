@@ -16,9 +16,9 @@ MonoBehaviour:
   descripcion: "Desenfunda y dispara un proyectil de gran calibre directamente al
     torso del objetivo, causando un da\xF1o devastador.\n{F} 12, {P} 2, {D} 7."
   coste: 1
-  velocidad: 10
-  fuerza: 12
-  penetracion: 2
+  velocidad: 20
+  fuerza: 20
+  penetracion: 20
   "da\xF1o": 7
   acciones: 00000000
   animaciones: 0e000000
@@ -32,3 +32,6 @@ MonoBehaviour:
   numeroDeUsos: 727
   tier: 1
   sonido: {fileID: 8300000, guid: 3b5ef7fdfcc840940854271391d2e038, type: 3}
+  invocacion: {fileID: 0}
+  delayMin: 0.04
+  delayMax: 0.08

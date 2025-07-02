@@ -3,115 +3,111 @@ using TMPro;
 using DG.Tweening;
 
 /// <summary>
-/// Widget que muestra el daño total durante la habilidad.
-///  • Primera vez: se desliza desde la derecha.
-///  • Cada golpe: “pulso ñam”.
-///  • Al acabar la habilidad: fade-out.
+/// Muestra un contador de daño total que
+///  • se desliza una sola vez desde (180,-264) → (-80,-264)
+///  • acumula los nuevos daños mientras está visible
+///  • hace un “pulso-ñam” cada vez que sube el número
+///  • se desvanece 1 ,5 s después del último golpe
 /// </summary>
+[RequireComponent(typeof(CanvasGroup))]
 public class TotalDamageDisplay : MonoBehaviour
 {
-    /*────────────────  Ajustes en Inspector  ────────────────*/
+    /* ────── Inspector ────── */
+    [Header("Referencias")]
+    [SerializeField] private TextMeshProUGUI txtTotal;   // sólo el número
 
-    [Header("Referencias UI")]
-    [SerializeField] private TextMeshProUGUI txtTotal;
-
-    [Header("Slide-in inicial")]
-    [SerializeField] private float slidePx = 320f;
-    [SerializeField] private float slideTime = 0.30f;
+    [Header("Slide-in")]
+    [SerializeField] private float slideStartX = 180f;
+    [SerializeField] private float slideEndX = -80f;
+    [SerializeField] private float slideY = -264f;
+    [SerializeField] private float slideTime = 0.35f;
+    [SerializeField] private Ease slideEase = Ease.OutQuart;
 
     [Header("Pulso «ñam»")]
-    [SerializeField] private float pulsoEscala = 1.25f;
-    [SerializeField] private float pulsoTime = 0.15f;
-    [SerializeField] private float pulsoEase = 0.35f;   // 0 – 1 (parte del tiempo para volver)
+    [SerializeField] private float pulseScale = 1.25f;
+    [SerializeField] private float pulseTime = 0.15f;
 
-    [Header("Fade-out final")]
-    [Tooltip("Segundos que espera antes de empezar a desvanecerse")]
-    [SerializeField] private float fadeOutDelay = 1.1f;   // << alarga aquí
-    [SerializeField] private float fadeOutTime = 1f;
+    [Header("Persistencia / Fade-out")]
+    [SerializeField] private float stayTime = 1.5f;
+    [SerializeField] private float fadeTime = 0.4f;
 
-    /*────────────────  Campos privados  ─────────────────────*/
+    /* ────── internos ────── */
+    RectTransform rt;
+    CanvasGroup cg;
+    Tween slideTween, fadeTween;
+    int acumulado;                     // daño acumulado
 
-    CanvasGroup grupo;
-    Vector2 posBase;
-    Tween fadeTween;
-
-    int total = 0;
-    bool shown = false;
-
-    /*────────────────  Inicialización  ──────────────────────*/
-
+    /* ------------------------------------------------------------ */
     void Awake()
     {
-        grupo = GetComponent<CanvasGroup>() ?? gameObject.AddComponent<CanvasGroup>();
-        grupo.alpha = 0f;
+        rt = GetComponent<RectTransform>();
+        cg = GetComponent<CanvasGroup>();
 
-        txtTotal.text = "";
-        posBase = ((RectTransform)transform).anchoredPosition;
-        gameObject.SetActive(false);
+        ResetDisplay();                // lo deja oculto y colocado
     }
 
-    /*────────────────  API  ────────────────────────────────*/
+    /* === API pública ============================================ */
+    public void Resetear() => ResetDisplay();
 
-    public void Resetear()
-    {
-        DOTween.Kill(txtTotal.transform);
-        grupo.DOKill();
-        fadeTween?.Kill();
-
-        total = 0;
-        shown = false;
-        txtTotal.text = "";
-        grupo.alpha = 0f;
-
-        ((RectTransform)transform).anchoredPosition = posBase;
-        gameObject.SetActive(false);
-    }
-
+    /// <summary>Añade daño y actualiza la UI.</summary>
     public void Añadir(int cantidad)
     {
-        // cancela un fade-out pendiente
-        fadeTween?.Kill();
-        fadeTween = null;
+        if (cantidad <= 0) return;
 
-        total += cantidad;
-        txtTotal.text = total.ToString();
+        bool primeraVez = acumulado == 0;   // estaba oculto
 
-        var rt = (RectTransform)transform;
+        acumulado += cantidad;
+        txtTotal.text = acumulado.ToString();
 
-        if (!shown)                       // primera vez → slide-in
-        {
-            shown = true;
-            gameObject.SetActive(true);
-            grupo.alpha = 1f;
+        /* si era la primera vez mostramos con slide-in */
+        if (primeraVez) Mostrar();
+        else Pulso();           // si ya estaba, sólo pulso
 
-            rt.anchoredPosition = posBase + Vector2.right * slidePx;
-            rt.DOAnchorPos(posBase, slideTime).SetEase(Ease.OutQuart);
-        }
-        else
-        {
-            // Asegura que nunca se desplace
-            rt.anchoredPosition = posBase;
-            if (!gameObject.activeSelf)
-            {
-                gameObject.SetActive(true);
-                grupo.alpha = 1f;
-            }
-        }
+        /* re-programa el fade cada vez que llega daño */
+        ReprogramarFade();
+    }
 
-        // pulso
+    /* === implementación ========================================= */
+    void Mostrar()
+    {
+        gameObject.SetActive(true);
+        cg.alpha = 1f;
+
+        /* Slide: parte fuera (180) y llega a –80 */
+        rt.anchoredPosition = new Vector2(slideStartX, slideY);
+        slideTween?.Kill();
+        slideTween = rt.DOAnchorPosX(slideEndX, slideTime)
+                       .SetEase(slideEase);
+    }
+
+    void Pulso()
+    {
         txtTotal.transform.DOKill();
         DOTween.Sequence()
-               .Append(txtTotal.transform.DOScale(pulsoEscala, pulsoTime))
-               .Append(txtTotal.transform.DOScale(1f, pulsoTime * pulsoEase))
+               .Append(txtTotal.transform.DOScale(pulseScale, pulseTime))
+               .Append(txtTotal.transform.DOScale(1f, pulseTime))
                .SetEase(Ease.OutQuad);
     }
 
-    /// <summary>Llámalo al terminar la habilidad.</summary>
-    public void FadeOut()
+    void ReprogramarFade()
     {
         fadeTween?.Kill();
-        fadeTween = grupo.DOFade(0f, fadeOutTime)
-                         .SetDelay(fadeOutDelay)
-                         .OnComplete(() => gameObject.SetActive(false));
+        fadeTween = cg.DOFade(0f, fadeTime)
+                     .SetDelay(stayTime)
+                     .OnComplete(ResetDisplay);
+    }
+
+    void ResetDisplay()
+    {
+        slideTween?.Kill();
+        fadeTween?.Kill();
+
+        acumulado = 0;
+        txtTotal.text = "";
+        cg.alpha = 0f;
+
+        /* posición fija final (por si se muestra de nuevo) */
+        rt.anchoredPosition = new Vector2(slideEndX, slideY);
+        gameObject.SetActive(false);
     }
 }
