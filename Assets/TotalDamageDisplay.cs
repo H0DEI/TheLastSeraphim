@@ -1,113 +1,164 @@
 ﻿using UnityEngine;
 using TMPro;
-using DG.Tweening;
+using System.Collections;
 
 /// <summary>
-/// Muestra un contador de daño total que
-///  • se desliza una sola vez desde (180,-264) → (-80,-264)
-///  • acumula los nuevos daños mientras está visible
-///  • hace un “pulso-ñam” cada vez que sube el número
-///  • se desvanece 1 ,5 s después del último golpe
+/// Versión sin DOTween.
+/// • Coroutines para slide, pulso y fade.
+/// • No usa SetActive, sólo CanvasGroup alpha.
 /// </summary>
 [RequireComponent(typeof(CanvasGroup))]
+[DisallowMultipleComponent]
 public class TotalDamageDisplay : MonoBehaviour
 {
     /* ────── Inspector ────── */
     [Header("Referencias")]
-    [SerializeField] private TextMeshProUGUI txtTotal;   // sólo el número
+    [SerializeField] TextMeshProUGUI txtTotal;
 
     [Header("Slide-in")]
-    [SerializeField] private float slideStartX = 180f;
-    [SerializeField] private float slideEndX = -80f;
-    [SerializeField] private float slideY = -264f;
-    [SerializeField] private float slideTime = 0.35f;
-    [SerializeField] private Ease slideEase = Ease.OutQuart;
+    [SerializeField] float slideStartX = 180f;
+    [SerializeField] float slideEndX = -80f;
+    [SerializeField] float slideY = -264f;
+    [SerializeField] float slideTime = 0.35f;   // segundos
 
     [Header("Pulso «ñam»")]
-    [SerializeField] private float pulseScale = 1.25f;
-    [SerializeField] private float pulseTime = 0.15f;
+    [SerializeField] float pulseScale = 1.25f;
+    [SerializeField] float pulseTime = 0.15f;
 
     [Header("Persistencia / Fade-out")]
-    [SerializeField] private float stayTime = 1.5f;
-    [SerializeField] private float fadeTime = 0.4f;
+    [SerializeField] float stayTime = 1.5f;
+    [SerializeField] float fadeTime = 0.4f;
 
     /* ────── internos ────── */
     RectTransform rt;
     CanvasGroup cg;
-    Tween slideTween, fadeTween;
-    int acumulado;                     // daño acumulado
 
-    /* ------------------------------------------------------------ */
+    Coroutine slideCR, fadeCR, pulseCR;
+    int total;
+    bool yaEntrado;          // evita repetir el slide
+
+    /* ───────────────────────────────────────────── */
     void Awake()
     {
         rt = GetComponent<RectTransform>();
         cg = GetComponent<CanvasGroup>();
 
-        ResetDisplay();                // lo deja oculto y colocado
+        // fijamos anchor/pivot arriba-derecha para coherencia
+        rt.anchorMin = rt.anchorMax = Vector2.one;
+        rt.pivot = Vector2.one;
+
+        ReiniciarEstado();
     }
 
-    /* === API pública ============================================ */
-    public void Resetear() => ResetDisplay();
+    /* === API pública ========================================== */
+    public void Resetear() => ReiniciarEstado();
 
-    /// <summary>Añade daño y actualiza la UI.</summary>
-    public void Añadir(int cantidad)
+    public void Añadir(int dmg)
     {
-        if (cantidad <= 0) return;
+        if (dmg <= 0) return;
 
-        bool primeraVez = acumulado == 0;   // estaba oculto
+        total += dmg;
+        txtTotal.text = total.ToString();
 
-        acumulado += cantidad;
-        txtTotal.text = acumulado.ToString();
+        if (!yaEntrado)
+        {
+            if (slideCR != null) StopCoroutine(slideCR);
+            slideCR = StartCoroutine(SlideIn());
+        }
+        else
+        {
+            if (pulseCR != null) StopCoroutine(pulseCR);
+            pulseCR = StartCoroutine(Pulso());
+        }
 
-        /* si era la primera vez mostramos con slide-in */
-        if (primeraVez) Mostrar();
-        else Pulso();           // si ya estaba, sólo pulso
-
-        /* re-programa el fade cada vez que llega daño */
-        ReprogramarFade();
+        // re-programa fade cada vez
+        if (fadeCR != null) StopCoroutine(fadeCR);
+        fadeCR = StartCoroutine(FadeTrasEspera());
     }
 
-    /* === implementación ========================================= */
-    void Mostrar()
+    /* === Coroutines =========================================== */
+
+    // Slide-in con easing OutQuart
+    IEnumerator SlideIn()
     {
-        gameObject.SetActive(true);
+        yaEntrado = true;
         cg.alpha = 1f;
+        float t = 0f;
+        float start = slideStartX;
+        float end = slideEndX;
 
-        /* Slide: parte fuera (180) y llega a –80 */
-        rt.anchoredPosition = new Vector2(slideStartX, slideY);
-        slideTween?.Kill();
-        slideTween = rt.DOAnchorPosX(slideEndX, slideTime)
-                       .SetEase(slideEase);
+        while (t < 1f)
+        {
+            t += Time.unscaledDeltaTime / slideTime;           // sin afectar por Time.timeScale
+            float eased = 1f - Mathf.Pow(1f - t, 4f);          // OutQuart
+            float x = Mathf.Lerp(start, end, eased);
+            rt.anchoredPosition = new Vector2(x, slideY);
+            yield return null;
+        }
+
+        // clava posición exacta
+        rt.anchoredPosition = new Vector2(end, slideY);
     }
 
-    void Pulso()
+    // Escala ↑ y ↓
+    IEnumerator Pulso()
     {
-        txtTotal.transform.DOKill();
-        DOTween.Sequence()
-               .Append(txtTotal.transform.DOScale(pulseScale, pulseTime))
-               .Append(txtTotal.transform.DOScale(1f, pulseTime))
-               .SetEase(Ease.OutQuad);
+        Transform tr = txtTotal.transform;
+        float t = 0f;
+        while (t < pulseTime)
+        {
+            t += Time.unscaledDeltaTime;
+            float k = t / pulseTime;
+            float s = Mathf.Lerp(1f, pulseScale, k);
+            tr.localScale = Vector3.one * s;
+            yield return null;
+        }
+
+        t = 0f;
+        while (t < pulseTime)
+        {
+            t += Time.unscaledDeltaTime;
+            float k = t / pulseTime;
+            float s = Mathf.Lerp(pulseScale, 1f, k);
+            tr.localScale = Vector3.one * s;
+            yield return null;
+        }
+
+        tr.localScale = Vector3.one;
     }
 
-    void ReprogramarFade()
+    // Espera, luego desvanece y reinicia
+    IEnumerator FadeTrasEspera()
     {
-        fadeTween?.Kill();
-        fadeTween = cg.DOFade(0f, fadeTime)
-                     .SetDelay(stayTime)
-                     .OnComplete(ResetDisplay);
-    }
+        yield return new WaitForSeconds(stayTime);
 
-    void ResetDisplay()
-    {
-        slideTween?.Kill();
-        fadeTween?.Kill();
+        float t = 0f, start = 1f, end = 0f;
+        while (t < 1f)
+        {
+            t += Time.unscaledDeltaTime / fadeTime;
+            cg.alpha = Mathf.Lerp(start, end, t);
+            yield return null;
+        }
 
-        acumulado = 0;
-        txtTotal.text = "";
         cg.alpha = 0f;
+        ReiniciarEstado();
+    }
 
-        /* posición fija final (por si se muestra de nuevo) */
+    /* === Helpers ============================================== */
+    void ReiniciarEstado()
+    {
+        // cancela animaciones
+        if (slideCR != null) StopCoroutine(slideCR);
+        if (fadeCR != null) StopCoroutine(fadeCR);
+        if (pulseCR != null) StopCoroutine(pulseCR);
+
+        total = 0;
+        yaEntrado = false;
+        txtTotal.text = "";
+        txtTotal.transform.localScale = Vector3.one;
+
+        // posición lista para la próxima entrada
         rt.anchoredPosition = new Vector2(slideEndX, slideY);
-        gameObject.SetActive(false);
+        cg.alpha = 0f;
     }
 }
