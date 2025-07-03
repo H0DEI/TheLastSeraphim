@@ -291,6 +291,14 @@ public class Habilidad : ScriptableObject, IComparable
                 if (posicionTransform != null) Instantiate(invocacion, posicionTransform.position, posicionTransform.rotation);
 
                 break;
+            case Accion.DisparoDirecto:
+
+                foreach (Personaje objetivo in objetivos)
+                {
+                    AplicaDañoDirecto(objetivo, daño);
+                }
+
+                break;
         }
     }
 
@@ -452,6 +460,36 @@ public class Habilidad : ScriptableObject, IComparable
             if (objetivo.heridasActuales > objetivo.heridasMaximas) objetivo.heridasActuales = objetivo.heridasMaximas;
         }
     }
+
+    /// <summary>
+    /// Aplica inmediatamente <paramref name="daño"/> al <paramref name="objetivo"/>,
+    /// muestra popup y acumula el daño total.  No hay tiradas.
+    /// </summary>
+    private void AplicaDañoDirecto(Personaje objetivo, int daño)
+    {
+        /* ── resta heridas ───────────────────────────── */
+        int deltaDaño = daño;
+        objetivo.heridasActuales -= deltaDaño;
+
+        /* ── tiempos para popup ──────────────────────── */
+        float rnd = Random.Range(delayMin, delayMax);
+        float delayGolpe = _popupDelay + rnd;        // deja respirar los pop-ups
+        _popupDelay += rnd;
+
+        /* ── “Total Daño” sólo si el objetivo NO es el jugador ── */
+        if (objetivo != GameManager.instance.jugador)
+            GameManager.instance.totalDamageDisplay.Añadir(deltaDaño);
+
+        /* ── popup individual ───────────────────────── */
+        ftManager.Mostrar(
+            FloatingTextTipo.Daño,
+            deltaDaño.ToString(),
+            objetivo,
+            null,          // color por defecto
+            1f,
+            delayGolpe);
+    }
+
 
     public float GetAnimationDuration()
     {
