@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
   m_Name: Plomo .50 Fuego
   m_EditorClassIdentifier: 
-  nombre: Plomo .50 test
+  nombre: Plomo .50 Fuego
   descripcion: "Desenfunda y dispara un proyectil de gran calibre directamente al
     torso del objetivo, causando un da\xF1o devastador.\n{F} 12, {P} 2, {D} 7."
   coste: 1
@@ -24,7 +24,7 @@ MonoBehaviour:
   permiteCritico: 1
   probCritExtra: 17
   "da\xF1oCritExtra": 100
-  acciones: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  acciones: 0000000000000000
   animaciones: 0e000000
   personaje: {fileID: 0}
   objetivos:

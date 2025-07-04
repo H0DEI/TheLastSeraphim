@@ -20,6 +20,37 @@ public class FloatingTextManager : MonoBehaviour
     readonly Dictionary<FloatingTextTipo, FloatingText> catalogo =
         new();
 
+    // FloatingTextManager.cs  (añadir al principio de la clase)
+    struct PopupBuffered
+    {
+        public FloatingTextTipo tipo;
+        public string valor;
+        public Personaje objetivo;
+        public Color? color;
+        public float escala;
+    }
+
+    readonly List<PopupBuffered> buffer = new();
+    bool bufferActivo;
+
+    // — API —
+    public void BeginBuffer() { bufferActivo = true; buffer.Clear(); }
+    public void EndBuffer(float ventanaSegs)
+    {
+        bufferActivo = false;
+        int n = buffer.Count;
+        if (n == 0) return;
+
+        for (int i = 0; i < n; i++)
+        {
+            float delay = n == 1 ? 0f : ventanaSegs * i / (n - 1);
+            var p = buffer[i];
+            Mostrar(p.tipo, p.valor, p.objetivo, p.color, p.escala, delay);
+        }
+        buffer.Clear();
+    }
+
+
     void Awake()
     {
         foreach (var p in prefabs)
@@ -61,6 +92,18 @@ public class FloatingTextManager : MonoBehaviour
                         float escalaOverride = 1f,
                         float delay = 0f)          // ← nuevo parámetro
     {
+        if (bufferActivo)
+        {
+            buffer.Add(new PopupBuffered
+            {
+                tipo = tipo,
+                valor = valor,
+                objetivo = objetivo,     // (o calcula worldPos si usas el overload de posición)
+                color = colorOverride,
+                escala = escalaOverride
+            });
+            return;     // ↩️  no lo mostramos todavía
+        }
         if (!objetivo)
         {
             Debug.LogWarning("FloatingTextManager: objetivo es null");
@@ -105,6 +148,18 @@ public class FloatingTextManager : MonoBehaviour
                         Color? colorOverride = null,
                         float escalaOverride = 1f)
     {
+        if (bufferActivo)
+        {
+            buffer.Add(new PopupBuffered
+            {
+                tipo = tipo,
+                valor = valor,
+                objetivo = objetivo,     // (o calcula worldPos si usas el overload de posición)
+                color = colorOverride,
+                escala = escalaOverride
+            });
+            return;     // ↩️  no lo mostramos todavía
+        }
         if (!objetivo)
         {
             Debug.LogWarning("FloatingTextManager: objetivo es null");

@@ -86,6 +86,44 @@ public class Habilidad : ScriptableObject, IComparable
     // Habilidad.cs  (versión resumida)
     public IEnumerator Usar()
     {
+        int ventanaFrames = 0;
+        float tVentanaInicio = 0f;
+
+        // ── 1 · VentanaImpacto ─────────────────────────────
+        System.Action<int> handlerVentana = frames =>
+        {
+            ventanaFrames = frames;
+            ftManager?.BeginBuffer();                 // empezamos a acumular pop-ups
+        };
+        GameManager.OnVentanaImpacto += handlerVentana;
+
+        // ── 2 · ImpactoHabilidad  (daño + flush) ───────────
+        System.Action handlerImpacto = () =>
+        {
+            EjecutarTodasAcciones();                  // aplica Acciones 1 sola vez
+
+            // flush inmediato → reparte entre 0 … frames
+            if (ftManager && ventanaFrames > 0)
+                ftManager.EndBuffer(ventanaFrames / 60f);   // 60 fps por defecto
+        };
+        GameManager.OnImpactoHabilidad += handlerImpacto;
+
+        // Antes de la suscripción:
+        Action handlerInicio = () =>
+        {
+            tVentanaInicio = Time.time;
+            ftManager?.BeginBuffer();
+        };
+
+        Action handlerFin = () =>
+        {
+            if (ftManager)
+            {
+                float dur = Time.time - tVentanaInicio;
+                ftManager.EndBuffer(dur);
+            }
+        };
+
         /* ─────────────── RESET ─────────────── */
         _popupDelay = 0f;          // delay para pop-ups
         totalDañoInfligido = 0;           // acumulador lógico
@@ -134,6 +172,10 @@ public class Habilidad : ScriptableObject, IComparable
 
         /* Limpieza del handler */
         GameManager.OnImpactoHabilidad -= handler;
+
+        // ── Limpieza ───────────────────────────────────────
+        GameManager.OnVentanaImpacto -= handlerVentana;
+        GameManager.OnImpactoHabilidad -= handlerImpacto;
     }
 
 

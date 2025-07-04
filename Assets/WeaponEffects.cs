@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class WeaponEffects : MonoBehaviour
@@ -20,8 +20,16 @@ public class WeaponEffects : MonoBehaviour
     public GameObject bubble;
 
     public GameObject root;
-    public void EventoImpacto()   // Animation Event
+
+    // Mantén este para las habilidades antiguas ↓
+    public void EventoImpacto() // sin parámetros, habilidades antiguas
     {
+        GameManager.EmitirImpactoHabilidad();
+    }
+
+    public void EventoImpactoConDuracion(int frames) // NUEVO para animaciones con ventana
+    {
+        GameManager.EmitirVentanaImpacto(frames);
         GameManager.EmitirImpactoHabilidad();
     }
 

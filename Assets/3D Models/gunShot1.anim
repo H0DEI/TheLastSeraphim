@@ -121821,14 +121821,14 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 1.6666666
-    functionName: TriggerGunFlash
+    functionName: EventoImpacto
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.7666667
-    functionName: EventoImpacto
+  - time: 1.6666666
+    functionName: TriggerGunFlash
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

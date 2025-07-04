@@ -6,6 +6,7 @@ using TMPro;
 using System.Linq;
 using UnityEngine.Rendering;
 using System.Threading;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -100,6 +101,14 @@ public class GameManager : MonoBehaviour
     public AudioSource soundEffect;
 
     public GameObject Linterna;
+
+    // GameManager.cs  (zona eventos estáticos)
+
+    public static event System.Action<int> OnVentanaImpacto;     // frames
+
+    public static void EmitirVentanaImpacto(int frames) =>
+            OnVentanaImpacto?.Invoke(frames);
+
 
     [System.Serializable]
     public struct TotalDisplayPorTipo
@@ -502,7 +511,7 @@ public class GameManager : MonoBehaviour
                 {
                     do
                     {
-                        habilidad = lHabilidades[Random.Range(0, aliado.habilidades.Count())];
+                        habilidad = lHabilidades[UnityEngine.Random.Range(0, aliado.habilidades.Count())];
 
                         habilidad.nombre = habilidad.name;
 
@@ -522,13 +531,13 @@ public class GameManager : MonoBehaviour
 
                         case TipoSeleccion.SoloUnEnemigo:
 
-                            habilidad.objetivos.Add(listaEnemigos[Random.Range(0, listaEnemigos.Count())].GetComponent<InteractuarPersonajes>().personaje);
+                            habilidad.objetivos.Add(listaEnemigos[UnityEngine.Random.Range(0, listaEnemigos.Count())].GetComponent<InteractuarPersonajes>().personaje);
 
                             break;
 
                         case TipoSeleccion.CualquierPersonaje:
 
-                            habilidad.objetivos.Add(listaObjetosPersonajesEscena[Random.Range(0, listaObjetosPersonajesEscena.Count())].GetComponent<InteractuarPersonajes>().personaje);
+                            habilidad.objetivos.Add(listaObjetosPersonajesEscena[UnityEngine.Random.Range(0, listaObjetosPersonajesEscena.Count())].GetComponent<InteractuarPersonajes>().personaje);
 
                             break;
 
@@ -576,7 +585,7 @@ public class GameManager : MonoBehaviour
             for (int puntosAcciones = enemigo.accionesMaximas; puntosAcciones > 0; puntosAcciones -= habilidad.coste)
             {
                 do {
-                    habilidad = lHabilidades[Random.Range(0, enemigo.habilidades.Count())];
+                    habilidad = lHabilidades[UnityEngine.Random.Range(0, enemigo.habilidades.Count())];
 
                     habilidad.nombre = habilidad.name;
 
@@ -596,13 +605,13 @@ public class GameManager : MonoBehaviour
 
                     case TipoSeleccion.SoloUnEnemigo:
 
-                        habilidad.objetivos.Add(listaEnemigos[Random.Range(0, listaEnemigos.Count())].GetComponent<InteractuarPersonajes>().personaje);
+                        habilidad.objetivos.Add(listaEnemigos[UnityEngine.Random.Range(0, listaEnemigos.Count())].GetComponent<InteractuarPersonajes>().personaje);
 
                         break;
 
                     case TipoSeleccion.CualquierPersonaje:
 
-                        habilidad.objetivos.Add(listaObjetosPersonajesEscena[Random.Range(0, listaObjetosPersonajesEscena.Count())].GetComponent<InteractuarPersonajes>().personaje);
+                        habilidad.objetivos.Add(listaObjetosPersonajesEscena[UnityEngine.Random.Range(0, listaObjetosPersonajesEscena.Count())].GetComponent<InteractuarPersonajes>().personaje);
 
                         break;
 
