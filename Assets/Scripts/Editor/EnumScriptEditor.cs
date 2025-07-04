@@ -6,7 +6,7 @@ public class EnumScriptEditor : Editor
 {
     /* ─── propiedades existentes ─── */
     SerializedProperty propNombre, propDescripcion, propCoste, propVelocidad,
-                       propFuerza, propPenetracion, propDaño, propAcciones,
+                       propFuerza, propPenetracion, propTipoDaño, propDaño, propAcciones,
                        propAnimaciones, propObjetivos, propTipoSel, propCantidad,
                        propUsosLimitados, propMelee, propNumeroUsos, propTier,
                        propSonido, propInvocacion;
@@ -23,6 +23,7 @@ public class EnumScriptEditor : Editor
         propVelocidad = serializedObject.FindProperty("velocidad");
         propFuerza = serializedObject.FindProperty("fuerza");
         propPenetracion = serializedObject.FindProperty("penetracion");
+        propTipoDaño = serializedObject.FindProperty("tipoDaño");
         propDaño = serializedObject.FindProperty("daño");
         propAcciones = serializedObject.FindProperty("acciones");
         propAnimaciones = serializedObject.FindProperty("animaciones");
@@ -53,6 +54,7 @@ public class EnumScriptEditor : Editor
         EditorGUILayout.PropertyField(propVelocidad);
         EditorGUILayout.PropertyField(propFuerza);
         EditorGUILayout.PropertyField(propPenetracion);
+        EditorGUILayout.PropertyField(propTipoDaño);
         EditorGUILayout.PropertyField(propDaño);
         EditorGUILayout.PropertyField(propAcciones);
         EditorGUILayout.PropertyField(propAnimaciones);

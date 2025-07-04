@@ -33,6 +33,8 @@ public class Habilidad : ScriptableObject, IComparable
     public int velocidad;
     public int fuerza;
     public int penetracion;
+    [Header("Tipo de daño")]
+    public ElementoDaño tipoDaño = ElementoDaño.Ninguno;
     public int daño;
     [Header("Crítico (modificadores)")]
     public bool permiteCritico = true;
@@ -373,7 +375,7 @@ public class Habilidad : ScriptableObject, IComparable
 
                     /* pop-up de daño / crítico */
                     ftManager.Mostrar(
-                        esCritico ? FloatingTextTipo.Critico : FloatingTextTipo.Daño,
+                        TipoPopup(esCritico),          // ← NUEVO
                         esCritico ? $"¡{deltaDaño}!" : deltaDaño.ToString(),
                         objetivo,
                         null,
@@ -419,6 +421,29 @@ public class Habilidad : ScriptableObject, IComparable
             _popupDelay += rnd;
         }
     }
+
+    FloatingTextTipo TipoPopup(bool critico)
+    {
+        return tipoDaño switch
+        {
+            ElementoDaño.Igneo => critico ? FloatingTextTipo.IgneoCritico : FloatingTextTipo.Igneo,
+            ElementoDaño.Toxico => critico ? FloatingTextTipo.ToxicoCritico : FloatingTextTipo.Toxico,
+            ElementoDaño.Plasma => critico ? FloatingTextTipo.PlasmaCritico : FloatingTextTipo.Plasma,
+            _ => critico ? FloatingTextTipo.Critico : FloatingTextTipo.Daño
+        };
+    }
+
+    FloatingTextTipo TipoTotalPopup()
+    {
+        return tipoDaño switch
+        {
+            ElementoDaño.Igneo => FloatingTextTipo.IgneoTotal,
+            ElementoDaño.Toxico => FloatingTextTipo.ToxicoTotal,
+            ElementoDaño.Plasma => FloatingTextTipo.PlasmaTotal,
+            _ => FloatingTextTipo.Total
+        };
+    }
+
 
     private bool HitRoll(int punteria)
     {
@@ -524,7 +549,7 @@ public class Habilidad : ScriptableObject, IComparable
 
         /* ── “Total Daño” sólo si el objetivo NO es el jugador ── */
         if (objetivo != GameManager.instance.jugador)
-            GameManager.instance.totalDamageDisplay.Añadir(deltaDaño);
+            GameManager.instance.MostrarTotalDaño(deltaDaño, TipoTotalPopup(), delayGolpe);
 
         /* ── popup individual ───────────────────────── */
         ftManager.Mostrar(
@@ -589,6 +614,6 @@ public class Habilidad : ScriptableObject, IComparable
         yield return new WaitForSeconds(delay);
 
         if (GameManager.instance.totalDamageDisplay != null)
-            GameManager.instance.totalDamageDisplay.Añadir(delta);
+            GameManager.instance.MostrarTotalDaño(delta, TipoTotalPopup(), delay);
     }
 }

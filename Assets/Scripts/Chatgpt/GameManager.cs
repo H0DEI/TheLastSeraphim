@@ -101,6 +101,18 @@ public class GameManager : MonoBehaviour
 
     public GameObject Linterna;
 
+    [System.Serializable]
+    public struct TotalDisplayPorTipo
+    {
+        public FloatingTextTipo tipo;        // Total, IgneoTotal, etc.
+        public TotalDamageDisplay display;   // asigna el prefab
+    }
+
+    [Header("Total Damage displays")]
+    public TotalDisplayPorTipo[] totalDisplays;
+
+    readonly Dictionary<FloatingTextTipo, TotalDamageDisplay> _mapTotals = new();
+
     //public GameObject indicadorRaton;
 
     private Transform interfaz;
@@ -121,6 +133,9 @@ public class GameManager : MonoBehaviour
 
         interfaz.gameObject.SetActive(false);
 
+        foreach (var td in totalDisplays)
+            if (td.display) _mapTotals[td.tipo] = td.display;
+
         CargaJugador();
     }
 
@@ -138,6 +153,21 @@ public class GameManager : MonoBehaviour
             tipoSelecciones.Add(TipoSeleccion.SinSeleccionar, new bool[] { true, true, true, true, true });
         }
     }
+
+    /* llamado por las habilidades */
+    public void MostrarTotalDaño(int delta, FloatingTextTipo tipo, float delay)
+    {
+        if (!_mapTotals.TryGetValue(tipo, out var disp) || disp == null) return;
+
+        StartCoroutine(CoMostrar());
+
+        IEnumerator CoMostrar()
+        {
+            yield return new WaitForSeconds(delay);
+            disp.Añadir(delta);
+        }
+    }
+
 
     public void CompruebaYCargaEscenas(Escena escena)
     {
