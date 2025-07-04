@@ -22,6 +22,9 @@ MonoBehaviour:
   fuerza: 1
   penetracion: 10
   "da\xF1o": 7
+  permiteCritico: 1
+  probCritExtra: 0
+  "da\xF1oCritExtra": 0
   acciones: 02000000
   animaciones: 
   personaje: {fileID: 0}
@@ -33,3 +36,6 @@ MonoBehaviour:
   numeroDeUsos: 727
   tier: 0
   sonido: {fileID: 0}
+  invocacion: {fileID: 0}
+  delayMin: 0.04
+  delayMax: 0.08

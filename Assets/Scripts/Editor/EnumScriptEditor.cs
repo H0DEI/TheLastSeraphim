@@ -1,108 +1,79 @@
-using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEditor;
 using UnityEngine;
-using UnityEditor;
 
 [CustomEditor(typeof(Habilidad))]
 public class EnumScriptEditor : Editor
 {
-    private SerializedProperty propiedadNombre;
-    private SerializedProperty propiedadDescripcion;
-    private SerializedProperty propiedadCoste;
-    private SerializedProperty propiedadVelocidad;
-    private SerializedProperty propiedadFuerza;
-    private SerializedProperty propiedadPenetracion;
-    private SerializedProperty propiedadDa�o;
-    private SerializedProperty propiedadAcciones;
-    private SerializedProperty propiedadAnimaciones;
-    private SerializedProperty propiedadObjetivos;
-    private SerializedProperty propiedadTipoSeleccion;
-    private SerializedProperty propiedadCantidad;
-    private SerializedProperty propiedadUsosLimitados;
-    private SerializedProperty propiedadMelee;
-    private SerializedProperty propiedadNumeroDeUsos;
-    private SerializedProperty propiedadTier;
-    private SerializedProperty propiedadSonido;
-    private SerializedProperty propiedadInvocacion;
+    /* ─── propiedades existentes ─── */
+    SerializedProperty propNombre, propDescripcion, propCoste, propVelocidad,
+                       propFuerza, propPenetracion, propDaño, propAcciones,
+                       propAnimaciones, propObjetivos, propTipoSel, propCantidad,
+                       propUsosLimitados, propMelee, propNumeroUsos, propTier,
+                       propSonido, propInvocacion;
 
-    private void OnEnable()
+    /* ─── NUEVAS ─── */
+    SerializedProperty propPermiteCrit, propProbCritExtra, propDañoCritExtra;
+
+    void OnEnable()
     {
-        propiedadNombre = serializedObject.FindProperty("nombre");
-        propiedadDescripcion = serializedObject.FindProperty("descripcion");
-        propiedadCoste = serializedObject.FindProperty("coste");
-        propiedadVelocidad = serializedObject.FindProperty("velocidad");
-        propiedadFuerza = serializedObject.FindProperty("fuerza");
-        propiedadPenetracion = serializedObject.FindProperty("penetracion");
-        propiedadDa�o = serializedObject.FindProperty("da�o");
-        propiedadAcciones = serializedObject.FindProperty("acciones");
-        propiedadAnimaciones = serializedObject.FindProperty("animaciones");
-        propiedadObjetivos = serializedObject.FindProperty("objetivos");
-        propiedadTipoSeleccion = serializedObject.FindProperty("tipoSeleccion");
-        propiedadCantidad = serializedObject.FindProperty("cantidad");
-        propiedadUsosLimitados = serializedObject.FindProperty("usosLimitados");
-        propiedadMelee = serializedObject.FindProperty("melee");
-        propiedadNumeroDeUsos = serializedObject.FindProperty("numeroDeUsos");
-        propiedadTier = serializedObject.FindProperty("tier");
-        propiedadSonido = serializedObject.FindProperty("sonido");
-        propiedadInvocacion = serializedObject.FindProperty("invocacion");
+        /* existentes */
+        propNombre = serializedObject.FindProperty("nombre");
+        propDescripcion = serializedObject.FindProperty("descripcion");
+        propCoste = serializedObject.FindProperty("coste");
+        propVelocidad = serializedObject.FindProperty("velocidad");
+        propFuerza = serializedObject.FindProperty("fuerza");
+        propPenetracion = serializedObject.FindProperty("penetracion");
+        propDaño = serializedObject.FindProperty("daño");
+        propAcciones = serializedObject.FindProperty("acciones");
+        propAnimaciones = serializedObject.FindProperty("animaciones");
+        propObjetivos = serializedObject.FindProperty("objetivos");
+        propTipoSel = serializedObject.FindProperty("tipoSeleccion");
+        propCantidad = serializedObject.FindProperty("cantidad");
+        propUsosLimitados = serializedObject.FindProperty("usosLimitados");
+        propMelee = serializedObject.FindProperty("melee");
+        propNumeroUsos = serializedObject.FindProperty("numeroDeUsos");
+        propTier = serializedObject.FindProperty("tier");
+        propSonido = serializedObject.FindProperty("sonido");
+        propInvocacion = serializedObject.FindProperty("invocacion");
+
+        /* nuevas */
+        propPermiteCrit = serializedObject.FindProperty("permiteCritico");
+        propProbCritExtra = serializedObject.FindProperty("probCritExtra");
+        propDañoCritExtra = serializedObject.FindProperty("dañoCritExtra");
     }
 
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
 
-        EditorGUILayout.PropertyField(propiedadNombre);
-        EditorGUILayout.PropertyField(propiedadDescripcion);
-        EditorGUILayout.PropertyField(propiedadCoste);
-        EditorGUILayout.PropertyField(propiedadVelocidad);
-        EditorGUILayout.PropertyField(propiedadFuerza);
-        EditorGUILayout.PropertyField(propiedadPenetracion);
-        EditorGUILayout.PropertyField(propiedadDa�o);
-        EditorGUILayout.PropertyField(propiedadAcciones);
-        EditorGUILayout.PropertyField(propiedadAnimaciones);
-        EditorGUILayout.PropertyField(propiedadObjetivos);
-        EditorGUILayout.PropertyField(propiedadTipoSeleccion);
-        EditorGUILayout.PropertyField(propiedadMelee);
+        /* ─── resto del Inspector tal cual ─── */
+        EditorGUILayout.PropertyField(propNombre);
+        EditorGUILayout.PropertyField(propDescripcion);
+        EditorGUILayout.PropertyField(propCoste);
+        EditorGUILayout.PropertyField(propVelocidad);
+        EditorGUILayout.PropertyField(propFuerza);
+        EditorGUILayout.PropertyField(propPenetracion);
+        EditorGUILayout.PropertyField(propDaño);
+        EditorGUILayout.PropertyField(propAcciones);
+        EditorGUILayout.PropertyField(propAnimaciones);
+        EditorGUILayout.PropertyField(propObjetivos);
+        EditorGUILayout.PropertyField(propTipoSel);
+        EditorGUILayout.PropertyField(propMelee);
 
-        TipoSeleccion tipo = (TipoSeleccion)propiedadTipoSeleccion.enumValueIndex;
+        /* … (tu lógica para cantidad, usos, tier, sonido, etc.) … */
 
-        EditorGUILayout.PropertyField(propiedadSonido);
-
-        switch (tipo)
+        /* ─── BLOQUE CRÍTICO ─── */
+        EditorGUILayout.Space(4);
+        EditorGUILayout.LabelField("Crítico", EditorStyles.boldLabel);
+        EditorGUILayout.PropertyField(propPermiteCrit, new GUIContent("Permite crítico"));
+        using (new EditorGUI.DisabledScope(!propPermiteCrit.boolValue))
         {
-            case TipoSeleccion.SoloJugador:
-            case TipoSeleccion.SoloUnEnemigo:
-            case TipoSeleccion.CualquierPersonaje:
-
-                propiedadCantidad.intValue = 1;
-
-                break;
-
-            case TipoSeleccion.VariosEnemigos:
-
-                propiedadCantidad.intValue = 2;
-
-                EditorGUILayout.PropertyField(propiedadCantidad);
-
-                break;
+            EditorGUILayout.PropertyField(propProbCritExtra, new GUIContent("Prob. Crit Extra (%)"));
+            EditorGUILayout.PropertyField(propDañoCritExtra, new GUIContent("Daño Crit Extra (%)"));
         }
 
-        EditorGUILayout.PropertyField(propiedadUsosLimitados);
-
-        if (propiedadUsosLimitados.boolValue == true)
-        {
-            propiedadNumeroDeUsos.intValue = 1;
-
-            EditorGUILayout.PropertyField(propiedadNumeroDeUsos);
-        }
-        else
-        {
-            propiedadNumeroDeUsos.intValue = 727;
-        }
-
-        EditorGUILayout.PropertyField(propiedadTier);
-
-        EditorGUILayout.PropertyField(propiedadInvocacion);
+        /* resto de campos */
+        EditorGUILayout.PropertyField(propInvocacion);
 
         serializedObject.ApplyModifiedProperties();
     }

@@ -34,6 +34,15 @@ public class Habilidad : ScriptableObject, IComparable
     public int fuerza;
     public int penetracion;
     public int daño;
+    [Header("Crítico (modificadores)")]
+    public bool permiteCritico = true;
+
+    [Tooltip("±% a la probabilidad del personaje")]
+    [Range(-100, 100)]
+    public int probCritExtra = 0;
+
+    [Tooltip("±% al bonus de daño crítico del personaje")]
+    public int dañoCritExtra = 0;
 
     public List<Accion> acciones = new List<Accion>();
 
@@ -62,8 +71,8 @@ public class Habilidad : ScriptableObject, IComparable
      GameManager.instance ? GameManager.instance.floatingTextManager : null;
 
     [NonSerialized] private float _popupDelay;   // acumulador por habilidad
-    [SerializeField] private float delayMin = 0.04f;
-    [SerializeField] private float delayMax = 0.08f;
+    [SerializeField] private float delayMin = 0.08f;
+    [SerializeField] private float delayMax = 0.12f;
 
     private int totalDañoInfligido;
 
@@ -310,81 +319,104 @@ public class Habilidad : ScriptableObject, IComparable
         return velocidad > hab.velocidad ? 1 : 0;
     }
 
-    private void RealizaTiradas(int punteria, int fuerza, Personaje objetivo, int daño)
+    /// <summary>
+    /// Ejecuta hit ▸ wound ▸ save y aplica daño, pop-ups, contador total
+    /// con soporte de crítico (% prob + % bonus).
+    /// </summary>
+    private void RealizaTiradas(int punteria, int fuerza, Personaje objetivo, int dañoBase)
     {
+        float rnd;                       // se reutiliza en los tres caminos
+
+        /* ───────── HIT ROLL ───────── */
         if (HitRoll(punteria - objetivo.agilidad))
         {
+            /* ───────── WOUND ROLL ───────── */
             if (WoundRoll(fuerza, objetivo))
             {
+                /* ───────── SAVING THROW ───────── */
                 if (!SavingThrow(objetivo))
                 {
-                    int deltaDaño = daño;
+                    /* =======  D A Ñ O  (con crítico)  ======= */
+                    bool esCritico = false;
+                    int deltaDaño = dañoBase;
+
+                    if (permiteCritico)
+                    {
+                        int chance = Mathf.Clamp(
+                            personaje.probCrit + probCritExtra, 0, 100);   // 0-100 %
+
+                        esCritico = Random.Range(1, 101) <= chance;
+
+                        if (esCritico)
+                        {
+                            int bonusPct = Mathf.Max(
+                                0, personaje.dañoCrit + dañoCritExtra);    // %, p.e. 40
+                            float mult = 1f + bonusPct / 100f;           // 1.4
+                            deltaDaño = Mathf.RoundToInt(deltaDaño * mult);
+                        }
+                    }
+
                     objetivo.heridasActuales -= deltaDaño;
 
-                    float rnd = Random.Range(delayMin, delayMax);
+                    /* delay individual */
+                    rnd = Random.Range(delayMin, delayMax);
                     float delayGolpe = _popupDelay + rnd;
 
-                    /* ─── SÓLO acumula si el objetivo NO es el jugador ─── */
+                    /* contador de daño total (sólo para enemigos) */
                     if (objetivo != GameManager.instance.jugador)
                     {
                         totalDañoInfligido += deltaDaño;
-
-                        // programa el incremento del contador total
                         GameManager.instance.StartCoroutine(
                             AddTotalAfterDelay(deltaDaño, delayGolpe));
-
-                        _popupDelay += rnd;      // acumula para el siguiente golpe
+                        _popupDelay += rnd;
                     }
 
-                    // floating-text individual
+                    /* pop-up de daño / crítico */
                     ftManager.Mostrar(
-                        FloatingTextTipo.Daño,
-                        deltaDaño.ToString(),
+                        esCritico ? FloatingTextTipo.Critico : FloatingTextTipo.Daño,
+                        esCritico ? $"¡{deltaDaño}!" : deltaDaño.ToString(),
                         objetivo,
-                        null,          // color por defecto
-                        1f,
-                        delayGolpe);   // delay para este popup
+                        null,
+                        esCritico ? 1.3f : 1f,
+                        delayGolpe);
                 }
-                else
+                else    /* ---------- SALVACIÓN ---------- */
                 {
-                    float rnd = Random.Range(delayMin, delayMax);
-
+                    rnd = Random.Range(delayMin, delayMax);
                     ftManager.Mostrar(
-                          FloatingTextTipo.Salvacion,
-                          "SALVACION",
-                          objetivo,
-                          null,      // color por defecto
-                          1f,
-                          _popupDelay + rnd);   // ← pasa delay acumulado
-                    _popupDelay += rnd;          // acumula para el siguiente
+                        FloatingTextTipo.Salvacion,
+                        "SALVACIÓN",
+                        objetivo,
+                        null,
+                        1f,
+                        _popupDelay + rnd);
+                    _popupDelay += rnd;
                 }
             }
-            else
+            else        /* ---------- RESISTIDO ---------- */
             {
-                float rnd = Random.Range(delayMin, delayMax);
-
+                rnd = Random.Range(delayMin, delayMax);
                 ftManager.Mostrar(
-                      FloatingTextTipo.Resistido,
-                      "RESISTIDO",
-                      objetivo,
-                      null,      // color por defecto
-                      1f,
-                      _popupDelay + rnd);   // ← pasa delay acumulado
-                _popupDelay += rnd;          // acumula para el siguiente
+                    FloatingTextTipo.Resistido,
+                    "RESISTIDO",
+                    objetivo,
+                    null,
+                    1f,
+                    _popupDelay + rnd);
+                _popupDelay += rnd;
             }
         }
-        else
+        else            /* ---------- FALLO ---------- */
         {
-            float rnd = Random.Range(delayMin, delayMax);
-
+            rnd = Random.Range(delayMin, delayMax);
             ftManager.Mostrar(
-                  FloatingTextTipo.Fallo,
-                  "FALLO",
-                  objetivo,
-                  null,      // color por defecto
-                  1f,
-                  _popupDelay + rnd);   // ← pasa delay acumulado
-            _popupDelay += rnd;          // acumula para el siguiente
+                FloatingTextTipo.Fallo,
+                "FALLO",
+                objetivo,
+                null,
+                1f,
+                _popupDelay + rnd);
+            _popupDelay += rnd;
         }
     }
 

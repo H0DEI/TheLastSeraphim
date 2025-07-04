@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +12,8 @@ public class Personaje : ScriptableObject
     public int habilidadCombate;
     public int habilidadEspecial;
     public int fuerza;
+    public int probCrit = 5;      // Probabilidad Crítica (%)
+    public int dañoCrit = 50;     // Daño Crítico (%, +50 % ⇒ x1 ,5)
     public int resistencia;
     public int agilidad;
     public int heridasMaximas;
