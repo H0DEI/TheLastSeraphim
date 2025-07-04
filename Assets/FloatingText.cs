@@ -8,6 +8,15 @@ public class FloatingText : MonoBehaviour
     CanvasGroup grupo;
     RectTransform rt;
 
+    /* ───────── 1 · VARIABLES EXTERNAS ───────── */
+    [Header("Animación · CURA")]
+    [SerializeField] float curaPopScale = 8f;   // tamaño inicial relativo (pop)
+    [SerializeField] float curaPopTime = 0.5f;  // s que tarda en pasar de grande → normal
+    [SerializeField] float curaRiseDist = 80f;    // px que sube
+    [SerializeField] float curaRiseTime = 1f;  // s que tarda en subir
+    [SerializeField] float curaFadeTime = 1.5f;  // s del fade-out
+
+
     void Awake()
     {
         grupo = GetComponent<CanvasGroup>();
@@ -157,8 +166,54 @@ public class FloatingText : MonoBehaviour
                     break;
                 }
 
+            /* ───────── 2 · NUEVO CASE EN EL SWITCH ───────── */
+            case FloatingTextTipo.Cura:
+                {
+                    // ▸ Arranca grande y transparente
+                    float escBig = esc * curaPopScale;
+                    rt.localScale = Vector3.one * escBig;
+                    grupo.alpha = 0f;
+                    
+                    /* ─ Secuencia ──────────────────────────────── */
+                    seq.Append(grupo.DOFade(1f, 0.10f));                       // 1 · fade-in
+                    
+                    // 2 · pop → normal, sube y luego se desvanece todo a la vez
+                    seq.Append(rt.DOScale(esc, curaPopTime)
+                                 .SetEase(Ease.OutQuad))
+                       .Join(rt.DOAnchorPosY(curaRiseDist, curaRiseTime)
+                                 .SetRelative()
+                                 .SetEase(Ease.OutQuad))
+                       .Join(grupo.DOFade(0f, curaFadeTime));
+                    
+                    break;
 
-            default: // Cura, etc.
+
+
+                    ///* ─ Configuración básica ───────────────────────── */
+                    //float speed = 2f;          // 1 = normal · >1 = más lento · <1 = más rápido
+                    //float escBig = esc * 4f;    // tamaño inicial
+                    //float escSmall = esc * 1.7f;    // tamaño final
+                    //float riseDist = 80f;           // píxeles hacia arriba (+Y)
+                    //
+                    //// ▸ Arranca grande y transparente
+                    //rt.localScale = Vector3.one * escBig;
+                    //grupo.alpha = 0f;
+                    //
+                    ///* ─ Secuencia ──────────────────────────────────── */
+                    //seq.Append(grupo.DOFade(1f, 0.10f * speed));                      // 1 · fade-in rápido
+                    //
+                    //// 2 · encoge, sube y se desvanece
+                    //seq.Append(rt.DOScale(escSmall, 0.45f * speed)
+                    //             .SetEase(Ease.OutQuad))
+                    //   .Join(rt.DOAnchorPosY(riseDist, 0.45f * speed)  // ← sube
+                    //             .SetRelative()
+                    //             .SetEase(Ease.OutQuad))
+                    //   .Join(grupo.DOFade(0f, 0.45f * speed));         // ← fade-out simultáneo
+                    //
+                    //break;
+                }
+
+            default: // etc.
                 seq.Append(rt.DOScale(esc * 1.3f, 0.15f).SetEase(Ease.OutBack))
                    .Join(rt.DOAnchorPosY(90f, 1f).SetRelative().SetEase(Ease.OutQuad))
                    .Join(grupo.DOFade(0, 1f));

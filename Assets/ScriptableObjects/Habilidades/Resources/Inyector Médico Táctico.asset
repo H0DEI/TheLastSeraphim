@@ -20,13 +20,16 @@ MonoBehaviour:
   penetracion: 0
   "da\xF1o": 0
   acciones: 0b0000000b000000
-  animaciones: 
+  animaciones: 01000000
   personaje: {fileID: 0}
   objetivos: []
   tipoSeleccion: 5
   cantidad: 1
-  usosLimitados: 1
+  usosLimitados: 0
   melee: 0
-  numeroDeUsos: 1
+  numeroDeUsos: 727
   tier: 1
   sonido: {fileID: 0}
+  invocacion: {fileID: 0}
+  delayMin: 0.04
+  delayMax: 0.08

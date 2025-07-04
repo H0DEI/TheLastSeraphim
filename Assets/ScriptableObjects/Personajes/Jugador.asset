@@ -21,7 +21,7 @@ MonoBehaviour:
   resistencia: 1
   agilidad: 1
   heridasMaximas: 27
-  heridasActuales: 27
+  heridasActuales: 15
   salvacion: 7
   salvacionInvulnerable: 0
   accionesMaximas: 2
@@ -33,5 +33,5 @@ MonoBehaviour:
   habilidades:
   - {fileID: 11400000, guid: a3c316c35aab43c43b18453d3a33b0b5, type: 2}
   - {fileID: 11400000, guid: 76c3280f7dd40eb4aa1a6c79f74a9ac2, type: 2}
-  - {fileID: 11400000, guid: b346900df573b884c96758ede9a9b2df, type: 2}
+  - {fileID: 11400000, guid: f55e253e606da0941822bd12abfebf5b, type: 2}
   - {fileID: 11400000, guid: 80034fad401e4c1408c794dbff1051c4, type: 2}

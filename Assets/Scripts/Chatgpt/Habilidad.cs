@@ -457,6 +457,20 @@ public class Habilidad : ScriptableObject, IComparable
 
             objetivo.heridasActuales += heal;
 
+            float rnd = Random.Range(delayMin+0.5f, delayMax+0.2f);
+
+            if (heal > 0 && ftManager)
+            {
+                ftManager.Mostrar(
+                    FloatingTextTipo.Cura,
+                    "+"+heal.ToString(),      // texto mostrado (ej. “12”)
+                    objetivo,             // target
+                    null,   // verde suave (o null para color por defecto)
+                    1f,
+                    _popupDelay + rnd);                  // escala base
+                _popupDelay += rnd;
+            }
+
             if (objetivo.heridasActuales > objetivo.heridasMaximas) objetivo.heridasActuales = objetivo.heridasMaximas;
         }
     }
