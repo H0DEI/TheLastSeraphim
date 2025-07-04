@@ -158,7 +158,7 @@ public class FloatingTextManager : MonoBehaviour
 /*────────── Enum de tipos ──────────*/
 public enum FloatingTextTipo
 {
-    Daño, Critico, Total,      // ← por defecto
+    Fisico, FisicoCritico, FisicoTotal,      // ← por defecto
     Igneo, IgneoCritico, IgneoTotal,
     Toxico, ToxicoCritico, ToxicoTotal,
     Plasma, PlasmaCritico, PlasmaTotal,
@@ -168,7 +168,7 @@ public enum FloatingTextTipo
 
 public enum ElementoDaño
 {
-    Ninguno,   // ← se mostrarán los pop-ups por defecto
+    Fisico,   // ← se mostrarán los pop-ups por defecto
     Igneo,
     Toxico,
     Plasma

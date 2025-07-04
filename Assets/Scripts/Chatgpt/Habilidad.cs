@@ -34,7 +34,7 @@ public class Habilidad : ScriptableObject, IComparable
     public int fuerza;
     public int penetracion;
     [Header("Tipo de daño")]
-    public ElementoDaño tipoDaño = ElementoDaño.Ninguno;
+    public ElementoDaño tipoDaño = ElementoDaño.Fisico;
     public int daño;
     [Header("Crítico (modificadores)")]
     public bool permiteCritico = true;
@@ -429,7 +429,7 @@ public class Habilidad : ScriptableObject, IComparable
             ElementoDaño.Igneo => critico ? FloatingTextTipo.IgneoCritico : FloatingTextTipo.Igneo,
             ElementoDaño.Toxico => critico ? FloatingTextTipo.ToxicoCritico : FloatingTextTipo.Toxico,
             ElementoDaño.Plasma => critico ? FloatingTextTipo.PlasmaCritico : FloatingTextTipo.Plasma,
-            _ => critico ? FloatingTextTipo.Critico : FloatingTextTipo.Daño
+            _ => critico ? FloatingTextTipo.FisicoCritico : FloatingTextTipo.Fisico
         };
     }
 
@@ -440,7 +440,7 @@ public class Habilidad : ScriptableObject, IComparable
             ElementoDaño.Igneo => FloatingTextTipo.IgneoTotal,
             ElementoDaño.Toxico => FloatingTextTipo.ToxicoTotal,
             ElementoDaño.Plasma => FloatingTextTipo.PlasmaTotal,
-            _ => FloatingTextTipo.Total
+            _ => FloatingTextTipo.FisicoTotal
         };
     }
 
@@ -553,7 +553,7 @@ public class Habilidad : ScriptableObject, IComparable
 
         /* ── popup individual ───────────────────────── */
         ftManager.Mostrar(
-            FloatingTextTipo.Daño,
+            FloatingTextTipo.Fisico,
             deltaDaño.ToString(),
             objetivo,
             null,          // color por defecto

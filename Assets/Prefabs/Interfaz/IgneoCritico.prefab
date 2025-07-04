@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Da\xF1o Crit"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 35f8b9de5391700478988f32fe944bcd, type: 2}
-  m_sharedMaterial: {fileID: 2140474, guid: 35f8b9de5391700478988f32fe944bcd, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ad27179310e386343bdc948af70cf23e, type: 2}
+  m_sharedMaterial: {fileID: 2140474, guid: ad27179310e386343bdc948af70cf23e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -80,10 +80,10 @@ MonoBehaviour:
   m_enableVertexGradient: 1
   m_colorMode: 3
   m_fontColorGradient:
-    topLeft: {r: 0.2901961, g: 0.34117648, b: 0.91764706, a: 1}
-    topRight: {r: 0.2901961, g: 0.34117648, b: 0.91764706, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+    topLeft: {r: 0.9019608, g: 0, b: 0, a: 1}
+    topRight: {r: 1, g: 0.14901961, b: 0.050980393, a: 1}
+    bottomLeft: {r: 1, g: 0.54901963, b: 0, a: 1}
+    bottomRight: {r: 1, g: 0.8509804, b: 0, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0

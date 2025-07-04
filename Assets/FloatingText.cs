@@ -28,7 +28,7 @@ public class FloatingText : MonoBehaviour
                     Color col,
                     float esc,
                     System.Action onFinish,
-                    FloatingTextTipo tipo = FloatingTextTipo.Daño)
+                    FloatingTextTipo tipo = FloatingTextTipo.Fisico)
     {
         /* ───────────── Configuración base ───────────── */
         texto.text = valor;
@@ -54,7 +54,7 @@ public class FloatingText : MonoBehaviour
 
         switch (tipo)
         {
-            case FloatingTextTipo.Daño:
+            case FloatingTextTipo.Fisico:
                 {
                     /* ─ Configuración básica ───────────────────────── */
                     float speed = 2f;          // 1 = normal · >1 = más lento · <1 = más rápido
@@ -79,7 +79,7 @@ public class FloatingText : MonoBehaviour
 
                     break;
                 }
-            case FloatingTextTipo.Critico:
+            case FloatingTextTipo.FisicoCritico:
                 {
                     /* ─ Parámetros específicos ────────────────────────── */
                     float speed = 2.8f;               // un pelín más lento que el normal

@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
+  m_Name: Plomo .50 Fisico
+  m_EditorClassIdentifier: 
+  nombre: Plomo .50 Fisico
+  descripcion: "Desenfunda y dispara un proyectil de gran calibre directamente al
+    torso del objetivo, causando un da\xF1o devastador.\n{F} 12, {P} 2, {D} 7."
+  coste: 1
+  velocidad: 10
+  fuerza: 12
+  penetracion: 2
+  "tipoDa\xF1o": 0
+  "da\xF1o": 5
+  permiteCritico: 1
+  probCritExtra: 17
+  "da\xF1oCritExtra": 100
+  acciones: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  animaciones: 0e000000
+  personaje: {fileID: 0}
+  objetivos:
+  - {fileID: 0}
+  tipoSeleccion: 1
+  cantidad: 1
+  usosLimitados: 0
+  melee: 0
+  numeroDeUsos: 727
+  tier: 1
+  sonido: {fileID: 8300000, guid: 3b5ef7fdfcc840940854271391d2e038, type: 3}
+  invocacion: {fileID: 0}
+  delayMin: 0.04
+  delayMax: 0.08
