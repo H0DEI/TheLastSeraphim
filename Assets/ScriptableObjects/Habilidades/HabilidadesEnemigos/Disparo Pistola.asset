@@ -21,8 +21,12 @@ MonoBehaviour:
   velocidad: 1
   fuerza: 8
   penetracion: 4
-  "da\xF1o": 3
-  acciones: 00000000
+  "tipoDa\xF1o": 0
+  "da\xF1o": 20
+  permiteCritico: 1
+  probCritExtra: 0
+  "da\xF1oCritExtra": 0
+  acciones: 13000000
   animaciones: 02000000
   personaje: {fileID: 0}
   objetivos: []
@@ -33,3 +37,6 @@ MonoBehaviour:
   numeroDeUsos: 727
   tier: 0
   sonido: {fileID: 8300000, guid: c11bcd192e7b93240b4087b5ddbe176a, type: 3}
+  invocacion: {fileID: 0}
+  delayMin: 0.08
+  delayMax: 0.12

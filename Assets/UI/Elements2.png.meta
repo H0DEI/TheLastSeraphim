@@ -1416,6 +1416,50 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: HUD HP Loss
+      rect:
+        serializedVersion: 2
+        x: 3074
+        y: 2397
+        width: 1002
+        height: 437
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4993695775112d4f83092758afe15e6
+      internalID: 1884917959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnemyHPLoss
+      rect:
+        serializedVersion: 2
+        x: 914
+        y: 389
+        width: 569
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22b369e6f4a2b2b41a5fb760608bee2f
+      internalID: 1874269462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -1532,8 +1576,10 @@ TextureImporter:
       Elements-01_96: -1047833471
       Elements-01_97: -456883835
       Elements2_1: -1203037699
+      EnemyHPLoss: 1874269462
       HP bar filled enemy: 1114696690
       HP bar filled player: 29877887
+      HUD HP Loss: 1884917959
       HUD HP filled: -156049039
       HeadBorder: -1951392502
       Listo: -515596168

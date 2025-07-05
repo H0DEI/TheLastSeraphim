@@ -78,6 +78,11 @@ public class Habilidad : ScriptableObject, IComparable
 
     private int totalDañoInfligido;
 
+    /* ───────── buffers para el “Total Daño” ───────── */
+    List<int> _totalesBuffer = new();   // daño de cada golpe
+    bool _bufferTotalesActiva;          // true entre EventoImpactoConDuracion y flush
+    List<(Personaje, float)> _barraBuffer = new();
+
     private void Play(string id, AnimationData animationData, int layer = 0)
     {
         GameManager.instance.animationManager.PlayAnimation(id, animationData, layer);
@@ -93,20 +98,50 @@ public class Habilidad : ScriptableObject, IComparable
         System.Action<int> handlerVentana = frames =>
         {
             ventanaFrames = frames;
-            ftManager?.BeginBuffer();                 // empezamos a acumular pop-ups
+
+            ftManager?.BeginBuffer();          // pop-ups
+            _totalesBuffer.Clear();            // ← resetea
+            _bufferTotalesActiva = true;       // ← ON
         };
+
         GameManager.OnVentanaImpacto += handlerVentana;
 
-        // ── 2 · ImpactoHabilidad  (daño + flush) ───────────
+        /// ── 2 · ImpactoHabilidad  (daño + flush) ───────────
         System.Action handlerImpacto = () =>
         {
             EjecutarTodasAcciones();                  // aplica Acciones 1 sola vez
 
-            // flush inmediato → reparte entre 0 … frames
+            /* ---------- POP-UPS individuales ---------- */
             if (ftManager && ventanaFrames > 0)
                 ftManager.EndBuffer(ventanaFrames / 60f);   // 60 fps por defecto
+
+            /* ---------- TOTAL DAÑO sincronizado ---------- */
+            if (_bufferTotalesActiva)
+            {
+                float ventanaSegs = ventanaFrames / 60f;
+                int n = _totalesBuffer.Count;
+
+                if (n > 0)
+                {
+                    for (int i = 0; i < n; i++)
+                    {
+                        float delay = n == 1 ? 0f : ventanaSegs * i / (n - 1);
+
+                        GameManager.instance.MostrarTotalDaño(
+                            _totalesBuffer[i], TipoTotalPopup(), delay);
+
+                        var (obj, porc) = _barraBuffer[i];
+                        GameManager.instance.AnimarBarraVida(obj, porc, delay);
+                    }                    
+                }
+
+                _totalesBuffer.Clear();
+                _barraBuffer.Clear();
+                _bufferTotalesActiva = false;
+            }
         };
         GameManager.OnImpactoHabilidad += handlerImpacto;
+
 
         // Antes de la suscripción:
         Action handlerInicio = () =>
@@ -121,6 +156,29 @@ public class Habilidad : ScriptableObject, IComparable
             {
                 float dur = Time.time - tVentanaInicio;
                 ftManager.EndBuffer(dur);
+                if (_bufferTotalesActiva)
+                {
+                    float ventanaSegs = ventanaFrames / 60f;       // 60 fps por defecto
+                    int n = _totalesBuffer.Count;
+                    if (n > 0)
+                    {
+                        for (int i = 0; i < n; i++)
+                        {
+                            float delay = n == 1 ? 0f : ventanaSegs * i / (n - 1);
+
+                            // Total Damage
+                            GameManager.instance.MostrarTotalDaño(_totalesBuffer[i], TipoTotalPopup(), delay);
+
+                            // Barra vida
+                            var par = _barraBuffer[i];
+                            GameManager.instance.AnimarBarraVida(par.Item1, par.Item2, delay);
+                        }
+                    }
+                    _barraBuffer.Clear();
+
+                        _totalesBuffer.Clear();
+                    _bufferTotalesActiva = false;                  // ← OFF
+                }
             }
         };
 
@@ -400,19 +458,40 @@ public class Habilidad : ScriptableObject, IComparable
                         }
                     }
 
+                    // 1) Aplica el daño
                     objetivo.heridasActuales -= deltaDaño;
 
-                    /* delay individual */
+                    /* 2) Delay individual para pop-up */
                     rnd = Random.Range(delayMin, delayMax);
                     float delayGolpe = _popupDelay + rnd;
+                    _popupDelay += rnd;
 
-                    /* contador de daño total (sólo para enemigos) */
+                    /* 3) Barra de vida (roja) */
+                    float porcentaje = (float)objetivo.heridasActuales / objetivo.heridasMaximas;
+
+                    if (_bufferTotalesActiva)               // ventana ON → se difiere
+                    {
+                        _barraBuffer.Add((objetivo, porcentaje));   // solo UNA vez aquí
+                    }
+                    else                                     // modo antiguo → inmediato
+                    {
+                        GameManager.instance.AnimarBarraVida(objetivo, porcentaje, delayGolpe);
+                    }
+
+                    /* 4) Contador de daño total (solo enemigos) */
                     if (objetivo != GameManager.instance.jugador)
                     {
                         totalDañoInfligido += deltaDaño;
-                        GameManager.instance.StartCoroutine(
-                            AddTotalAfterDelay(deltaDaño, delayGolpe));
-                        _popupDelay += rnd;
+
+                        if (_bufferTotalesActiva)           // ventana ON → se difiere
+                        {
+                            _totalesBuffer.Add(deltaDaño);  // ← solo el total, sin barra
+                        }
+                        else                                // modo antiguo
+                        {
+                            GameManager.instance.StartCoroutine(
+                                AddTotalAfterDelay(deltaDaño, delayGolpe));
+                        }
                     }
 
                     /* pop-up de daño / crítico */
@@ -574,32 +653,60 @@ public class Habilidad : ScriptableObject, IComparable
         }
     }
 
-    /// <summary>
-    /// Aplica inmediatamente <paramref name="daño"/> al <paramref name="objetivo"/>,
-    /// muestra popup y acumula el daño total.  No hay tiradas.
-    /// </summary>
-    private void AplicaDañoDirecto(Personaje objetivo, int daño)
+    private void AplicaDañoDirecto(Personaje objetivo, int dañoBase)
     {
-        /* ── resta heridas ───────────────────────────── */
-        int deltaDaño = daño;
+        /* ───── CÁLCULO DE CRÍTICO ────────────────────── */
+        bool esCritico = false;
+        int deltaDaño = dañoBase;
+
+        if (permiteCritico)
+        {
+            int chance = Mathf.Clamp(
+                personaje.probCrit + probCritExtra, 0, 100);   // % de crítico
+
+            esCritico = Random.Range(1, 101) <= chance;
+
+            if (esCritico)
+            {
+                int bonusPct = Mathf.Max(
+                    0, personaje.dañoCrit + dañoCritExtra);    // % bonus daño crit
+                float mult = 1f + bonusPct / 100f;             // ej. 1.5
+                deltaDaño = Mathf.RoundToInt(deltaDaño * mult);
+            }
+        }
+
+        /* ───── RESTA HERIDAS ─────────────────────────── */
         objetivo.heridasActuales -= deltaDaño;
 
-        /* ── tiempos para popup ──────────────────────── */
+        /* ───── TIMING PARA POP-UP ─────────────────────── */
         float rnd = Random.Range(delayMin, delayMax);
-        float delayGolpe = _popupDelay + rnd;        // deja respirar los pop-ups
+        float delayGolpe = _popupDelay + rnd;
         _popupDelay += rnd;
 
-        /* ── “Total Daño” sólo si el objetivo NO es el jugador ── */
-        if (objetivo != GameManager.instance.jugador)
-            GameManager.instance.MostrarTotalDaño(deltaDaño, TipoTotalPopup(), delayGolpe);
+        /* ---------- sincr. barra ---------- */
+        float porcentaje = (float)objetivo.heridasActuales / objetivo.heridasMaximas;
+        if (_bufferTotalesActiva)
+            _barraBuffer.Add((objetivo, porcentaje));
+        else
+            GameManager.instance.AnimarBarraVida(objetivo, porcentaje, delayGolpe);
 
-        /* ── popup individual ───────────────────────── */
+        /* ───── CONTADOR TOTAL DAÑO ───────────────────── */
+        if (objetivo != GameManager.instance.jugador)
+        {
+            if (_bufferTotalesActiva)              // ventana activa ▸ lo guardamos
+                _totalesBuffer.Add(deltaDaño);
+            else                                   // flujo antiguo ▸ Coroutine
+                GameManager.instance.StartCoroutine(
+                    AddTotalAfterDelay(deltaDaño, delayGolpe));
+        }
+
+        /* ───── POP-UP INDIVIDUAL ─────────────────────── */
         ftManager.Mostrar(
-            FloatingTextTipo.Fisico,
-            deltaDaño.ToString(),
+            TipoPopup(esCritico),                         // mismo helper que RealizaTiradas
+            esCritico ? $"¡{deltaDaño}!" : deltaDaño.ToString(),
             objetivo,
-            null,          // color por defecto
-            1f,
+            null,
+            esCritico ? 1.3f : 1f,                       // escala mayor si es crítico
             delayGolpe);
     }
 

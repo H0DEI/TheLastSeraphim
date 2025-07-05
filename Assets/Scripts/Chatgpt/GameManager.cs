@@ -104,6 +104,13 @@ public class GameManager : MonoBehaviour
 
     // GameManager.cs  (zona eventos estáticos)
 
+    public void AnimarBarraVida(Personaje p, float porcentajeNuevo, float delay)
+    {
+        if (p.gameObject.GetComponentInChildren<BarraDeVida>())      // asumiendo que guardas la referencia
+            p.gameObject.GetComponentInChildren<BarraDeVida>().AnimarHasta(porcentajeNuevo, delay);
+    }
+
+
     public static event System.Action<int> OnVentanaImpacto;     // frames
 
     public static void EmitirVentanaImpacto(int frames) =>
@@ -278,7 +285,7 @@ public class GameManager : MonoBehaviour
 
             listaObjetosPersonajesEscena[i].GetComponentInChildren<BarraDeVida>().personaje = scriptPersonajeInstanciado;
 
-            listaObjetosPersonajesEscena[i].GetComponentInChildren<BarraDeVida>().barraAncho = listaObjetosPersonajesEscena[i].GetComponent<BoxCollider2D>().size.x;
+            //listaObjetosPersonajesEscena[i].GetComponentInChildren<BarraDeVida>().barraAncho = listaObjetosPersonajesEscena[i].GetComponent<BoxCollider2D>().size.x;
         }
 
         listaObjetosPersonajesEscena.Insert(0, objetoJugador);
