@@ -7,6 +7,7 @@ using System.Linq;
 using UnityEngine.Rendering;
 using System.Threading;
 using System;
+using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
@@ -102,14 +103,30 @@ public class GameManager : MonoBehaviour
 
     public GameObject Linterna;
 
+    [Header("UI")]
+    [Tooltip("Arrastra aquí el GameObject que contiene la barra de vida del HUD del jugador")]
+    public GameObject barraDeVidaJugador;
+
     // GameManager.cs  (zona eventos estáticos)
 
-    public void AnimarBarraVida(Personaje p, float porcentajeNuevo, float delay)
+    public void AnimarBarraVida(Personaje p, float pctNuevo, float delay)
     {
-        if (p.gameObject.GetComponentInChildren<BarraDeVida>())      // asumiendo que guardas la referencia
-            p.gameObject.GetComponentInChildren<BarraDeVida>().AnimarHasta(porcentajeNuevo, delay);
-    }
+        BarraDeVida barra = null;
 
+        /* --- caso jugador (referencia directa) --- */
+        if (p == jugador && barraDeVidaJugador != null)
+        {
+            barra = barraDeVidaJugador.GetComponentInChildren<BarraDeVida>(true);
+        }
+        else
+        {
+            /* --- enemigos: busca en el mismo GO o sus hijos --- */
+            barra = p.gameObject.GetComponentInChildren<BarraDeVida>(true);
+        }
+
+        if (barra != null)
+            barra.AnimarHasta(pctNuevo, delay);
+    }
 
     public static event System.Action<int> OnVentanaImpacto;     // frames
 

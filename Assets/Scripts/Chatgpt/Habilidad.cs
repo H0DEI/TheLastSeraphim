@@ -113,28 +113,32 @@ public class Habilidad : ScriptableObject, IComparable
 
             /* ---------- POP-UPS individuales ---------- */
             if (ftManager && ventanaFrames > 0)
-                ftManager.EndBuffer(ventanaFrames / 60f);   // 60 fps por defecto
+                ftManager.EndBuffer(ventanaFrames / 60f);   // 60 fps
 
-            /* ---------- TOTAL DAÑO sincronizado ---------- */
+            /* ---------- FLUSH ---------- */
             if (_bufferTotalesActiva)
             {
                 float ventanaSegs = ventanaFrames / 60f;
-                int n = _totalesBuffer.Count;
 
-                if (n > 0)
+                /* 1) TotalDamage (enemigos) ----------------- */
+                int nTot = _totalesBuffer.Count;
+                for (int i = 0; i < nTot; i++)
                 {
-                    for (int i = 0; i < n; i++)
-                    {
-                        float delay = n == 1 ? 0f : ventanaSegs * i / (n - 1);
-
-                        GameManager.instance.MostrarTotalDaño(
-                            _totalesBuffer[i], TipoTotalPopup(), delay);
-
-                        var (obj, porc) = _barraBuffer[i];
-                        GameManager.instance.AnimarBarraVida(obj, porc, delay);
-                    }                    
+                    float delay = nTot == 1 ? 0f : ventanaSegs * i / (nTot - 1);
+                    GameManager.instance.MostrarTotalDaño(
+                        _totalesBuffer[i], TipoTotalPopup(), delay);
                 }
 
+                /* 2) Barras de vida (todos los objetivos) --- */
+                int nBar = _barraBuffer.Count;
+                for (int i = 0; i < nBar; i++)
+                {
+                    float delay = nBar == 1 ? 0f : ventanaSegs * i / (nBar - 1);
+                    var (obj, porc) = _barraBuffer[i];
+                    GameManager.instance.AnimarBarraVida(obj, porc, delay);
+                }
+
+                /* ---------- cleanup ---------- */
                 _totalesBuffer.Clear();
                 _barraBuffer.Clear();
                 _bufferTotalesActiva = false;
