@@ -8,6 +8,7 @@ using UnityEngine.Rendering;
 using System.Threading;
 using System;
 using Unity.VisualScripting;
+using System.Runtime.CompilerServices;
 
 public class GameManager : MonoBehaviour
 {
@@ -344,7 +345,7 @@ public class GameManager : MonoBehaviour
 
                     instance.CambiaColorOutline(personaje.GetComponent<InteractuarPersonajes>().personaje, soyJugador, personaje);
 
-                    personaje.transform.Find("Canvas").transform.Find("Probabilidad").GetComponent<TextMeshProUGUI>().text = MuestraProbabilidades(personaje.GetComponent<InteractuarPersonajes>().personaje, habilidad).ToString() + "%";
+                    personaje.transform.Find("Canvas").transform.Find("Probabilidad").GetComponent<TextMeshProUGUI>().text = CalcularProbabilidadDaño(personaje.GetComponent<InteractuarPersonajes>().personaje, habilidad).ToString() + "%";
 
                     personaje.transform.Find("Canvas").transform.Find("Probabilidad").gameObject.SetActive(true);
 
@@ -368,72 +369,43 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public int MuestraProbabilidades(Personaje objetivo, Habilidad habilidad)
+    // GameManager.cs
+    public int CalcularProbabilidadDaño(Personaje objetivo, Habilidad hab)
     {
-        float punteria = habilidad.personaje.punteria;
-        float agilidad = objetivo.agilidad;
-        float fuerza;
+        // 1. -------------------- DATA --------------------
+        int punteria = hab.personaje.punteria;
+        int agilidad = objetivo.agilidad;
 
-        if (habilidad.melee) fuerza = habilidad.personaje.fuerza + habilidad.fuerza;
-        else fuerza = habilidad.fuerza;
+        int fuerzaAtq = hab.melee ? hab.personaje.fuerza + hab.fuerza
+                                   : hab.fuerza;
+        int resistencia = objetivo.resistencia;
 
-        float resistencia = objetivo.resistencia;
-        float penetracion = habilidad.penetracion;
-        float salvacion = objetivo.salvacion;
-        float salvacionInvulnerable = objetivo.salvacionInvulnerable;
+        int penetracion = hab.penetracion;
+        int salvacion = objetivo.salvacion;
+        int invuln = objetivo.salvacionInvulnerable;
 
-        bool melee = habilidad.melee;
+        // 2. ------------------- MODELO -------------------
+        float pHit = Sigmoid(punteria - agilidad, 0.25f);            // 0-1
+        float pWound = Sigmoid(fuerzaAtq - resistencia, 0.40f);
+        float pSaveFail = 1f - Sigmoid((salvacion - penetracion) - invuln, 0.45f);
 
-        return Mathf.RoundToInt((ResultadoProbabilidadPunteria(punteria, agilidad) + ResultadoProbabilidadFuerza(fuerza, resistencia, melee) + ResultadoProbabilidadSalvacion(penetracion, salvacion, salvacionInvulnerable)) / 300 * 100);
+        float prob = pHit * pWound * pSaveFail;                                     // 0-1
+
+        // 3. --------------- CLAMP & ROUND ---------------
+        const float PROB_MIN = 0.05f;  // 5 %
+        const float PROB_MAX = 0.95f;  // 95 %
+
+        prob = Mathf.Clamp(prob, PROB_MIN, PROB_MAX);
+
+        return Mathf.RoundToInt(prob * 100f);                                       // 0-100 %
     }
 
-    private float ResultadoProbabilidadPunteria(float punteria, float agilidad)
+    // ----------------------------------------------------
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static float Sigmoid(float x, float k)
     {
-        float probabilidad;
-
-        if (punteria - agilidad > 5) probabilidad = 5 / (punteria - agilidad) * 100;
-        else probabilidad = 5 / 6 * 100;
-
-        return probabilidad;
-    }
-
-    private float ResultadoProbabilidadFuerza(float fuerza, float resistencia, bool melee)
-    {
-        float probabildiad;
-
-        if (fuerza >= resistencia * 2)
-        {
-            probabildiad = 17;
-        }
-        else if (fuerza > resistencia)
-        {
-            probabildiad = 33;
-        }
-        else if (fuerza == resistencia)
-        {
-            probabildiad = 50;
-        }
-        else if (fuerza < resistencia && fuerza > resistencia / 2)
-        {
-            probabildiad = 66;
-        }
-        else
-        {
-            probabildiad = 83;
-        }
-
-        return probabildiad;
-    }
-
-    private float ResultadoProbabilidadSalvacion(float penetracion, float salvacion, float salvacionInvulnerable)
-    {
-        float probabilidad;
-
-        if (salvacion - penetracion >= salvacionInvulnerable && salvacion - penetracion > 5) probabilidad = 5 / (salvacion - penetracion) * 100;
-        else if(salvacion - penetracion < salvacionInvulnerable && salvacionInvulnerable > 5) probabilidad = 5 / salvacionInvulnerable * 100;
-        else probabilidad = 5 / 6 * 100;
-
-        return 100 - probabilidad;
+        // k controla la “pendiente” (0.2–0.5 suele ir bien)
+        return 1f / (1f + Mathf.Exp(-k * x));
     }
     public void SeleccionaJugador(Habilidad habilidad)
     {

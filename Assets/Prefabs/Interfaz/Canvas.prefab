@@ -180,13 +180,14 @@ GameObject:
   - component: {fileID: 8144341188136073851}
   - component: {fileID: 2140130616017798443}
   - component: {fileID: 7374704623198108038}
+  - component: {fileID: 7559034262126516462}
   m_Layer: 0
   m_Name: Probabilidad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8144341188136073851
 RectTransform:
   m_ObjectHideFlags: 0
@@ -203,8 +204,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.18200016}
-  m_SizeDelta: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 0.000020504, y: 0.2921}
+  m_SizeDelta: {x: -0.1267, y: 0.2332}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2140130616017798443
 CanvasRenderer:
@@ -234,24 +235,24 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 00
+  m_text: 34%
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6e7316708f4a7e94a90ef5034d819412, type: 2}
-  m_sharedMaterial: {fileID: -3719327980534479143, guid: 6e7316708f4a7e94a90ef5034d819412, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ede7abfe27533474c810b35ab6eead71, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: ede7abfe27533474c810b35ab6eead71, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190292
-  m_fontColor: {r: 0.8301887, g: 0, b: 0, a: 1}
-  m_enableVertexGradient: 0
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 1
   m_colorMode: 3
   m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+    topLeft: {r: 0.95686275, g: 0.95686275, b: 0.95686275, a: 1}
+    topRight: {r: 0.92941177, g: 0.92941177, b: 0.92941177, a: 1}
+    bottomLeft: {r: 0.85490197, g: 0.85490197, b: 0.85490197, a: 1}
+    bottomRight: {r: 0.76862746, g: 0.76862746, b: 0.76862746, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -261,17 +262,17 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.2
-  m_fontSizeBase: 0.2
+  m_fontSize: 0.25
+  m_fontSizeBase: 0.25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -2
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -283,7 +284,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -305,6 +306,23 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7559034262126516462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5713842429893255476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c869f94f7a10c74d878931dff709220, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  midThreshold: 50
+  highThreshold: 75
+  punchScale: 0.15
+  punchDuration: 0.25
+  outlineThickness: 0.15
 --- !u!1 &6031345211616951555
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,7 +487,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &6640441467347129460
 MonoBehaviour:
   m_ObjectHideFlags: 0
