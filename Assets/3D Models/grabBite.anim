@@ -148700,6 +148700,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 1
+    functionName: EventoImpactoConDuracion
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 130
+    messageOptions: 0
   - time: 3.9333334
     functionName: DesactivarCamara
     data: 

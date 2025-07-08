@@ -19,7 +19,7 @@ MonoBehaviour:
   velocidad: 20
   fuerza: 5
   penetracion: 2
-  "tipoDa\xF1o": 0
+  "tipoDa\xF1o": 1
   "da\xF1o": 227
   permiteCritico: 1
   probCritExtra: 100

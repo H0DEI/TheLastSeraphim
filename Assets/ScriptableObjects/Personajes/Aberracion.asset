@@ -18,6 +18,8 @@ MonoBehaviour:
   habilidadCombate: 7
   habilidadEspecial: 0
   fuerza: 3
+  probCrit: 5
+  "da\xF1oCrit": 50
   resistencia: 6
   agilidad: 0
   heridasMaximas: 10

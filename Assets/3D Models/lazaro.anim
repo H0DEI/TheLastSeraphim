@@ -9153,11 +9153,11 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 7.5
-    functionName: EventoImpacto
+    functionName: EventoImpactoConDuracion
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 0
+    intParameter: 40
     messageOptions: 0
   - time: 10
     functionName: ActivateWeapon
