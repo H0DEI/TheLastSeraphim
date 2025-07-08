@@ -22,8 +22,8 @@ MonoBehaviour:
   "da\xF1oCrit": 50
   resistencia: 1
   agilidad: 1
-  heridasMaximas: 100
-  heridasActuales: 75
+  heridasMaximas: 300
+  heridasActuales: 300
   salvacion: 7
   salvacionInvulnerable: 0
   accionesMaximas: 2
@@ -33,7 +33,7 @@ MonoBehaviour:
   gameObject: {fileID: 0}
   estados: []
   habilidades:
-  - {fileID: 11400000, guid: d6575d417842c614e9c025302ca52135, type: 2}
-  - {fileID: 11400000, guid: b346900df573b884c96758ede9a9b2df, type: 2}
-  - {fileID: 11400000, guid: 8fef34d7e3f3fdd429ab20f8bce8c0ec, type: 2}
+  - {fileID: 11400000, guid: 9b6988bfb4eadd143939b4a4a438df9c, type: 2}
+  - {fileID: 11400000, guid: 51be410844cca974f9254a705edf43a7, type: 2}
+  - {fileID: 11400000, guid: 5cf2161c93ef15a4489115690ed434e2, type: 2}
   - {fileID: 11400000, guid: 65afd0efa46d7824fbbdc30cf701a17d, type: 2}

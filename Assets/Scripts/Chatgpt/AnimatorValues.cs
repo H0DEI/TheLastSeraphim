@@ -27,7 +27,8 @@ namespace SHG.AnimatorCoder
         //Canvas Animations:
         MISS,
         NOTHING,
-        MELEE2
+        MELEE2,
+        SUMMON
     }
 
     /// <summary> Complete list of all animator parameters </summary>

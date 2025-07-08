@@ -341,17 +341,19 @@ public class GameManager : MonoBehaviour
 
                 for (int i = 0; i < listaObjetosPersonajesEscena.Count; i++)
                 {
-                    GameObject personaje = listaObjetosPersonajesEscena[i];
+                    if (listaObjetosPersonajesEscena[i].GetComponent<InteractuarPersonajes>().personaje != jugador  || listaObjetosPersonajesEscena[i].GetComponent<InteractuarPersonajes>().aliado != true) { 
+                        GameObject personaje = listaObjetosPersonajesEscena[i];
 
-                    instance.CambiaColorOutline(personaje.GetComponent<InteractuarPersonajes>().personaje, soyJugador, personaje);
+                        instance.CambiaColorOutline(personaje.GetComponent<InteractuarPersonajes>().personaje, soyJugador, personaje);
 
-                    personaje.transform.Find("Canvas").transform.Find("Probabilidad").GetComponent<TextMeshProUGUI>().text = CalcularProbabilidadDaño(personaje.GetComponent<InteractuarPersonajes>().personaje, habilidad).ToString() + "%";
+                        personaje.transform.Find("Canvas").transform.Find("Probabilidad").GetComponent<TextMeshProUGUI>().text = CalcularProbabilidadDaño(personaje.GetComponent<InteractuarPersonajes>().personaje, habilidad).ToString() + "%";
 
-                    personaje.transform.Find("Canvas").transform.Find("Probabilidad").gameObject.SetActive(true);
+                        personaje.transform.Find("Canvas").transform.Find("Probabilidad").gameObject.SetActive(true);
 
-                    personaje.GetComponentInChildren<Outline>().SetOutlineVisible(tipoSelecciones[habilidad.tipoSeleccion][i]);
+                        personaje.GetComponentInChildren<Outline>().SetOutlineVisible(tipoSelecciones[habilidad.tipoSeleccion][i]);
 
-                    personaje.GetComponent<InteractuarPersonajes>().elegible = tipoSelecciones[habilidad.tipoSeleccion][i];
+                        personaje.GetComponent<InteractuarPersonajes>().elegible = tipoSelecciones[habilidad.tipoSeleccion][i];
+                    }
                 }
 
                 break;

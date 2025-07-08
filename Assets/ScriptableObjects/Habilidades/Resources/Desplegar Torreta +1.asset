@@ -18,9 +18,13 @@ MonoBehaviour:
   velocidad: 14
   fuerza: 0
   penetracion: 0
+  "tipoDa\xF1o": 0
   "da\xF1o": 0
+  permiteCritico: 1
+  probCritExtra: 0
+  "da\xF1oCritExtra": 0
   acciones: 12000000
-  animaciones: 00000000
+  animaciones: 11000000
   personaje: {fileID: 0}
   objetivos:
   - {fileID: 0}
@@ -32,3 +36,5 @@ MonoBehaviour:
   tier: 3
   sonido: {fileID: 0}
   invocacion: {fileID: 4953356313203640821, guid: 92c4017a3cda88a4e93d7b58c9daf289, type: 3}
+  delayMin: 0.08
+  delayMax: 0.12
