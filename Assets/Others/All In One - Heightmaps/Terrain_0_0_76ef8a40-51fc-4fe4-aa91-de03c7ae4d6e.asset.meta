@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8edef3ed23a32644d8539605e3338ab8
+guid: f68b5468f98c80045a984fcdd42fe5de
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 15600000
@@ -11,5 +11,5 @@ AssetOrigin:
   productId: 280434
   packageName: All In One - Heightmaps
   packageVersion: 1.0
-  assetPath: Assets/Others/All In One - Heightmaps/Terrain_0_0_76ef8a40-51fc-4fe4-aa91-de03c7ae4d6e.asset
+  assetPath: Assets/All In One - Heightmaps/Terrain/Terrain_0_0_76ef8a40-51fc-4fe4-aa91-de03c7ae4d6e.asset
   uploadId: 652525
