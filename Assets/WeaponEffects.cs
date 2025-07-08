@@ -4,6 +4,7 @@ using UnityEngine;
 public class WeaponEffects : MonoBehaviour
 {
     public GameObject weapon;
+    public GameObject weapon2;
     public GameObject gun;
     public GameObject back;
 
@@ -69,6 +70,16 @@ public class WeaponEffects : MonoBehaviour
     public void DeactivateWeapon()
     {
         weapon.SetActive(false);
+    }
+
+    public void ActivateWeapon2()
+    {
+        weapon2.SetActive(true);
+    }
+
+    public void DeactivateWeapon2()
+    {
+        weapon2.SetActive(false);
     }
 
     public void ActivateBack()
