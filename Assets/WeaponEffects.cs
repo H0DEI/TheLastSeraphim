@@ -9,6 +9,7 @@ public class WeaponEffects : MonoBehaviour
     public GameObject back;
 
     public GameObject muzzleFlash;
+    public GameObject muzzlePlasma;
     public GameObject gunFlash;
 
     public GameObject special;
@@ -16,6 +17,7 @@ public class WeaponEffects : MonoBehaviour
 
     public GameObject grenade;
     public GameObject explosion;
+    public GameObject plasma;
     public GameObject heal;
     public GameObject shield;
     public GameObject bubble;
@@ -135,6 +137,11 @@ public class WeaponEffects : MonoBehaviour
         EffectRoutine(muzzleFlash);
     }
 
+    public void TriggerMuzzlePlasma()
+    {
+        EffectRoutine(muzzlePlasma);
+    }
+
     public void TriggerGunFlash()
     {
         EffectRoutine(gunFlash);
@@ -152,6 +159,11 @@ public class WeaponEffects : MonoBehaviour
     {
         EffectRoutine(explosion);
     }
+    public void TriggerPlasma()
+    {
+        EffectRoutine(plasma);
+    }
+
     public void TriggerHeal()
     {
         EffectRoutine(heal);

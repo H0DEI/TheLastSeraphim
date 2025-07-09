@@ -28,7 +28,8 @@ namespace SHG.AnimatorCoder
         MISS,
         NOTHING,
         MELEE2,
-        SUMMON
+        SUMMON,
+        SHOOT4
     }
 
     /// <summary> Complete list of all animator parameters </summary>
