@@ -111,6 +111,178 @@ public class FloatingText : MonoBehaviour
                     break;
                 }
 
+            case FloatingTextTipo.Igneo:
+                {
+                    /* ─ Configuración básica ───────────────────────── */
+                    float speed = 2f;          // 1 = normal · >1 = más lento · <1 = más rápido
+
+                    float escBig = esc * 4f;      // aparece enorme
+                    float escNormal = esc * 1.0f;    // tamaño objetivo
+                    float escShrink = esc * 0.9f;    // ligera contracción final
+
+                    // ▸ Aparece grande y con alpha 0
+                    rt.localScale = Vector3.one * escBig;
+                    grupo.alpha = 0f;
+
+                    /* ─ Secuencia ──────────────────────────────────── */
+                    seq.Append(grupo.DOFade(1f, 0.12f * speed));                    // 1 · fade-in
+                    seq.Append(rt.DOScale(escNormal, 0.12f * speed)                 // 2 · encoge a normal
+                                   .SetEase(Ease.InQuad));
+                    seq.Append(rt.DOScale(escShrink, 0.25f * speed)                 // 3 · blanco + shrink + fade suave
+                                   .SetEase(Ease.OutQuad))
+                       .Join(texto.DOColor(Color.white, 0.25f * speed))
+                       .Join(grupo.DOFade(0.5f, 0.25f * speed));
+                    seq.Append(grupo.DOFade(0f, 0.12f * speed));                    // 4 · fade-out rápido
+
+                    break;
+                }
+            case FloatingTextTipo.IgneoCritico:
+                {
+                    /* ─ Parámetros específicos ────────────────────────── */
+                    float speed = 2.8f;               // un pelín más lento que el normal
+                    //Color dorado = new Color(1f, .9f, .3f);
+
+                    float escGigante = esc * 4.5f;      // aparece enorme
+                    float escNormal = esc * 1.5f;    // tamaño final legible
+                    float punchAmp = esc * 0.2f;    // amplitud del “latido”
+
+                    /* ▸ Estado inicial */
+                    rt.localScale = Vector3.one * escGigante;
+                    //texto.color = dorado;           // tono dorado de entrada
+                    grupo.alpha = 0f;
+
+                    /* ─ Secuencia DOTween ─────────────────────────────── */
+                    seq.Append(grupo.DOFade(1f, 0.10f * speed));               // 1 · fade-in rápido
+
+                    seq.Append(rt.DOScale(escNormal, 0.15f * speed)            // 2 · encoge con rebote suave
+                                   .SetEase(Ease.OutBack))
+                       .Join(texto.DOColor(Color.white, 0.15f * speed));       //    y pasa de dorado → blanco
+
+                    seq.Append(rt.DOPunchScale(Vector3.one * punchAmp,         // 3 · “latido” crítico
+                                                0.25f * speed,
+                                                4, 0.9f));
+
+                    seq.Insert(0.40f * speed,                                  // 4 · fade-out algo más lento
+                               grupo.DOFade(0f, 0.35f * speed));
+
+                    break;
+                }
+
+            case FloatingTextTipo.Plasma:
+                {
+                    /* ─ Configuración básica ───────────────────────── */
+                    float speed = 2f;          // 1 = normal · >1 = más lento · <1 = más rápido
+
+                    float escBig = esc * 4f;      // aparece enorme
+                    float escNormal = esc * 1.0f;    // tamaño objetivo
+                    float escShrink = esc * 0.9f;    // ligera contracción final
+
+                    // ▸ Aparece grande y con alpha 0
+                    rt.localScale = Vector3.one * escBig;
+                    grupo.alpha = 0f;
+
+                    /* ─ Secuencia ──────────────────────────────────── */
+                    seq.Append(grupo.DOFade(1f, 0.12f * speed));                    // 1 · fade-in
+                    seq.Append(rt.DOScale(escNormal, 0.12f * speed)                 // 2 · encoge a normal
+                                   .SetEase(Ease.InQuad));
+                    seq.Append(rt.DOScale(escShrink, 0.25f * speed)                 // 3 · blanco + shrink + fade suave
+                                   .SetEase(Ease.OutQuad))
+                       .Join(texto.DOColor(Color.white, 0.25f * speed))
+                       .Join(grupo.DOFade(0.5f, 0.25f * speed));
+                    seq.Append(grupo.DOFade(0f, 0.12f * speed));                    // 4 · fade-out rápido
+
+                    break;
+                }
+
+            case FloatingTextTipo.PlasmaCritico:
+                {
+                    /* ─ Parámetros específicos ────────────────────────── */
+                    float speed = 2.8f;               // un pelín más lento que el normal
+                    //Color dorado = new Color(1f, .9f, .3f);
+
+                    float escGigante = esc * 4.5f;      // aparece enorme
+                    float escNormal = esc * 1.5f;    // tamaño final legible
+                    float punchAmp = esc * 0.2f;    // amplitud del “latido”
+
+                    /* ▸ Estado inicial */
+                    rt.localScale = Vector3.one * escGigante;
+                    //texto.color = dorado;           // tono dorado de entrada
+                    grupo.alpha = 0f;
+
+                    /* ─ Secuencia DOTween ─────────────────────────────── */
+                    seq.Append(grupo.DOFade(1f, 0.10f * speed));               // 1 · fade-in rápido
+
+                    seq.Append(rt.DOScale(escNormal, 0.15f * speed)            // 2 · encoge con rebote suave
+                                   .SetEase(Ease.OutBack))
+                       .Join(texto.DOColor(Color.white, 0.15f * speed));       //    y pasa de dorado → blanco
+
+                    seq.Append(rt.DOPunchScale(Vector3.one * punchAmp,         // 3 · “latido” crítico
+                                                0.25f * speed,
+                                                4, 0.9f));
+
+                    seq.Insert(0.40f * speed,                                  // 4 · fade-out algo más lento
+                               grupo.DOFade(0f, 0.35f * speed));
+
+                    break;
+                }
+
+            case FloatingTextTipo.Toxico:
+                {
+                    /* ─ Configuración básica ───────────────────────── */
+                    float speed = 2f;          // 1 = normal · >1 = más lento · <1 = más rápido
+
+                    float escBig = esc * 4f;      // aparece enorme
+                    float escNormal = esc * 1.0f;    // tamaño objetivo
+                    float escShrink = esc * 0.9f;    // ligera contracción final
+
+                    // ▸ Aparece grande y con alpha 0
+                    rt.localScale = Vector3.one * escBig;
+                    grupo.alpha = 0f;
+
+                    /* ─ Secuencia ──────────────────────────────────── */
+                    seq.Append(grupo.DOFade(1f, 0.12f * speed));                    // 1 · fade-in
+                    seq.Append(rt.DOScale(escNormal, 0.12f * speed)                 // 2 · encoge a normal
+                                   .SetEase(Ease.InQuad));
+                    seq.Append(rt.DOScale(escShrink, 0.25f * speed)                 // 3 · blanco + shrink + fade suave
+                                   .SetEase(Ease.OutQuad))
+                       .Join(texto.DOColor(Color.white, 0.25f * speed))
+                       .Join(grupo.DOFade(0.5f, 0.25f * speed));
+                    seq.Append(grupo.DOFade(0f, 0.12f * speed));                    // 4 · fade-out rápido
+
+                    break;
+                }
+            case FloatingTextTipo.ToxicoCritico:
+                {
+                    /* ─ Parámetros específicos ────────────────────────── */
+                    float speed = 2.8f;               // un pelín más lento que el normal
+                    //Color dorado = new Color(1f, .9f, .3f);
+
+                    float escGigante = esc * 4.5f;      // aparece enorme
+                    float escNormal = esc * 1.5f;    // tamaño final legible
+                    float punchAmp = esc * 0.2f;    // amplitud del “latido”
+
+                    /* ▸ Estado inicial */
+                    rt.localScale = Vector3.one * escGigante;
+                    //texto.color = dorado;           // tono dorado de entrada
+                    grupo.alpha = 0f;
+
+                    /* ─ Secuencia DOTween ─────────────────────────────── */
+                    seq.Append(grupo.DOFade(1f, 0.10f * speed));               // 1 · fade-in rápido
+
+                    seq.Append(rt.DOScale(escNormal, 0.15f * speed)            // 2 · encoge con rebote suave
+                                   .SetEase(Ease.OutBack))
+                       .Join(texto.DOColor(Color.white, 0.15f * speed));       //    y pasa de dorado → blanco
+
+                    seq.Append(rt.DOPunchScale(Vector3.one * punchAmp,         // 3 · “latido” crítico
+                                                0.25f * speed,
+                                                4, 0.9f));
+
+                    seq.Insert(0.40f * speed,                                  // 4 · fade-out algo más lento
+                               grupo.DOFade(0f, 0.35f * speed));
+
+                    break;
+                }
+
             case FloatingTextTipo.Fallo:
                 {
                     /* ─ Configuración básica ───────────────────────── */

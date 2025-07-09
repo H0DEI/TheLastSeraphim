@@ -13691,7 +13691,7 @@ MonoBehaviour:
         m_MethodName: NuevaPartida
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 19df214e274f1134688b99f28cc53a5e, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: daa1b71132b740548a70e386221934ef, type: 2}
           m_ObjectArgumentAssemblyTypeName: Escena, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -32015,6 +32015,10 @@ PrefabInstance:
       propertyPath: muzzlePlasma
       value: 
       objectReference: {fileID: 1293564414}
+    - target: {fileID: 5757024188932410107, guid: 05d582377970e9742a8581f5148764d6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7824227463367901423, guid: 05d582377970e9742a8581f5148764d6, type: 3}
       propertyPath: looping
       value: 0
