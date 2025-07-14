@@ -9,6 +9,11 @@ public class CargaInterfazHabilidades : MonoBehaviour
 
     private void Start()
     {
+        ActualizaInterfazHabilidades();
+    }
+
+    public void ActualizaInterfazHabilidades()
+    {
         GameManager.instance.cargaInterfazHabilidades = this;
 
         habilidades = GetComponentsInChildren<TextMeshProUGUI>();

@@ -110,7 +110,7 @@ public class FloatingTextManager : MonoBehaviour
             return;
         }
 
-        Vector3 worldPos = CalcularTorso(objetivo.gameObject.transform);
+        Vector3 worldPos = CalcularTorso(objetivo?.gameObject.transform);
         Color col = colorOverride ?? Color.white;
 
         // diferimos la llamada real con DOVirtual.DelayedCall

@@ -16,6 +16,8 @@ public class CargaEscena : MonoBehaviour
 
     public bool luzJugador = true;
 
+    public Personaje personajeJugador;
+
     private GameManager instancia;
 
     private AnimationManager animator;
@@ -27,6 +29,16 @@ public class CargaEscena : MonoBehaviour
     private void Awake()
     {
         instancia = GameManager.instance;
+
+        instancia.jugador = personajeJugador;
+
+        instancia.CargaJugador();
+
+        instancia.objetoJugador.GetComponentInChildren<InteractuarPersonajes>().personaje = instancia.jugador;
+
+        instancia.objetoJugador.GetComponentInChildren<InteractuarPersonajes>().EstableceGameObjectInteractuarPersonajes();
+
+        instancia.cargaInterfazHabilidades.ActualizaInterfazHabilidades();
 
         animator = instancia.animationManager;
 
@@ -82,7 +94,7 @@ public class CargaEscena : MonoBehaviour
             }
         }
 
-        if (!luzJugador) DesactivarSpotLight(instancia.objetoJugador);
+        LinternaSpotLight(instancia.objetoJugador);
 
         if (!instancia.escenaActual.completada) 
         { 
@@ -121,7 +133,7 @@ public class CargaEscena : MonoBehaviour
         }
     }
 
-    public static void DesactivarSpotLight(GameObject raiz)
+    public void LinternaSpotLight(GameObject raiz)
     {
         // Buscar todos los Light en hijos
         Light[] luces = raiz.GetComponentsInChildren<Light>(true); // true incluye los inactivos
@@ -130,7 +142,7 @@ public class CargaEscena : MonoBehaviour
         {
             if (luz.type == LightType.Spot)
             {
-                luz.gameObject.SetActive(false);
+                luz.gameObject.SetActive(luzJugador);
                 return; // Sale después de desactivar el primero
             }
         }

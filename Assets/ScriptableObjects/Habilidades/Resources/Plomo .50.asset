@@ -19,7 +19,11 @@ MonoBehaviour:
   velocidad: 20
   fuerza: 20
   penetracion: 20
-  "da\xF1o": 7
+  "tipoDa\xF1o": 0
+  "da\xF1o": 45
+  permiteCritico: 1
+  probCritExtra: 28
+  "da\xF1oCritExtra": 25
   acciones: 13000000
   animaciones: 0e000000
   personaje: {fileID: 0}

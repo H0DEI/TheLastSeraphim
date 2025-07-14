@@ -23,7 +23,7 @@ public class InteractuarPersonajes : MonoBehaviour
         instancia = GameManager.instance;
         vivo = true;
 
-        personaje.gameObject = transform.gameObject;
+        EstableceGameObjectInteractuarPersonajes();
 
         puedePresionarse = true;
     }
@@ -51,5 +51,10 @@ public class InteractuarPersonajes : MonoBehaviour
     public void Activar()
     {
         puedePresionarse = true;
+    }
+
+    public void EstableceGameObjectInteractuarPersonajes()
+    {
+        personaje.gameObject = transform.gameObject;
     }
 }
