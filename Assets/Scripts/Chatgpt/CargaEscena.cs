@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,6 +19,10 @@ public class CargaEscena : MonoBehaviour
     private GameManager instancia;
 
     private AnimationManager animator;
+
+    [Header("Alineación de cámara opcional")]
+    public bool alinearCamara = false;
+    public Transform CamaraEscena;
 
     private void Awake()
     {
@@ -42,6 +47,23 @@ public class CargaEscena : MonoBehaviour
         instancia.camara = (Camera) FindObjectOfType<Camera>();
 
         instancia.objetoJugador.transform.position = posicionJugador.position;
+
+        if (alinearCamara && CamaraEscena != null)
+        {
+            // Intenta encontrar una cámara virtual Cinemachine en cualquier hijo
+            var camaraCinemachine = instancia.objetoJugador.GetComponentInChildren<CinemachineCamera>(true);
+
+            if (camaraCinemachine != null)
+            {
+                Transform camaraTransform = camaraCinemachine.transform;
+                camaraTransform.position = CamaraEscena.position;
+                camaraTransform.rotation = CamaraEscena.rotation;
+            }
+            else
+            {
+                Debug.LogWarning("No se encontró ningún componente CinemachineVirtualCamera dentro de objetoJugador.");
+            }
+        }
 
         instancia.objetoJugador.GetComponent<LookAtWithMargin>().GetClosestLookAtTarget(instancia.objetoJugador.transform);
 

@@ -18,13 +18,15 @@ MonoBehaviour:
   habilidadCombate: 3
   habilidadEspecial: 1
   fuerza: 4
+  probCrit: 5
+  "da\xF1oCrit": 50
   resistencia: 4
   agilidad: 0
-  heridasMaximas: 15
-  heridasActuales: 15
+  heridasMaximas: 150
+  heridasActuales: 150
   salvacion: 7
   salvacionInvulnerable: 0
-  accionesMaximas: 1
+  accionesMaximas: 0
   accionesActuales: 0
   experienciaActual: 0
   requisitoNivel: 0
