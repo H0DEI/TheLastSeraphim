@@ -16,7 +16,9 @@ public class WeaponEffects : MonoBehaviour
     public GameObject bigExplosion;
 
     public GameObject grenade;
+    public GameObject grenade2;
     public GameObject explosion;
+    public GameObject gas;
     public GameObject plasma;
     public GameObject heal;
     public GameObject shield;
@@ -132,6 +134,16 @@ public class WeaponEffects : MonoBehaviour
         grenade.SetActive(false);
     }
 
+    public void ActivateGrenade2()
+    {
+        grenade2.SetActive(true);
+    }
+
+    public void DeactivateGrenade2()
+    {
+        grenade2.SetActive(false);
+    }
+
     public void TriggerMuzzleFlash()
     {
         EffectRoutine(muzzleFlash);
@@ -159,6 +171,12 @@ public class WeaponEffects : MonoBehaviour
     {
         EffectRoutine(explosion);
     }
+
+    public void TriggerGas()
+    {
+        EffectRoutine(gas);
+    }
+
     public void TriggerPlasma()
     {
         EffectRoutine(plasma);
