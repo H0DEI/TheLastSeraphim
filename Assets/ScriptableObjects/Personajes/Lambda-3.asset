@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd6cbb7ad8a1ca46b224e0e0a3bed47, type: 3}
+  m_Name: Lambda-3
+  m_EditorClassIdentifier: 
+  nombre: Lambda-3
+  nivel: 1
+  punteria: 4
+  habilidadCombate: 7
+  habilidadEspecial: 0
+  fuerza: 3
+  probCrit: 5
+  "da\xF1oCrit": 50
+  resistencia: 6
+  agilidad: 0
+  heridasMaximas: 10
+  heridasActuales: 10
+  salvacion: 4
+  salvacionInvulnerable: 0
+  accionesMaximas: 1
+  accionesActuales: 0
+  experienciaActual: 0
+  requisitoNivel: 0
+  gameObject: {fileID: 0}
+  estados: []
+  habilidades:
+  - {fileID: 11400000, guid: 8c02ec2aac3b6f744b16e5531c1bb81a, type: 2}

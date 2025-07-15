@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: Puesto Avanzado AEGIS-9
   nivel: 1
-  punteria: 25
-  habilidadCombate: 7
-  habilidadEspecial: 0
-  fuerza: 3
+  punteria: 54
+  habilidadCombate: 0
+  habilidadEspecial: 68
+  fuerza: 0
   probCrit: 5
   "da\xF1oCrit": 50
-  resistencia: 6
+  resistencia: 82
   agilidad: 0
   heridasMaximas: 1500
   heridasActuales: 1500
-  salvacion: 8
+  salvacion: 10
   salvacionInvulnerable: 0
   accionesMaximas: 1
   accionesActuales: 0

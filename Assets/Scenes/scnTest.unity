@@ -1500,21 +1500,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.1079003, y: 1.6650596, z: 0.049999997}
   m_Center: {x: 0.55395013, y: 0.7146596, z: 0.0000000027939677}
---- !u!114 &1354519493603154484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7774298737357016003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a14fd601361b9144afba2edc24d3c4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  escenaCargar: {fileID: 11400000, guid: 6743cdb95fd60274d8406e4f5a1766fe, type: 2}
-  puedePresionarse: 0
-  siguienteEscena: 1
 --- !u!212 &1423780564464719524
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1797,27 +1782,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &3782834617037068176
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7774298737357016003}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.1079005, y: 1.6650596, z: 0.05000001}
-  m_Center: {x: 0.55395025, y: 0.7146596, z: 0.0000000027939684}
 --- !u!1 &4162502660051750200
 GameObject:
   m_ObjectHideFlags: 0
@@ -6815,6 +6779,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3167907010547178020, guid: ed1bebb042e3147168587ddcb4481d92, type: 3}
+      propertyPath: escenaCargar
+      value: 
+      objectReference: {fileID: 11400000, guid: 6743cdb95fd60274d8406e4f5a1766fe, type: 2}
     - target: {fileID: 7521740184304216418, guid: ed1bebb042e3147168587ddcb4481d92, type: 3}
       propertyPath: m_Name
       value: Door (1)
@@ -7295,12 +7263,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 506160723}
     m_Modifications:
     - target: {fileID: 1527527228373516694, guid: ed1bebb042e3147168587ddcb4481d92, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1527527228373516694, guid: ed1bebb042e3147168587ddcb4481d92, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.1144285
+      value: 3.001
       objectReference: {fileID: 0}
     - target: {fileID: 1527527228373516694, guid: ed1bebb042e3147168587ddcb4481d92, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7308,7 +7272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1527527228373516694, guid: ed1bebb042e3147168587ddcb4481d92, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.046999
+      value: -8.085
       objectReference: {fileID: 0}
     - target: {fileID: 1527527228373516694, guid: ed1bebb042e3147168587ddcb4481d92, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7338,6 +7302,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3167907010547178020, guid: ed1bebb042e3147168587ddcb4481d92, type: 3}
+      propertyPath: escenaCargar
+      value: 
+      objectReference: {fileID: 11400000, guid: e56b822bf644c4b4e80171c1914528e9, type: 2}
+    - target: {fileID: 3167907010547178020, guid: ed1bebb042e3147168587ddcb4481d92, type: 3}
+      propertyPath: siguienteEscena
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7521740184304216418, guid: ed1bebb042e3147168587ddcb4481d92, type: 3}
       propertyPath: m_Name
       value: Door
@@ -7345,25 +7317,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7521740184304216418, guid: ed1bebb042e3147168587ddcb4481d92, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3782834617037068176}
-    - targetCorrespondingSourceObject: {fileID: 7521740184304216418, guid: ed1bebb042e3147168587ddcb4481d92, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1354519493603154484}
-    - targetCorrespondingSourceObject: {fileID: 7521740184304216418, guid: ed1bebb042e3147168587ddcb4481d92, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8143992621827759907}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed1bebb042e3147168587ddcb4481d92, type: 3}
 --- !u!4 &7774298737357016002 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1527527228373516694, guid: ed1bebb042e3147168587ddcb4481d92, type: 3}
-  m_PrefabInstance: {fileID: 7774298737357016001}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7774298737357016003 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7521740184304216418, guid: ed1bebb042e3147168587ddcb4481d92, type: 3}
   m_PrefabInstance: {fileID: 7774298737357016001}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &7774298737447809092
@@ -7483,22 +7441,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &8143992621827759907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7774298737357016003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed86dda2bf880e94eb8e9ac617ebbd06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  color: 0
-  eraseRenderer: 0
-  outlineThickness: 0.02
-  palette: {fileID: 11400000, guid: 3a7d44f934b49024e80b4d328d82b5b2, type: 2}
 --- !u!212 &8217913492658881373
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7583,7 +7525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: 0
   eraseRenderer: 0
-  outlineThickness: 0.02
+  outlineThickness: 0.3
   palette: {fileID: 11400000, guid: 3a7d44f934b49024e80b4d328d82b5b2, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

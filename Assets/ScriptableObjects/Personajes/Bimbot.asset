@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: Bimbot
   m_EditorClassIdentifier: 
   nombre: Bimbot
-  nivel: 1
-  punteria: 25
-  habilidadCombate: 7
-  habilidadEspecial: 0
-  fuerza: 3
+  nivel: 33
+  punteria: 20
+  habilidadCombate: 30
+  habilidadEspecial: 12
+  fuerza: 40
   probCrit: 5
   "da\xF1oCrit": 50
-  resistencia: 6
+  resistencia: 50
   agilidad: 0
-  heridasMaximas: 40
-  heridasActuales: 40
-  salvacion: 8
+  heridasMaximas: 300
+  heridasActuales: 300
+  salvacion: 4
   salvacionInvulnerable: 0
   accionesMaximas: 1
   accionesActuales: 0

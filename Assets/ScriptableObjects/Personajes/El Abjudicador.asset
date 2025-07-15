@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: El Abjudicador
   m_EditorClassIdentifier: 
   nombre: El Abjudicador
-  nivel: 5
-  punteria: 25
-  habilidadCombate: 7
-  habilidadEspecial: 0
-  fuerza: 3
-  probCrit: 5
-  "da\xF1oCrit": 50
-  resistencia: 6
-  agilidad: 0
-  heridasMaximas: 200
-  heridasActuales: 200
-  salvacion: 8
+  nivel: 18
+  punteria: 18
+  habilidadCombate: 18
+  habilidadEspecial: 18
+  fuerza: 18
+  probCrit: 18
+  "da\xF1oCrit": 18
+  resistencia: 18
+  agilidad: 18
+  heridasMaximas: 180
+  heridasActuales: 180
+  salvacion: 18
   salvacionInvulnerable: 0
   accionesMaximas: 1
   accionesActuales: 0

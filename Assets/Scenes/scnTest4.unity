@@ -42363,6 +42363,7 @@ MonoBehaviour:
   enemigos: {fileID: 1110172593}
   dialogueGraph: {fileID: 0}
   luzJugador: 0
+  personajeJugador: {fileID: 11400000, guid: 8f3612f7948a73642af43dae4ea62803, type: 2}
   alinearCamara: 1
   CamaraEscena: {fileID: 6996108924567012094}
 --- !u!4 &2073826160
@@ -43251,7 +43252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a14fd601361b9144afba2edc24d3c4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  escenaCargar: {fileID: 0}
+  escenaCargar: {fileID: 11400000, guid: 4bc95ddb7413f4249ae8c083d4646b89, type: 2}
   puedePresionarse: 0
   siguienteEscena: 0
 --- !u!114 &5569657693469941043
@@ -43278,9 +43279,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a14fd601361b9144afba2edc24d3c4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  escenaCargar: {fileID: 11400000, guid: 6922d7cd726257f4ba33328d3922614f, type: 2}
+  escenaCargar: {fileID: 11400000, guid: 87e2d24e3d584394d9fba02ec7e9037f, type: 2}
   puedePresionarse: 0
-  siguienteEscena: 0
+  siguienteEscena: 1
 --- !u!4 &6941252716069851076
 Transform:
   m_ObjectHideFlags: 0

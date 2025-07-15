@@ -2857,6 +2857,9 @@ MonoBehaviour:
   enemigos: {fileID: 1110172593}
   dialogueGraph: {fileID: 0}
   luzJugador: 0
+  personajeJugador: {fileID: 11400000, guid: a7d4cf9ff26d1f0478a8b748733bfa42, type: 2}
+  alinearCamara: 0
+  CamaraEscena: {fileID: 0}
 --- !u!4 &2073826160
 Transform:
   m_ObjectHideFlags: 0

@@ -21,15 +21,27 @@ MonoBehaviour:
   velocidad: 10
   fuerza: 0
   penetracion: 0
+  "tipoDa\xF1o": 0
   "da\xF1o": 0
+  permiteCritico: 1
+  probCritExtra: 0
+  "da\xF1oCritExtra": 0
   acciones: 0b000000
   animaciones: 01000000
   personaje: {fileID: 0}
-  objetivos: []
-  tipoSeleccion: 5
+  objetivos:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tipoSeleccion: 0
   cantidad: 1
   usosLimitados: 0
   melee: 0
   numeroDeUsos: 727
   tier: 0
   sonido: {fileID: 0}
+  invocacion: {fileID: 0}
+  delayMin: 0.08
+  delayMax: 0.12

@@ -40,6 +40,8 @@ public class CargaEscena : MonoBehaviour
 
         instancia.cargaInterfazHabilidades.ActualizaInterfazHabilidades();
 
+        instancia.ActualizarBotonesHabilidades();
+
         animator = instancia.animationManager;
 
         instancia.cargaEscena = this;

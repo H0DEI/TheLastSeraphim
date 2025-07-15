@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: Aberracion
   nivel: 5
-  punteria: 25
-  habilidadCombate: 7
+  punteria: 0
+  habilidadCombate: 15
   habilidadEspecial: 0
   fuerza: 3
   probCrit: 5
   "da\xF1oCrit": 50
-  resistencia: 6
+  resistencia: 20
   agilidad: 0
-  heridasMaximas: 10
-  heridasActuales: 10
-  salvacion: 8
+  heridasMaximas: 60
+  heridasActuales: 60
+  salvacion: 0
   salvacionInvulnerable: 0
   accionesMaximas: 1
   accionesActuales: 0

@@ -31,8 +31,6 @@ public class XP : MonoBehaviour
 
     private GameManager instancia;
 
-    private Personaje jugador;
-
     private List<Habilidad> Temp = new List<Habilidad>();
     private List<Habilidad> TempMejoras;
 
@@ -47,8 +45,6 @@ public class XP : MonoBehaviour
         instancia = GameManager.instance;
 
         instancia.XP = this;
-
-        jugador = instancia.jugador;
 
         TodasHabilidades = Resources.LoadAll<Habilidad>("");
 
@@ -100,13 +96,13 @@ public class XP : MonoBehaviour
     {
         if (instancia.jugador.experienciaActual >= instancia.jugador.requisitoNivel)
         {
-            nivelPrevio = jugador.nivel;
+            nivelPrevio = instancia.jugador.nivel;
 
-            jugador.experienciaActual -= jugador.requisitoNivel;
+            instancia.jugador.experienciaActual -= instancia.jugador.requisitoNivel;
 
-            jugador.requisitoNivel += 2;
+            instancia.jugador.requisitoNivel += 2;
 
-            jugador.nivel += 1;
+            instancia.jugador.nivel += 1;
 
             SubidaNivel();
         }
@@ -148,7 +144,7 @@ public class XP : MonoBehaviour
 
             if (upgrade)
             {
-                foreach (Habilidad habi in jugador.habilidades)
+                foreach (Habilidad habi in instancia.jugador.habilidades)
                 {
                     indice = (habi.nombre.LastIndexOf("+") + 1);
 
@@ -166,7 +162,7 @@ public class XP : MonoBehaviour
             }
             else
             {
-                foreach (Habilidad habi in jugador.habilidades)
+                foreach (Habilidad habi in instancia.jugador.habilidades)
                 {
                     for (int j = 0; j < Temp.Count; j++)
                     {

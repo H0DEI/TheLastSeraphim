@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd6cbb7ad8a1ca46b224e0e0a3bed47, type: 3}
+  m_Name: Unidad Gris
+  m_EditorClassIdentifier: 
+  nombre: Unidad Gris
+  nivel: 6
+  punteria: 16
+  habilidadCombate: 5
+  habilidadEspecial: 3
+  fuerza: 5
+  probCrit: 10
+  "da\xF1oCrit": 50
+  resistencia: 6
+  agilidad: 0
+  heridasMaximas: 40
+  heridasActuales: 40
+  salvacion: 7
+  salvacionInvulnerable: 0
+  accionesMaximas: 0
+  accionesActuales: 0
+  experienciaActual: 0
+  requisitoNivel: 0
+  gameObject: {fileID: 0}
+  estados: []
+  habilidades:
+  - {fileID: 11400000, guid: b4dfd33f44fdf6146918477c5eca21b9, type: 2}

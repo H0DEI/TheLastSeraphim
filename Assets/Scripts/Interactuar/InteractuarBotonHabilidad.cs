@@ -18,8 +18,6 @@ public class InteractuarBotonHabilidad : MonoBehaviour, IBoton
 
     private Color colorDefault;
 
-    private Personaje jugador;
-
     private GameManager instancia;
 
     private void Start()
@@ -29,8 +27,6 @@ public class InteractuarBotonHabilidad : MonoBehaviour, IBoton
         puedePresionarse = true;
 
         instancia = GameManager.instance;
-
-        jugador = instancia.jugador;
 
         texto = GetComponent<TextMeshProUGUI>();
 
@@ -50,7 +46,7 @@ public class InteractuarBotonHabilidad : MonoBehaviour, IBoton
     {
         texto.fontStyle = FontStyles.Bold;
 
-        habilidad.personaje = jugador;
+        habilidad.personaje = instancia.jugador;
 
         instancia.informacionDescripciones.MuestraInformacionHabilidad(habilidad);
 
@@ -70,11 +66,11 @@ public class InteractuarBotonHabilidad : MonoBehaviour, IBoton
     {
         if (instancia.puedeCambiarseHabilidad)
         {
-            for (int i = 0; i < jugador.habilidades.Count; i++)
+            for (int i = 0; i < instancia.jugador.habilidades.Count; i++)
             {
-                if (jugador.habilidades[i].nombre == habilidad.nombre)
+                if (instancia.jugador.habilidades[i].nombre == habilidad.nombre)
                 {
-                    jugador.habilidades[i] = instancia.habilidadLevelUp;
+                    instancia.jugador.habilidades[i] = instancia.habilidadLevelUp;
                 }
             }
 
@@ -96,9 +92,9 @@ public class InteractuarBotonHabilidad : MonoBehaviour, IBoton
 
     public void PulsaHabilidad()
     {
-        if (puedePresionarse && habilidad.coste <= jugador.accionesActuales)
+        if (puedePresionarse && habilidad.coste <= instancia.jugador.accionesActuales)
         {
-            habilidad.personaje = jugador;
+            habilidad.personaje = instancia.jugador;
 
             instancia.habilidadSeleccionada = true;
 
@@ -205,9 +201,9 @@ public class InteractuarBotonHabilidad : MonoBehaviour, IBoton
 
         instancia.mostrarIndicador = false;
 
-        jugador.accionesActuales -= habilidad.coste;
+        instancia.jugador.accionesActuales -= habilidad.coste;
 
-        habilidad.personaje = jugador;
+        habilidad.personaje = instancia.jugador;
 
         habilidadInstanciada = Instantiate(habilidad);
 

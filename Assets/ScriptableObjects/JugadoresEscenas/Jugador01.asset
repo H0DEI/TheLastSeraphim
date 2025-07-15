@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd6cbb7ad8a1ca46b224e0e0a3bed47, type: 3}
+  m_Name: Jugador01
+  m_EditorClassIdentifier: 
+  nombre: H_27
+  nivel: 1
+  punteria: 15
+  habilidadCombate: 12
+  habilidadEspecial: 7
+  fuerza: 10
+  probCrit: 5
+  "da\xF1oCrit": 50
+  resistencia: 1
+  agilidad: 1
+  heridasMaximas: 30
+  heridasActuales: 30
+  salvacion: 7
+  salvacionInvulnerable: 0
+  accionesMaximas: 2
+  accionesActuales: 2
+  experienciaActual: 0
+  requisitoNivel: 1
+  gameObject: {fileID: 0}
+  estados: []
+  habilidades:
+  - {fileID: 11400000, guid: 51be410844cca974f9254a705edf43a7, type: 2}
+  - {fileID: 11400000, guid: 849160886bd001c41af688e1c3b67c83, type: 2}
+  - {fileID: 11400000, guid: 978797411d3539a45ac60b83e9669b5f, type: 2}
+  - {fileID: 11400000, guid: 318a7220deb6ff540836586992fe3d27, type: 2}
