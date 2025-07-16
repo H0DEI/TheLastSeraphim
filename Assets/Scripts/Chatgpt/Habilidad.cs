@@ -6,7 +6,7 @@ using TMPro;
 using Random = UnityEngine.Random;
 using SHG.AnimatorCoder;
 using Unity.VisualScripting;
-using UnityEditor.Animations;
+using static SHG.AnimatorCoder.Animations;
 using UnityEngine.VFX;
 using System.Runtime.CompilerServices;
 
@@ -717,11 +717,16 @@ public class Habilidad : ScriptableObject, IComparable
 
     public float GetAnimationDuration()
     {
+        if (GameManager.instance == null || GameManager.instance.animacionDataLookup == null)
+        {
+            Debug.LogWarning("No hay referencia al AnimacionDataLookup.");
+            return 0f;
+        }
+
+        // Si quieres seguir chequeando el Animator (por seguridad)
         Animator[] animators = personaje.gameObject.GetComponentsInChildren<Animator>();
 
         Animator animator = null;
-
-        // Buscar el Animator que NO esté en un Canvas
         foreach (var a in animators)
         {
             if (a.GetComponentInParent<Canvas>() == null)
@@ -733,34 +738,15 @@ public class Habilidad : ScriptableObject, IComparable
 
         if (animator == null)
         {
-            Debug.LogWarning("No se encontró un Animator válido (excluyendo el Canvas).");
+            Debug.LogWarning("No se encontró un Animator válido.");
             return 0f;
         }
 
-        AnimatorController controller = animator.runtimeAnimatorController as AnimatorController;
-        if (controller == null)
-        {
-            Debug.LogWarning("El Animator no tiene un AnimatorController válido.");
-            return 0f;
-        }
-
-        var stateMachine = controller.layers[0].stateMachine;
-
-        foreach (var state in stateMachine.states)
-        {
-            if (state.state.name == animaciones[0].ToString())
-            {
-                Motion motion = state.state.motion;
-                if (motion is AnimationClip clip)
-                {
-                    return clip.length;
-                }
-            }
-        }
-
-        Debug.LogWarning("Animación no encontrada en el Animator seleccionado.");
-        return 0f;
+        string nombreAnim = animaciones.Count > 0 ? animaciones[0].ToString() : "";
+        return GameManager.instance.animacionDataLookup.GetDuracion(nombreAnim);
     }
+
+
 
     private IEnumerator AddTotalAfterDelay(int delta, float delay)
     {

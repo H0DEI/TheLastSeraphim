@@ -12,6 +12,8 @@ using System.Runtime.CompilerServices;
 
 public class GameManager : MonoBehaviour
 {
+    public AnimacionDataLookup animacionDataLookup;
+
     public SortedList<string, Escena> copiasEscenas = new SortedList<string, Escena>();
 
     public Escena escenaActual;

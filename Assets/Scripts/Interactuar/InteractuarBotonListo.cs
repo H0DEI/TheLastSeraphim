@@ -7,8 +7,7 @@ using System.Threading;
 using System.Linq;
 using System.Threading.Tasks;
 using SHG.AnimatorCoder;
-using static UnityEditor.Experimental.GraphView.GraphView;
-using UnityEditor.Animations;
+using static SHG.AnimatorCoder.Animations;
 
 public class InteractuarBotonListo : MonoBehaviour, IBoton
 {
@@ -127,11 +126,11 @@ public class InteractuarBotonListo : MonoBehaviour, IBoton
 
     public float GetAnimationDuration(GameObject personajeEnEscena)
     {
-        Animator[] animators = personajeEnEscena.gameObject.GetComponentsInChildren<Animator>();
+        Animator[] animators = personajeEnEscena.GetComponentsInChildren<Animator>();
 
         Animator animator = null;
 
-        // Buscar el Animator que NO esté en un Canvas
+        // Buscar el Animator que NO esté dentro de un Canvas
         foreach (var a in animators)
         {
             if (a.GetComponentInParent<Canvas>() == null)
@@ -141,34 +140,23 @@ public class InteractuarBotonListo : MonoBehaviour, IBoton
             }
         }
 
-        if (animator == null)
+        if (animator == null || animator.runtimeAnimatorController == null)
         {
-            Debug.LogWarning("No se encontró un Animator válido (excluyendo el Canvas).");
+            Debug.LogWarning("No se encontró un Animator válido.");
             return 0f;
         }
 
-        AnimatorController controller = animator.runtimeAnimatorController as AnimatorController;
-        if (controller == null)
-        {
-            Debug.LogWarning("El Animator no tiene un AnimatorController válido.");
-            return 0f;
-        }
+        var controller = animator.runtimeAnimatorController;
 
-        var stateMachine = controller.layers[0].stateMachine;
-
-        foreach (var state in stateMachine.states)
+        foreach (var clip in controller.animationClips)
         {
-            if (state.state.name == "DEATH")
+            if (clip.name == "DEATH")
             {
-                Motion motion = state.state.motion;
-                if (motion is AnimationClip clip)
-                {
-                    return clip.length;
-                }
+                return clip.length;
             }
         }
 
-        Debug.LogWarning("Animación no encontrada en el Animator seleccionado.");
+        Debug.LogWarning("Clip 'DEATH' no encontrado en este Animator.");
         return 0f;
     }
 

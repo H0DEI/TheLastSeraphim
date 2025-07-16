@@ -8,70 +8,70 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/scnPreCarga.unity
     guid: f1b5a57f89186e445b478bb4c4eebdf2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scn01.unity
     guid: 46b9fb100af53624283ebbb4e5ed0bda
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scn02.unity
     guid: 948d089c2cc396240a55585ffc14205f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scn03.unity
     guid: 9c7e5293a272d2e419f792402a5eb51e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scn04.unity
     guid: ab3970e2b507dfe48ad7e599f5b965e7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scn05.unity
     guid: 7e7fa6050a46d7849a0100577f16c2cd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scn06.unity
     guid: fa59d7e9433c31f4aa90fa46ddbd1507
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scn07.unity
     guid: 9be5b17634785b04ca3593d4e015279c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scn08.unity
     guid: ba473e26775672543b72be81b4d8d12b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scn09.unity
     guid: 76ffb2229a8f05d4cb85ccb8af654d35
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scn10.unity
     guid: 06fb8b6e7e37be64e86875e79331e467
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scn11.unity
     guid: 69a8eba4c546f784db42cac9c64ada36
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scn12.unity
     guid: ba592e17ad2233b49a17a1c978232e7e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scn13.unity
     guid: 806e572a8896f624b8b32919d14ffc53
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scn14.unity
     guid: cd07323d33930464a8aaa9695a36f766
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scn15.unity
     guid: b5713694dd9b7ec44b408c3c095829c2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scn16.unity
     guid: 1b01736302ee2aa4cb9a6cdafbc2b8cf
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scn17.unity
     guid: 19f97ec028a3d4f4eb42a85990babb91
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scn18.unity
     guid: e02a35d195d759541a6971d26cc97470
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scn19.unity
     guid: 82ae034ceb4ee86418af94ec9759e17b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scn20.unity
     guid: 6888f53b2a96b974db2a1928412983b9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scn21.unity
     guid: 782bb5eebc6117b43b0cbfcb952ee523
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scn22.unity
     guid: 2374bbd317bfee1489b46a669458c0a3
   - enabled: 1

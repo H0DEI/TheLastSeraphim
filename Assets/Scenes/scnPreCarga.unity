@@ -4403,6 +4403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbc701becf998504690122edcedcc690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animacionDataLookup: {fileID: 11400000, guid: a4c71d8b4229cd74698618d00807c3d9, type: 2}
   escenaActual: {fileID: 0}
   totalDamageDisplay: {fileID: 1357131355}
   animationManager: {fileID: 223168354}
