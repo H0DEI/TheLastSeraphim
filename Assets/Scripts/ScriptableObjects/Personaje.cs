@@ -30,4 +30,7 @@ public class Personaje : ScriptableObject
     public List<Estados> estados = new List<Estados>();
 
     public List<Habilidad> habilidades = new List<Habilidad>();
+
+    [Header("Animaciones del personaje")]
+    public List<AnimacionDataLookup> animacionDataLookups = new List<AnimacionDataLookup>();
 }

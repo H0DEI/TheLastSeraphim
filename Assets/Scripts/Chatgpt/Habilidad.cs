@@ -717,9 +717,9 @@ public class Habilidad : ScriptableObject, IComparable
 
     public float GetAnimationDuration()
     {
-        if (GameManager.instance == null || GameManager.instance.animacionDataLookup == null)
+        if (personaje == null)
         {
-            Debug.LogWarning("No hay referencia al AnimacionDataLookup.");
+            Debug.LogWarning("No hay referencia al Personaje.");
             return 0f;
         }
 
@@ -743,7 +743,7 @@ public class Habilidad : ScriptableObject, IComparable
         }
 
         string nombreAnim = animaciones.Count > 0 ? animaciones[0].ToString() : "";
-        return GameManager.instance.animacionDataLookup.GetDuracion(nombreAnim);
+        return personaje.GetDuracionAnimacion(nombreAnim);
     }
 
 

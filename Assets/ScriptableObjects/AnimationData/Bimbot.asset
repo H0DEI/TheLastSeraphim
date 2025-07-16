@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92509970d40243b48815e8a3f8281a43, type: 3}
+  m_Name: Bimbot
+  m_EditorClassIdentifier: 
+  animaciones:
+  - nombreEstado: IDLE1
+    clip: {fileID: 1827226128182048838, guid: e0081b1c8244ffe47bfbc3d17b818322, type: 3}
+  - nombreEstado: SHOOT1
+    clip: {fileID: 7400000, guid: 45329b57a122116438086ab36779f030, type: 2}
+  - nombreEstado: MELEE1
+    clip: {fileID: 7400000, guid: 953e364aa380aec4a987dc146c237f26, type: 2}
+  - nombreEstado: MELEE2
+    clip: {fileID: 7400000, guid: d9a5d32549c99da4daa1b65a653135a1, type: 2}

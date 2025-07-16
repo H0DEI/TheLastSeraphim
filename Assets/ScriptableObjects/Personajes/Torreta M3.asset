@@ -18,6 +18,8 @@ MonoBehaviour:
   habilidadCombate: 7
   habilidadEspecial: 0
   fuerza: 3
+  probCrit: 5
+  "da\xF1oCrit": 50
   resistencia: 6
   agilidad: 0
   heridasMaximas: 12
@@ -32,3 +34,5 @@ MonoBehaviour:
   estados: []
   habilidades:
   - {fileID: 11400000, guid: 94c871720092be741b1d1cdcf1a48358, type: 2}
+  animacionDataLookups:
+  - {fileID: 11400000, guid: a902cb02a7820b740aae38d2b6aaee76, type: 2}

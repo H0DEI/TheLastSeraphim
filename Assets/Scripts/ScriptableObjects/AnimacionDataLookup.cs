@@ -43,3 +43,19 @@ public class AnimacionDataLookup : ScriptableObject
         }
     }
 }
+
+public static class PersonajeAnimacionExtensions
+{
+    public static float GetDuracionAnimacion(this Personaje personaje, string nombreEstado)
+    {
+        foreach (var lookup in personaje.animacionDataLookups)
+        {
+            float duracion = lookup.GetDuracion(nombreEstado);
+            if (duracion > 0)
+                return duracion;
+        }
+
+        Debug.LogWarning($"Animación '{nombreEstado}' no encontrada para el personaje '{personaje.nombre}'");
+        return 0f;
+    }
+}

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92509970d40243b48815e8a3f8281a43, type: 3}
+  m_Name: Aberracion
+  m_EditorClassIdentifier: 
+  animaciones:
+  - nombreEstado: IDLE1
+    clip: {fileID: 7400000, guid: ab1ae94be124e074da86aa4f1c2dcaed, type: 2}
+  - nombreEstado: MELEE1
+    clip: {fileID: 7400000, guid: 1c86cf79c2e6b3e4c90d03654bb6d2e4, type: 2}

@@ -43252,7 +43252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a14fd601361b9144afba2edc24d3c4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  escenaCargar: {fileID: 11400000, guid: 4bc95ddb7413f4249ae8c083d4646b89, type: 2}
+  escenaCargar: {fileID: 11400000, guid: 6743cdb95fd60274d8406e4f5a1766fe, type: 2}
   puedePresionarse: 0
   siguienteEscena: 0
 --- !u!114 &5569657693469941043

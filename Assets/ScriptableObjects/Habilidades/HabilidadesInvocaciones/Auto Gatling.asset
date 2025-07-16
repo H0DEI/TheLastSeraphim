@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
   m_Name: Auto Gatling
   m_EditorClassIdentifier: 
-  nombre: Disparo Pistola
+  nombre: Auto Gatling
   descripcion: Dispara una rafaga de 7 disparos a un enemigo.
   coste: 1
   velocidad: 1
   fuerza: 8
   penetracion: 3
   "tipoDa\xF1o": 0
-  "da\xF1o": 4
+  "da\xF1o": 2
   permiteCritico: 1
   probCritExtra: 0
   "da\xF1oCritExtra": 0

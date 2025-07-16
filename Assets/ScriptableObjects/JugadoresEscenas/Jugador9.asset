@@ -37,3 +37,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7aaa3541d6ca588499fe3e2efd8f7124, type: 2}
   - {fileID: 11400000, guid: 93578845b17a0ee48bf02680c43f4619, type: 2}
   - {fileID: 11400000, guid: 1d4a519a04b34e74095fb7992314857e, type: 2}
+  animacionDataLookups:
+  - {fileID: 11400000, guid: a4c71d8b4229cd74698618d00807c3d9, type: 2}

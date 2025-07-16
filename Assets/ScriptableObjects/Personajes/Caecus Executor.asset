@@ -35,3 +35,5 @@ MonoBehaviour:
   habilidades:
   - {fileID: 11400000, guid: db8a93a2bc8b9fb419b42cf8f0882ecc, type: 2}
   - {fileID: 11400000, guid: d0d1f5f606e8fda44ada411e357eeff8, type: 2}
+  animacionDataLookups:
+  - {fileID: 11400000, guid: 5ff6d43e6f4f20f4481e3ed498ab9dfb, type: 2}

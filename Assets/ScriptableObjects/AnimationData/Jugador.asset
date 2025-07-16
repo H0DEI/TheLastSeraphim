@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92509970d40243b48815e8a3f8281a43, type: 3}
-  m_Name: AnimacionDataLookup
+  m_Name: Jugador
   m_EditorClassIdentifier: 
   animaciones:
   - nombreEstado: IDLE1
@@ -39,11 +39,3 @@ MonoBehaviour:
     clip: {fileID: 7400000, guid: dbf9e4327ae87a44b833dc1713941f18, type: 2}
   - nombreEstado: SUMMON
     clip: {fileID: 7400000, guid: c80f1bbe9d0ebbd429cbd4926db60809, type: 2}
-  - nombreEstado: IDLE1
-    clip: {fileID: 7400000, guid: b942c4d1155b4e544b47fa5cd7dbd8bd, type: 2}
-  - nombreEstado: SHOOT1
-    clip: {fileID: 7400000, guid: b9bcf08a939f522409db12cd06b8b139, type: 2}
-  - nombreEstado: DEATH
-    clip: {fileID: 7400000, guid: 5cea99b17a0571047b54d6f20838f570, type: 2}
-  - nombreEstado: HIT
-    clip: {fileID: 7400000, guid: af24d392d46e5ec43867f60cd20407fb, type: 2}
