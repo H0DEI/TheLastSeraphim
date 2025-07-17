@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: Granada de Fosgeno
   descripcion: "Lanza una granada que libera un gas t\xF3xico y corrosivo, debilitando
-    armaduras y reduciendo lentamente la vida del enemigo."
+    armaduras y reduciendo lentamente la vida del enemigo inflingiendo da\xF1o Toxico.\nIgnora
+    {R}. Ignora {SV}. {D} 10."
   coste: 2
   velocidad: 20
   fuerza: 10

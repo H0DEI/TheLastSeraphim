@@ -13,13 +13,17 @@ MonoBehaviour:
   m_Name: Proyector Explosivo M-23
   m_EditorClassIdentifier: 
   nombre: Proyector Explosivo M-23
-  descripcion: "Lanza una granada explosiva, da\xF1ando a todos los enemigos en el
-    \xE1rea.\n{F} 8, {P} 4, {D} 3"
+  descripcion: "Lanza una granada explosiva, inflingiendo da\xF1o IGNEO a todos los
+    enemigos en el \xE1rea.\n{F} 8, {P} 4, {D} 3"
   coste: 1
   velocidad: 2
   fuerza: 8
   penetracion: 4
+  "tipoDa\xF1o": 0
   "da\xF1o": 3
+  permiteCritico: 1
+  probCritExtra: 0
+  "da\xF1oCritExtra": 0
   acciones: 0000000000000000
   animaciones: 07000000
   personaje: {fileID: 0}
@@ -34,3 +38,6 @@ MonoBehaviour:
   numeroDeUsos: 727
   tier: 0
   sonido: {fileID: 0}
+  invocacion: {fileID: 0}
+  delayMin: 0.08
+  delayMax: 0.12

@@ -19,7 +19,11 @@ MonoBehaviour:
   velocidad: 10
   fuerza: 0
   penetracion: 0
+  "tipoDa\xF1o": 0
   "da\xF1o": 0
+  permiteCritico: 1
+  probCritExtra: 0
+  "da\xF1oCritExtra": 0
   acciones: 0d000000
   animaciones: 0c000000
   personaje: {fileID: 0}
@@ -31,3 +35,6 @@ MonoBehaviour:
   numeroDeUsos: 727
   tier: 0
   sonido: {fileID: 8300000, guid: 2caada9c063ef7d47ae74c8fb3ea3a70, type: 3}
+  invocacion: {fileID: 0}
+  delayMin: 0.08
+  delayMax: 0.12

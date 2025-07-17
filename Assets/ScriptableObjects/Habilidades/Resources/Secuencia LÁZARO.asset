@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: "Secuencia L\xC1ZARO"
   m_EditorClassIdentifier: 
   nombre: "Secuencia L\xC1ZARO"
-  descripcion: "Realiza 3 disparos r\xE1pidos consecutivos a un enemigo.\n{F} 5,
-    {P} 2, {D} 1"
+  descripcion: "Genera una c\xFApula defensiva mientras llama un bombardeo orbital
+    contra todos los enemigos inflingiendo da\xF1o IGNEO masivo.\nUn solo uso. Siempre
+    hace critico. Da\xF1o critico aumentado.\n{F} 40, {P} 20, {D} 227"
   coste: 1
   velocidad: 20
   fuerza: 5
@@ -33,7 +34,7 @@ MonoBehaviour:
   usosLimitados: 0
   melee: 0
   numeroDeUsos: 727
-  tier: 0
+  tier: 2
   sonido: {fileID: 0}
   invocacion: {fileID: 0}
   delayMin: 0.08

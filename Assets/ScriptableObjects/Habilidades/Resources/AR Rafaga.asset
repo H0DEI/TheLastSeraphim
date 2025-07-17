@@ -16,14 +16,19 @@ MonoBehaviour:
   descripcion: "Realiza 3 disparos r\xE1pidos consecutivos a un enemigo.\n{F} 5,
     {P} 2, {D} 1"
   coste: 1
-  velocidad: 5
-  fuerza: 5
-  penetracion: 2
-  "da\xF1o": 1
+  velocidad: 7
+  fuerza: 10
+  penetracion: 5
+  "tipoDa\xF1o": 0
+  "da\xF1o": 3
+  permiteCritico: 1
+  probCritExtra: 33
+  "da\xF1oCritExtra": 50
   acciones: 000000000000000000000000
   animaciones: 02000000
   personaje: {fileID: 0}
-  objetivos: []
+  objetivos:
+  - {fileID: 0}
   tipoSeleccion: 1
   cantidad: 1
   usosLimitados: 0
@@ -31,3 +36,6 @@ MonoBehaviour:
   numeroDeUsos: 727
   tier: 0
   sonido: {fileID: 8300000, guid: ae10e93c63f5a204a8984b78a26fcbb3, type: 3}
+  invocacion: {fileID: 0}
+  delayMin: 0.08
+  delayMax: 0.12

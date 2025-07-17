@@ -13,9 +13,14 @@ MonoBehaviour:
   m_Name: Desplegar Torreta +2
   m_EditorClassIdentifier: 
   nombre: Desplegar Torreta +2
-  descripcion: Invoca la Torreta M3
+  descripcion: 'Torreta M3 {PV} 30 | {HP} 6 | {R} 8 | {SV} 3
+
+    -Auto Gatling-
+
+    Dispara
+    14 veces a un enemigo. {F} 7, {P} 3, {D} 2.'
   coste: 1
-  velocidad: 14
+  velocidad: 0
   fuerza: 0
   penetracion: 0
   "tipoDa\xF1o": 0

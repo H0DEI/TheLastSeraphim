@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abd6cbb7ad8a1ca46b224e0e0a3bed47, type: 3}
   m_Name: Jugador4
   m_EditorClassIdentifier: 
-  nombre: H_27
+  nombre: H-27
   nivel: 1
   punteria: 15
   habilidadCombate: 12

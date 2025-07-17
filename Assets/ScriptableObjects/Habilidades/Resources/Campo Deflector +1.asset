@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
   m_Name: Campo Deflector +1
   m_EditorClassIdentifier: 
-  nombre: Campo Deflector +2
-  descripcion: Activa un campo deflector que incrementa tu {R} y tu {INV}, potenciado
-    por tu {HE}.
+  nombre: Campo Deflector +1
+  descripcion: Activa un campo deflector que incrementa bastante tu {R} y tu {INV},
+    potenciado por tu {HE} + 3.
   coste: 1
   velocidad: 10
   fuerza: 0
@@ -33,7 +33,7 @@ MonoBehaviour:
   usosLimitados: 0
   melee: 0
   numeroDeUsos: 727
-  tier: 0
+  tier: 3
   sonido: {fileID: 8300000, guid: 2caada9c063ef7d47ae74c8fb3ea3a70, type: 3}
   invocacion: {fileID: 0}
   delayMin: 0.08

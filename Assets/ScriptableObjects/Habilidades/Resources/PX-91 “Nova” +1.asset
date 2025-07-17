@@ -15,7 +15,8 @@ MonoBehaviour:
   nombre: "PX-91 \u201CNova\u201D +1"
   descripcion: "Disparo cargado de precisi\xF3n con el fusil PX-91 \u201CNova\u201D.
     Carga una \xFAnica ronda explosiva que penetra blindajes y libera un estallido
-    el\xE9ctrico al impacto. Siempre hace critico.\n{F} 25, {P} 12, {D} 25."
+    el\xE9ctrico al impacto. Siempre hace critico. Da\xF1o de PLASMA.\n{F} 25, {P}
+    12, {D} 25."
   coste: 1
   velocidad: 7
   fuerza: 12

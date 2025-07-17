@@ -82,12 +82,16 @@ public class InteractuarBotonHabilidad : MonoBehaviour, IBoton
 
             instancia.XP.ComprovarNivel();
         }
-        else if (numUsos > 0)
+        else
         {
-            if (numUsos != 727) numUsos--;
-
             PulsaHabilidad();
         }
+       // else if (numUsos > 0)
+       // {
+       //     if (numUsos != 727) numUsos--;
+       //
+       //     PulsaHabilidad();
+       // }
     }
 
     public void PulsaHabilidad()

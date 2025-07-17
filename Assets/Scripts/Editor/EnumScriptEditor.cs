@@ -61,8 +61,11 @@ public class EnumScriptEditor : Editor
         EditorGUILayout.PropertyField(propObjetivos);
         EditorGUILayout.PropertyField(propTipoSel);
         EditorGUILayout.PropertyField(propMelee);
-
-        /* … (tu lógica para cantidad, usos, tier, sonido, etc.) … */
+        EditorGUILayout.PropertyField(propTier);
+        EditorGUILayout.PropertyField(propUsosLimitados);
+        EditorGUILayout.PropertyField(propNumeroUsos);
+        EditorGUILayout.PropertyField(propCantidad);
+        EditorGUILayout.PropertyField(propSonido);
 
         /* ─── BLOQUE CRÍTICO ─── */
         EditorGUILayout.Space(4);

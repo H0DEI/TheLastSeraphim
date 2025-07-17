@@ -19,7 +19,11 @@ MonoBehaviour:
   velocidad: 1
   fuerza: 5
   penetracion: 2
+  "tipoDa\xF1o": 0
   "da\xF1o": 1
+  permiteCritico: 1
+  probCritExtra: 0
+  "da\xF1oCritExtra": 0
   acciones: 0400000011000000
   animaciones: 
   personaje: {fileID: 0}
@@ -29,5 +33,8 @@ MonoBehaviour:
   usosLimitados: 1
   melee: 0
   numeroDeUsos: 1
-  tier: 1
+  tier: 0
   sonido: {fileID: 0}
+  invocacion: {fileID: 0}
+  delayMin: 0.08
+  delayMax: 0.12

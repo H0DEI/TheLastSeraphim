@@ -13,9 +13,14 @@ MonoBehaviour:
   m_Name: Desplegar Torreta
   m_EditorClassIdentifier: 
   nombre: Desplegar Torreta
-  descripcion: Invoca la Torreta M1
+  descripcion: 'Torreta M1 {PV} 10 | {HP} 5 | {R} 3 | {SV} 0
+
+    -Auto AP1-
+
+    Dispara
+    1 vez a un enemigo. {F} 8, {P} 4, {D} 3.'
   coste: 1
-  velocidad: 14
+  velocidad: 0
   fuerza: 0
   penetracion: 0
   "tipoDa\xF1o": 0
@@ -27,6 +32,8 @@ MonoBehaviour:
   animaciones: 11000000
   personaje: {fileID: 0}
   objetivos:
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   tipoSeleccion: 5
   cantidad: 1

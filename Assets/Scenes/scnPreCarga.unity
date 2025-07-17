@@ -3418,7 +3418,7 @@ GameObject:
   m_Component:
   - component: {fileID: 191116396}
   m_Layer: 0
-  m_Name: MenuCarter
+  m_Name: CarterMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12264,7 +12264,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Proyecto Angelus
+  m_text: "El \xDAltimo Seraf\xEDn"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2b39283ea43e1644ebb4dc9539af4024, type: 2}
   m_sharedMaterial: {fileID: -5738424053562755204, guid: 2b39283ea43e1644ebb4dc9539af4024, type: 2}
@@ -13790,7 +13790,7 @@ MonoBehaviour:
         m_MethodName: NuevaPartida
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 19df214e274f1134688b99f28cc53a5e, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: b875eeaa737c881449877775e6385e5a, type: 2}
           m_ObjectArgumentAssemblyTypeName: Escena, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0

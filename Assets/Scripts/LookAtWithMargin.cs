@@ -23,29 +23,38 @@ public class LookAtWithMargin : MonoBehaviour
 
     public void LookAt(Transform target)
     {
-            // Dirección hacia el objetivo
-            Vector3 directionToTarget = target.position - transform.position;
-
-            // Introducir margen de error
-            Vector3 randomError = new Vector3(
-                Random.Range(-errorMargin, errorMargin),
-                0f, // ← No queremos error en el eje Y (vertical)
-                Random.Range(-errorMargin, errorMargin)
-            );
-
-            // Ajustar dirección con margen de error
-            Vector3 adjustedDirection = directionToTarget + randomError;
-
-            // Ignorar componente Y (vertical) para mantener la rotación solo en el plano XZ
-            adjustedDirection.y = 0f;
-
-            // Solo girar en el plano horizontal
-            if (adjustedDirection != Vector3.zero) // evitar error de rotación nula
+        if (target == null)
+        {
+            GameObject fallbackTarget = GameObject.Find("LookTarget");
+            if (fallbackTarget != null)
             {
-                transform.rotation = Quaternion.LookRotation(adjustedDirection);
+                target = fallbackTarget.transform;
             }
-        
+            else
+            {
+                Debug.LogWarning($"{name} — No se encontró ningún 'LookTarget' en la escena.");
+                return;
+            }
+        }
+
+        // Dirección hacia el objetivo
+        Vector3 directionToTarget = target.position - transform.position;
+
+        Vector3 randomError = new Vector3(
+            Random.Range(-errorMargin, errorMargin),
+            0f,
+            Random.Range(-errorMargin, errorMargin)
+        );
+
+        Vector3 adjustedDirection = directionToTarget + randomError;
+        adjustedDirection.y = 0f;
+
+        if (adjustedDirection != Vector3.zero)
+        {
+            transform.rotation = Quaternion.LookRotation(adjustedDirection);
+        }
     }
+
 
     public void GetClosestLookAtTarget(Transform self)
     {

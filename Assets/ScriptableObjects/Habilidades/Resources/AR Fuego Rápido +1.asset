@@ -13,14 +13,18 @@ MonoBehaviour:
   m_Name: "AR Fuego R\xE1pido +1"
   m_EditorClassIdentifier: 
   nombre: "AR Fuego R\xE1pido +1"
-  descripcion: 'Realiza 3 Disparos a un enemigo.
+  descripcion: 'Realiza 8 Disparos a un enemigo.
 
     {F} 4, {P} 0, {D} 4.'
   coste: 1
   velocidad: 8
   fuerza: 4
   penetracion: 0
+  "tipoDa\xF1o": 0
   "da\xF1o": 1
+  permiteCritico: 1
+  probCritExtra: 0
+  "da\xF1oCritExtra": 0
   acciones: 0000000000000000000000000000000000000000000000000000000000000000
   animaciones: 
   personaje: {fileID: 0}
@@ -32,3 +36,6 @@ MonoBehaviour:
   numeroDeUsos: 727
   tier: 3
   sonido: {fileID: 0}
+  invocacion: {fileID: 0}
+  delayMin: 0.08
+  delayMax: 0.12

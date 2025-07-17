@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "Protocolo M\xE9dico [IS-R7] +3"
   m_EditorClassIdentifier: 
   nombre: "Protocolo M\xE9dico [IS-R7] +3"
-  descripcion: "Utiliza suministros m\xE9dicos para restaurar {HE} + 2d6 de {PV}."
+  descripcion: "Utiliza suministros m\xE9dicos para restaurar {HE} + 5d6 de {PV}."
   coste: 1
   velocidad: 10
   fuerza: 0
@@ -23,7 +23,7 @@ MonoBehaviour:
   permiteCritico: 1
   probCritExtra: 0
   "da\xF1oCritExtra": 0
-  acciones: 0b0000000b000000
+  acciones: 0b0000000b0000000b0000000b0000000b000000
   animaciones: 01000000
   personaje: {fileID: 0}
   objetivos: []
@@ -32,7 +32,7 @@ MonoBehaviour:
   usosLimitados: 0
   melee: 0
   numeroDeUsos: 727
-  tier: 1
+  tier: 3
   sonido: {fileID: 0}
   invocacion: {fileID: 0}
   delayMin: 0.04

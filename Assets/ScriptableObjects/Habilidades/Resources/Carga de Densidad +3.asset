@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: Carga de Densidad +3
   descripcion: "Detona un pulso gravitacional que inflige da\xF1o equivalente al
-    25% de la {PV} actual de los enemigos y reduce su {R} en 3."
+    30% de la {PV} actual de los enemigos y reduce su {R} en 4."
   coste: 2
   velocidad: 1
   fuerza: 5
