@@ -6,4 +6,10 @@ public class ImpactoHabilidadCaller : MonoBehaviour
     {
         GameManager.EmitirImpactoHabilidad();
     }
+
+    public void EmitirImpactoConVentana(int frames)
+    {
+        GameManager.EmitirVentanaImpacto(frames);
+        GameManager.EmitirImpactoHabilidad();
+    }
 }
