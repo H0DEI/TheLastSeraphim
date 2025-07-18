@@ -34,7 +34,7 @@ MonoBehaviour:
   estados: []
   habilidades:
   - {fileID: 11400000, guid: 9b6988bfb4eadd143939b4a4a438df9c, type: 2}
-  - {fileID: 11400000, guid: 849160886bd001c41af688e1c3b67c83, type: 2}
+  - {fileID: 11400000, guid: 80034fad401e4c1408c794dbff1051c4, type: 2}
   - {fileID: 11400000, guid: 978797411d3539a45ac60b83e9669b5f, type: 2}
   - {fileID: 11400000, guid: 318a7220deb6ff540836586992fe3d27, type: 2}
   animacionDataLookups:
