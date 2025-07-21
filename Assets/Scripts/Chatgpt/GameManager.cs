@@ -439,12 +439,51 @@ public class GameManager : MonoBehaviour
 
     public void AbrirCerrarPuertas(bool puedePresionarse)
     {
+        Debug.Log($"[AbrirCerrarPuertas] Llamado con estado: {puedePresionarse}");
+
+        if (listaPuertas == null)
+        {
+            Debug.LogWarning("[AbrirCerrarPuertas] listaPuertas es NULL");
+            return;
+        }
+
+        if (listaPuertas.Count == 0)
+        {
+            Debug.LogWarning("[AbrirCerrarPuertas] listaPuertas está vacía");
+            return;
+        }
+
         foreach (GameObject puerta in listaPuertas)
         {
-            puerta.GetComponent<Outline>().SetOutlineColor(2);
-            puerta.GetComponent<Outline>().SetOutlineVisible(puerta.GetComponent<InteractuarPuerta>().puedePresionarse = puedePresionarse);
+            if (puerta == null)
+            {
+                Debug.LogWarning("[AbrirCerrarPuertas] Hay una puerta NULL en la lista");
+                continue;
+            }
+
+            var outline = puerta.GetComponent<Outline>();
+            var interactuar = puerta.GetComponent<InteractuarPuerta>();
+
+            if (outline == null)
+            {
+                Debug.LogWarning($"[AbrirCerrarPuertas] La puerta '{puerta.name}' NO tiene Outline");
+                continue;
+            }
+
+            if (interactuar == null)
+            {
+                Debug.LogWarning($"[AbrirCerrarPuertas] La puerta '{puerta.name}' NO tiene InteractuarPuerta");
+                continue;
+            }
+
+            Debug.Log($"[AbrirCerrarPuertas] Activando Outline en '{puerta.name}' con estado: {puedePresionarse}");
+
+            outline.SetOutlineColor(2);
+            interactuar.puedePresionarse = puedePresionarse;
+            outline.SetOutlineVisible(puedePresionarse);
         }
     }
+
 
     public List<GameObject> ObtenerPersonajes(bool aliado)
     {

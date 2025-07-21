@@ -30,9 +30,17 @@ public class Outline : MonoBehaviour
         MeshFilter = GetComponent<MeshFilter>();
 
         CreateOutlineRenderer();
-
         SetOutlineVisible(false);
     }
+
+    void Start()
+    {
+        Debug.Log($"[Outline-DEBUG] {name}: Has MeshFilter? {MeshFilter != null}");
+        Debug.Log($"[Outline-DEBUG] {name}: Has Renderer? {Renderer != null}");
+
+    }
+
+
 
     void OnBecameVisible() => _visible = true;
     void OnBecameInvisible() => _visible = false;
@@ -43,8 +51,21 @@ public class Outline : MonoBehaviour
     /// <summary>Activa/desactiva todos los OutlineRenderer generados.</summary>
     public void SetOutlineVisible(bool on)
     {
-        foreach (var r in GetAllOutlineRenderers()) r.enabled = on;
+        var renderers = GetAllOutlineRenderers();
+
+        if (renderers.Count == 0)
+        {
+            Debug.LogWarning($"[Outline] No había renderers en {name}, generando ahora...");
+            CreateOutlineRenderer();
+            renderers = GetAllOutlineRenderers();
+        }
+
+        Debug.Log($"[Outline] SetOutlineVisible({on}) llamado en {name}. Encontrados {renderers.Count} renderers.");
+        foreach (var r in renderers)
+            r.enabled = on;
     }
+
+
 
     /// <summary>Reemplaza el color del outline y actualiza los materiales.</summary>
     public void SetOutlineColor(int newColor)
@@ -95,11 +116,29 @@ public class Outline : MonoBehaviour
 
     void CreateOutlineRenderer()
     {
+        var meshRenderer = GetComponent<MeshRenderer>();
+        var skinnedRenderer = GetComponent<SkinnedMeshRenderer>();
+
+        if (meshRenderer == null && skinnedRenderer == null)
+        {
+            Debug.LogWarning($"[Outline] {name} NO tiene MeshRenderer ni SkinnedMeshRenderer");
+        }
+        else
+        {
+            Debug.Log($"[Outline] {name} TIENE: " +
+                      (meshRenderer != null ? "MeshRenderer " : "") +
+                      (skinnedRenderer != null ? "SkinnedMeshRenderer" : ""));
+        }
+
         if (transform.Find(CHILD_NAME) != null) return;
         if (!palette) return;
 
         Material srcMat = palette.Get(Mathf.Clamp(color, 0, 2));
-        if (!srcMat) { Debug.LogWarning($"{name}: falta material #{color}", this); return; }
+        if (!srcMat)
+        {
+            Debug.LogWarning($"{name}: falta material #{color}", this);
+            return;
+        }
 
         Material unique = new Material(srcMat);
         unique.SetFloat("_OutlineThickness", outlineThickness);
@@ -107,8 +146,8 @@ public class Outline : MonoBehaviour
         GameObject g = new(CHILD_NAME) { layer = gameObject.layer };
         g.transform.SetParent(transform, false);
 
-        if (SkinnedMeshRenderer) CloneSkinned(unique, g);
-        else if (Renderer is MeshRenderer) CloneStatic(unique, g);
+        if (skinnedRenderer) CloneSkinned(unique, g);
+        else if (meshRenderer) CloneStatic(unique, g);
         else
         {
             Debug.LogWarning($"{name}: tipo de renderer no soportado", this);
@@ -116,12 +155,21 @@ public class Outline : MonoBehaviour
             return;
         }
 
-        if (eraseRenderer) Renderer.enabled = false;
+        if (eraseRenderer && meshRenderer) meshRenderer.enabled = false;
     }
+
 
     void CloneSkinned(Material mat, GameObject g)
     {
         var src = SkinnedMeshRenderer;
+
+        if (src.sharedMesh == null || src.rootBone == null)
+        {
+            Debug.LogWarning($"[{name}] SkinnedMeshRenderer sin mesh o rootBone, cancelando outline.", this);
+            Destroy(g);
+            return;
+        }
+
         var clone = g.AddComponent<SkinnedMeshRenderer>();
 
         clone.sharedMesh = src.sharedMesh;
@@ -133,18 +181,28 @@ public class Outline : MonoBehaviour
         Configure(clone);
     }
 
+
     void CloneStatic(Material mat, GameObject g)
     {
         var srcMR = (MeshRenderer)Renderer;
+        var srcMF = MeshFilter;
+
+        if (!srcMF)
+        {
+            Debug.LogWarning($"[{name}] no tiene MeshFilter y no puede crear outline estático", this);
+            Destroy(g);
+            return;
+        }
 
         var mf = g.AddComponent<MeshFilter>();
-        mf.sharedMesh = MeshFilter.sharedMesh;
+        mf.sharedMesh = srcMF.sharedMesh;
 
         var mr = g.AddComponent<MeshRenderer>();
         mr.sharedMaterials = Replicate(mat, srcMR.sharedMaterials.Length);
 
         Configure(mr);
     }
+
 
     static void Configure(Renderer r)
     {
