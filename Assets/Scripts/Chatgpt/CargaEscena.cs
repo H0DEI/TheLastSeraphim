@@ -131,6 +131,7 @@ public class CargaEscena : MonoBehaviour
         }
     }
 
+
     private void CargaDialogo()
     {
         if (dialogueGraph != null)

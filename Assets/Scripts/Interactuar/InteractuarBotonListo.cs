@@ -150,7 +150,7 @@ public class InteractuarBotonListo : MonoBehaviour, IBoton
 
         foreach (var clip in controller.animationClips)
         {
-            if (clip.name == "DEATH")
+            if (clip.name == "death")
             {
                 return clip.length;
             }
