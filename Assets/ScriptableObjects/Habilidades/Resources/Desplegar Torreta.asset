@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Desplegar Torreta
   m_EditorClassIdentifier: 
   nombre: Desplegar Torreta
-  descripcion: 'Torreta M1 {PV} 10 | {HP} 5 | {R} 3 | {SV} 0
+  descripcion: 'Torreta M1 {PV} 10 | {HP} 5 | {R} 3 | {INV} 0
 
     -Auto AP1-
 

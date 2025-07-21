@@ -119,13 +119,18 @@ public class CargaEscena : MonoBehaviour
 
             instancia.XP.ExperienciaEscena();
         }
-        else
-        {
-            instancia.EscenaCompletada();
-        }
 
         CargaDialogo();
     }
+
+    private void Start()
+    {
+        if (instancia.escenaActual.completada)
+        {
+            instancia.EscenaCompletada();
+        }
+    }
+
 
     private void CargaDialogo()
     {

@@ -9,6 +9,7 @@ using System.Threading;
 using System;
 using Unity.VisualScripting;
 using System.Runtime.CompilerServices;
+using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
 public class GameManager : MonoBehaviour
 {
@@ -441,8 +442,16 @@ public class GameManager : MonoBehaviour
     {
         foreach (GameObject puerta in listaPuertas)
         {
-            puerta.GetComponent<Outline>().SetOutlineColor(2);
-            puerta.GetComponent<Outline>().SetOutlineVisible(puerta.GetComponent<InteractuarPuerta>().puedePresionarse = puedePresionarse);
+            if (puerta.TryGetComponent(out OutlinePuertaFix fix))
+            {
+                fix.ActivarOutline(true, 2);
+                puerta.GetComponent<InteractuarPuerta>().puedePresionarse = puedePresionarse;
+            }
+            else
+            {
+                puerta.GetComponent<Outline>().SetOutlineColor(2);
+                puerta.GetComponent<Outline>().SetOutlineVisible(puerta.GetComponent<InteractuarPuerta>().puedePresionarse = puedePresionarse);
+            }
         }
     }
 

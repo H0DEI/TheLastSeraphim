@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Desplegar Torreta +2
   m_EditorClassIdentifier: 
   nombre: Desplegar Torreta +2
-  descripcion: 'Torreta M3 {PV} 30 | {HP} 6 | {R} 8 | {SV} 3
+  descripcion: 'Torreta M3 {PV} 30 | {HP} 6 | {R} 8 | {INV} 3
 
     -Auto Gatling-
 
