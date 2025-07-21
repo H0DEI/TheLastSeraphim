@@ -968,18 +968,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1110172594}
     m_Modifications:
-    - target: {fileID: 1865548592828089995, guid: 354a3309a8ee5f640a827cdf5a109e1a, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: 0376312848ad9c044bc1d6c4fdf050c2, type: 2}
-    - target: {fileID: 2371746030208798240, guid: 354a3309a8ee5f640a827cdf5a109e1a, type: 3}
-      propertyPath: m_Size.x
-      value: 5.441968
-      objectReference: {fileID: 0}
-    - target: {fileID: 2371746030208798240, guid: 354a3309a8ee5f640a827cdf5a109e1a, type: 3}
-      propertyPath: m_Offset.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2371746030208798254, guid: 354a3309a8ee5f640a827cdf5a109e1a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1063,10 +1051,6 @@ PrefabInstance:
     - target: {fileID: 2371746030208798255, guid: 354a3309a8ee5f640a827cdf5a109e1a, type: 3}
       propertyPath: m_Name
       value: Cadete (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2371746030208798255, guid: 354a3309a8ee5f640a827cdf5a109e1a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1956,10 +1940,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1110172594}
     m_Modifications:
-    - target: {fileID: 2371746030208798240, guid: 354a3309a8ee5f640a827cdf5a109e1a, type: 3}
-      propertyPath: m_Size.x
-      value: 6.79
-      objectReference: {fileID: 0}
     - target: {fileID: 2371746030208798254, guid: 354a3309a8ee5f640a827cdf5a109e1a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2043,14 +2023,6 @@ PrefabInstance:
     - target: {fileID: 2371746030208798255, guid: 354a3309a8ee5f640a827cdf5a109e1a, type: 3}
       propertyPath: m_Name
       value: Cadete
-      objectReference: {fileID: 0}
-    - target: {fileID: 4557478410159557157, guid: 354a3309a8ee5f640a827cdf5a109e1a, type: 3}
-      propertyPath: m_PresetInfoIsWorld
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9011361784430806840, guid: 354a3309a8ee5f640a827cdf5a109e1a, type: 3}
-      propertyPath: m_FillAmount
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2455,14 +2427,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1110172594}
     m_Modifications:
-    - target: {fileID: 2371746030208798240, guid: 354a3309a8ee5f640a827cdf5a109e1a, type: 3}
-      propertyPath: m_Size.x
-      value: 8.393351
-      objectReference: {fileID: 0}
-    - target: {fileID: 2371746030208798240, guid: 354a3309a8ee5f640a827cdf5a109e1a, type: 3}
-      propertyPath: m_Offset.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2371746030208798254, guid: 354a3309a8ee5f640a827cdf5a109e1a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
