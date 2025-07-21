@@ -1007,6 +1007,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 892721310677700388, guid: 9a8b2e076e074f143934c9cf3099636e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1629924301786391622}
+    - targetCorrespondingSourceObject: {fileID: 892721310677700388, guid: 9a8b2e076e074f143934c9cf3099636e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2103890390004471943}
     - targetCorrespondingSourceObject: {fileID: 4976777404536465334, guid: 9a8b2e076e074f143934c9cf3099636e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8282031761128264090}
@@ -1034,14 +1037,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 0}
+  weapon2: {fileID: 0}
   gun: {fileID: 0}
   back: {fileID: 0}
   muzzleFlash: {fileID: 0}
+  muzzlePlasma: {fileID: 0}
   gunFlash: {fileID: 0}
   special: {fileID: 0}
   bigExplosion: {fileID: 0}
   grenade: {fileID: 0}
+  grenade2: {fileID: 0}
   explosion: {fileID: 5401080783876851108}
+  gas: {fileID: 0}
+  plasma: {fileID: 0}
   heal: {fileID: 0}
   shield: {fileID: 0}
   bubble: {fileID: 0}
@@ -1059,6 +1067,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ataqueCam: {fileID: 8854333346369148377}
+--- !u!114 &2103890390004471943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3413835540634268291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a27609c33264c954b84acbdac96015ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5401080783876851108 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7635723701944416259, guid: 9a8b2e076e074f143934c9cf3099636e, type: 3}

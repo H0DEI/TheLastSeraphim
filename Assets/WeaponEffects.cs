@@ -27,10 +27,10 @@ public class WeaponEffects : MonoBehaviour
     public GameObject root;
 
     // Mantén este para las habilidades antiguas ↓
-    public void EventoImpacto() // sin parámetros, habilidades antiguas
-    {
-        GameManager.EmitirImpactoHabilidad();
-    }
+    //public void EventoImpacto() // sin parámetros, habilidades antiguas
+    //{
+    //    GameManager.EmitirImpactoHabilidad();
+    //}
 
     public void EventoImpactoConDuracion(int frames) // NUEVO para animaciones con ventana
     {

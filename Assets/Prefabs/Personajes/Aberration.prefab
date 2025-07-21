@@ -812,9 +812,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bar: {fileID: 8997860464024040046}
-  fill: 0
+  loss: {fileID: 0}
+  durPasoRojo: 0.12
+  durFlash: 0.5
+  pausaPreBlanca: 0.5
   personaje: {fileID: 11400000, guid: b7529ad8394efa240a9a419cce7ad7df, type: 2}
-  barraAncho: 0
 --- !u!1 &5241723180083221383
 GameObject:
   m_ObjectHideFlags: 0
@@ -1395,29 +1397,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4198877092734045152, guid: f4764a21bb3a8ca4084c8a31149ab67f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3560134764414539700}
-    - targetCorrespondingSourceObject: {fileID: 7455951072017501104, guid: f4764a21bb3a8ca4084c8a31149ab67f, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 4198877092734045152, guid: f4764a21bb3a8ca4084c8a31149ab67f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 926963239622738187}
+      addedObject: {fileID: 3691542831162147993}
   m_SourcePrefab: {fileID: 100100000, guid: f4764a21bb3a8ca4084c8a31149ab67f, type: 3}
---- !u!1 &1285178784519342598 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7455951072017501104, guid: f4764a21bb3a8ca4084c8a31149ab67f, type: 3}
-  m_PrefabInstance: {fileID: 8551496441714901430}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &926963239622738187
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1285178784519342598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  color: 0
-  eraseRenderer: 0
 --- !u!4 &5162176719459668204 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3534965980440580442, guid: f4764a21bb3a8ca4084c8a31149ab67f, type: 3}
@@ -1454,11 +1437,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 0}
+  weapon2: {fileID: 0}
   gun: {fileID: 1545053894925512443}
+  back: {fileID: 0}
   muzzleFlash: {fileID: 0}
+  muzzlePlasma: {fileID: 0}
   gunFlash: {fileID: 0}
+  special: {fileID: 0}
+  bigExplosion: {fileID: 0}
   grenade: {fileID: 0}
+  grenade2: {fileID: 0}
   explosion: {fileID: 0}
+  gas: {fileID: 0}
+  plasma: {fileID: 0}
   heal: {fileID: 0}
   shield: {fileID: 0}
+  bubble: {fileID: 0}
   root: {fileID: 0}
+--- !u!114 &3691542831162147993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5541798967687187030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a27609c33264c954b84acbdac96015ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

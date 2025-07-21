@@ -111799,8 +111799,8 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 5.9
-    functionName: EventoImpacto
+  - time: 5.9333334
+    functionName: EmitirImpacto
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -111821,14 +111821,14 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 7.266667
-    functionName: DeactivateWeapon2
+    functionName: ActivateWeapon
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 7.266667
-    functionName: ActivateWeapon
+    functionName: DeactivateWeapon2
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

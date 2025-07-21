@@ -240,6 +240,7 @@ GameObject:
   - component: {fileID: 5631213045890992104}
   - component: {fileID: 1865548592828089995}
   - component: {fileID: 866787098959139328}
+  - component: {fileID: 6892042469164519698}
   m_Layer: 0
   m_Name: Security
   m_TagString: Untagged
@@ -299,14 +300,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 0}
+  weapon2: {fileID: 0}
   gun: {fileID: 0}
   back: {fileID: 0}
   muzzleFlash: {fileID: 4665258329768417002}
+  muzzlePlasma: {fileID: 0}
   gunFlash: {fileID: 0}
   special: {fileID: 0}
   bigExplosion: {fileID: 0}
   grenade: {fileID: 0}
+  grenade2: {fileID: 0}
   explosion: {fileID: 0}
+  gas: {fileID: 0}
+  plasma: {fileID: 0}
   heal: {fileID: 0}
   shield: {fileID: 0}
   bubble: {fileID: 0}
@@ -521,6 +527,18 @@ MonoBehaviour:
   eraseRenderer: 0
   outlineThickness: 0.1
   palette: {fileID: 11400000, guid: 3a7d44f934b49024e80b4d328d82b5b2, type: 2}
+--- !u!114 &6892042469164519698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699485332533954106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a27609c33264c954b84acbdac96015ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &706363380738274356
 GameObject:
   m_ObjectHideFlags: 0

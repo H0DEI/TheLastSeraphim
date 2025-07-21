@@ -26032,6 +26032,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1000013566905100, guid: b5ceca2fab4f06f49aa235f4f428275a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1884618102578070624}
+    - targetCorrespondingSourceObject: {fileID: 1000013566905100, guid: b5ceca2fab4f06f49aa235f4f428275a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8828756666904167957}
   m_SourcePrefab: {fileID: 100100000, guid: b5ceca2fab4f06f49aa235f4f428275a, type: 3}
 --- !u!4 &8292862877476209521 stripped
 Transform:
@@ -26061,14 +26064,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 7202576317407823497}
+  weapon2: {fileID: 0}
   gun: {fileID: 0}
   back: {fileID: 0}
   muzzleFlash: {fileID: 3457025057893478623}
+  muzzlePlasma: {fileID: 0}
   gunFlash: {fileID: 0}
   special: {fileID: 0}
   bigExplosion: {fileID: 0}
   grenade: {fileID: 0}
+  grenade2: {fileID: 0}
   explosion: {fileID: 0}
+  gas: {fileID: 0}
+  plasma: {fileID: 0}
   heal: {fileID: 0}
   shield: {fileID: 0}
   bubble: {fileID: 0}
@@ -26102,3 +26110,15 @@ MonoBehaviour:
   eraseRenderer: 0
   outlineThickness: 0.003
   palette: {fileID: 11400000, guid: 3a7d44f934b49024e80b4d328d82b5b2, type: 2}
+--- !u!114 &8828756666904167957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8294384379295486907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a27609c33264c954b84acbdac96015ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

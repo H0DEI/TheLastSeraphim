@@ -1741,7 +1741,6 @@ GameObject:
   - component: {fileID: 5436590127302941840}
   - component: {fileID: 1288900345995447135}
   - component: {fileID: 8605365675660331292}
-  - component: {fileID: 3258564094371446028}
   m_Layer: 0
   m_Name: Ch44
   m_TagString: Untagged
@@ -1899,20 +1898,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overlayMaterial: {fileID: 2100000, guid: 13bd9f0881b550e4db4d9b21b4546029, type: 2}
---- !u!114 &3258564094371446028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6591769862859169167}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  color: 0
-  eraseRenderer: 0
 --- !u!1 &6599513224910579379
 GameObject:
   m_ObjectHideFlags: 0
@@ -2147,6 +2132,7 @@ GameObject:
   - component: {fileID: 2347615232056483867}
   - component: {fileID: 8055561789088303051}
   - component: {fileID: 760701239293011033}
+  - component: {fileID: 2739152230539869931}
   m_Layer: 0
   m_Name: Assasin
   m_TagString: Untagged
@@ -2223,6 +2209,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ataqueCam: {fileID: 6351009430792039497}
+--- !u!114 &2739152230539869931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7484393647499958974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a27609c33264c954b84acbdac96015ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7931370713850154323
 GameObject:
   m_ObjectHideFlags: 0
