@@ -111785,6 +111785,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 1
+    functionName: DeactivateBack2
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 1.4666667
     functionName: ActivateWeapon2
     data: 
@@ -111815,6 +111822,13 @@ AnimationClip:
     messageOptions: 0
   - time: 7.2
     functionName: DesactivarCamara
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 7.233333
+    functionName: ActivateBack2
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

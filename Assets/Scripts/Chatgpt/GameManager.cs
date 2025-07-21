@@ -491,6 +491,8 @@ public class GameManager : MonoBehaviour
 
     public void CargaTurno()
     {
+        habilidadesALanzar.listaHabilidadesALanzar.Clear();
+
         List<Personaje> objetivosDisponibles = new List<Personaje>();
 
         List<GameObject> listaEnemigos = ObtenerPersonajes(false);

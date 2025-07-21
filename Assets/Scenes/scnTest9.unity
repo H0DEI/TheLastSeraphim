@@ -2972,6 +2972,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posicionJugador: {fileID: 804883236}
   puertas: {fileID: 271291467}
+  activateBack: 1
   enemigos: {fileID: 1110172593}
   dialogueGraph: {fileID: 0}
   luzJugador: 0

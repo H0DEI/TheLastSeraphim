@@ -21516,6 +21516,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posicionJugador: {fileID: 804883236}
   puertas: {fileID: 1767309668}
+  activateBack: 1
   enemigos: {fileID: 1110172593}
   dialogueGraph: {fileID: 0}
   luzJugador: 1
@@ -22987,6 +22988,7 @@ MonoBehaviour:
   weapon2: {fileID: 0}
   gun: {fileID: 0}
   back: {fileID: 0}
+  back2: {fileID: 0}
   muzzleFlash: {fileID: 0}
   muzzlePlasma: {fileID: 0}
   gunFlash: {fileID: 0}

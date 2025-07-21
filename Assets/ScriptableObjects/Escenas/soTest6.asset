@@ -16,4 +16,4 @@ MonoBehaviour:
   xp: 0
   completada: 0
   personajes:
-  - {fileID: 11400000, guid: b7529ad8394efa240a9a419cce7ad7df, type: 2}
+  - {fileID: 11400000, guid: 3358a7f01a296db4ba6b20c873094054, type: 2}

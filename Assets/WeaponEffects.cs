@@ -7,6 +7,7 @@ public class WeaponEffects : MonoBehaviour
     public GameObject weapon2;
     public GameObject gun;
     public GameObject back;
+    public GameObject back2;
 
     public GameObject muzzleFlash;
     public GameObject muzzlePlasma;
@@ -94,6 +95,16 @@ public class WeaponEffects : MonoBehaviour
     public void DeactivateBack()
     {
         back.SetActive(false);
+    }
+
+    public void ActivateBack2()
+    {
+        back2.SetActive(true);
+    }
+
+    public void DeactivateBack2()
+    {
+        back2.SetActive(false);
     }
 
     public void ActivateGun()

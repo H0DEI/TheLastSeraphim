@@ -25,7 +25,7 @@ MonoBehaviour:
   permiteCritico: 1
   probCritExtra: 22
   "da\xF1oCritExtra": 50
-  acciones: 020000000200000002000000020000000200000002000000
+  acciones: 020000000200000002000000
   animaciones: 12000000
   personaje: {fileID: 0}
   objetivos: []

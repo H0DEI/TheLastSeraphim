@@ -21,7 +21,7 @@ MonoBehaviour:
   fuerza: 20
   penetracion: 10
   "tipoDa\xF1o": 0
-  "da\xF1o": 100
+  "da\xF1o": 72
   permiteCritico: 1
   probCritExtra: 40
   "da\xF1oCritExtra": 50

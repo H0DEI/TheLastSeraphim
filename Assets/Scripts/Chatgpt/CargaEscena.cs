@@ -10,6 +10,9 @@ public class CargaEscena : MonoBehaviour
 
     public GameObject puertas;
 
+    [Header("Opcional: Activar o Desactivar Back en el arma")]
+    public bool activateBack = false;
+
     public GameObject enemigos;
 
     public DialogueGraph dialogueGraph;
@@ -97,6 +100,21 @@ public class CargaEscena : MonoBehaviour
         }
 
         LinternaSpotLight(instancia.objetoJugador);
+
+        // Activar o desactivar Back si está configurado
+        var weapon = instancia.objetoJugador.GetComponentInChildren<WeaponEffects>(true);
+        if (weapon != null)
+        {
+            if (activateBack)
+                weapon.ActivateBack2();
+            else
+                weapon.DeactivateBack2();
+        }
+        else
+        {
+            Debug.LogWarning("WeaponEffects no encontrado en el objeto jugador");
+        }
+
 
         if (!instancia.escenaActual.completada) 
         { 
