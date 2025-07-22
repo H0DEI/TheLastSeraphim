@@ -19,8 +19,8 @@ MonoBehaviour:
     10, {D} 20."
   coste: 1
   velocidad: 7
-  fuerza: 20
-  penetracion: 20
+  fuerza: 40
+  penetracion: 40
   "tipoDa\xF1o": 3
   "da\xF1o": 20
   permiteCritico: 1

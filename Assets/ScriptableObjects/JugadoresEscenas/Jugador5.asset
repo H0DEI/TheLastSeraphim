@@ -22,7 +22,7 @@ MonoBehaviour:
   "da\xF1oCrit": 50
   resistencia: 1
   agilidad: 1
-  heridasMaximas: 50
+  heridasMaximas: 31
   heridasActuales: 50
   salvacion: 7
   salvacionInvulnerable: 0

@@ -147,8 +147,21 @@ public class CargaEscena : MonoBehaviour
         {
             instancia.EscenaCompletada();
         }
+
+        if (instancia.barraDeVida != null)
+        {
+            instancia.barraDeVida.GetComponent<BarraDeVida>().AnimarHasta(
+                PorcentajeVida(),
+                0f // Sin delay
+            );
+        }
     }
 
+    public float PorcentajeVida()
+    {
+        if (instancia.jugador.heridasMaximas <= 0) return 0f;
+        return (float)instancia.jugador.heridasActuales / instancia.jugador.heridasMaximas;
+    }
 
     private void CargaDialogo()
     {
