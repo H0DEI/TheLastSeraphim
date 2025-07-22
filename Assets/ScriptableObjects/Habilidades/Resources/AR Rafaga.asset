@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: AR Rafaga
   descripcion: "Realiza 3 disparos r\xE1pidos consecutivos a un enemigo.\n{F} 5,
-    {P} 2, {D} 1"
+    {P} 2, {D} 3"
   coste: 1
   velocidad: 7
-  fuerza: 10
-  penetracion: 5
+  fuerza: 15
+  penetracion: 6
   "tipoDa\xF1o": 0
-  "da\xF1o": 1
+  "da\xF1o": 3
   permiteCritico: 1
   probCritExtra: 33
   "da\xF1oCritExtra": 50
-  acciones: 000000000000000000000000000000000000000000000000000000000000000000000000
+  acciones: 000000000000000000000000
   animaciones: 02000000
   personaje: {fileID: 0}
   objetivos:
