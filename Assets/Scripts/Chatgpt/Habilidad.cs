@@ -635,7 +635,7 @@ public class Habilidad : ScriptableObject, IComparable
 
         if (objetivo.heridasActuales > 0 && objetivo.heridasActuales < objetivo.heridasMaximas)
         {
-            heal = Roll(personaje.habilidadEspecial);
+            heal = Roll(personaje.habilidadEspecial) + 12;
 
             objetivo.heridasActuales += heal;
 

@@ -23,7 +23,7 @@ MonoBehaviour:
   permiteCritico: 1
   probCritExtra: 0
   "da\xF1oCritExtra": 0
-  acciones: 0a0000000a0000000a000000
+  acciones: 0a000000
   animaciones: 01000000
   personaje: {fileID: 0}
   objetivos:
