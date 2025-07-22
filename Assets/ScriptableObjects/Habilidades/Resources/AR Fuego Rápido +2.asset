@@ -21,11 +21,11 @@ MonoBehaviour:
   fuerza: 4
   penetracion: 0
   "tipoDa\xF1o": 0
-  "da\xF1o": 2
+  "da\xF1o": 350
   permiteCritico: 1
   probCritExtra: 0
   "da\xF1oCritExtra": 0
-  acciones: 0000000000000000000000000000000000000000000000000000000000000000
+  acciones: 13000000
   animaciones: 
   personaje: {fileID: 0}
   objetivos: []

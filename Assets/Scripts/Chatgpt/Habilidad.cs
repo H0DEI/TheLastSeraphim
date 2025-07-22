@@ -631,30 +631,25 @@ public class Habilidad : ScriptableObject, IComparable
 
     private void Curar(Personaje objetivo)
     {
-        int heal;
+        int curacion = Mathf.RoundToInt(daño * (1 + personaje.habilidadEspecial * 0.01f));
 
-        if (objetivo.heridasActuales > 0 && objetivo.heridasActuales < objetivo.heridasMaximas)
-        {
-            heal = Roll(personaje.habilidadEspecial) + 12;
+        objetivo.heridasActuales += curacion;
+        objetivo.heridasActuales = Mathf.Max(0, objetivo.heridasActuales);
 
-            objetivo.heridasActuales += heal;
+        //Mostrar el Floating Text
+        GameManager.instance.floatingTextManager.Mostrar(
+            FloatingTextTipo.Cura,
+            curacion.ToString(),
+            objetivo,
+            null,
+            1f,
+            0f
+        );
 
-            float rnd = Random.Range(delayMin+0.5f, delayMax+0.2f);
-
-            if (heal > 0 && ftManager)
-            {
-                ftManager.Mostrar(
-                    FloatingTextTipo.Cura,
-                    "+"+heal.ToString(),      // texto mostrado (ej. “12”)
-                    objetivo,             // target
-                    null,   // verde suave (o null para color por defecto)
-                    1f,
-                    _popupDelay + rnd);                  // escala base
-                _popupDelay += rnd;
-            }
-
-            if (objetivo.heridasActuales > objetivo.heridasMaximas) objetivo.heridasActuales = objetivo.heridasMaximas;
-        }
+        // Animar barra de vida
+        float pctVida = objetivo.heridasActuales / (float)objetivo.heridasMaximas;
+        GameManager.instance.AnimarBarraVida(objetivo, pctVida, 0.5f);
+    
     }
 
     private void AplicaDañoDirecto(Personaje objetivo, int dañoBase)

@@ -15,7 +15,7 @@ MonoBehaviour:
   nombre: Granada de Fosgeno
   descripcion: "Lanza una granada que libera un gas t\xF3xico y corrosivo, debilitando
     armaduras y reduciendo lentamente la vida del enemigo inflingiendo da\xF1o Toxico.\nIgnora
-    {R}. Ignora {SV}. {D} 10."
+    {R}. Ignora {INV}. {D} 10."
   coste: 2
   velocidad: 20
   fuerza: 10
@@ -28,7 +28,9 @@ MonoBehaviour:
   acciones: 13000000130000001300000013000000
   animaciones: 15000000
   personaje: {fileID: 0}
-  objetivos: []
+  objetivos:
+  - {fileID: 0}
+  - {fileID: 0}
   tipoSeleccion: 3
   cantidad: 1
   usosLimitados: 1
