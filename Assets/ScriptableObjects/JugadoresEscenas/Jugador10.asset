@@ -36,6 +36,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 76c3280f7dd40eb4aa1a6c79f74a9ac2, type: 2}
   - {fileID: 11400000, guid: 51456245e95e04c4887033ae3a8da612, type: 2}
   - {fileID: 11400000, guid: 2484d1bb12d22e348bcf56c796a306d7, type: 2}
-  - {fileID: 11400000, guid: 93578845b17a0ee48bf02680c43f4619, type: 2}
+  - {fileID: 11400000, guid: 04390afa0471834459090bbfcf3500ca, type: 2}
   animacionDataLookups:
   - {fileID: 11400000, guid: a4c71d8b4229cd74698618d00807c3d9, type: 2}
