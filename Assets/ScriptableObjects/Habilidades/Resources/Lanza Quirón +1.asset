@@ -10,21 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
-  m_Name: AR Rafaga
+  m_Name: "Lanza Quir\xF3n +1"
   m_EditorClassIdentifier: 
-  nombre: AR Rafaga
-  descripcion: "Realiza 3 disparos r\xE1pidos consecutivos a un enemigo.\n{F} 5,
-    {P} 2, {D} 3"
+  nombre: "Lanza Quir\xF3n +1"
+  descripcion: "Lanza una jabalina de energ\xEDa que atraviesa 3 enemigos. \nSiempre
+    hace cr\xEDtico si el objetivo est\xE1 bajo 30% de {PV}.\n{F} 12, {P} 6, {D}
+    4"
   coste: 1
-  velocidad: 7
-  fuerza: 15
-  penetracion: 6
+  velocidad: 15
+  fuerza: 1
+  penetracion: 1
   "tipoDa\xF1o": 0
-  "da\xF1o": 3
+  "da\xF1o": 1
   permiteCritico: 1
-  probCritExtra: 33
+  probCritExtra: 0
   "da\xF1oCritExtra": 50
-  acciones: 000000000000000000000000
+  acciones: 00000000
   animaciones: 02000000
   personaje: {fileID: 0}
   objetivos:
@@ -34,8 +35,8 @@ MonoBehaviour:
   usosLimitados: 0
   melee: 0
   numeroDeUsos: 727
-  tier: 2
-  sonido: {fileID: 8300000, guid: ae10e93c63f5a204a8984b78a26fcbb3, type: 3}
+  tier: 3
+  sonido: {fileID: 0}
   invocacion: {fileID: 0}
   delayMin: 0.08
   delayMax: 0.12

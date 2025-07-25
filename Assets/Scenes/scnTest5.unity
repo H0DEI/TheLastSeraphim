@@ -569,6 +569,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8009081939520512155, guid: 6b8ed744172795249a7f7a2cd42d0d2f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8205654930114142936, guid: 6b8ed744172795249a7f7a2cd42d0d2f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6018,6 +6022,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posicionJugador: {fileID: 804883236}
   puertas: {fileID: 271291467}
+  activateBack: 0
   enemigos: {fileID: 1110172593}
   dialogueGraph: {fileID: 0}
   luzJugador: 1

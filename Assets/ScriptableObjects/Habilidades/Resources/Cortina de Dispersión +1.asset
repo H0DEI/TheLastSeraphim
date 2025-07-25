@@ -14,13 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: "Cortina de Dispersi\xF3n +1"
   descripcion: "Lanza una granada que despliega una nube densa, reduciendo la precisi\xF3n
-    de todos los enemigos en un 35%. Ademas  aumenta la {HC} en 2.\n{HP} enemiga
-    \u221235%"
+    de todos los enemigos en un 35%. Ademas aumenta la {F} en 2.\n{HP} enemiga \u221235%"
   coste: 1
   velocidad: 1
   fuerza: 7
   penetracion: 1
+  "tipoDa\xF1o": 0
   "da\xF1o": 1
+  permiteCritico: 1
+  probCritExtra: 0
+  "da\xF1oCritExtra": 0
   acciones: 07000000
   animaciones: 
   personaje: {fileID: 0}
@@ -32,3 +35,6 @@ MonoBehaviour:
   numeroDeUsos: 1
   tier: 3
   sonido: {fileID: 0}
+  invocacion: {fileID: 0}
+  delayMin: 0.08
+  delayMax: 0.12

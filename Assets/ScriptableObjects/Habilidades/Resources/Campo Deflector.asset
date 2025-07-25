@@ -33,7 +33,7 @@ MonoBehaviour:
   usosLimitados: 0
   melee: 0
   numeroDeUsos: 727
-  tier: 0
+  tier: 1
   sonido: {fileID: 8300000, guid: 2caada9c063ef7d47ae74c8fb3ea3a70, type: 3}
   invocacion: {fileID: 0}
   delayMin: 0.08
