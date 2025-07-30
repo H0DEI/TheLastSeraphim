@@ -43,6 +43,11 @@ public class InteractuarBotonListo : MonoBehaviour, IBoton
     }
     public void OnPointerClick(PointerEventData eventData)
     {
+        PulsaListo();
+    }
+
+    public void PulsaListo()
+    {
         if (puedePresionarse)
         {
             instancia.habilidadesALanzar.OrdenaLista();
