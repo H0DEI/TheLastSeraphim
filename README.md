@@ -129,7 +129,7 @@ It represents a **portfolio‑grade gameplay framework**, ready to be expanded i
 
 ## 🎥 Trailer
 
-👉 [*(Insert link here to your gameplay trailer)*](https://www.youtube.com/watch?v=PZx0EEjEgv8)
+👉 https://www.youtube.com/watch?v=PZx0EEjEgv8
 
 ---
 
