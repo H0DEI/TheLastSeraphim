@@ -1,4 +1,4 @@
-# 🕊️ The Last Seraphim — Tactical Sci-Fi Strategy Game ⚔️
+# 🕊️ The Last Seraphim - Tactical Sci-Fi Strategy Game ⚔️
 
 **The Last Seraphim** is a personal game project developed independently using **Unity**, blending tactical turn‑based combat with a dark science‑fiction atmosphere.  
 Its purpose is both artistic and technical: to demonstrate clean, scalable gameplay architecture and robust combat logic fully driven by code.
