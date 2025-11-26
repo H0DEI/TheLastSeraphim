@@ -72,7 +72,7 @@ TheLastSeraphim/
 
 ### 1️⃣ Clone the Repository  
 ```
-git clone https://github.com/your-user/TheLastSeraphim.git
+git clone https://github.com/H0DEI/TheLastSeraphim.git
 ```
 
 ### 2️⃣ Open in Unity  
